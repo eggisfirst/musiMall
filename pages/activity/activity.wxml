@@ -1,4 +1,5 @@
 <view>
   <banner />
-  <compTab />
+  <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}"/>
+  <compContent tabVal="{{tabVal}}" bind:setCurrentTab="setCurrentTab"/>
 </view>

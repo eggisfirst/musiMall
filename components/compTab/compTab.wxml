@@ -7,9 +7,5 @@
   </view>
 </view>
 
-<view>
-  <compContent currentTab="{{currentTab}}" bind:setCurrentTab="setCurrentTab"></compContent>
-</view>
-
 
  
