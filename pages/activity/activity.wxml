@@ -1,4 +1,4 @@
-<!--index.wxml-->
 <view>
-  <banner></banner>
+  <banner />
+  <compTab />
 </view>

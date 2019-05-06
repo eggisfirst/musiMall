@@ -2,12 +2,14 @@
   "pages": [
     "pages/activity/activity",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "components/compTab/compTab",
+    "components/compContent/content"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "秒杀活动",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

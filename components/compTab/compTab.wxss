@@ -1,0 +1,19 @@
+.swiper-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 80rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.tab-item {
+  /* width: 33.3%; */
+  text-align: center;
+  font-size: 32rpx;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+.on {
+  color: #ff3701;
+  border-bottom: 6rpx solid #ff3701;
+}

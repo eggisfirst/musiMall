@@ -1,5 +1,7 @@
-{
+{ 
+  "navigationBarTitleText": "秒杀活动",
   "usingComponents": {
-    "banner": "../../components/banner/banner"
+    "banner": "../../components/banner/banner",
+    "compTab": "../../components/compTab/compTab"
   }
 }

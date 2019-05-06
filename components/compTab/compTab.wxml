@@ -1,0 +1,15 @@
+<view class="swiper-tab" >
+  <view class="tab-item {{currentTab==item.tab ? 'on' : ''}}" 
+    wx:for='{{list}}' wx:key='{{item.tab}}'
+    data-current="{{item.tab}}" 
+    bindtap="swichNav">
+    {{item.name}}
+  </view>
+</view>
+
+<view>
+  <compContent currentTab="{{currentTab}}" bind:setCurrentTab="setCurrentTab"></compContent>
+</view>
+
+
+ 

@@ -1,0 +1,6 @@
+  <swiper class="swiper"  current='{{currentTab}}' duration="200" bindchange="swiperChange">
+    <swiper-item wx:for="{{list}}" wx:key="{{item.id}}">
+      <view>{{item.name}}</view>
+    </swiper-item>
+  </swiper>
+

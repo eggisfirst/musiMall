@@ -4,11 +4,14 @@
     autoplay="{{autoplay}}"
     interval="{{interval}}"
     duration="{{duration}}"
+    indicator-active-color="{{indicatorActiveColor}}"
+    indicator-color="{{indicatorCcolor}}"
+    circular="{{circular}}"
   >
     <block wx:for="{{imgUrls}}" wx:key="`imgUls${index}`">
       <swiper-item>
         <image src="{{item}}" class="slide-image" width="355" height="150" />
       </swiper-item>
     </block>
-  </swiper>
+  </swiper> 
 </view>

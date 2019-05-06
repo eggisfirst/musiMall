@@ -1,0 +1,8 @@
+/* components/compContent/content.wxss */
+.swiper {
+ 
+height: 1100rpx;
+ 
+background: #dfdfdf;
+ 
+}
