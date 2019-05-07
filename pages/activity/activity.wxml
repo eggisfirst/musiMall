@@ -1,5 +1,5 @@
 <view>
-  <banner />
+  <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
   <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}"/>
   <compContent tabVal="{{tabVal}}" bind:setCurrentTab="setCurrentTab"/>
 </view>

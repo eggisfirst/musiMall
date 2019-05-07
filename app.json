@@ -1,11 +1,10 @@
 {
   "pages": [
     "pages/activity/activity",
-    "pages/index/index",
     "pages/logs/logs",
-    "components/compTab/compTab",
-    "components/compContent/content",
-    "components/productLi/productLi"
+    "pages/index/index",
+    "pages/login/login",
+    "pages/activityDetails/activityDetails"
   ],
   "window": {
     "backgroundTextStyle": "light",

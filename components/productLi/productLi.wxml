@@ -8,17 +8,18 @@
       <text class='product-price'>原价: ¥{{productType.price}}</text>
 
       <view class='product-slider' wx:if="{{productType.slider}}">
-        <view class='slider' >
+        <!-- <view class='slider' >
           <view class='slider-after' 
             wx:if="{{productType.precent>0}}" 
             style="width:{{progressWidth}}rpx"></view>
-        </view>
-        <!-- <progress 
+        </view> -->
+        <progress 
           percent="{{productType.precent}}" 
           border-radius= '50'
           stroke-width='6'
           backgroundColor='#ccc'
-          activeColor='#ff3701' /> -->
+          activeColor='#ff3701'
+          style='border-radius:7rpx;overflow:hidden' />
         <view class='slider-progress'>
           <text>{{productType.precent}}%</text>
           <text>已抢{{productType.robbed}}件</text>

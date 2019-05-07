@@ -1,0 +1,19 @@
+<!--components/bottomTab/bottomTab.wxml-->
+<view class='tab-box'>
+  <view class='tab-left'>
+    <view class='toActivity' bindtap='toActivity'>
+      <image src='/images/activityDetails/activity.png' />
+      <text>秒杀活动</text>
+    </view>
+    <view class='tab-rules' bindtap='showRules'>
+      <image src='/images/activityDetails/rules.png' />
+      <text>活动规则</text>
+    </view>
+  </view>
+  <view class='tab-right' catchtap='clickBeginBtn'>
+    <view class='btn-box'>
+      <image src='/images/activityDetails/time.png' />
+      <text>即将开始</text>
+    </view>
+  </view>
+</view>

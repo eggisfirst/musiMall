@@ -1,0 +1,25 @@
+/* components/tipsBox/tipsBox.wxss */
+.tips-box {
+  background-color: #fff;
+  width: 560rpx;
+  height: 290rpx;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.tips-text {
+  font-size: 36rpx;
+  color: #000;
+  height: 190rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tips-btn {
+  height: 100rpx;
+  line-height: 100rpx;
+  border-top: 1px solid #d2d3d5;
+  color: #00c200;
+  font-size: 36rpx;
+}

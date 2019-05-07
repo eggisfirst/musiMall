@@ -1,0 +1,66 @@
+<!--pages/activityDetails/activityDetails.wxml-->
+<view class='detail-container'>
+  <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
+
+  <view class='price-box'>
+    <view class='price'>
+      <text class='now-price'>¥1.00 </text>
+      <text class='real-price'>¥500.00</text>
+    </view>
+    <view class='activity-count'>
+      <text class='count-title'>限时秒杀</text>
+      <view class='count'>
+        <text>01: 05: 30</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='activity-progress'>
+    <view class='progress-box'>
+      <text>0</text>
+      <progress 
+        class='progress'
+        percent="60" 
+        stroke-width='6'
+        backgroundColor='#ccc'
+        activeColor='#ff3701'
+        style='border-radius:7rpx;overflow:hidden' />
+      <text>50</text>
+    </view>
+    <!-- 动态更改left的值 -->
+    <view class='hasRobbed' style='left: calc(66% - 105rpx)'>  
+      <text>已抢25件</text>
+    </view>
+    
+  </view>
+
+  <view class='product-name'>
+    <text>歌迪亚床架</text>
+  </view>
+
+  <view class='product-descript'>
+    <view class='content-box'>
+      <text>产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述</text>
+    </view>
+  </view>
+
+  <view class='product-size'>
+    <text>产品规格： 张</text>
+  </view>
+
+  <view class='product-details'>
+    <text class='title'>产品详情</text>
+  </view>
+
+  <view class='bottomTab'>
+    <bottomTab bind:clickRule='clickRule' bind:clickBeginBtn='clickBeginBtn'/>
+  </view>
+
+  <view class='rule-box' hidden="{{showRules}}">
+    <ruleTips class='ruleTips' bind:setRulesTips="setRulesTips" />
+  </view>
+
+   <view class='tips' hidden="{{showTips}}">
+    <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>
+  </view>
+</view>

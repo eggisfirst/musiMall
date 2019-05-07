@@ -1,0 +1,32 @@
+/* pages/login/login.wxss */
+.login-container {
+  width: 750rpx;
+  height: 100vh;
+  overflow: hidden;
+  position: relative
+}
+.login-container image{
+  width: 750rpx;
+} 
+.login-btn {
+  position: absolute;
+  left: 50%;
+  margin-left: -180rpx;
+  top: 50%;
+  width:360rpx;
+  height:70rpx;
+  text-align: center;
+  border: 1px transparent solid;
+  border-image:linear-gradient(45deg,#9C9C9C,#fff) 1 10;
+  border-radius: 10rpx;
+}
+
+.login-btn text{
+  line-height: 70rpx;
+  font-size:32rpx;
+  color: #fff;
+  background:linear-gradient(45deg,rgba(156,156,156,1) 0%, rgba(255,255,255,1) 71.7529296875%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-align: center
+}

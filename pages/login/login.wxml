@@ -1,0 +1,7 @@
+<!--pages/login/login.wxml-->
+<view class='login-container'>
+  <image src='/images/login/login.png' mode='widthFix' />
+  <view class='login-btn'>
+    <text>微信一键登录</text>
+  </view>
+</view>
