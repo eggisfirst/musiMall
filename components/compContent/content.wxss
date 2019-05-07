@@ -1,5 +1,18 @@
 /* components/compContent/content.wxss */
 .swiper {
-  height: 1100rpx;
-  background: #dfdfdf;
+  background: #efeff4;
+  height: 774rpx;
+
+}
+.swiper-item {
+  overflow: scroll;
+}
+
+.noMore {
+  font-size: 24rpx;
+  color: #ccc;
+  font-weight: 500;
+  line-height: 48rpx;
+  text-align: center;
+  margin-top: 38rpx;
 }

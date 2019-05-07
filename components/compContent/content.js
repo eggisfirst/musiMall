@@ -1,4 +1,5 @@
 Component({
+  //从父组件接收
   properties: {
     tabVal: {
       type: String,//类型
@@ -9,24 +10,59 @@ Component({
     current: 0,
     list: [{
       name: 'tab1',
-      id:1
+      tab:0,
+      productType: {
+        name: '产品名称',
+        imgUrl:'',
+        price: 500,
+        slider: true,
+        precent: 0,
+        robbed: 0,
+        priceSpike: 100,
+        count: true,
+        countHour: '01',
+        countMin: '05',
+        countSec: '30',
+      }
     },{
       name: 'tab2',
-      id: 1
+      tab: 1,
+      productType: {
+        name: '产品名称',
+        price: 500,
+        slider: false,
+        precent: 0,
+        robbed: 0,
+        priceSpike: 100,
+        piece: 50,
+        count: false,
+        startDay: '3月30日',
+        startTime: '09:00'
+      }
     },{
       name: 'tab3',
-      id: 1
-    }]
+      tab: 2,
+      productType: {
+        name: '产品名称',
+        price: 500,
+        slider: true,
+        precent:10,
+        robbed: 8,
+        priceSpike: 100,
+        piece: 50,
+        count: false,
+        endDay: true
+      }
+    }],
+  
   }, 
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-  attached: function () { },
-  moved: function () { },
-  detached: function () { },
   methods: {
+    //滑动事件
     swiperChange(e) {
       this.setData({
         current: e.detail.current
       })
+      //传给父组件
       this.triggerEvent('setCurrentTab', { current: this.data.current });
     }
   }

@@ -3,17 +3,19 @@
 
 Page({
   data: {
-    tabVal: 0,
-    current: 0
+    tabVal: 0,    //传给content
+    current: 0    //传给tab
   },
   onLoad() {
-    // console.log(123)
+   
   },
+  //tab组件触发
   getCurrentTab(e) {
     this.setData({
       tabVal: e.detail.currentTab
     })
   },
+  //content组件触发
   setCurrentTab(e) {
     this.setData({
       current: e.detail.current

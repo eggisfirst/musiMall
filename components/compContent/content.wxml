@@ -1,6 +1,11 @@
   <swiper class="swiper"  current='{{tabVal}}' duration="200" bindchange="swiperChange">
-    <swiper-item wx:for="{{list}}" wx:key="{{item.id}}">
-      <view>{{item.name}}</view>
+    <swiper-item wx:for="{{list}}" wx:key="{{item.tab}}" class='swiper-item'>
+      <productLi productType="{{item.productType}}"/>
+      <productLi productType="{{item.productType}}"/>
+      <view class='noMore'>
+        <text>没有更多了</text>
+      </view>
     </swiper-item>
   </swiper>
+ 
 

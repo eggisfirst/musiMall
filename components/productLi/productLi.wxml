@@ -1,0 +1,48 @@
+ <view class='productLi-container'>
+    <view class='product-cover'>
+      <!-- <image mode='widthFix' /> -->
+    </view>
+
+    <view class='product-content'>
+      <text class='product-name'>{{productType.name}}</text>
+      <text class='product-price'>原价: ¥{{productType.price}}</text>
+
+      <view class='product-slider' wx:if="{{productType.slider}}">
+        <view class='slider' >
+          <view class='slider-after' 
+            wx:if="{{productType.precent>0}}" 
+            style="width:{{progressWidth}}rpx"></view>
+        </view>
+        <!-- <progress 
+          percent="{{productType.precent}}" 
+          border-radius= '50'
+          stroke-width='6'
+          backgroundColor='#ccc'
+          activeColor='#ff3701' /> -->
+        <view class='slider-progress'>
+          <text>{{productType.precent}}%</text>
+          <text>已抢{{productType.robbed}}件</text>
+        </view>
+      </view>
+
+      <view class='upcomingRob' wx:if="{{!productType.slider}}">
+        <text>限量50件</text>
+        <text> | </text>
+        <text>3月30日</text>
+        <text>09: 00开始</text>
+      </view>
+      <view class='product-count'>
+        <view class='price'>
+          <text>秒杀价：</text>
+          <text>¥{{productType.priceSpike}}</text>
+        </view>
+        <view class='count' wx:if="{{productType.count}}">
+          <text>{{productType.countHour}}: {{productType.countMin}}: {{productType.countSec}}</text>
+        </view>
+        <view  wx:if="{{productType.endDay}}" class='endDay'>
+          <text>已结束</text>
+        </view>
+
+      </view>
+    </view>
+  </view>

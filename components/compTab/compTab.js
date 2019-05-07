@@ -1,11 +1,12 @@
 Component({
   properties: {
+    //从父组件接收
     current: {
-      type: String,//类型
-      value: '0',//默认值,
+      type: String,
+      value: '0',
       observer(newVal) {
         this.setData({
-          currentTab: newVal
+          currentTab: newVal  //监听变化的时候
         })
       }
     }
@@ -36,6 +37,7 @@ Component({
         this.setData({
           currentTab: e.target.dataset.current,
         })
+        //传给父组件
         this.triggerEvent('getCurrentTab', { currentTab: this.data.currentTab })
       }
     }

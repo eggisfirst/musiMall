@@ -4,7 +4,8 @@
     "pages/index/index",
     "pages/logs/logs",
     "components/compTab/compTab",
-    "components/compContent/content"
+    "components/compContent/content",
+    "components/productLi/productLi"
   ],
   "window": {
     "backgroundTextStyle": "light",
