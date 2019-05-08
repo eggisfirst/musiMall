@@ -25,6 +25,7 @@ Component({
           countHour: '01',
           countMin: '05',
           countSec: '30',
+          maxlength:1,
         }, {
           name: '优惠卷名称',
           productType: 1,
@@ -38,6 +39,7 @@ Component({
           countHour: '01',
           countMin: '05',
           countSec: '30',
+          maxlength: 2,
         }
       ],
     },{
@@ -93,9 +95,10 @@ Component({
       if(tips) {
         let type = e.currentTarget.dataset.type
         let id = e.currentTarget.dataset.index
-        let productType = e.currentTarget.dataset.producttype
+        let maxlength = e.currentTarget.dataset.maxlength
+        // let productType = e.currentTarget.dataset.producttype
         wx.navigateTo({
-          url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}&productType=${productType}`
+          url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}&maxlength=${maxlength}`
         })
       }
     }

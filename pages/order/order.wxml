@@ -1,7 +1,7 @@
 <!--pages/order/order.wxml-->
 <view class='order-container'>
-  <orderLi />
+  <orderLi num="{{num}}"/>
   <view class='order-bottom'>
-    <orderBottom />
+    <orderBottom num="{{num}}"/>
   </view>
 </view>

@@ -190,3 +190,17 @@
   margin-top: -185rpx;
   margin-left: -280rpx;
 }
+
+.selectNum-box {
+  width: 750rpx;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0
+}
+.selectNum {
+  position: fixed;
+  bottom: 0;
+  left: 0
+}

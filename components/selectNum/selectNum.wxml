@@ -1,0 +1,32 @@
+<!--components/selectNum/selectNum.wxml-->
+<view class='selectNum-container'>
+  <view class='closeBtn' bindtap='closeBtn'>
+    <image src='/images/activityDetails/closeBtn.png'/>
+  </view>
+  <view class='selectNum-content'>
+    <view class='content'>
+      <view class='content-cover'>
+        <!-- <image /> -->
+      </view>
+      <view class='content-product'>
+        <view class='product-name'>产品名称</view>
+        <view class='product-descript'>
+          <text>180cm*180cm</text>
+        </view>
+        <view class='product-number'>库存29件</view>
+        <view class='select-number'>
+          <text class='now-price'>¥1.00</text>
+          <!-- background: #efeff4; -->
+          <view class='select-box'>
+            <view class='cut' bindtap='cutNumber' style='{{cutColor}}'>一</view>
+            <view class='number'>{{num}}</view>
+            <view class='add' bindtap='addNumber' style='{{addColor}}'>+</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='comfirmBtn' bindtap='comfirm'>
+      <text>提交订单</text>
+    </view>
+  </view>
+</view> 

@@ -9,7 +9,8 @@
         wx:for-index='index'
         data-index='{{index}}'
         data-type="{{item.tab}}"
-        data-producttype="{{item.productType}}"
+        data-maxlength='{{el.maxlength}}'
+        data-producttype="{{el.productType}}"
         bindtap='toProductDetails'>
         <productLi productType="{{el}}"/>
       </view>

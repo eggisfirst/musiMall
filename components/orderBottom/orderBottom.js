@@ -1,66 +1,24 @@
-// components/orderBottom/orderBottom.js
-Page({
-
-  /**
-   * 页面的初始数据
-   */
+Component({
+  properties: {
+    //从父组件接收
+    num: {
+      type: String,
+      value: '0'
+      // observer(newVal) {
+      //   this.setData({
+      //     currentTab: newVal  //监听变化的时候
+      //   })
+      // }
+    }
+  },
   data: {
 
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  ready() {
+    // console.log(this.properties.current)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
+  methods: {
 
   }
 })

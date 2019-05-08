@@ -35,9 +35,7 @@ Component({
     },
     //点击抢购按钮
     buyBtn() {
-      wx.navigateTo({
-        url: `/pages/order/order?id=${this.properties.queryData.id}`
-      })
+      this.triggerEvent('openSelectNum', { status: false});
     }
   }
 })

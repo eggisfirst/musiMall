@@ -1,15 +1,15 @@
 Component({
   properties: {
     //从父组件接收
-    // current: {
-    //   type: String,
-    //   value: '0',
-    //   observer(newVal) {
-    //     this.setData({
-    //       currentTab: newVal  //监听变化的时候
-    //     })
-    //   }
-    // }
+    num: {
+      type: String,
+      value: '0'
+      // observer(newVal) {
+      //   this.setData({
+      //     currentTab: newVal  //监听变化的时候
+      //   })
+      // }
+    }
   },
   data: {
    

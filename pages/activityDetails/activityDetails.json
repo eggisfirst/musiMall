@@ -4,6 +4,7 @@
     "banner": "../../components/banner/banner",
     "bottomTab": "../../components/bottomTab/bottomTab",
     "ruleTips": "../../components/ruleTips/ruleTips",
-    "tipsBox": "../../components/tipsBox/tipsBox"
+    "tipsBox": "../../components/tipsBox/tipsBox",
+    "selectNum": "../../components/selectNum/selectNum"
   }
 }

@@ -16,7 +16,8 @@ Page({
     },
     // showRules: true,
     showTips: true,
-    tipsText: '活动尚未开始'
+    tipsText: '活动尚未开始',
+    showSelect: true
   },
   onLoad(options) {
     this.setQueryData(options)
@@ -27,7 +28,8 @@ Page({
     let data = {
       id: options.id,
       type: options.type,
-      productType: options.productType
+      productType: options.productType,
+      maxlength: options.maxlength
     }
     this.setData({
       queryData: data
@@ -48,6 +50,18 @@ Page({
         priceText: '活动已结束'
       })
     }
+  },
+  //关闭提交订单弹框
+  closeSelectNum(e) {
+    this.setData({
+      showSelect: e.detail.status
+    })
+  },
+  //打开提交订单弹框
+  openSelectNum(e) {
+    this.setData({
+      showSelect: e.detail.status
+    })
   },
   //关闭提示
   closeTips(e) {

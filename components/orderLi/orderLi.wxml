@@ -12,13 +12,13 @@
       </view>
       <view class='orderLi-number'>
         <text class='now-price'>秒杀价：¥100</text>
-        <text class='number'>x1</text>
+        <text class='number'>x{{num}}</text>
       </view>
     </view>
   </view>
 
   <view class='total-price'>
-    <text class='total-text'>共1件商品 小计: </text>
-    <text class='total-pricce'>¥100</text>
+    <text class='total-text'>共{{num}}件商品 小计: </text>
+    <text class='total-pricce'>¥{{num*100}}</text>
   </view>
 </view>
