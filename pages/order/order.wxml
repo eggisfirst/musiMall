@@ -1,0 +1,7 @@
+<!--pages/order/order.wxml-->
+<view class='order-container'>
+  <orderLi />
+  <view class='order-bottom'>
+    <orderBottom />
+  </view>
+</view>

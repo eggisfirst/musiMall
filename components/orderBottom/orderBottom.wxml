@@ -1,0 +1,10 @@
+<!--components/orderBottom/orderBottom.wxml-->
+<view class='orderBottom-container'>
+  <view class='btn-left'>
+    <text class='left-text'>共1件，合计：</text>
+    <text class='left-price'>¥100</text>
+  </view>
+  <view class='btn-right'>
+    <text>立即支付</text>
+  </view>
+</view>

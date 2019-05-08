@@ -13,7 +13,8 @@ Component({
       tab:0,
       productList:[
         {
-          name: '产品名称',
+          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
+          productType:0,
           imgUrl: '',
           price: 500,
           slider: true,
@@ -26,6 +27,7 @@ Component({
           countSec: '30',
         }, {
           name: '优惠卷名称',
+          productType: 1,
           imgUrl: '',
           price: 500,
           slider: true,
@@ -43,7 +45,8 @@ Component({
       tab: 1,
       productList: [
         {
-          name: '产品名称',
+          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
+          productType: 0,
           price: 500,
           slider: false,
           precent: 0,
@@ -61,6 +64,7 @@ Component({
       productList: [
         {
           name: '产品名称',
+          productType: 0,
           price: 500,
           slider: true,
           precent: 10,
@@ -82,12 +86,18 @@ Component({
       //传给父组件
       this.triggerEvent('setCurrentTab', { current: this.data.current });
     },
+    //先判断有没有登陆再跳转
     toProductDetails(e) {
-      let type = e.currentTarget.dataset.type
-      let id = e.currentTarget.dataset.index
-      wx.navigateTo({
-        url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}`
-      })
+      let tips = getApp().globalData.login
+      this.triggerEvent('setLoginTips', { loginTips: tips});
+      if(tips) {
+        let type = e.currentTarget.dataset.type
+        let id = e.currentTarget.dataset.index
+        let productType = e.currentTarget.dataset.producttype
+        wx.navigateTo({
+          url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}&productType=${productType}`
+        })
+      }
     }
   }
 })

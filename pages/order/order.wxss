@@ -1,0 +1,15 @@
+/* pages/order/order.wxss */
+.order-container {
+  width: 750rpx;
+  height: 100vh;
+  background: #efeff4;
+  box-sizing: border-box;
+  overflow: scroll;
+  padding: 20rpx 0;
+  padding-bottom: 164rpx;
+}
+.order-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}

@@ -16,11 +16,16 @@
   margin-left: 20rpx;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
+  width: 490rpx;
 }
 
 .product-content .product-name{
   color: #1a1a1a;
   font-size: 30rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
 }
 
 .product-content .product-price{
@@ -31,7 +36,7 @@
 }
 
 .product-slider {
-  margin-bottom: 30rpx;
+  margin-bottom: 28rpx;
   width: 490rpx;
 }
 .product-slider .slider{
@@ -65,7 +70,7 @@
   font-size: 24rpx;
   color: #ff0101;
   line-height: 48rpx;
-  margin-bottom: 30rpx;
+  margin-bottom: 28rpx;
 }
 
 .product-count {

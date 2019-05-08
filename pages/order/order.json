@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提交订单",
+  "usingComponents": {
+    "orderLi": "../../components/orderLi/orderLi",
+    "orderBottom": "../../components/orderBottom/orderBottom"
+  }
+}

@@ -14,24 +14,40 @@ Page({
       duration: 1000,
       circular: true
     },
-    showRules: true,
+    // showRules: true,
     showTips: true,
     tipsText: '活动尚未开始'
   },
   onLoad(options) {
-    console.log(options)
+    this.setQueryData(options)
+    this.initData(options)
   },
-  //关闭规则
-  setRulesTips(e){
+  //设置路由参数
+  setQueryData(options) {
+    let data = {
+      id: options.id,
+      type: options.type,
+      productType: options.productType
+    }
     this.setData({
-      showRules: e.detail.isShowRules
+      queryData: data
     })
   },
-  //弹出规则
-  clickRule(e) {
-    this.setData({
-      showRules: e.detail.rules
-    })
+  //判断是哪个类型的页面
+  initData(options) {
+    if (options.type == 0) {
+      this.setData({
+        priceText: '限时秒杀'
+      })
+    } else if (options.type == 1) {
+      this.setData({
+        priceText: '即将开始'
+      })
+    } else if (options.type == 2) {
+      this.setData({
+        priceText: '活动已结束'
+      })
+    }
   },
   //关闭提示
   closeTips(e) {
@@ -45,4 +61,16 @@ Page({
       showTips: e.detail.tips
     })
   }
+    //关闭规则
+  // setRulesTips(e){
+  //   this.setData({
+  //     showRules: e.detail.isShowRules
+  //   })
+  // },
+  //弹出规则
+  // clickRule(e) {
+  //   this.setData({
+  //     showRules: e.detail.rules
+  //   })
+  // },
 })

@@ -1,5 +1,13 @@
-<view>
+<view class='activity-container'>
   <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
   <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}"/>
-  <compContent tabVal="{{tabVal}}" bind:setCurrentTab="setCurrentTab"/>
+  <compContent 
+    tabVal="{{tabVal}}" 
+    bind:setCurrentTab="setCurrentTab" 
+    loginTips="{{loginTips}}"
+    bind:setLoginTips='setLoginTips'/>
+
+   <view class='tips' hidden="{{showTips}}">
+    <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>
+  </view>
 </view>

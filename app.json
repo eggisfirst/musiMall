@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/activity/activity",
+    "pages/activityDetails/activityDetails",
+    "pages/order/order",
     "pages/logs/logs",
     "pages/index/index",
     "pages/login/login",
-    "pages/activityDetails/activityDetails"
+    "components/orderLi/orderLi",
+    "components/orderBottom/orderBottom"
   ],
   "window": {
     "backgroundTextStyle": "light",

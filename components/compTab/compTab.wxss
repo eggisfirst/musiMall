@@ -5,6 +5,7 @@
   line-height: 80rpx;
   width: 100%;
   box-sizing: border-box;
+  background: #fff;
 }
 .tab-item {
   /* width: 33.3%; */

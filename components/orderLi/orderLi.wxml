@@ -1,0 +1,24 @@
+<!--components/orderLi/orderLi.wxml-->
+<view class='orderLi-container'>
+  <view class='product-container'>
+    <view class='orderLi-cover'>
+      <!-- <image /> -->
+    </view>
+
+    <view class='orderLi-content'>
+      <view class='orderLi-name'>
+        <text class='name'>产品名称产品名称</text>
+        <text class='orderLi-price'>原价：¥500</text>
+      </view>
+      <view class='orderLi-number'>
+        <text class='now-price'>秒杀价：¥100</text>
+        <text class='number'>x1</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='total-price'>
+    <text class='total-text'>共1件商品 小计: </text>
+    <text class='total-pricce'>¥100</text>
+  </view>
+</view>

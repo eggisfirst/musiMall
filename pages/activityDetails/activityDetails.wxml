@@ -8,9 +8,9 @@
       <text class='real-price'>¥500.00</text>
     </view>
     <view class='activity-count'>
-      <text class='count-title'>限时秒杀</text>
-      <view class='count'>
-        <text>01: 05: 30</text>
+      <text class='count-title' style='{{queryData.type == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
+      <view class='count' wx:if="{{queryData.type != 2}}">
+        <text >01: 05: 30</text>
       </view>
     </view>
   </view>
@@ -52,13 +52,19 @@
     <text class='title'>产品详情</text>
   </view>
 
-  <view class='bottomTab'>
+  <!-- <view class='bottomTab'>
     <bottomTab bind:clickRule='clickRule' bind:clickBeginBtn='clickBeginBtn'/>
+  </view> -->
+   <view class='bottomTab'>
+    <bottomTab 
+      bind:clickBeginBtn='clickBeginBtn' 
+      queryData="{{queryData}}"
+      />
   </view>
 
-  <view class='rule-box' hidden="{{showRules}}">
+  <!-- <view class='rule-box' hidden="{{showRules}}">
     <ruleTips class='ruleTips' bind:setRulesTips="setRulesTips" />
-  </view>
+  </view> -->
 
    <view class='tips' hidden="{{showTips}}">
     <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>

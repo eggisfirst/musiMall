@@ -18,8 +18,8 @@
   align-items: center;
 }
 .price {
-  /* line-height: 60rpx; */
-  padding-top: 50rpx;
+  line-height: 100rpx;
+  /* padding-top: 50rpx; */
 }
 .now-price {
   font-size: 36rpx;

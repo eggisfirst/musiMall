@@ -1,18 +1,13 @@
 Component({
   properties: {
     //从父组件接收
-    // current: {
-    //   type: String,
-    //   value: '0',
-    //   observer(newVal) {
-    //     this.setData({
-    //       currentTab: newVal  //监听变化的时候
-    //     })
-    //   }
-    // }
+    queryData: {
+      type: Object,
+      value: ""
+    }
   },
   data: {
- 
+    
   },
   ready() {
   },
@@ -23,11 +18,26 @@ Component({
         url: '/pages/activity/activity'
       })
     },
+    //弹出规则提示框
     showRules() {
-      this.triggerEvent('clickRule', { rules: false });
+      wx.showModal({
+        title: '活动规则',
+        content: '规则',
+        confirmText: '知道了',
+        showCancel: false,
+        confirmColor: '#1a1a1a'
+      })
+      // this.triggerEvent('clickRule', { rules: false });
     },
+    //出现即将抢购提示
     clickBeginBtn() {
       this.triggerEvent('clickBeginBtn', { tips: false });
+    },
+    //点击抢购按钮
+    buyBtn() {
+      wx.navigateTo({
+        url: `/pages/order/order?id=${this.properties.queryData.id}`
+      })
     }
   }
 })

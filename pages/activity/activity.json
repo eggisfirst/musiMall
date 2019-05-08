@@ -3,6 +3,7 @@
   "usingComponents": {
     "banner": "../../components/banner/banner",
     "compTab": "../../components/compTab/compTab",
-    "compContent": "../../components/compContent/content"
+    "compContent": "../../components/compContent/content",
+    "tipsBox": "../../components/tipsBox/tipsBox"
   }
 }

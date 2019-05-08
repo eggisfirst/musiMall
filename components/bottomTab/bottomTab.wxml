@@ -10,10 +10,19 @@
       <text>活动规则</text>
     </view>
   </view>
-  <view class='tab-right' catchtap='clickBeginBtn'>
-    <view class='btn-box'>
+  <view class='tab-right'  wx:if="{{queryData.type != 2 }}">
+    <view class='btn-box' wx:if="{{queryData.type == 1}}" catchtap='clickBeginBtn'>
       <image src='/images/activityDetails/time.png' />
       <text>即将开始</text>
+    </view>
+    <view class='btn-box-buy' wx:if="{{queryData.type == 0}}" catchtap='buyBtn'>
+      <image src='/images/activityDetails/shopCar.png' />
+      <text>立即抢购</text>
+    </view>
+    </view>
+  <view class='tab-right-end' wx:else>
+    <view class='btn-box-end'>
+      <text>活动已结束</text>
     </view>
   </view>
 </view>

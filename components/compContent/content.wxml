@@ -5,10 +5,11 @@
       <view 
         wx:for='{{item.productList}}' 
         wx:for-item="el"
-        wx:key="{{el.name}}"
+        wx:key="{{name}}"
         wx:for-index='index'
         data-index='{{index}}'
         data-type="{{item.tab}}"
+        data-producttype="{{item.productType}}"
         bindtap='toProductDetails'>
         <productLi productType="{{el}}"/>
       </view>
