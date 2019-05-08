@@ -29,6 +29,9 @@ App({
               if (this.userInfoReadyCallback) {
                 this.userInfoReadyCallback(res)
               }
+            },
+            fail(res){
+              console.log(123,res)
             }
           })
         }

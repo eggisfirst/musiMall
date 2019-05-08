@@ -137,7 +137,8 @@
   width: 100%;
   line-height: 80rpx;
   padding-left:30rpx;
-  padding-right: 20rpx 
+  padding-right: 20rpx;
+  box-sizing: border-box;
 }
 
 .product-details {

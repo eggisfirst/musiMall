@@ -1,0 +1,57 @@
+/* components/index/orderTab/orderTab.wxss */
+.orderTab-container {
+  width:750rpx;
+  height: 360rpx;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.orderTab-title {
+  border-bottom: 1rpx solid #e1e1e1;
+  line-height: 79rpx;
+  font-size: 32rpx;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.orderTab-title image {
+  width: 44rpx;
+  height: 44rpx;
+  margin-left: 31rpx;
+  margin-right: 18rpx;
+}
+
+.tab-box {
+  width: 750rpx;
+  height: 260rpx;
+  box-sizing: border-box;
+  padding: 46rpx 34rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.tab-li {
+  height: 180rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tab-circle {
+  border-radius: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  background: #ff9500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tab-circle image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.tab-text {
+  font-size:28rpx;
+  color: #909090;
+  font-weight: 500;
+  margin-top: 20rpx; 
+}
