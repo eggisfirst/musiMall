@@ -3,6 +3,7 @@
   "usingComponents": {
     "productLi": "/components/index/productLi/productLi",
     "orderMsg": "/components/index/orderMsg/comp",
-    "hxBox": "/components/index/hxBox/comp"
+    "hxBox": "/components/index/hxBox/comp",
+    "count": "../../components/count/comp"
   }
 }

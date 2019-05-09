@@ -1,0 +1,13 @@
+<!--components/count/comp.wxml-->
+<view>
+  <block wx:if="{{day>0}}">
+    <text wx:if="{{day < 10}}">0</text>
+    <text>{{day}} :</text>
+  </block>
+  <text wx:if="{{hour < 10}}">0</text>
+  <text>{{hour}} :</text>
+  <text wx:if="{{minute < 10}}">0</text>
+  <text>{{minute}} :</text>
+  <text wx:if="{{seconds < 10}}">0</text>
+  <text>{{seconds}}</text>
+</view>

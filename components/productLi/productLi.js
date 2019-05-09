@@ -12,7 +12,8 @@ Component({
     }
   },
   data: {
-    progressWidth: 0
+    progressWidth: 0,
+    endTime: '1557399093826'
   },
   ready() {
     // console.log(this.properties.current)

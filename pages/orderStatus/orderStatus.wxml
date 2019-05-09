@@ -1,7 +1,10 @@
 <!--pages/orderStatus/orderStatus.wxml-->
 <view class='orderStatus-container'>
   <view class='top-banner'>
-    <text class='rest-time' wx:if="{{queryData.status == 3}}">剩余支付时间：10:30</text>
+    <view class='rest-time' wx:if="{{queryData.status == 3}}">
+      <text >剩余支付时间：</text>
+      <count endTime="{{endTime}}" class="time"/>
+    </view>
     <text class='order-close' wx:if="{{queryData.status == 4}}">订单已关闭</text>
   </view>
 

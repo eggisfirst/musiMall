@@ -11,6 +11,7 @@ Page({
   onLoad: function () {
     this.init()
   },
+  //验证客户有没有授权
   init() {
     //判断有没有授权。已授权则直接获取信息。
     if (app.globalData.userInfo) {
@@ -40,6 +41,7 @@ Page({
       })
     }
   },
+  //获取个人信息的回调。
   getUserInfo: function(e) {
     if(e.detail.userInfo) {
       app.globalData.userInfo = e.detail.userInfo

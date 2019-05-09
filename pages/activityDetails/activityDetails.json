@@ -5,6 +5,7 @@
     "bottomTab": "../../components/bottomTab/bottomTab",
     "ruleTips": "../../components/ruleTips/ruleTips",
     "tipsBox": "../../components/tipsBox/tipsBox",
-    "selectNum": "../../components/selectNum/selectNum"
+    "selectNum": "../../components/selectNum/selectNum",
+    "count": "../../components/count/comp"
   }
 }

@@ -17,7 +17,8 @@ Page({
     // showRules: true,
     showTips: true,
     tipsText: '活动尚未开始',
-    showSelect: true
+    showSelect: true,
+    endTime: '1557399093826'
   },
   onLoad(options) {
     this.setQueryData(options)

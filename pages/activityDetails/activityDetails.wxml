@@ -10,7 +10,7 @@
     <view class='activity-count'>
       <text class='count-title' style='{{queryData.type == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
       <view class='count' wx:if="{{queryData.type != 2}}">
-        <text >01: 05: 30</text>
+        <count endTime="{{endTime}}"/>
       </view>
     </view>
   </view>

@@ -102,6 +102,15 @@ Page({
     tipsText: '请先登录'
   },
   onLoad(options) {
+    this.test()
+  },
+  test() {
+    wx.request({
+      url: 'http://10.11.8.228:8088/smallprogram/getSecKill',
+      success: res => {
+        console.log(res)
+      }
+    })
   },
   //tab组件触发
   getCurrentTab(e) {
