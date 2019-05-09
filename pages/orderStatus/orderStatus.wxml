@@ -1,12 +1,18 @@
 <!--pages/orderStatus/orderStatus.wxml-->
 <view class='orderStatus-container'>
   <view class='top-banner'>
-    <text class='rest-time' hidden='true'>剩余支付时间：10:30</text>
-    <text class='order-close' >订单已关闭</text>
+    <text class='rest-time' wx:if="{{queryData.status == 3}}">剩余支付时间：10:30</text>
+    <text class='order-close' wx:if="{{queryData.status == 4}}">订单已关闭</text>
   </view>
 
   <productLi />
 
-  <orderMsg orderMsg="{{orderMsg}}"/>
+  <hxBox wx:if="{{queryData.status == 1 || queryData.status == 2}}" queryData="{{queryData}}"/>
 
+  <orderMsg queryData="{{queryData}}"/>
+
+  <view class='payBtn' wx:if="{{queryData.status == 3}}">
+    <view class='cancle' bindtap='cancle'>取消订单</view>
+    <view class='comfirm' bindtap='comfirm'>立即支付</view>
+  </view>
 </view>

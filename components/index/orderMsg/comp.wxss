@@ -1,7 +1,7 @@
 /* components/index/orderMsg/comp.wxss */
 .orderMsg-container {
   width: 750rpx;
-  height: 480rpx;
+  /* height: 480rpx; */
   background: #fff;
   margin-top: 20rpx;
   box-sizing: border-box;
@@ -37,12 +37,18 @@
 }
 .key {
   color: #999;
-  width: 200rpx;
+  width: 150rpx;
   display: inline-block;
+  text-align-last: justify;
+  text-align: justify;
+}
+.key-icon {
+  color: #999;
 }
 .value {
   color: #1a1a1a;
   font-weight: 500;
+  margin-left: 20rpx;
 }
 
 

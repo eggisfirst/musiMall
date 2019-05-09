@@ -18,8 +18,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    //参数问题
     toProductDetails() {
-      console.log(111)
+      wx.navigateTo({
+        url: '../../pages/activityDetails/activityDetails?type=0&id=1&maxlength=1'
+      })
     }
   }
 })

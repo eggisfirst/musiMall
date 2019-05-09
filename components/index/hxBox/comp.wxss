@@ -1,0 +1,64 @@
+/* components/index/hxBox/comp.wxss */
+.hxBox-container {
+  width: 750rpx;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+.hxBox-title {
+  line-height: 80rpx;
+  padding: 0 32rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+}
+.title-box {
+  display: flex;
+  align-items: center;
+}
+.title {
+  font-size: 32rpx;
+  color: #1a1a1a;
+  font-weight: 500;
+  margin-left: 16rpx;
+}
+.image {
+  width: 50rpx;
+  height: 50rpx;
+}
+.status-no {
+  color: #ff3b30;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+.status-had {
+  color: #4cd964;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 26rpx 33rpx;
+  box-sizing: border-box;
+}
+.number {
+  font-size: 36rpx;
+  color: #1a1a1a;
+  font-weight: 500;
+}
+.deadline {
+  color: #b8b8b8;
+  font-size: 30rpx;
+  font-weight: 500;
+  margin-top: 40rpx;
+}
+
+.number-delete {
+  font-size: 36rpx;
+  color: #1a1a1a;
+  font-weight: 500;
+  text-decoration: line-through;
+}

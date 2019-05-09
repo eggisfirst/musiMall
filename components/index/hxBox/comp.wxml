@@ -1,0 +1,20 @@
+<!--components/index/hxBox/comp.wxml-->
+<view class='hxBox-container'>
+  <view class='hxBox-title'>
+    <view class='title-box'>
+      <image src='/images/index/code.png' class='image'/>
+      <text class='title'>核销码</text>
+    </view>
+    <text class='status-no' wx:if="{{queryData.status == 1}}">待核销</text>
+    <text class='status-had' wx:else>已核销</text>
+  </view>
+
+  <view class='content' wx:if="{{queryData.status == 1}}">
+    <text class='number'>2019 0323 0001</text>
+    <text class='deadline'>有效期至2019-03-21 12:00</text>
+  </view>
+
+  <view class='content' wx:else>
+    <text class='number-delete'>2019 0323 0001</text>
+  </view>
+</view>

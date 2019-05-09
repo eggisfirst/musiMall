@@ -6,9 +6,45 @@
   </view>
 
   <view class='msg-list'>
-    <view class='msg-li' wx:for="{{orderMsg}}" wx:key="*this">
-      <text class='key'>{{item.name}}:</text>
-      <text class='value'>{{item.msg}}</text>
+    <view class='msg-li'>
+      <text class='key'>订单号</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>12312313</text>
+    </view>
+     <view class='msg-li' >
+      <text class='key'>手机号</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>123123</text>
+    </view>
+     <view class='msg-li' >
+      <text class='key'>下单时间</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>2019-03-15 12:30</text>
+    </view>
+     <view class='msg-li' wx:if="{{status == 1 || status == 2}}">
+      <text class='key'>付款时间</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>2019-03-15 12:30</text>
+    </view>
+     <view class='msg-li' wx:if="{{status == 2}}">
+      <text class='key'>核销时间</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>2019-03-15 12:30</text>
+    </view>
+     <view class='msg-li' wx:if="{{status == 4}}">
+      <text class='key'>关闭时间</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>2019-03-15 12:30</text>
+    </view>
+     <view class='msg-li'>
+      <text class='key'>数量</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>1</text>
+    </view>
+    <view class='msg-li' >
+      <text class='key'>总价</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>¥100</text>
     </view>
   
   </view>

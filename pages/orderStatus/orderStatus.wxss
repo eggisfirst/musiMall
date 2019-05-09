@@ -21,3 +21,31 @@
   color: #ff3b30;
   opacity: 0.8;
 }
+
+.payBtn {
+  width: 750rpx;
+  height: 164rpx; 
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+}
+.cancle {
+  width: 240rpx;
+  height: 100%;
+  background: #fff;
+  padding-top: 31rpx;
+  color: #999;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.comfirm {
+  width: 510rpx;
+  height: 100%;
+  background: #ff3701;
+  padding-top: 31rpx;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 500;
+}

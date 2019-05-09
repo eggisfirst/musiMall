@@ -2,6 +2,7 @@
   "navigationBarTitleText": "订单详情",
   "usingComponents": {
     "productLi": "/components/index/productLi/productLi",
-    "orderMsg": "/components/index/orderMsg/comp"
+    "orderMsg": "/components/index/orderMsg/comp",
+    "hxBox": "/components/index/hxBox/comp"
   }
 }

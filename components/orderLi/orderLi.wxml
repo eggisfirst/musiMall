@@ -32,6 +32,6 @@
   </view>
 
   <view class='pay' wx:if="{{status == 3}}">
-    <text class='pay-btn'>付款</text>
+    <text class='pay-btn' catchtap='payBtn'>付款</text>
   </view>
 </view>
