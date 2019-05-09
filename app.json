@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/orderStatus/orderStatus",
     
+    "pages/activity/activity",
+    "pages/orderStatus/orderStatus",
     "pages/orderDetails/orderDetails",
     "pages/activityDetails/activityDetails",
-    "pages/activity/activity",
     "pages/order/order",
     "pages/logs/logs",
     "pages/login/login"

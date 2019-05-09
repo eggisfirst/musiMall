@@ -1,4 +1,6 @@
 // pages/orderDetails/orderDetails.js
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
 Page({
   data: {
     list: [{
@@ -17,51 +19,34 @@ Page({
     contentlist: [
       {
         tab:0,
-        orderList: [{
-          no: 123123,
-          status:1
-        }, {
-          no: 123123,
-          status: 2
-        }, {
-          no: 123123,
-          status: 3
-        }, {
-          no: 123123,
-          status: 4
-          }, {
-            no: 123123,
-            status: 4
-          }]
+        orderList: []
       },{
         tab:1,
-        orderList: [
-          {
-            no: 123123,
-            status: 3
-          }
-        ]
+        orderList: []
       },{
         tab:2,
-        orderList: [
-          {
-            no: 123123,
-            status: 1
-          }
-        ]
+        orderList: []
       },{
         tab:3,
-        orderList: [
-          {
-            no: 123123,
-            status: 2
-          }
-        ]
+        orderList: []
       }
     ]
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
+    this.getOrderList()
+  },
+  //获取订单列表
+  getOrderList() {
+    let list = this.data.contentlist
+    indexModel.getOrderList(-1).then(res => {
+      if(res.status == 1) {
+        list[0].orderList = res.data
+        this.setData({
+          contentlist: list
+        })
+      }
+    })
   },
   //判断第几个tab
   initQueryData(index) {

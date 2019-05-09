@@ -13,6 +13,10 @@
   padding: 30rpx 20rpx;
   box-sizing: border-box;
 }
+.image {
+  width: 200rpx;
+  height: 200rpx;
+}
 .orderLi-cover {
   width: 200rpx;
   height: 200rpx;

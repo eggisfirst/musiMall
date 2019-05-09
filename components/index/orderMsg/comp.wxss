@@ -37,7 +37,7 @@
 }
 .key {
   color: #999;
-  width: 150rpx;
+  width: 180rpx;
   display: inline-block;
   text-align-last: justify;
   text-align: justify;

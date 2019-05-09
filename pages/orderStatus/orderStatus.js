@@ -1,4 +1,6 @@
 // pages/orderStatus/orderStatus.js
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
 Page({
 
   /**
@@ -13,10 +15,21 @@ Page({
    */
   onLoad: function (options) {
     this.init(options)
+    this.getOrderDetails(options.no)
   },
   init(options) {
     this.setData({
       queryData: options
+    })
+  },
+  //获取订单详情
+  getOrderDetails(number) {
+    indexModel.getOrderDetails(number).then(res => {
+      if(res.status == 1) {
+        this.setData({
+          orderDetails: res.orderDetails
+        })
+      }
     })
   },
   //支付订单

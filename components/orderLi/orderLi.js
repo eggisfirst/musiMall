@@ -9,16 +9,16 @@ Component({
       type: String,
       value: ''
     },
-    status: {
-      type: String,
-      value: ''
+    orderList: {
+      type: Object,
+      value: {}
     }
   },
   data: {
    
   },
   ready() {
-    // console.log(this.properties.current)
+    // console.log(this.properties.orderList)
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {

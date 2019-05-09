@@ -9,19 +9,24 @@
     <view class='msg-li'>
       <text class='key'>订单号</text>
       <text class='key-icon'>:</text>
-      <text class='value'>12312313</text>
+      <text class='value'>{{orderDetails.orderNumber}}</text>
     </view>
      <view class='msg-li' >
       <text class='key'>手机号</text>
       <text class='key-icon'>:</text>
-      <text class='value'>123123</text>
+      <text class='value'>{{orderDetails.userMobileNumber}}</text>
     </view>
      <view class='msg-li' >
       <text class='key'>下单时间</text>
       <text class='key-icon'>:</text>
-      <text class='value'>2019-03-15 12:30</text>
+      <text class='value'>{{orderDetails.orderTime}}</text>
     </view>
-     <view class='msg-li' wx:if="{{status == 1 || status == 2}}">
+     <view class='msg-li' wx:if="{{status == 3}}" >
+      <text class='key'>核销截止时间</text>
+      <text class='key-icon'>:</text>
+      <text class='value'>{{orderDetails.consumeEndtime}}</text>
+    </view>
+     <view class='msg-li' wx:if="{{status == 1 || status == 2 || status == 3}}">
       <text class='key'>付款时间</text>
       <text class='key-icon'>:</text>
       <text class='value'>2019-03-15 12:30</text>
@@ -39,12 +44,12 @@
      <view class='msg-li'>
       <text class='key'>数量</text>
       <text class='key-icon'>:</text>
-      <text class='value'>1</text>
+      <text class='value'>{{orderDetails.totalQuantity}}</text>
     </view>
     <view class='msg-li' >
       <text class='key'>总价</text>
       <text class='key-icon'>:</text>
-      <text class='value'>¥100</text>
+      <text class='value'>¥{{orderDetails.totalPrice}}</text>
     </view>
   
   </view>

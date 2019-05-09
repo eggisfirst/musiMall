@@ -1,37 +1,44 @@
 <!--components/orderLi/orderLi.wxml-->
 <view class='orderLi-container'>
-  <view class='order-status' wx:if="{{status}}">
-    <text class='number'>订单编号123</text>
-    <text class='status-weihexiao' wx:if="{{status == 1}}">待核销</text>
-    <text class='status-yihexiao'wx:if="{{status == 2}}">已核销</text>
-    <text class='status-weihexiao' wx:if="{{status == 3}}">待支付</text>
-    <text class='status-close' wx:if="{{status == 4}}">订单已关闭</text>
+  <view class='order-status' wx:if="{{orderList}}">
+    <text class='number'>订单编号{{orderList.orderNumber}}</text>
+    <text class='status-weihexiao' wx:if="{{orderList.orderState == 1}}">待核销</text>
+    <text class='status-yihexiao'wx:if="{{orderList.orderState == 2}}">已核销</text>
+    <text class='status-weihexiao' wx:if="{{orderList.orderState == 0}}">待支付</text>
+    <text class='status-close' wx:if="{{orderList.orderState == 4}}">订单已关闭</text>
+    <text class='status-close' wx:if="{{orderList.orderState == 3}}">订单已失效</text>
   </view>
 
   <view class='product-container'>
     <view class='orderLi-cover'>
-      <!-- <image /> -->
+      <image src='{{orderList.productImg}}' class='image'/>
     </view>
 
     <view class='orderLi-content'>
       <view class='orderLi-name'>
-        <text class='name'>产品名称产品名称</text>
+        <text class='name'>{{orderList.productName}}</text>
         <text class='orderLi-price' wx:if="{{type == 'activity'}}">原价：¥500</text>
-        <text class='orderLi-descript' wx:else>规格属性</text>
+        <text class='orderLi-descript' wx:else>{{orderList.productSpecification}}</text>
       </view>
       <view class='orderLi-number'>
-        <text class='now-price'>秒杀价：¥100</text>
-        <text class='number'>x{{num}}</text>
+        <text class='now-price' wx:if="{{type == 'activity'}}">秒杀价：¥{{orderList.productPrice}}</text>
+        <text class='now-price' wx:else>原价：¥{{orderList.productPrice}}</text>
+        <text class='number' wx:if="{{orderList.totalQuantity}}">x{{orderList.totalQuantity}}</text>
+        <text class='number' wx:else>x{{num}}</text>
       </view>
     </view>
   </view>
 
-  <view class='total-price'>
+  <view class='total-price' wx:if="{{type == 'activity'}}">
     <text class='total-text'>共{{num}}件商品 小计: </text>
     <text class='total-pricce'>¥{{num*100}}</text>
   </view>
+   <view class='total-price' wx:else>
+    <text class='total-text'>共{{orderList.totalQuantity}}件商品 合计: </text>
+    <text class='total-pricce'>¥{{orderList.totalPrice}}</text>
+  </view>
 
-  <view class='pay' wx:if="{{status == 3}}">
+  <view class='pay' wx:if="{{orderList.orderState == 0}}">
     <text class='pay-btn' catchtap='payBtn'>付款</text>
   </view>
 </view>

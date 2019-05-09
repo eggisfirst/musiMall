@@ -25,10 +25,12 @@
         <view class='orderList'  
           wx:for="{{item.orderList}}"
           wx:key="{{tab}}"
+          wx:for-item="el"
           bindtap='toOrderStatus'
-          data-no="{{item.no}}"
-          data-status='{{item.status}}'>
-          <orderLi status="{{item.status}}"/>
+          data-text="{{el}}"
+          data-no="{{el.orderNumber}}"
+          data-status='{{el.orderState}}'>
+          <orderLi orderList="{{el}}"/>
         </view>
         <view class='noOrder'  wx:if="{{item.orderList.length == 0}}" >
           <image src='/images/index/noorder.png' class='image'/>

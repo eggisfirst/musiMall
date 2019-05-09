@@ -1,13 +1,9 @@
 //index.js
 //获取应用实例
-
+import {IndexModel} from '../../request/index.js'
+const indexModel = new IndexModel()
 Page({
   data: {
-    imgUrls: [
-      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
-      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
-      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
-    ],
     swiperType: {
       height: '300',
       indicatorDots: true,
@@ -102,13 +98,15 @@ Page({
     tipsText: '请先登录'
   },
   onLoad(options) {
-    this.test()
+    this.getAdvertisement()
   },
-  test() {
-    wx.request({
-      url: 'http://10.11.8.228:8088/smallprogram/getSecKill',
-      success: res => {
-        console.log(res)
+  //获取首页轮播图
+  getAdvertisement() {
+    indexModel.getAdvertisement().then(res => {
+      if(res.status == 1) {
+        this.setData({
+          imgUrls: res.data
+        })
       }
     })
   },

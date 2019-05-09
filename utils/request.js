@@ -1,5 +1,5 @@
 class Request {
-  baseUrl = 'http://10.11.8.207/'
+  baseUrl = 'http://10.11.8.228:8088/'
 
   getData({ url, data = {}, method = "GET" }) {
     return new Promise((resolve, reject) => {
@@ -11,7 +11,7 @@ class Request {
         responseType: 'text',
         success: res => {
           if (res.data.code == 0) {
-            resolve(res)
+            resolve(res.data)
           } else {
             this._showError()
           }
