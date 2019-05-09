@@ -12,6 +12,7 @@ Page({
     this.init()
   },
   init() {
+    //判断有没有授权。已授权则直接获取信息。
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

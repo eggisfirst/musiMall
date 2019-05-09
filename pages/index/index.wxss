@@ -33,6 +33,9 @@ button {
   align-items: center;
   justify-content: center;
 }
+button::after {
+  border: none;
+}
 .tips-text {
   font-size: 24rpx;
   color: #909090;

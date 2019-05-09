@@ -1,0 +1,64 @@
+/* components/index/productLi/productLi.wxss */
+.productLi-container {
+  width: 750rpx;
+  height: 260rpx;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  padding: 30rpx 20rpx;
+  display: flex;
+  align-items: center;
+}
+
+.pic-cover {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+  border: 1rpx solid #eee;
+}
+.image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.productLi-content {
+  width: 450rpx;
+  height: 200rpx;
+  margin-left: 20rpx;
+}
+.product-msg {
+  width: 100%;
+  height: 170rpx;
+  line-height: 48rpx;
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  color: #1a1a1a;
+  font-size: 30rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.price {
+  color: #909090;
+  font-size: 24rpx;
+  text-decoration: line-through;
+}
+
+.real-price {
+  color: #ff3701;
+  font-size: 28rpx;
+  line-height: 30rpx;
+}
+
+.right-icon {
+  width: 30rpx;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+}
+.right-icon image {
+  width:30rpx;
+  height: 30rpx; 
+}

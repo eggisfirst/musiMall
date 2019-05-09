@@ -1,0 +1,23 @@
+/* pages/orderStatus/orderStatus.wxss */
+.orderStatus-container {
+  width: 750rpx;
+  height: 100vh;
+  background: #efeff4;
+}
+.top-banner {
+  line-height: 80rpx;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  border-top: 1rpx solid #eee;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.order-close {
+  color: #999;
+  opacity: 0.8;
+}
+.rest-time {
+  color: #ff3b30;
+  opacity: 0.8;
+}

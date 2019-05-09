@@ -28,7 +28,10 @@ Component({
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
     toDetails(e) {
-      console.log(e.currentTarget.dataset.index)
+      let index = e.currentTarget.dataset.index
+      wx.navigateTo({
+        url: '/pages/orderDetails/orderDetails?index=' + index
+      })
     }
   }
 })

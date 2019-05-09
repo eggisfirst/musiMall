@@ -1,7 +1,8 @@
 <view class='activity-container'>
   <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
-  <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}"/>
+  <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}" list="{{list}}"/>
   <compContent 
+    contentlist="{{contentlist}}"
     tabVal="{{tabVal}}" 
     bind:setCurrentTab="setCurrentTab" 
     loginTips="{{loginTips}}"

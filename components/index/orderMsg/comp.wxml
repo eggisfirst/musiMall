@@ -1,0 +1,15 @@
+<!--components/index/orderMsg/comp.wxml-->
+<view class='orderMsg-container'>
+  <view class='banner'>
+    <image src='/images/index/order-icon.png' class='image'/>
+    <text class='banner-text'>订单信息</text>
+  </view>
+
+  <view class='msg-list'>
+    <view class='msg-li' wx:for="{{orderMsg}}" wx:key="*this">
+      <text class='key'>{{item.name}}:</text>
+      <text class='value'>{{item.msg}}</text>
+    </view>
+  
+  </view>
+</view>

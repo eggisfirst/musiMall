@@ -9,20 +9,15 @@ Component({
           currentTab: newVal  //监听变化的时候
         })
       }
+    },
+    list: {
+      type: Array,
+      value: []
     }
   },
   data: {
     currentTab: 0,
-    list: [{
-      name: '正在疯抢',
-      tab: 0,
-    }, {
-      name: '即将开抢',
-      tab: 1,
-    }, {
-      name: '抢购结束',
-      tab: 2,
-    }]
+  
   },
   ready() {
     // console.log(this.properties.current)

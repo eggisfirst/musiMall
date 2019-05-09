@@ -1,0 +1,11 @@
+/* pages/orderDetails/orderDetails.wxss */
+.orderDetails-container {
+  width: 750rpx;
+  height: 100vh;
+  background: #efeff4;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.productLi-box {
+
+}

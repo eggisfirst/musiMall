@@ -4,82 +4,34 @@ Component({
     tabVal: {
       type: String,//类型
       value: '0'//默认值
+    },
+    contentlist: {
+      type: Array,
+      value: []
     }
   },
   data: {
     current: 0,
-    list: [{
-      name: 'tab1',
-      tab:0,
-      productList:[
-        {
-          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
-          productType:0,
-          imgUrl: '',
-          price: 500,
-          slider: true,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          count: true,
-          countHour: '01',
-          countMin: '05',
-          countSec: '30',
-          maxlength:1,
-        }, {
-          name: '优惠卷名称',
-          productType: 1,
-          imgUrl: '',
-          price: 500,
-          slider: true,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          count: true,
-          countHour: '01',
-          countMin: '05',
-          countSec: '30',
-          maxlength: 2,
-        }
-      ],
-    },{
-      name: 'tab2',
-      tab: 1,
-      productList: [
-        {
-          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
-          productType: 0,
-          price: 500,
-          slider: false,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          piece: 50,
-          count: false,
-          startDay: '3月30日',
-          startTime: '09:00'
-        }
-      ],
-    },{
-      name: 'tab3',
-      tab: 2,
-      productList: [
-        {
-          name: '产品名称',
-          productType: 0,
-          price: 500,
-          slider: true,
-          precent: 10,
-          robbed: 8,
-          priceSpike: 100,
-          piece: 50,
-          count: false,
-          endDay: true
-        }
-      ],
-    }],
+    orderHeight: ''
   }, 
+  ready() {
+    this.initHeight()
+  },
   methods: {
+    //初始化页面高度
+    initHeight() {
+      let activity = this.properties.contentlist[0].productList
+      let order = this.properties.contentlist[0].orderList
+      if(activity && activity.length > 0) {
+        this.setData({
+          orderHeight: 'height: 774rpx'
+        })
+      }else if(order && order.length > 0) {
+        this.setData({
+          orderHeight: 'height: 100vh'
+        })
+      }
+    },
     //滑动事件
     swiperChange(e) {
       this.setData({
@@ -101,6 +53,14 @@ Component({
           url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}&maxlength=${maxlength}`
         })
       }
+    },
+    //跳转订单详情页面
+    toOrderStatus(e) {
+      let status = e.currentTarget.dataset.status
+      let no = e.currentTarget.dataset.no
+      wx.navigateTo({
+        url: `/pages/orderStatus/orderStatus?status=${status}&no=${no}`,
+      })
     }
   }
 })

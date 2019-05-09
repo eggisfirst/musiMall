@@ -1,0 +1,12 @@
+<!--pages/orderStatus/orderStatus.wxml-->
+<view class='orderStatus-container'>
+  <view class='top-banner'>
+    <text class='rest-time' hidden='true'>剩余支付时间：10:30</text>
+    <text class='order-close' >订单已关闭</text>
+  </view>
+
+  <productLi />
+
+  <orderMsg orderMsg="{{orderMsg}}"/>
+
+</view>

@@ -4,16 +4,15 @@
     <block wx:if="{{!hasUserInfo && canIUse}}">
       <view class='via-box' >
         <button 
-          type='mini'
           open-type='getUserInfo'
           bindgetuserinfo='getUserInfo'>微信头像</button>  
       </view>
       <view class='tips-text'>点击获取微信头像昵称</view>
     </block>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      <image src="{{userInfo.gender == 2? '/images/index/girl.png': ''}}" class='gender'/>
+      <image src="{{userInfo.gender == 2? '/images/index/girl.png': '/images/index/boy.png'}}" class='gender'/>
     </block>
   </view>
 

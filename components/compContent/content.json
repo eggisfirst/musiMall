@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "productLi": "../productLi/productLi"
+    "productLi": "../productLi/productLi",
+    "orderLi": "../orderLi/orderLi"
   }
 }

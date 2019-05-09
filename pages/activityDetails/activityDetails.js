@@ -69,7 +69,7 @@ Page({
       showTips: e.detail.tips
     })
   },
-  //填出提示
+  //弹出提示
   clickBeginBtn(e) {
     this.setData({
       showTips: e.detail.tips

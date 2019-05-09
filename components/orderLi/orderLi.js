@@ -3,12 +3,15 @@ Component({
     //从父组件接收
     num: {
       type: String,
-      value: '0'
-      // observer(newVal) {
-      //   this.setData({
-      //     currentTab: newVal  //监听变化的时候
-      //   })
-      // }
+      value: '1'
+    },
+    type: {
+      type: String,
+      value: ''
+    },
+    status: {
+      type: String,
+      value: ''
     }
   },
   data: {

@@ -1,13 +1,11 @@
 /* components/compContent/content.wxss */
 .swiper {
   background: #efeff4;
-  height: 774rpx;
 
 }
 .swiper-item {
   overflow: scroll;
 }
-
 .noMore {
   font-size: 24rpx;
   color: #ccc;
@@ -15,4 +13,34 @@
   line-height: 48rpx;
   text-align: center;
   margin-top: 38rpx;
+}
+
+.orderList {
+  margin-top: 10rpx;
+  background: #fff;
+  border: none;
+}
+.orderList:last-of-type {
+  margin-bottom: 110rpx;
+}
+
+
+
+.noOrder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 143rpx;
+}
+.image {
+  width: 106rpx;
+  height: 106rpx;
+}
+.order-text {
+  color: #999;
+  font-size: 28rpx;
+  font-weight: 500;
+  line-height: 30rpx;
+  margin-top: 30rpx;
 }
