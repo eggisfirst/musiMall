@@ -22,7 +22,7 @@
       </view>
       <view class='orderLi-number'>
         <text class='now-price' wx:if="{{type == 'activity'}}">秒杀价：¥{{orderList.productPrice}}</text>
-        <text class='now-price' wx:else>原价：¥{{orderList.productPrice}}</text>
+        <text class='now-price' wx:else>总价：¥{{orderList.productPrice}}</text>
         <text class='number' wx:if="{{orderList.totalQuantity}}">x{{orderList.totalQuantity}}</text>
         <text class='number' wx:else>x{{num}}</text>
       </view>

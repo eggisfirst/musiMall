@@ -1,3 +1,5 @@
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
 Page({
   data: {
     imgUrls: [
@@ -26,6 +28,7 @@ Page({
   },
   //设置路由参数
   setQueryData(options) {
+    console.log(options.id)
     let data = {
       id: options.id,
       type: options.type,

@@ -14,11 +14,13 @@
   width: 200rpx;
   height: 200rpx;
   border-radius: 12rpx;
-  border: 1rpx solid #eee;
+  /* border: 1rpx solid #eee; */
 }
 .image {
   width: 200rpx;
   height: 200rpx;
+  border-radius: 12rpx;
+
 }
 
 .productLi-content {

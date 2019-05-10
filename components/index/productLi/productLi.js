@@ -4,7 +4,13 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    orderDetails: {
+      type: Object,
+      value: {},
+      observer(newVal){
+        console.log(newVal)
+      }
+    }
   },
 
   /**
@@ -20,8 +26,9 @@ Component({
   methods: {
     //参数问题
     toProductDetails() {
+      let id = this.properties.orderDetails.activityId
       wx.navigateTo({
-        url: '../../pages/activityDetails/activityDetails?type=0&id=1&maxlength=1'
+        url: `../../pages/activityDetails/activityDetails?type=0&id=${id}&maxlength=1`
       })
     }
   }

@@ -29,17 +29,17 @@
      <view class='msg-li' wx:if="{{status == 1 || status == 2 || status == 3}}">
       <text class='key'>付款时间</text>
       <text class='key-icon'>:</text>
-      <text class='value'>2019-03-15 12:30</text>
+      <text class='value'>{{orderDetails.payTime}}</text>
     </view>
      <view class='msg-li' wx:if="{{status == 2}}">
       <text class='key'>核销时间</text>
       <text class='key-icon'>:</text>
-      <text class='value'>2019-03-15 12:30</text>
+      <text class='value'>{{orderDetails.updateTime}}</text>
     </view>
      <view class='msg-li' wx:if="{{status == 4}}">
       <text class='key'>关闭时间</text>
       <text class='key-icon'>:</text>
-      <text class='value'>2019-03-15 12:30</text>
+      <text class='value'>{{orderDetails.updateTime}}</text>
     </view>
      <view class='msg-li'>
       <text class='key'>数量</text>

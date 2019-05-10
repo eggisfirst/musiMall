@@ -20,6 +20,10 @@ Component({
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
-   
+    timeTo(e) {
+      if (e.detail.timeTo) {
+        this.triggerEvent('timeTo', {timeTo: true})
+      }
+    }
   }
 })

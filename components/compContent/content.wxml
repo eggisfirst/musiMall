@@ -14,7 +14,7 @@
           data-maxlength='{{el.maxlength}}'
           data-producttype="{{el.productType}}"
           bindtap='toProductDetails'>
-          <productLi productType="{{el}}"/>
+          <productLi productType="{{el}}" bind:timeTo='timeTo'/>
         </view>
         <view class='noMore'>
           <text>没有更多了</text>

@@ -20,8 +20,8 @@ class IndexModel extends Request {
     return this.getData({
       url: 'smallprogram/getOrder',
       data: {
-        userMobileNumber: '18392001478',
-        status: status
+        userMobileNumber: '15626199257',
+        orderState: status
       }
     })
   }
@@ -31,6 +31,24 @@ class IndexModel extends Request {
       url: 'smallprogram/getOrderDetailsListByOrderNuber',
       data: {
         orderNumber: number
+      }
+    })
+  }
+  //获取活动商品列表  -1全部 0未开始 1进行中 2结束
+  getArtivityProductList(status) {
+    return this.getData({
+      url: 'smallprogram/getSecKill',
+      data: {
+        activityState: status
+      }
+    })
+  }
+  //获取活动商品详情
+  getArtivityProductDetails(id) {
+    return this.getData({
+      url: 'smallprogram/getSecKillAndProductByID',
+      data: {
+        id: id
       }
     })
   }

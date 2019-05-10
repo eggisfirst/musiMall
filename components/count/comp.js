@@ -15,8 +15,8 @@ Component({
   methods: {
     //倒计时  当开始时间大于等于现在的时间，开始倒计时。
     time() {
-      // let endTime = new Date('2019/05/10 15:51:59').getTime() + 1000;
-      let endTime = this.properties.endTime
+      let endTime = new Date('2019/05/10 13:13:10').getTime() + 1000;
+      // let endTime = this.properties.endTime
       let interval = null;
       interval = setInterval(() => {
         let remainingTime = endTime - Date.now(); // 剩余毫秒
@@ -29,7 +29,7 @@ Component({
           })
         } else {
           clearInterval(interval);
-          console.log(1111)
+          this.triggerEvent('timeTo',{timeTo: true})
         }
       }, 0);
     }

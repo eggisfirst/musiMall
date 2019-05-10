@@ -4,6 +4,10 @@ Component({
     queryData: {
       type: Object,
       value: ''
+    },
+    orderDetails: {
+      type: Object,
+      value: {}
     }
   },
 

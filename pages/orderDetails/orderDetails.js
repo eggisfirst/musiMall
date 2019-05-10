@@ -34,14 +34,16 @@ Page({
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
-    this.getOrderList()
+    this.getOrderList(options)
   },
   //获取订单列表
-  getOrderList() {
+  getOrderList(options) {
+    let status = options.index - 1
+    let index = options.index
     let list = this.data.contentlist
-    indexModel.getOrderList(-1).then(res => {
+    indexModel.getOrderList(status).then(res => {
       if(res.status == 1) {
-        list[0].orderList = res.data
+        list[index].orderList = res.data
         this.setData({
           contentlist: list
         })

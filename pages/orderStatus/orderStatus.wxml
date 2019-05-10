@@ -9,9 +9,12 @@
     <text class='order-close' wx:if="{{queryData.status == 3}}">订单已失效</text>
   </view>
 
-  <productLi />
+  <productLi orderDetails="{{orderDetails}}"/>
 
-  <hxBox wx:if="{{queryData.status == 1 || queryData.status == 2}}" queryData="{{queryData}}"/>
+  <hxBox 
+    wx:if="{{queryData.status == 1 || queryData.status == 2}}" 
+    queryData="{{queryData}}"
+    orderDetails="{{orderDetails}}"/>
 
   <orderMsg queryData="{{queryData}}" orderDetails="{{orderDetails}}"/>
 

@@ -7,7 +7,10 @@ Component({
     },
     contentlist: {
       type: Array,
-      value: []
+      value: [],
+      observer(newVal) {
+        this.initHeight(newVal)
+      }
     }
   },
   data: {
@@ -15,21 +18,28 @@ Component({
     orderHeight: ''
   }, 
   ready() {
-    this.initHeight()
+    // this.initHeight()
   },
   methods: {
     //初始化页面高度
-    initHeight() {
-      let activity = this.properties.contentlist[0].productList
-      let order = this.properties.contentlist[0].orderList
+    initHeight(newVal) {
+      let activity = newVal[0].productList
+      let order = newVal[0].orderList
+      console.log(order)
       if(activity && activity.length > 0) {
         this.setData({
           orderHeight: 'height: 774rpx'
         })
-      }else if(order && order.length > 0) {
-        this.setData({
-          orderHeight: 'height: 100vh'
-        })
+      }else if(order) {
+        if (order.length > 0) {
+          this.setData({
+            orderHeight: 'height: 100vh'
+          })
+        }else {
+          this.setData({
+            orderHeight: 'height: 774rpx'
+          })
+        }
       }
     },
     //滑动事件
@@ -61,6 +71,11 @@ Component({
       wx.navigateTo({
         url: `/pages/orderStatus/orderStatus?status=${status}&no=${no}`,
       })
+    },
+    //活动到时
+    timeTo(e) {
+      if(e.detail.timeTo) {
+      }
     }
   }
 })

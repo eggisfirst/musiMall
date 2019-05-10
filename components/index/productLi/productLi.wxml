@@ -1,16 +1,16 @@
 <!--components/index/productLi/productLi.wxml-->
 <view class='productLi-container' bindtap='toProductDetails'>
   <view class='pic-cover'>
-    <image class='image'/>
+    <image class='image' src='{{orderDetails.productImg}}'/>
   </view>
 
   <view class='productLi-content'>
     <view class='product-msg'>
-      <text class='name'>产品名称产品名称产品名称产品名称产品名称产品名称产品名称产品名称</text>
-      <text class='price'>原价：¥500</text>
+      <text class='name'>{{orderDetails.productName}}</text>
+      <text class='price'>原价：¥{{orderDetails.productOldPrice}}</text>
     </view>
     <view class='real-price'>
-      <text>秒杀价：¥100</text>
+      <text>秒杀价：¥{{orderDetails.productPrice}}</text>
     </view>
   </view>
 

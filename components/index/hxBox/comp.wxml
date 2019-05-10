@@ -10,11 +10,11 @@
   </view>
 
   <view class='content' wx:if="{{queryData.status == 1}}">
-    <text class='number'>2019 0323 0001</text>
-    <text class='deadline'>有效期至2019-03-21 12:00</text>
+    <text class='number'>{{orderDetails.consumeNumber}}</text>
+    <text class='deadline'>有效期至{{orderDetails.consumeEndtime}}</text>
   </view>
 
   <view class='content' wx:else>
-    <text class='number-delete'>2019 0323 0001</text>
+    <text class='number-delete'>{{orderDetails.consumeNumber}}</text>
   </view>
 </view>

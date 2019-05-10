@@ -38,7 +38,7 @@
           <text>¥{{productType.priceSpike}}</text>
         </view>
         <view class='count' wx:if="{{productType.count}}">
-          <count endTime="{{endTime}}"/>
+          <count endTime="{{endTime}}" bind:timeTo="timeTo"/>
         </view>
         <view  wx:if="{{productType.endDay}}" class='endDay'>
           <text>已结束</text>

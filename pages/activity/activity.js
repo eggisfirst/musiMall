@@ -98,7 +98,7 @@ Page({
     tipsText: '请先登录'
   },
   onLoad(options) {
-    this.getAdvertisement()
+    // this.getAdvertisement()
   },
   //获取首页轮播图
   getAdvertisement() {

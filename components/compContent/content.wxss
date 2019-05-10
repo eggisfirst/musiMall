@@ -1,7 +1,7 @@
 /* components/compContent/content.wxss */
 .swiper {
   background: #efeff4;
-
+  
 }
 .swiper-item {
   overflow: scroll;
