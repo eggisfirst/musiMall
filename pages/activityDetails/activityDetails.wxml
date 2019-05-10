@@ -1,11 +1,11 @@
 <!--pages/activityDetails/activityDetails.wxml-->
 <view class='detail-container'>
-  <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
+  <banner imgUrls="{{productDetails.productImgs}}" swiperType="{{swiperType}}"/>
 
   <view class='price-box'>
     <view class='price'>
-      <text class='now-price'>¥1.00 </text>
-      <text class='real-price'>¥500.00</text>
+      <text class='now-price'>¥{{productDetails.productPrice}} </text>
+      <text class='real-price'>¥{{productDetails.productOldPrice}}</text>
     </view>
     <view class='activity-count'>
       <text class='count-title' style='{{queryData.type == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
@@ -35,17 +35,17 @@
   </view>
 
   <view class='product-name'>
-    <text>歌迪亚床架</text>
+    <text>{{productDetails.productName}}</text>
   </view>
 
   <view class='product-descript'>
     <view class='content-box'>
-      <text>产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述产品描述</text>
+      <text>{{productDetails.productDescription}}</text>
     </view>
   </view>
 
   <view class='product-size'>
-    <text>产品规格： 张</text>
+    <text>产品规格： {{productDetails.productSpecification}}</text>
   </view>
 
   <view class='product-details'>

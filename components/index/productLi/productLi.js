@@ -8,7 +8,7 @@ Component({
       type: Object,
       value: {},
       observer(newVal){
-        console.log(newVal)
+        // console.log(newVal)
       }
     }
   },

@@ -25,6 +25,18 @@ Page({
   onLoad(options) {
     this.setQueryData(options)
     this.initData(options)
+    this.getData(options.id)
+  },
+  //获取活动详情数据
+  getData(id) {
+    indexModel.getArtivityProductDetails(id).then(res => {
+      console.log(res)
+      if(res.status == 1) {
+        this.setData({
+          productDetails: res.productDetails
+        })
+      }
+    })
   },
   //设置路由参数
   setQueryData(options) {

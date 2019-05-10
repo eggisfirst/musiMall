@@ -3,7 +3,12 @@ Component({
   properties: {
     tabVal: {
       type: String,//类型
-      value: '0'//默认值
+      value: '0',//默认值,
+      observer(newVal) {
+        this.setData({
+          index: newVal
+        })
+      }
     },
     contentlist: {
       type: Array,
@@ -24,20 +29,19 @@ Component({
     //初始化页面高度
     initHeight(newVal) {
       let activity = newVal[0].productList
-      let order = newVal[0].orderList
-      console.log(order)
-      if(activity && activity.length > 0) {
+      let index = this.data.index
+      let order;
+      if(index) {
+        order = newVal[index].orderList
+      }
+      if(activity && activity.length > 0) { //活动首页
         this.setData({
           orderHeight: 'height: 774rpx'
         })
-      }else if(order) {
+      } else if (index && order) { //订单页面
         if (order.length > 0) {
           this.setData({
             orderHeight: 'height: 100vh'
-          })
-        }else {
-          this.setData({
-            orderHeight: 'height: 774rpx'
           })
         }
       }

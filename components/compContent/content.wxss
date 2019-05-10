@@ -1,7 +1,7 @@
 /* components/compContent/content.wxss */
 .swiper {
   background: #efeff4;
-  
+  min-height: 774rpx;
 }
 .swiper-item {
   overflow: scroll;
