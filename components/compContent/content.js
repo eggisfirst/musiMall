@@ -10,13 +10,15 @@ Component({
         })
       }
     },
-    contentlist: {
+    contenList: {
       type: Array,
       value: [],
       observer(newVal) {
         this.initHeight(newVal)
       }
-    }
+    },
+    list: Array,
+    type:String
   },
   data: {
     current: 0,
@@ -28,15 +30,15 @@ Component({
   methods: {
     //初始化页面高度
     initHeight(newVal) {
-      let activity = newVal[0].productList
+      let activity = this.properties.type
       let index = this.data.index
       let order;
-      if(index) {
-        order = newVal[index].orderList
-      }
-      if(activity && activity.length > 0) { //活动首页
+      // if(index) {
+      //   order = newVal[index].orderList
+      // }
+      if (activity == 'activity') { //活动首页
         this.setData({
-          orderHeight: 'height: 774rpx'
+          orderHeight: 'height: 70vh'
         })
       } else if (index && order) { //订单页面
         if (order.length > 0) {
@@ -59,12 +61,9 @@ Component({
       let tips = getApp().globalData.login
       this.triggerEvent('setLoginTips', { loginTips: tips});
       if(tips) {
-        let type = e.currentTarget.dataset.type
-        let id = e.currentTarget.dataset.index
-        let maxlength = e.currentTarget.dataset.maxlength
-        // let productType = e.currentTarget.dataset.producttype
+        let id = e.currentTarget.dataset.id
         wx.navigateTo({
-          url: `../../pages/activityDetails/activityDetails?type=${type}&id=${id}&maxlength=${maxlength}`
+          url: `../../pages/activityDetails/activityDetails?id=${id}`
         })
       }
     },

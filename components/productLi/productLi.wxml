@@ -1,46 +1,49 @@
  <view class='productLi-container'>
     <view class='product-cover'>
-      <!-- <image mode='widthFix' /> -->
+      <image class='image' src='{{productType.productImg}}'/>
     </view>
 
     <view class='product-content'>
-      <text class='product-name'>{{productType.name}}</text>
-      <text class='product-price'>原价: ¥{{productType.price}}</text>
+      <text class='product-name'>{{productType.productName}}</text>
+      <text class='product-price'>原价: ¥{{productType.productOldPrice}}</text>
 
-      <view class='product-slider' wx:if="{{productType.slider}}">
+      <view class='product-slider' wx:if="{{productType.activityState != 0}}">
         <!-- <view class='slider' >
           <view class='slider-after' 
             wx:if="{{productType.precent>0}}" 
             style="width:{{progressWidth}}rpx"></view>
         </view> -->
         <progress 
-          percent="{{productType.precent}}" 
+          percent="{{percent}}" 
           border-radius= '50'
           stroke-width='6'
           backgroundColor='#ccc'
           activeColor='#ff3701'
           style='border-radius:7rpx;overflow:hidden' />
         <view class='slider-progress'>
-          <text>{{productType.precent}}%</text>
-          <text>已抢{{productType.robbed}}件</text>
+          <text>{{percent}}%</text>
+          <text>已抢{{productType.stock - productType.onsaleStock}}件</text>
         </view>
       </view>
 
-      <view class='upcomingRob' wx:if="{{!productType.slider}}">
-        <text>限量50件</text>
+      <view class='upcomingRob' wx:if="{{productType.activityState == 0}}">
+        <text>限量{{productType.stock}}件</text>
         <text> | </text>
-        <text>3月30日</text>
-        <text>09: 00开始</text>
+        <text>{{time}}</text>
+        <text>开始</text>
       </view>
       <view class='product-count'>
         <view class='price'>
           <text>秒杀价：</text>
-          <text>¥{{productType.priceSpike}}</text>
+          <text>¥{{productType.productPrice}}</text>
         </view>
-        <view class='count' wx:if="{{productType.count}}">
-          <count endTime="{{endTime}}" bind:timeTo="timeTo"/>
+        <view class='count' wx:if="{{productType.activityState == 1}}">
+          <count 
+            endTime="{{productType.endTime}}" 
+            startTime="{{productType.startTime}}" 
+            bind:timeTo="timeTo"/>
         </view>
-        <view  wx:if="{{productType.endDay}}" class='endDay'>
+        <view  wx:if="{{productType.activityState == 2}}" class='endDay'>
           <text>已结束</text>
         </view>
 

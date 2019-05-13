@@ -1,18 +1,14 @@
   <swiper class="swiper" style="{{orderHeight}}" current='{{tabVal}}' duration="200" bindchange="swiperChange">
     <swiper-item class='swiper-item'
-      wx:for="{{contentlist}}" 
+      wx:for="{{list}}" 
       wx:key="{{tab}}" >
-      <block  wx:if="{{item.productList}}">
+      <block  wx:if="{{contenList}}">
         <!-- 活动首页 -->
         <view 
-          wx:for='{{item.productList}}' 
+          wx:for='{{contenList}}' 
           wx:for-item="el"
           wx:key="{{name}}"
-          wx:for-index='myindex'
-          data-index='{{myindex}}'
-          data-type="{{item.tab}}"
-          data-maxlength='{{el.maxlength}}'
-          data-producttype="{{el.productType}}"
+          data-id="{{el.id}}"
           bindtap='toProductDetails'>
           <productLi productType="{{el}}" bind:timeTo='timeTo'/>
         </view>

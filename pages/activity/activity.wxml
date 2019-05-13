@@ -2,7 +2,9 @@
   <banner imgUrls="{{imgUrls}}" swiperType="{{swiperType}}"/>
   <compTab bind:getCurrentTab="getCurrentTab" current="{{current}}" list="{{list}}"/>
   <compContent 
-    contentlist="{{contentlist}}"
+    type="activity"
+    contenList="{{contenList}}"
+    list="{{list}}"
     tabVal="{{tabVal}}" 
     bind:setCurrentTab="setCurrentTab" 
     loginTips="{{loginTips}}"

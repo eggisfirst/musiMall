@@ -1,9 +1,5 @@
 Component({
   properties: {
-    queryData: {
-      type: Object,
-      value: ''
-    },
     productDetails: Object
   },
   data: {
@@ -12,19 +8,23 @@ Component({
     buyNum: 1
   },
   ready() {
-    let details = this.properties.productDetails
-    if ( details && details.everybodyNum == 1) {
-      this.setData({
-        addColor: 'background: #efeff4'
-      })
-    }
+    this.initNumColor()
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
+    //初始化加号的颜色
+    initNumColor() {
+      let details = this.properties.productDetails
+      if (details && details.everybodyNum == 1) {
+        this.setData({
+          addColor: 'background: #efeff4'
+        })
+      }
+    },
     //提交订单
     comfirm() {
       this.triggerEvent('closeSelectNum', { status: true });
-      let id = this.properties.queryData.id
+      let id = this.properties.productDetails.id
       let num = this.data.buyNum
       wx.navigateTo({
         url: `/pages/order/order?id=${id}&num=${num}`
@@ -36,24 +36,26 @@ Component({
     },
     //减少
     cutNumber() {
-      let num = this.properties.productDetails.everybodyNum - 1
-      if(num < 1) {
+      let num = this.properties.productDetails.everybodyNum 
+      let buyNum = this.data.buyNum - 1
+      if (buyNum < 1) {
         return
       }
-      this.setCutColor(num)
-      this.setAddColor(num)
+      this.setCutColor(buyNum)
+      this.setAddColor(buyNum)
       this.setData({
         buyNum
       })
     },
     //添加
     addNumber() {
-      let num = this.properties.productDetails.everybodyNum + 1
-      if (num > this.properties.productDetails.everybodyNum) {
+      let num = this.properties.productDetails.everybodyNum
+      let buyNum = this.data.buyNum + 1
+      if (buyNum > this.properties.productDetails.everybodyNum) {
         return
       }
-      this.setCutColor(num)
-      this.setAddColor(num)
+      this.setCutColor(buyNum)
+      this.setAddColor(buyNum)
       this.setData({
         buyNum
       })
@@ -64,7 +66,7 @@ Component({
         this.setData({
           cutColor: 'background: #fff'
         })
-      }else {
+      }else if(num <= 1){
         this.setData({
           cutColor: 'background: #efeff4'
         })

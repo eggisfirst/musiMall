@@ -10,7 +10,7 @@
       <text>活动规则</text>
     </view>
   </view>
-  <view class='tab-right'>
+  <view class='tab-right'  wx:if="{{activityState != 2}}">
     <view class='btn-box'  wx:if="{{activityState == 0}}" catchtap='clickBeginBtn'>
       <image class='image-start' src='/images/activityDetails/time.png' />
       <text>即将开始</text>
@@ -22,7 +22,7 @@
     </view>
   </view>
 
-  <view class='tab-right-end' wx:if="{{activityState == 2}}">
+  <view class='tab-right-end' wx:else>
     <view class='btn-box-end'>
       <text>活动已结束</text>
     </view>

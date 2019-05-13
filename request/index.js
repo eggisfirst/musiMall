@@ -41,7 +41,9 @@ class IndexModel extends Request {
     return this.getData({
       url: 'smallprogram/getSecKill',
       data: {
-        activityState: status
+        activityState: status,
+        page: 1,
+        limit: 10
       }
     })
   }

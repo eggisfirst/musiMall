@@ -3,12 +3,9 @@ const indexModel = new IndexModel()
 var WxParse = require('../../wxParse/wxParse.js');
 // var Html2wxml = require('../../html2wxml-template/html2wxml.js');
 import { b64DecodeUnicode } from '../../utils/index.js'
+
 Page({
   data: {
-    imgUrls: [
-      '/images/activityDetails/bed.png',
-      '/images/activityDetails/bed1.png'
-    ],
     swiperType: {
       height: '573',
       indicatorDots: true,
@@ -24,42 +21,55 @@ Page({
     showTips: true,
     tipsText: '活动尚未开始',
     showSelect: true,
-    endTime: '1557399093826'
+    html: '',
+    percent: 0,
+    progressLeft: 0
   },
   onLoad(options) {
     this.getData(options.id)
-    this.setQueryData(options)
-    this.initData(options)
   },
   //获取活动详情数据
   getData(id) {
     indexModel.getArtivityProductDetails(id).then(res => {
-      // console.log(res)
       if(res.status == 1) {
-        let html = b64DecodeUnicode(res.data.productDetails)
-        this.setData({
-          productDetails: res.data,
-          html: html
-        })
+        this.initPercent(res.data)
+        if (res.data.productDetails) {
+          let html = b64DecodeUnicode(res.data.productDetails)
+          this.setData({
+            productDetails: res.data,
+            html: html
+          })
+          WxParse.wxParse('article', 'html', html, this, 5);
+        }else {
+          this.setData({
+            productDetails: res.data
+          })
+        }
         this.initData(res.data.activityState)
-        // console.log(html)
         // Html2wxml.html2wxml('article', html, this, 5);
-        WxParse.wxParse('article', 'html', html, this, 5);
       }
     })
   },
-  //设置路由参数
-  setQueryData(options) {
-    // console.log(options.id)
-    let data = {
-      id: options.id,
-      type: options.type,
-      productType: options.productType,
-      maxlength: options.maxlength
+  //初始化进度条
+  initPercent(data) {
+    if(!data) {
+      return
     }
-    this.setData({
-      queryData: data
-    })
+    let sell = data.stock - data.onsaleStock
+    if(sell <= 0) {
+      this.setData({
+        progressLeft: 100
+      })
+      return
+    }else {
+      let percent = (sell / data.stock).toFixed()*100
+      let progressLeft = percent*5.9
+      this.setData({
+        percent,
+        progressLeft
+      })
+    }
+
   },
   //判断是哪个类型的页面
   initData(status) {

@@ -1,25 +1,40 @@
+import {format} from '../../utils/index.js'
 Component({
   properties: {
     productType: {
       type: Object,
       value:{},
       observer(newVal) {
-        let precent = newVal.precent
-        this.setData({
-          progressWidth: precent*4.9
-        })
+        this.initPercent(newVal)
+        this.initStartTime(newVal)
       }
     }
   },
   data: {
-    progressWidth: 0,
-    endTime: '1557399093826'
+    progressWidth: 0
   },
   ready() {
     // console.log(this.properties.current)
   },
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
+    initPercent(newVal) {
+      let percent;
+      if (newVal.stock == newVal.onsaleStock) {
+        percent = 0
+      } else {
+        percent = ((newVal.stock - newVal.onsaleStock) / newVal.stock).toFixed()
+      }
+      this.setData({
+        progressWidth: percent * 490,
+        percent: percent * 100
+      })
+    },
+    initStartTime(newVal) {
+      let time = format(Number(newVal.startTime))
+      this.setData({
+        time
+      })
+    },
     timeTo(e) {
       if (e.detail.timeTo) {
         this.triggerEvent('timeTo', {timeTo: true})

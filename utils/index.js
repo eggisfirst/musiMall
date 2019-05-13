@@ -15,3 +15,19 @@ function changeImgStyle(html) {
   });
   return newContent;
 }
+
+
+function format(startTime) {
+  var time = new Date(startTime);
+  var mouth = time.getMonth() + 1;
+  var day = time.getDate();
+  var hour = time.getHours();
+  var minute = time.getMinutes();
+  mouth = mouth < 10 ? 0 + mouth : mouth
+  day = day < 10 ? 0 + day : day
+  hour = hour < 10 ? 0 + hour : hour
+  minute = minute < 10 ? 0 + minute : minute
+  return mouth + '月' + day + '日' + hour + ':' + minute
+}
+
+export {format}

@@ -13,26 +13,27 @@
     <view class='activity-count'>
       <text class='count-title' style='{{productDetails.activityState == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
       <view class='count' wx:if="{{productDetails.activityState != 2}}">
-        <count endTime="{{endTime}}"/>
+        <count endTime="{{productDetails.endTime}}"/>
       </view>
     </view>
   </view>
 
   <view class='activity-progress'>
     <view class='progress-box'>
-      <text>0</text>
+      <text class='p-text'>0</text>
       <progress 
         class='progress'
-        percent="60" 
+        percent="{{percent}}" 
         stroke-width='6'
         backgroundColor='#ccc'
         activeColor='#ff3701'
         style='border-radius:7rpx;overflow:hidden'/>
-      <text>{{productDetails.stock}}</text>
+      <text class='p-text'>{{productDetails.stock}}</text>
     </view>
     <!-- 动态更改left的值 -->
-    <view class='hasRobbed' style='left: calc(66% - 105rpx)'>  
-      <text>已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
+    <view class='hasRobbed' style='left: {{progressLeft}}rpx'>  
+      <!-- <image class='image-robbed' src='/images/activityDetails/robbed.png'/> -->
+      <text class='text'>已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
     </view>
     
   </view>
@@ -41,8 +42,8 @@
     <text>{{productDetails.productName}}</text>
   </view>
 
-  <view class='product-descript'>
-    <view class='content-box'>
+  <view class='product-descript' >
+    <view class='content-box' wx:if="{{productDetails.productDescription}}">
       <text>{{productDetails.productDescription}}</text>
     </view>
   </view>
@@ -80,7 +81,6 @@
   <view class='selectNum-box' hidden='{{showSelect}}'>
     <selectNum class='selectNum' 
       productDetails="{{productDetails}}"
-      queryData="{{queryData}}"
       bind:closeSelectNum="closeSelectNum"/>
   </view>
 </view>

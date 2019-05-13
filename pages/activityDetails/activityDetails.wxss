@@ -62,29 +62,33 @@
   padding: 25rpx;
   padding-top: 68rpx;
   box-sizing: border-box;
+  height: 140rpx;
 }
 .progress {
   width: 70%;
 }
-.progress-box text {
+.p-text {
   font-size:24rpx;
-  color: #909090; 
+  color: #909090;
+  display: inline-block;
+  width: 100rpx;
+  text-align: center;
 }
-
 .hasRobbed {
   position: absolute;
   top: 20rpx;
-  /* left: 50%; */
-  background: #ff3701;
   border-radius:7rpx;
-  height: 40rpx;
+  height: 50rpx;
   display: flex;
   align-items: center; 
+  justify-content: center;
+  box-sizing: border-box;
+  /* overflow: hidden; */
 }
 .hasRobbed::after{
   position: absolute;
   left: 15rpx;
-  bottom: -15rpx;
+  bottom: -5rpx;
   content: "";
   display: block;
   border-top: 10rpx solid #ff3701;
@@ -92,9 +96,21 @@
   border-bottom: 10rpx solid transparent;
   border-left: 10rpx solid transparent;
 }
-.hasRobbed text {
+/* .image-robbed {
+  width: 140rpx;
+  height: 40rpx;
+} */
+.text {
   color: #fff;
   font-size: 24rpx;
+  background: #ff3701;
+  border-radius: 2rpx;
+  display: inline-block;
+  height: 30rpx;
+  line-height: 30rpx;
+  /* position: absolute;
+  left: 0;
+  top: 0 */
 }
 
 .product-name {

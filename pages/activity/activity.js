@@ -24,83 +24,20 @@ Page({
       name: '抢购结束',
       tab: 2,
     }],
-    contentlist: [{
-      name: 'tab1',
-      tab: 0,
-      productList: [
-        {
-          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
-          productType: 0,
-          imgUrl: '',
-          price: 500,
-          slider: true,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          count: true,
-          countHour: '01',
-          countMin: '05',
-          countSec: '30',
-          maxlength: 1,
-        }, {
-          name: '优惠卷名称',
-          productType: 1,
-          imgUrl: '',
-          price: 500,
-          slider: true,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          count: true,
-          countHour: '01',
-          countMin: '05',
-          countSec: '30',
-          maxlength: 2,
-        }
-      ],
-    }, {
-      name: 'tab2',
-      tab: 1,
-      productList: [
-        {
-          name: '产品名称产品名称产品名称产品名称产品名称产品名称',
-          productType: 0,
-          price: 500,
-          slider: false,
-          precent: 0,
-          robbed: 0,
-          priceSpike: 100,
-          piece: 50,
-          count: false,
-          startDay: '3月30日',
-          startTime: '09:00'
-        }
-      ],
-    }, {
-      name: 'tab3',
-      tab: 2,
-      productList: [
-        {
-          name: '产品名称',
-          productType: 0,
-          price: 500,
-          slider: true,
-          precent: 10,
-          robbed: 8,
-          priceSpike: 100,
-          piece: 50,
-          count: false,
-          endDay: true
-        }
-      ],
-    }],
+    contenList: [],
     showTips: true,
     tipsText: '请先登录'
   },
   onLoad(options) {
     this.getAdvertisement()
-    this.getArtivityProductList()
-    
+    this.initData()
+  },
+  //初始的时候选择正在抢购
+  initData() {
+    if (getApp().globalData.key) {
+      getApp().globalData.key = false
+      this.getArtivityProductList(1)
+    }
   },
   //获取首页轮播图
   getAdvertisement() {
@@ -112,22 +49,33 @@ Page({
       }
     })
   },
-  getArtivityProductList() {
-    indexModel.getArtivityProductList(1).then(res => {
-      console.log(res)
+  //获取活动列表
+  getArtivityProductList(status) {
+    indexModel.getArtivityProductList(status).then(res => {
+      if(res.status) {
+        this.setData({
+          contenList: res.data
+        })
+      }
     })
   },
   //tab组件触发
   getCurrentTab(e) {
+    let index = e.detail.currentTab
     this.setData({
-      tabVal: e.detail.currentTab
+      tabVal: index
     })
+    let status = index == 0 ? 1 : index == 1? 0 : 2
+    this.getArtivityProductList(status)
   },
   //content组件触发
   setCurrentTab(e) {
+    let index = e.detail.current
     this.setData({
-      current: e.detail.current
+      current: index
     })
+    let status = index == 0 ? 1 : index == 1 ? 0 : 2
+    this.getArtivityProductList(status)
   },
   //打开提示
   setLoginTips(e) {
