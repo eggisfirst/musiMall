@@ -22,7 +22,7 @@
   flex-direction: column;
   align-items: center;
 }
-.toActivity image,.tab-rules image {
+.image {
   width: 50rpx;
   height: 50rpx;
   margin-bottom: 5rpx;
@@ -61,7 +61,7 @@
   align-items: center;
   margin-top: -66rpx;
 }
-.btn-box image {
+.image-start {
   width: 36rpx;
   height: 36rpx;
   margin-right: 5rpx;
@@ -72,7 +72,7 @@
   align-items: center;
   margin-top: -66rpx;
 }
-.btn-box-buy image{
+.image-buy{
   width: 40rpx;
   height: 40rpx;
   margin-right: 5rpx;

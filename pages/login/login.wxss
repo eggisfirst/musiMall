@@ -5,7 +5,7 @@
   overflow: hidden;
   position: relative
 }
-.login-container image{
+.image{
   width: 750rpx;
 } 
 .login-btn {

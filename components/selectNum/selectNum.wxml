@@ -1,25 +1,25 @@
 <!--components/selectNum/selectNum.wxml-->
 <view class='selectNum-container'>
   <view class='closeBtn' bindtap='closeBtn'>
-    <image src='/images/activityDetails/closeBtn.png'/>
+    <image class='image-close' src='/images/activityDetails/closeBtn.png'/>
   </view>
   <view class='selectNum-content'>
     <view class='content'>
       <view class='content-cover'>
-        <!-- <image /> -->
+        <image class='image-cover' src='{{productDetails.productImgs[0]}}'/>
       </view>
       <view class='content-product'>
-        <view class='product-name'>产品名称</view>
+        <view class='product-name'>{{productDetails.productName}}</view>
         <view class='product-descript'>
-          <text>180cm*180cm</text>
+          <text class='text'>{{productDetails.productSpecification}}</text>
         </view>
-        <view class='product-number'>库存29件</view>
+        <view class='product-number'>库存{{productDetails.onsaleStock}}件</view>
         <view class='select-number'>
-          <text class='now-price'>¥1.00</text>
+          <text class='now-price'>¥{{productDetails.productPrice}}</text>
           <!-- background: #efeff4; -->
           <view class='select-box'>
             <view class='cut' bindtap='cutNumber' style='{{cutColor}}'>一</view>
-            <view class='number'>{{num}}</view>
+            <view class='number'>{{buyNum}}</view>
             <view class='add' bindtap='addNumber' style='{{addColor}}'>+</view>
           </view>
         </view>

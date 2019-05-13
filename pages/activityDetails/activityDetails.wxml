@@ -1,5 +1,7 @@
-<!--pages/activityDetails/activityDetails.wxml-->
 <import src="../../wxParse/wxParse.wxml"/>
+<!-- <import src="../../html2wxml-template/html2wxml.wxml" /> -->
+
+
 <view class='detail-container'>
   <banner imgUrls="{{productDetails.productImgs}}" swiperType="{{swiperType}}"/>
 
@@ -9,8 +11,8 @@
       <text class='real-price'>¥{{productDetails.productOldPrice}}</text>
     </view>
     <view class='activity-count'>
-      <text class='count-title' style='{{queryData.type == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
-      <view class='count' wx:if="{{queryData.type != 2}}">
+      <text class='count-title' style='{{productDetails.activityState == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
+      <view class='count' wx:if="{{productDetails.activityState != 2}}">
         <count endTime="{{endTime}}"/>
       </view>
     </view>
@@ -25,12 +27,12 @@
         stroke-width='6'
         backgroundColor='#ccc'
         activeColor='#ff3701'
-        style='border-radius:7rpx;overflow:hidden' />
-      <text>50</text>
+        style='border-radius:7rpx;overflow:hidden'/>
+      <text>{{productDetails.stock}}</text>
     </view>
     <!-- 动态更改left的值 -->
     <view class='hasRobbed' style='left: calc(66% - 105rpx)'>  
-      <text>已抢25件</text>
+      <text>已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
     </view>
     
   </view>
@@ -52,6 +54,7 @@
   <view class='product-details'>
     <text class='title'>产品详情</text>
     <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <!-- <template is="html2wxml" data="{{wxmlData:article}}" /> -->
   </view>
 
   <!-- <view class='bottomTab'>
@@ -61,7 +64,8 @@
     <bottomTab 
       bind:clickBeginBtn='clickBeginBtn'
       bind:openSelectNum='openSelectNum' 
-      queryData="{{queryData}}"
+      activityState="{{productDetails.activityState}}"
+      regulation="{{productDetails.regulation}}"
       />
   </view>
 
@@ -75,6 +79,7 @@
 
   <view class='selectNum-box' hidden='{{showSelect}}'>
     <selectNum class='selectNum' 
+      productDetails="{{productDetails}}"
       queryData="{{queryData}}"
       bind:closeSelectNum="closeSelectNum"/>
   </view>

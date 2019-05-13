@@ -1,6 +1,7 @@
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
 var WxParse = require('../../wxParse/wxParse.js');
+// var Html2wxml = require('../../html2wxml-template/html2wxml.js');
 import { b64DecodeUnicode } from '../../utils/index.js'
 Page({
   data: {
@@ -16,7 +17,8 @@ Page({
       autoplay: false,
       interval: 3000,
       duration: 1000,
-      circular: true
+      circular: true,
+      html: ''
     },
     // showRules: true,
     showTips: true,
@@ -25,27 +27,30 @@ Page({
     endTime: '1557399093826'
   },
   onLoad(options) {
+    this.getData(options.id)
     this.setQueryData(options)
     this.initData(options)
-    this.getData(options.id)
   },
   //获取活动详情数据
   getData(id) {
     indexModel.getArtivityProductDetails(id).then(res => {
-      console.log(res)
+      // console.log(res)
       if(res.status == 1) {
+        let html = b64DecodeUnicode(res.data.productDetails)
         this.setData({
-          productDetails: res.data
+          productDetails: res.data,
+          html: html
         })
-        let a = b64DecodeUnicode(res.data.productDetails)
-        console.log(111,a)
-        WxParse.wxParse('article', 'html', a, this, 5);
+        this.initData(res.data.activityState)
+        // console.log(html)
+        // Html2wxml.html2wxml('article', html, this, 5);
+        WxParse.wxParse('article', 'html', html, this, 5);
       }
     })
   },
   //设置路由参数
   setQueryData(options) {
-    console.log(options.id)
+    // console.log(options.id)
     let data = {
       id: options.id,
       type: options.type,
@@ -57,16 +62,16 @@ Page({
     })
   },
   //判断是哪个类型的页面
-  initData(options) {
-    if (options.type == 0) {
-      this.setData({
-        priceText: '限时秒杀'
-      })
-    } else if (options.type == 1) {
+  initData(status) {
+    if (status == 0) {
       this.setData({
         priceText: '即将开始'
       })
-    } else if (options.type == 2) {
+    } else if (status == 1) {
+      this.setData({
+        priceText: '限时秒杀'
+      })
+    } else if (status == 2) {
       this.setData({
         priceText: '活动已结束'
       })

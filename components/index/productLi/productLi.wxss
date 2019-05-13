@@ -60,7 +60,7 @@
   display: flex;
   align-items: center;
 }
-.right-icon image {
+.image-icon {
   width:30rpx;
   height: 30rpx; 
 }

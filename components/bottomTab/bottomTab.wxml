@@ -2,27 +2,27 @@
 <view class='tab-box'>
   <view class='tab-left'>
     <view class='toActivity' bindtap='toActivity'>
-      <image src='/images/activityDetails/activity.png' />
+      <image class='image' src='/images/activityDetails/activity.png' />
       <text>秒杀活动</text>
     </view>
     <view class='tab-rules' bindtap='showRules'>
-      <image src='/images/activityDetails/rules.png' />
+      <image class='image' src='/images/activityDetails/rules.png' />
       <text>活动规则</text>
     </view>
   </view>
-  <view class='tab-right'   wx:if="{{queryData.type != 2}}">
-    <view class='btn-box' wx:if="{{queryData.type == 1}}" catchtap='clickBeginBtn'>
-      <image src='/images/activityDetails/time.png' />
+  <view class='tab-right'>
+    <view class='btn-box'  wx:if="{{activityState == 0}}" catchtap='clickBeginBtn'>
+      <image class='image-start' src='/images/activityDetails/time.png' />
       <text>即将开始</text>
     </view>
 
-    <view class='btn-box-buy' wx:if="{{queryData.type == 0}}" catchtap='buyBtn'>
-      <image src='/images/activityDetails/shopCar.png' />
+    <view class='btn-box-buy' wx:if="{{activityState == 1}}" catchtap='buyBtn'>
+      <image class='image-buy' src='/images/activityDetails/shopCar.png' />
       <text>立即抢购</text>
     </view>
   </view>
 
-  <view class='tab-right-end' wx:else>
+  <view class='tab-right-end' wx:if="{{activityState == 2}}">
     <view class='btn-box-end'>
       <text>活动已结束</text>
     </view>

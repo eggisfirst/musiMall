@@ -1,10 +1,8 @@
 Component({
   properties: {
-    //从父组件接收
-    queryData: {
-      type: Object,
-      value: ""
-    }
+    queryData: Object,
+    activityState: Number,
+    regulation: String
   },
   data: {
     
@@ -20,9 +18,10 @@ Component({
     },
     //弹出规则提示框
     showRules() {
+      // console.log(111,this.properties.regulation)
       wx.showModal({
         title: '活动规则',
-        content: '规则',
+        content: this.properties.regulation,
         confirmText: '知道了',
         showCancel: false,
         confirmColor: '#1a1a1a'

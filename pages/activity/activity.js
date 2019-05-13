@@ -99,6 +99,7 @@ Page({
   },
   onLoad(options) {
     this.getAdvertisement()
+    this.getArtivityProductList()
     
   },
   //获取首页轮播图
@@ -109,6 +110,11 @@ Page({
           imgUrls: res.data
         })
       }
+    })
+  },
+  getArtivityProductList() {
+    indexModel.getArtivityProductList(1).then(res => {
+      console.log(res)
     })
   },
   //tab组件触发

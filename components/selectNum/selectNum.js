@@ -3,15 +3,17 @@ Component({
     queryData: {
       type: Object,
       value: ''
-    }
+    },
+    productDetails: Object
   },
   data: {
-    num: 1,
     cutColor: 'background: #efeff4',
-    addColor: 'background: #fff'
+    addColor: 'background: #fff',
+    buyNum: 1
   },
   ready() {
-    if (this.properties.queryData.maxlength == 1) {
+    let details = this.properties.productDetails
+    if ( details && details.everybodyNum == 1) {
       this.setData({
         addColor: 'background: #efeff4'
       })
@@ -23,7 +25,7 @@ Component({
     comfirm() {
       this.triggerEvent('closeSelectNum', { status: true });
       let id = this.properties.queryData.id
-      let num = this.data.num
+      let num = this.data.buyNum
       wx.navigateTo({
         url: `/pages/order/order?id=${id}&num=${num}`
       })
@@ -34,26 +36,26 @@ Component({
     },
     //减少
     cutNumber() {
-      let num = this.data.num - 1
+      let num = this.properties.productDetails.everybodyNum - 1
       if(num < 1) {
         return
       }
       this.setCutColor(num)
       this.setAddColor(num)
       this.setData({
-        num
+        buyNum
       })
     },
     //添加
     addNumber() {
-      let num = this.data.num + 1
-      if (num > this.properties.queryData.maxlength) {
+      let num = this.properties.productDetails.everybodyNum + 1
+      if (num > this.properties.productDetails.everybodyNum) {
         return
       }
       this.setCutColor(num)
       this.setAddColor(num)
       this.setData({
-        num
+        buyNum
       })
     },
     //设置减号背景颜色
@@ -70,7 +72,7 @@ Component({
     },
     //设置加号背景颜色
     setAddColor(num) {
-      if (num >= this.properties.queryData.maxlength) {
+      if (num >= this.properties.productDetails.everybodyNum) {
         this.setData({
           addColor: 'background: #efeff4'
         })

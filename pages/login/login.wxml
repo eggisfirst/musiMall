@@ -1,6 +1,6 @@
 <!--pages/login/login.wxml-->
 <view class='login-container'>
-  <image src='/images/login/login.jpeg' mode='widthFix' />
+  <image class='image' src='/images/login/login.jpeg' mode='widthFix' />
   <view class='login-btn' bindtap='loginBtn'>
     <text>微信一键登录</text>
   </view>

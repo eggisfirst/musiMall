@@ -15,6 +15,6 @@
   </view>
 
   <view class='right-icon'>
-    <image src='/images/index/right-icon.png'/>
+    <image class='image-icon' src='/images/index/right-icon.png'/>
   </view>
 </view>

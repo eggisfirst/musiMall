@@ -53,6 +53,7 @@
 .activity-progress {
   position: relative;
   background-color: #fff;
+  width: 100%;
 }
 .progress-box {
   display: flex;
@@ -63,7 +64,7 @@
   box-sizing: border-box;
 }
 .progress {
-  width: 620rpx;
+  width: 70%;
 }
 .progress-box text {
   font-size:24rpx;

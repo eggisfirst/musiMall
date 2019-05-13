@@ -34,17 +34,17 @@ Page({
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
-    this.getOrderList(options)
+    this.getOrderList(options.index)
   },
   //获取订单列表
-  getOrderList(options) {
-    let status = options.index - 1
-    let index = options.index
+  getOrderList(index) {
+    let status = index - 1
+    let my_index = index
     let list = this.data.contentlist
     indexModel.getOrderList(status).then(res => {
-      console.log(res)
+      // console.log(res.data)
       if(res.status == 1) {
-        list[index].orderList = res.data.list
+        list[my_index].orderList = res.data.list
         this.setData({
           contentlist: list
         })
@@ -61,9 +61,12 @@ Page({
   },
   //tab组件触发
   getCurrentTab(e) {
+    let index = e.detail.currentTab
     this.setData({
-      tabVal: e.detail.currentTab
+      tabVal: index
     })
+    this.getOrderList(index)
+    // console.log(e.detail.currentTab)
   },
   //content组件触发
   setCurrentTab(e) {

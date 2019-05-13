@@ -15,7 +15,7 @@
   align-items: center;
   font-weight: 500;
 }
-.orderTab-title image {
+.image-title {
   width: 44rpx;
   height: 44rpx;
   margin-left: 31rpx;
@@ -45,7 +45,7 @@
   align-items: center;
   justify-content: center;
 }
-.tab-circle image {
+.image-tab {
   width: 50rpx;
   height: 50rpx;
 }
