@@ -1,14 +1,7 @@
 // components/index/orderMsg/comp.js
 Component({
   properties: {
-    queryData: {
-      type: Object,
-      value: {}
-    },
-    orderDetails: {
-      type: Object,
-      value: {}
-    }
+    orderDetails: Object
   },
   data: {
 
@@ -18,7 +11,8 @@ Component({
   },
   methods: {
     initTemplate() {
-      let status = this.properties.queryData.status
+      console.log(111,this.properties.orderDetails)
+      let status = this.properties.orderDetails.orderState
       this.setData({
         status
       })

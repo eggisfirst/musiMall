@@ -16,43 +16,26 @@ Page({
       name: '已核销',
       tab: 3,
     }],
-    contentlist: [
-      {
-        tab:0,
-        orderList: []
-      },{
-        tab:1,
-        orderList: []
-      },{
-        tab:2,
-        orderList: []
-      },{
-        tab:3,
-        orderList: []
-      }
-    ]
+    contentList: []
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
     this.getOrderList(options.index)
   },
   //获取订单列表
-  getOrderList(index) {
-    let status = index - 1
-    let my_index = index
-    let list = this.data.contentlist
-    indexModel.getOrderList(status).then(res => {
-      // console.log(res.data)
+  getOrderList(status) {
+    let index = status - 1
+    indexModel.getOrderList(index).then(res => {
       if(res.status == 1) {
-        list[my_index].orderList = res.data.list
         this.setData({
-          contentlist: list
+          contenList: res.data.list
         })
       }
     })
   },
   //判断第几个tab
   initQueryData(index) {
+    console.log(index)
     if(index) {
       this.setData({
         tabVal: index
@@ -70,8 +53,11 @@ Page({
   },
   //content组件触发
   setCurrentTab(e) {
+    let index = e.detail.current
     this.setData({
-      current: e.detail.current
+      current: index,
+      key: true
     })
+    this.getOrderList(index)
   },
 })

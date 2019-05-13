@@ -11,7 +11,7 @@ Component({
       }
     },
     contenList: {
-      type: Array,
+      type: null,
       value: [],
       observer(newVal) {
         this.initHeight(newVal)
@@ -31,17 +31,13 @@ Component({
     //初始化页面高度
     initHeight(newVal) {
       let activity = this.properties.type
-      let index = this.data.index
       let order;
-      // if(index) {
-      //   order = newVal[index].orderList
-      // }
       if (activity == 'activity') { //活动首页
         this.setData({
           orderHeight: 'height: 70vh'
         })
-      } else if (index && order) { //订单页面
-        if (order.length > 0) {
+      } else if(activity == 'order'){ //订单页面
+        if (this.properties.contenList && this.properties.contenList.length > 0) {
           this.setData({
             orderHeight: 'height: 100vh'
           })
@@ -69,10 +65,10 @@ Component({
     },
     //跳转订单详情页面
     toOrderStatus(e) {
-      let status = e.currentTarget.dataset.status
+      // let status = e.currentTarget.dataset.status
       let no = e.currentTarget.dataset.no
       wx.navigateTo({
-        url: `/pages/orderStatus/orderStatus?status=${status}&no=${no}`,
+        url: `/pages/orderStatus/orderStatus?no=${no}`,
       })
     },
     //活动到时

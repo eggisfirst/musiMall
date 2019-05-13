@@ -4,7 +4,9 @@
   <compContent 
     tabVal="{{tabVal}}" 
     bind:setCurrentTab="setCurrentTab" 
-    contentlist="{{contentlist}}"
+    contenList="{{contenList}}"
+    list="{{list}}"
+    type="order"
    />
 
 </view>

@@ -11,10 +11,8 @@ class Request {
         dataType: 'json',
         responseType: 'text',
         success: res => {
-          if (res.data.code == 0) {
+          if (res.data) {
             resolve(res.data)
-          } else {
-            this._showError()
           }
         },
         fail: err => {

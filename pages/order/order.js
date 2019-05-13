@@ -1,18 +1,18 @@
-// pages/order/order.js
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
+
 Page({
   data: {
 
   },
   onLoad: function (options) {
-    if(this.options.num) {
-      this.initData(options)
-    }
-    // console.log(options.id)
-    // console.log(options.num)
+    this.getData(options.num)
   },
-  initData(options) {
-    this.setData({
-      num: options.num
+  getData(num) {
+    indexModel.getOrderDetails(num).then(res => {
+      this.setData({
+        orderList:res.data
+      })
     })
   }
 })

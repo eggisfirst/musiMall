@@ -1,3 +1,6 @@
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
+
 Component({
   properties: {
     productDetails: Object
@@ -26,8 +29,21 @@ Component({
       this.triggerEvent('closeSelectNum', { status: true });
       let id = this.properties.productDetails.id
       let num = this.data.buyNum
-      wx.navigateTo({
-        url: `/pages/order/order?id=${id}&num=${num}`
+      this.sendOrder(id,num)
+    },
+    sendOrder(id, num) {
+      indexModel.comfirmOrder(id, num).then(res => {
+        console.log(res)
+        if(res.status == 1) {
+          wx.navigateTo({
+            url: `/pages/order/order?num=${res.orderNumber}`
+          })
+        }else {
+          wx.showToast({
+            title: '已达到最大限购数',
+            icon: 'none'
+          })
+        }
       })
     },
     //关闭弹框

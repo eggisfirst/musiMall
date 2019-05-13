@@ -1,18 +1,7 @@
 Component({
   properties: {
-    //从父组件接收
-    num: {
-      type: String,
-      value: '1'
-    },
-    type: {
-      type: String,
-      value: ''
-    },
-    orderList: {
-      type: Object,
-      value: {}
-    }
+    orderList: null,
+    type: String
   },
   data: {
    

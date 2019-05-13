@@ -1,7 +1,6 @@
-<!--pages/order/order.wxml-->
 <view class='order-container'>
-  <orderLi num="{{num}}" type="activity"/>
+  <orderLi orderList="{{orderList}}" type="activity"/>
   <view class='order-bottom'>
-    <orderBottom num="{{num}}"/>
+    <orderBottom orderList="{{orderList}}"/>
   </view>
 </view>

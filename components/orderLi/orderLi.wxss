@@ -40,6 +40,9 @@
   color: #1a1a1a;
   font-size: 30rpx;
   font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+   white-space:nowrap;
 }
 .orderLi-price {
   color: #909090;

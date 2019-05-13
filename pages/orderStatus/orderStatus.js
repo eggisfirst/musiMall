@@ -2,10 +2,6 @@
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     endTime: "1557399093826"
   },
@@ -14,7 +10,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.init(options)
+    // this.init(options)
     this.getOrderDetails(options.no)
   },
   init(options) {
@@ -38,18 +34,26 @@ Page({
   },
   //取消订单
   cancle() {
+    let number = this.data.orderDetails.orderNumber
     wx.showModal({
       title: '提示',
       content: '是否取消订单',
-      success(res) {
+      success:(res) => {
         //刷新页面数据
         if (res.confirm) {
-          wx.navigateBack({
-            delta: 1
-          })
+          this.cancleOrder(number)
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
+      }
+    })
+  },
+  cancleOrder(number) {
+    indexModel.cancleOrder(number).then(res => {
+      if(res.status == 1) {
+        wx.navigateBack({
+          delta: 1
+        })
       }
     })
   }

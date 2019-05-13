@@ -20,8 +20,8 @@ class IndexModel extends Request {
     return this.getData({
       url: 'smallprogram/getOrder',
       data: {
-        'userMobileNumber': '15626199257',
-        'orderState': status,
+        userMobileNumber: '15013999053',
+        orderState: status,
         page: 1,
         limit: 10
       }
@@ -53,6 +53,26 @@ class IndexModel extends Request {
       url: 'smallprogram/getSecKillAndProductByID',
       data: {
         id: id
+      }
+    })
+  }
+  //提交订单
+  comfirmOrder(id,num) {
+    return this.getData({
+      url: 'smallprogram/saveOrderAndDetails',
+      data: {
+        userMobileNumber: '15013999053',
+        activityId: id,
+        quantity: num
+      }
+    })
+  }
+  //取消订单
+  cancleOrder(number) {
+    return this.getData({
+      url: 'smallprogram/closeOrder',
+      data: {
+        orderNumber:number
       }
     })
   }
