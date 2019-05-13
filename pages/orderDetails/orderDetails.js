@@ -42,8 +42,9 @@ Page({
     let index = options.index
     let list = this.data.contentlist
     indexModel.getOrderList(status).then(res => {
+      console.log(res)
       if(res.status == 1) {
-        list[index].orderList = res.data
+        list[index].orderList = res.data.list
         this.setData({
           contentlist: list
         })

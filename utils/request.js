@@ -1,12 +1,13 @@
 class Request {
   baseUrl = 'http://10.11.8.228:8088/'
 
-  getData({ url, data = {}, method = "GET" }) {
+  getData({ url, data = {}, method = "post" }) {
     return new Promise((resolve, reject) => {
       wx.request({
         url: this.baseUrl + url,
         method: method,
         data: data,
+        header: method == 'post'? { 'content-type': 'application/x-www-form-urlencoded' } : {},
         dataType: 'json',
         responseType: 'text',
         success: res => {

@@ -14,6 +14,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options)
     this.init(options)
     this.getOrderDetails(options.no)
   },
@@ -27,7 +28,7 @@ Page({
     indexModel.getOrderDetails(number).then(res => {
       if(res.status == 1) {
         this.setData({
-          orderDetails: res.orderDetails
+          orderDetails: res.data
         })
       }
     })

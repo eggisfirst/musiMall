@@ -20,8 +20,10 @@ class IndexModel extends Request {
     return this.getData({
       url: 'smallprogram/getOrder',
       data: {
-        userMobileNumber: '15626199257',
-        orderState: status
+        'userMobileNumber': '15626199257',
+        'orderState': status,
+        page: 1,
+        limit: 10
       }
     })
   }

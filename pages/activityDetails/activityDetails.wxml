@@ -1,4 +1,5 @@
 <!--pages/activityDetails/activityDetails.wxml-->
+<import src="../../wxParse/wxParse.wxml"/>
 <view class='detail-container'>
   <banner imgUrls="{{productDetails.productImgs}}" swiperType="{{swiperType}}"/>
 
@@ -50,6 +51,7 @@
 
   <view class='product-details'>
     <text class='title'>产品详情</text>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
   </view>
 
   <!-- <view class='bottomTab'>

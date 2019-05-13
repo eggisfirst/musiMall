@@ -1,5 +1,7 @@
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
+var WxParse = require('../../wxParse/wxParse.js');
+import { b64DecodeUnicode } from '../../utils/index.js'
 Page({
   data: {
     imgUrls: [
@@ -33,8 +35,11 @@ Page({
       console.log(res)
       if(res.status == 1) {
         this.setData({
-          productDetails: res.productDetails
+          productDetails: res.data
         })
+        let a = b64DecodeUnicode(res.data.productDetails)
+        console.log(111,a)
+        WxParse.wxParse('article', 'html', a, this, 5);
       }
     })
   },

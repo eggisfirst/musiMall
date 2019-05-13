@@ -10,12 +10,12 @@ Component({
     
   },
   ready() {
-    this.time()
+    // this.countTime()
   },
   methods: {
     //倒计时  当开始时间大于等于现在的时间，开始倒计时。
     time() {
-      let endTime = new Date('2019/05/10 13:13:10').getTime() + 1000;
+      let endTime = new Date('2019/05/13 13:13:10').getTime() + 1000;
       // let endTime = this.properties.endTime
       let interval = null;
       interval = setInterval(() => {
@@ -32,6 +32,30 @@ Component({
           this.triggerEvent('timeTo',{timeTo: true})
         }
       }, 0);
+    },
+    countTime() {
+      let time = 1 - 1
+      let interval = null,
+          minute = time,
+          seconds = 60;
+      interval = setInterval(() => {
+        if(seconds <= 0) {
+          time -= 1;
+          minute = time;
+          seconds = 59
+        }else {
+          seconds -= 1;
+          minute = time
+        }
+        if (time >= 0) {
+          this.setData({
+            minute,
+            seconds
+          })
+        }else {
+          clearInterval(interval);
+        }
+      },1000)
     }
   }
 })
