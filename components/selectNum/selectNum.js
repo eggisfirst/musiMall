@@ -1,6 +1,6 @@
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
-
+const app = getApp()
 Component({
   properties: {
     productDetails: Object
@@ -12,6 +12,9 @@ Component({
   },
   ready() {
     this.initNumColor()
+    this.setData({
+      phone: app.globalData.phone
+    })
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
@@ -32,8 +35,8 @@ Component({
       this.sendOrder(id,num)
     },
     sendOrder(id, num) {
-      indexModel.comfirmOrder(id, num).then(res => {
-        console.log(res)
+      indexModel.comfirmOrder(this.data.phone,id, num).then(res => {
+        // console.log(res)
         if(res.status == 1) {
           wx.navigateTo({
             url: `/pages/order/order?num=${res.orderNumber}`

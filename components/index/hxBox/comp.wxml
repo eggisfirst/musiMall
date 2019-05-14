@@ -5,11 +5,11 @@
       <image src='/images/index/code.png' class='image'/>
       <text class='title'>核销码</text>
     </view>
-    <text class='status-no' wx:if="{{queryData.status == 1}}">待核销</text>
+    <text class='status-no' wx:if="{{orderDetails.orderState == 1}}">待核销</text>
     <text class='status-had' wx:else>已核销</text>
   </view>
 
-  <view class='content' wx:if="{{queryData.status == 1}}">
+  <view class='content' wx:if="{{orderDetails.orderState == 1}}">
     <text class='number'>{{orderDetails.consumeNumber}}</text>
     <text class='deadline'>有效期至{{orderDetails.consumeEndtime}}</text>
   </view>

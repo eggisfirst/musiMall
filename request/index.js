@@ -1,5 +1,4 @@
 import { Request } from '../utils/request'
-
 class IndexModel extends Request {
   // getTitleList(value) {
   //   return this.getData({
@@ -9,6 +8,31 @@ class IndexModel extends Request {
   //     }
   //   })
   // }
+  //验证绑定
+  decodeUserInfo(obj) {
+    return this.getData({
+      url: 'smallprogram/userInfo/decodeUserInfo',
+      data: obj
+    })
+  }
+  //绑定手机号
+  wxRegister(phone, id) {
+    return this.getData({
+      url: 'smallprogram/userInfo/wxRegister',
+      data: {
+        mobileNumber: phone,
+        openId: id
+      }
+    })
+  }
+  getUserInfoByMap(id) {
+    return this.getData({
+      url: 'smallprogram/userInfo/getUserInfoByMap',
+      data: {
+        openId: id
+      }
+    })
+  }
   //活动首页轮播图
   getAdvertisement() {
     return this.getData({
@@ -16,13 +40,13 @@ class IndexModel extends Request {
     })
   }
   //订单列表
-  getOrderList(status) {
+  getOrderList(phone,status,page) {
     return this.getData({
       url: 'smallprogram/getOrder',
       data: {
-        userMobileNumber: '15013999053',
+        userMobileNumber: phone,
         orderState: status,
-        page: 1,
+        page: page,
         limit: 10
       }
     })
@@ -57,11 +81,11 @@ class IndexModel extends Request {
     })
   }
   //提交订单
-  comfirmOrder(id,num) {
+  comfirmOrder(phone,id,num) {
     return this.getData({
       url: 'smallprogram/saveOrderAndDetails',
       data: {
-        userMobileNumber: '15013999053',
+        userMobileNumber: phone,
         activityId: id,
         quantity: num
       }
@@ -74,6 +98,13 @@ class IndexModel extends Request {
       data: {
         orderNumber:number
       }
+    })
+  }
+  //支付
+  orderPay(obj) {
+    return this.getData({
+      url: 'smallprogram/pushOrder',
+      data: obj
     })
   }
 }

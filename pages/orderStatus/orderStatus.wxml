@@ -3,7 +3,7 @@
   <view class='top-banner'>
     <view class='rest-time' wx:if="{{orderDetails.orderState == 0}}">
       <text >剩余支付时间：</text>
-      <count endTime="{{endTime}}" class="time"/>
+      <count defaultCancelTime="{{orderDetails.defaultCancelTime}}" class="time"/>
     </view>
     <text class='order-close' wx:if="{{orderDetails.orderState == 4}}">订单已关闭</text>
     <text class='order-close' wx:if="{{orderDetails.orderState == 3}}">订单已失效</text>

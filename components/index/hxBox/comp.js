@@ -1,10 +1,6 @@
 // components/index/hxBox/comp.js
 Component({
   properties: {
-    queryData: {
-      type: Object,
-      value: ''
-    },
     orderDetails: {
       type: Object,
       value: {}

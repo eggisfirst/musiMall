@@ -1,20 +1,32 @@
 // components/count/comp.js
 Component({
   properties: {
-    endTime: String,
-    startTime: String
+    endTime: {
+      type: String,
+      value: '',
+      observer(newVal){
+        // this.time(newVal)
+      }
+    },
+    startTime: String,
+    defaultCancelTime:{
+      type: Number,
+      value: 0,
+      observer(newVal){
+        // this.countTime(newVal)
+      }
+    }
   },
   data: {
     
   },
   ready() {
-    // this.time()
   },
   methods: {
     //倒计时  当开始时间大于等于现在的时间，开始倒计时。
-    time() {
+    time(newVal) {
       // let endTime = new Date('2019/05/13 13:13:10').getTime() + 1000;
-      let endTime = this.properties.endTime*1000
+      let endTime = newVal*1000
       let interval = null;
       interval = setInterval(() => {
         let remainingTime = endTime - Date.now(); // 剩余毫秒
@@ -22,7 +34,7 @@ Component({
         if (remainingTime >= 0) {
           this.setData({
             day: Math.floor(remainingTime / 1000 / 60 / 60 / 24),
-            hour: Math.floor(remainingTime / 1000 / 60 / 60 % 24),
+            hour: Math.floor(remainingTime / 1000 / 60 / 60 % 24) + Math.floor(remainingTime / 1000 / 60 / 60),
             minute: Math.floor(remainingTime / 1000 / 60 % 60),
             seconds: Math.floor(remainingTime / 1000 % 60)
           })
@@ -32,21 +44,19 @@ Component({
         }
       }, 0);
     },
-    countTime() {
-      let time = 1 - 1
+    countTime(newVal) {
+      let time = newVal
       let interval = null,
-          minute = time,
-          seconds = 60;
+          minute = Math.floor(time/60),
+          seconds = time%60;
       interval = setInterval(() => {
         if(seconds <= 0) {
-          time -= 1;
-          minute = time;
+          minute -= 1;
           seconds = 59
         }else {
           seconds -= 1;
-          minute = time
         }
-        if (time >= 0) {
+        if (minute >= 0) {
           this.setData({
             minute,
             seconds

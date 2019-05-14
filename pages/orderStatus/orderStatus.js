@@ -1,6 +1,6 @@
-// pages/orderStatus/orderStatus.js
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
+
 Page({
   data: {
     endTime: "1557399093826"
@@ -51,6 +51,11 @@ Page({
   cancleOrder(number) {
     indexModel.cancleOrder(number).then(res => {
       if(res.status == 1) {
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];  //上一个页面
+        prevPage.setData({
+          mydata: { index:1 }
+        })
         wx.navigateBack({
           delta: 1
         })

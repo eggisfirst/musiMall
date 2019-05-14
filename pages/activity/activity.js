@@ -1,5 +1,4 @@
-//index.js
-//获取应用实例
+
 import {IndexModel} from '../../request/index.js'
 const indexModel = new IndexModel()
 Page({
@@ -89,7 +88,6 @@ Page({
       showTips: e.detail.tips
     })
     //登录
-    getApp().globalData.login = true
     wx.redirectTo({
       url: '../login/login'
     })

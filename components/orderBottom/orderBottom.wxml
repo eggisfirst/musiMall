@@ -4,7 +4,7 @@
     <text class='left-text'>共{{orderList.totalQuantity}}件，合计：</text>
     <text class='left-price'>¥{{orderList.totalPrice}}</text>
   </view>
-  <view class='btn-right'>
+  <view class='btn-right' catchtap='pay'>
     <text>立即支付</text>
   </view>
 </view>

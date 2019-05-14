@@ -1,4 +1,6 @@
 //app.js
+import { IndexModel } from './request/index.js'
+const indexModel = new IndexModel()
 App({
   onLaunch: function () {
     // 展示本地存储能力
@@ -10,6 +12,7 @@ App({
     wx.login({
       success: res => {
         // console.log('登陆成功：', res)
+        this.globalData.code = res.code
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -20,6 +23,7 @@ App({
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
             success: res => {
+              this.decodeUserInfo(res)
               // console.log('获取用户信息成功：', res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
@@ -49,8 +53,28 @@ App({
       }
     })
   },
+  //验证绑定
+  decodeUserInfo(data) {
+    // console.log(e)
+    let obj = {
+      encryptedData: data.encryptedData,
+      iv: data.iv,
+      code: this.globalData.code
+    }
+    indexModel.decodeUserInfo(obj).then(res => {
+      if (res.data) {
+        this.globalData.phone = res.data.mobileNumber
+        this.globalData.openId = res.data.openId
+        this.globalData.login = true
+      }
+    })
+  },
   globalData: {
     userInfo: null,
-    login: true
+    login: false,
+    key: true,
+    code: '',
+    phone: '',
+    openId: ''
   }
 })

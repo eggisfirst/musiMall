@@ -57,9 +57,9 @@
 .orderLi-number {
   display: flex;
   justify-content: space-between;
-  line-height: 30rpx;
+  line-height: 35rpx;
   font-size: 28rpx;
-
+  overflow: hidden;
 }
 .now-price {
   color: #ff3701;
