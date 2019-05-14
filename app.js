@@ -24,6 +24,7 @@ App({
           wx.getUserInfo({
             success: res => {
               this.decodeUserInfo(res)
+              this.getIp()
               // console.log('获取用户信息成功：', res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
@@ -69,12 +70,22 @@ App({
       }
     })
   },
+  //获取手机ip
+  getIp() {
+    wx.request({
+      url: 'http://ip-api.com/json',
+      success: res => {
+        this.globalData.ip = res.data.query
+      }
+    })
+  },
   globalData: {
     userInfo: null,
     login: false,
     key: true,
     code: '',
     phone: '',
-    openId: ''
+    openId: '',
+    ip: ''
   }
 })

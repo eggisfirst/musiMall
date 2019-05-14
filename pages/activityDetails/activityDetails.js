@@ -1,8 +1,8 @@
 import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
-// var WxParse = require('../../wxParse/wxParse.js');
+var WxParse = require('../../wxParse/wxParse.js');
 // var Html2wxml = require('../../html2wxml-template/html2wxml.js');
-// import { b64DecodeUnicode } from '../../utils/index.js'
+import { b64DecodeUnicode, base64_decode } from '../../utils/index.js'
 
 Page({
   data: {
@@ -34,12 +34,12 @@ Page({
       if(res.status == 1) {
         this.initPercent(res.data)
         if (res.data.productDetails) {
-          // let html = b64DecodeUnicode(res.data.productDetails)
+          let html = base64_decode(res.data.productDetails)
           this.setData({
             productDetails: res.data,
-            // html: html
+            html: html
           })
-          // WxParse.wxParse('article', 'html', html, this, 5);
+          WxParse.wxParse('article', 'html', html, this, 5);
         }else {
           this.setData({
             productDetails: res.data

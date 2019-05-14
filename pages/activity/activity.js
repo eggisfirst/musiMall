@@ -25,17 +25,27 @@ Page({
     }],
     contenList: [],
     showTips: true,
-    tipsText: '请先登录'
+    tipsText: '请先登录',
+    key: true,
+    page: 1
   },
   onLoad(options) {
     this.getAdvertisement()
     this.initData()
   },
+  onReachBottom() {
+    if (this.data.key) {
+      let page = this.data.page + 1
+      this.setData({ page })
+      let status = this.data.tabVal || 1
+      this.getArtivityProductList(status, page)
+    }
+  },
   //初始的时候选择正在抢购
   initData() {
     if (getApp().globalData.key) {
       getApp().globalData.key = false
-      this.getArtivityProductList(1)
+      this.getArtivityProductList(1,1)
     }
   },
   //获取首页轮播图
@@ -49,12 +59,22 @@ Page({
     })
   },
   //获取活动列表
-  getArtivityProductList(status) {
-    indexModel.getArtivityProductList(status).then(res => {
+  getArtivityProductList(status,page) {
+    indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
-        this.setData({
-          contenList: res.data
-        })
+        if (page == 1) {
+          this.setData({
+            contenList: res.data.list
+          })
+        } else {
+          if (res.data.list && res.data.list.length < 10) {
+            this.setData({ key: false })
+          }
+          let list = this.data.contenList.concat(res.data.list)
+          this.setData({
+            contenList: list
+          })
+        }
       }
     })
   },
@@ -62,10 +82,12 @@ Page({
   getCurrentTab(e) {
     let index = e.detail.currentTab
     this.setData({
-      tabVal: index
+      tabVal: index,
+      key: true,
+      page: 1
     })
     let status = index == 0 ? 1 : index == 1? 0 : 2
-    this.getArtivityProductList(status)
+    this.getArtivityProductList(status,1)
   },
   //content组件触发
   setCurrentTab(e) {
@@ -74,7 +96,7 @@ Page({
       current: index
     })
     let status = index == 0 ? 1 : index == 1 ? 0 : 2
-    this.getArtivityProductList(status)
+    this.getArtivityProductList(status,1)
   },
   //打开提示
   setLoginTips(e) {

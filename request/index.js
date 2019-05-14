@@ -61,12 +61,12 @@ class IndexModel extends Request {
     })
   }
   //获取活动商品列表  -1全部 0未开始 1进行中 2结束
-  getArtivityProductList(status) {
+  getArtivityProductList(status,page) {
     return this.getData({
       url: 'smallprogram/getSecKill',
       data: {
         activityState: status,
-        page: 1,
+        page: page,
         limit: 10
       }
     })

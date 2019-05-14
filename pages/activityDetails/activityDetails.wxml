@@ -1,4 +1,4 @@
-<!-- <import src="../../wxParse/wxParse.wxml"/> -->
+<import src="../../wxParse/wxParse.wxml"/>
 <!-- <import src="../../html2wxml-template/html2wxml.wxml" /> -->
 
 
@@ -54,7 +54,7 @@
 
   <view class='product-details'>
     <text class='title'>产品详情</text>
-    <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
     <!-- <template is="html2wxml" data="{{wxmlData:article}}" /> -->
   </view>
 

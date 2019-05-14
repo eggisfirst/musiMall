@@ -21,9 +21,9 @@ Page({
     page: 1,
     key: true
   },
+  //页面显示的时候刷新数据
   onShow() {
     if(this.data.mydata) {
-      // console.log(this.data.mydata)
       this.getOrderList(this.data.mydata.index,1)
     }
   },
@@ -31,6 +31,7 @@ Page({
     this.setData({
       phone: app.globalData.phone
     })
+    // console.log(options.index)
     // console.log(this.data.phone)
     this.initQueryData(options.index)
     this.getOrderList(options.index,1)
@@ -70,6 +71,7 @@ Page({
   initQueryData(index) {
     if(index) {
       this.setData({
+        current: index,
         tabVal: index
       })
     }
@@ -78,7 +80,9 @@ Page({
   getCurrentTab(e) {
     let index = e.detail.currentTab
     this.setData({
-      tabVal: index
+      tabVal: index,
+      page: 1,
+      key: true
     })
     this.getOrderList(index,1)
   },

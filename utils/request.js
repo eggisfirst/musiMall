@@ -11,7 +11,12 @@ class Request {
         dataType: 'json',
         responseType: 'text',
         success: res => {
+          wx.showLoading({
+            title: '加载中',
+            mask: true,
+          })
           if (res.data) {
+            wx.hideLoading()
             resolve(res.data)
           }
         },

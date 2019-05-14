@@ -5,8 +5,10 @@ Component({
       type: Object,
       value:{},
       observer(newVal) {
-        this.initPercent(newVal)
-        this.initStartTime(newVal)
+        if(newVal) {
+          this.initPercent(newVal)
+          this.initStartTime(newVal)
+        }
       }
     }
   },
@@ -19,6 +21,7 @@ Component({
   methods: {
     initPercent(newVal) {
       let percent;
+      // console.log(newVal.stock)
       if (newVal.stock == newVal.onsaleStock) {
         percent = 0
       } else {

@@ -13,7 +13,8 @@ Component({
     list: {
       type: Array,
       value: []
-    }
+    },
+    
   },
   data: {
     currentTab: 0,

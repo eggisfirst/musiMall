@@ -1,5 +1,6 @@
 { 
   "navigationBarTitleText": "秒杀活动",
+  "onReachBottomDistance": 50,
   "usingComponents": {
     "banner": "../../components/banner/banner",
     "compTab": "../../components/compTab/compTab",
