@@ -65,7 +65,7 @@
   height: 140rpx;
 }
 .progress {
-  width: 70%;
+  width: 500rpx;
 }
 .p-text {
   font-size:24rpx;

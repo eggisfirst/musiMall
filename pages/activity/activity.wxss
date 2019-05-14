@@ -1,7 +1,26 @@
 .activity-container {
   width: 750rpx;
-  height: 100vh;
+  /* height: 100vh; */
   background: #efeff4;
+  overflow: scroll;
+  position: relative;
+}
+.banner {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 300rpx;
+}
+.tab {
+  position: fixed;
+  left: 0;
+  top: 300rpx;
+  width:750rpx;
+  height: 80rpx; 
+}
+.content {
+  width: 750rpx;
 }
 .tips {
   width: 750rpx;

@@ -1,10 +1,12 @@
 <!--pages/orderDetails/orderDetails.wxml-->
 <view class='orderDetails-container'>
   <compTab 
+    class='tab'
     bind:getCurrentTab="getCurrentTab" 
     current="{{current}}" 
     list="{{list}}"/>
   <compContent 
+    class='content'
     tabVal="{{tabVal}}" 
     bind:setCurrentTab="setCurrentTab" 
     contenList="{{contenList}}"

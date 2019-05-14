@@ -2,7 +2,7 @@
   <view class="tab-item {{currentTab==item.tab ? 'on' : ''}}" 
     wx:for='{{list}}' wx:key='{{item.tab}}'
     data-current="{{item.tab}}" 
-    bindtap="swichNav">
+    catchtap="swichNav">
     {{item.name}}
   </view>
 </view>

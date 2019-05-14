@@ -26,6 +26,7 @@ Component({
   methods: {
     //设置导航栏跳转索引
     swichNav(e) {
+      // console.log(e)
       if (this.data.currentTab === e.target.dataset.current) {
         return false;
       } else {

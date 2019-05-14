@@ -14,7 +14,7 @@ Component({
       type: null,
       value: [],
       observer(newVal) {
-        this.initHeight(newVal)
+        // this.initHeight(newVal)
       }
     },
     list: Array,

@@ -62,8 +62,8 @@ Page({
       })
       return
     }else {
-      let percent = (sell / data.stock).toFixed()*100
-      let progressLeft = percent*5.9
+      let percent = (sell / data.stock)*100
+      let progressLeft = percent*5 + 100
       this.setData({
         percent,
         progressLeft
