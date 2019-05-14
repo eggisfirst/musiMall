@@ -41,6 +41,10 @@ Component({
           this.setData({
             orderHeight: 'height: 100vh'
           })
+        }else {
+          this.setData({
+            orderHeight: 'height: 94vh'
+          })
         }
       }
     },

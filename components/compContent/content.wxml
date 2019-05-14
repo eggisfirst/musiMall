@@ -27,7 +27,7 @@
           >
           <orderLi orderList="{{el}}"/>
         </view>
-        <view class='noOrder'  wx:if="{{contenList.length == 0}}" >
+        <view class='noOrder'  wx:if="{{contenList.length == 0 || !contenList}}" >
           <image src='/images/index/noorder.png' class='image'/>
           <text class='order-text'>暂无相关订单</text>
         </view>

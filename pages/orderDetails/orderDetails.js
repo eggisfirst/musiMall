@@ -31,8 +31,7 @@ Page({
     this.setData({
       phone: app.globalData.phone
     })
-    console.log(this.data.phone)
-    this.test()
+    // console.log(this.data.phone)
     this.initQueryData(options.index)
     this.getOrderList(options.index,1)
   },

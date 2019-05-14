@@ -15,8 +15,8 @@ Component({
   methods: {
     pay() {
       this.orderPay()
-    
     },
+    //请求数据
     orderPay() {
       let list = this.properties.orderList
       let openId = app.globalData.openId
@@ -29,8 +29,12 @@ Component({
         ip: this.data.ip,//   客户端ip,
         openId: openId,//   会员微信openid'
       }
+      this.sendData(obj)
+    },
+    //发起支付
+    sendData(obj) {
       indexModel.orderPay(obj).then(res => {
-        if(res.status) {
+        if (res.status) {
           let data = res.data
           wx.requestPayment({
             timeStamp: data.timeStamp,
@@ -39,15 +43,22 @@ Component({
             signType: 'MD5',
             paySign: data.paySign,
             success: res => {
-              console.log(res)
+              this.toOrderPage()
             },
-            fail(res) {
-              console.log(res)
-             }
+            fail: res => {
+              this.toOrderPage()
+            }
           })
         }
       })
     },
+    //成功或者失败跳转页面
+    toOrderPage() {
+      wx.redirectTo({
+        url: "/pages/orderDetails/orderDetails?index=0"
+      })
+    },
+    //或者手机ip
     getIp() {
       wx.request({
         url: 'http://ip-api.com/json',
@@ -57,6 +68,6 @@ Component({
           })
         }
       })
-    },
+    }
   }
 })
