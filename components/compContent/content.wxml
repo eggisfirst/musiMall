@@ -13,10 +13,10 @@
           bindtap='toProductDetails'>
           <productLi productType="{{el}}" bind:timeTo='timeTo'/>
         </view>
-        <view class='noMore' wx:if='{{contenList.length > 0}}'>
+        <view class='noMore' wx:if="{{(contenList.length)%10 > 0}}">
           <text>没有更多了</text>
         </view>
-        <view class='nomore' wx:else>
+        <view class='nomore' wx:if='{{contenList.length == 0}}'>
           <text class='text'>没有更多了</text>
         </view>
       </block> 

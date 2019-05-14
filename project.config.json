@@ -39,13 +39,43 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "订单详情",
 					"pathName": "pages/orderStatus/orderStatus",
-					"query": "status=4&no=15574809865324754"
+					"query": "status=4&no=15576252458569065"
+				},
+				{
+					"id": 1,
+					"name": "秒杀详情",
+					"pathName": "pages/activityDetails/activityDetails",
+					"query": "id=1126785256746283010"
+				},
+				{
+					"id": -1,
+					"name": "秒杀详情",
+					"pathName": "pages/activityDetails/activityDetails",
+					"query": "id=1116322826639597570"
+				},
+				{
+					"id": -1,
+					"name": "提交订单",
+					"pathName": "pages/order/order",
+					"query": "num=13000000277381318"
+				},
+				{
+					"id": 4,
+					"name": "我的订单",
+					"pathName": "pages/orderDetails/orderDetails",
+					"query": "index=0"
+				},
+				{
+					"id": 5,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
 				}
 			]
 		}

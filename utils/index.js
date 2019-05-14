@@ -77,11 +77,36 @@ function format(startTime) {
   var day = time.getDate();
   var hour = time.getHours();
   var minute = time.getMinutes();
-  mouth = mouth < 10 ? 0 + mouth : mouth
-  day = day < 10 ? 0 + day : day
-  hour = hour < 10 ? 0 + hour : hour
-  minute = minute < 10 ? 0 + minute : minute
+  mouth = mouth < 10 ? '0' + mouth : mouth
+  day = day < 10 ? '0' + day : day
+  hour = hour < 10 ? '0' + hour : hour
+  minute = minute < 10 ? '0' + minute : minute
   return mouth + '月' + day + '日' + hour + ':' + minute
 }
 
 export {format}
+
+function getTime(time) {
+  let tempDay = time.split(" ")[0]
+  let tempSec = time.split(" ")[1]
+  let temp1 = tempDay.split("/")
+  let y = temp1[0]
+  let m = temp1[1]
+  let d = temp1 [2]
+  let temp2 = tempSec.split(":")
+  let h = temp2[0]
+  let mm = temp2[1]
+  let sec = temp2[2]
+  return [y,m,d,h,mm,sec]
+}
+
+function getSec(endTime, startTime) {
+  let end = getTime(endTime)
+  let start = getTime(startTime)
+  let d = (end[0] - start[0]) * 365 + (end[1] - start[1])*30 + end[2] - start[2]
+  let sec = (end[3] - start[3]) * 60*60 + (end[4] - start[4]) * 60 + end[5] - start[5]
+  console.log(end[3],start[3])
+  let sec1 = d*24*60*60 + sec
+  // return sec
+}
+export {getSec}

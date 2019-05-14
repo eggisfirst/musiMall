@@ -13,6 +13,7 @@ App({
       success: res => {
         // console.log('登陆成功：', res)
         this.globalData.code = res.code
+        this.getIp()
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
@@ -24,7 +25,6 @@ App({
           wx.getUserInfo({
             success: res => {
               this.decodeUserInfo(res)
-              this.getIp()
               // console.log('获取用户信息成功：', res)
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo

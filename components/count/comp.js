@@ -1,10 +1,14 @@
 // components/count/comp.js
+import { formatTime } from '../../utils/util.js'
+import { getSec } from '../../utils/index.js'
 Component({
   properties: {
     endTime: {
       type: String,
       value: '',
       observer(newVal){
+        this.activityCountTime(newVal)
+        // this.getMySec(newVal)
         // this.time(newVal)
       }
     },
@@ -13,7 +17,7 @@ Component({
       type: Number,
       value: 0,
       observer(newVal){
-        // this.countTime(newVal)
+        this.countTime(newVal)
       }
     }
   },
@@ -44,6 +48,56 @@ Component({
         }
       }, 0);
     },
+    //活动倒计时
+    activityCountTime(time) {
+      let sec = this.getMySec(time)
+      console.log(sec)
+      let interval = null,
+        hour = Math.floor(sec/60/60),
+        minute = Math.floor(sec % 60),
+        seconds = Math.floor(sec /60 % 60);
+      interval = setInterval(() => {
+        if(hour > 0) {
+          if (seconds <= 0 && minute > 0) {
+            minute -= 1;
+            seconds = 59
+          } else if (seconds <= 0 && minute <= 0) {
+            hour -= 1;
+            minute = 59;
+            seconds = 59;
+          } else {
+            seconds -= 1;
+          }
+        }else {
+          if (seconds <= 0) {
+            minute -= 1;
+            seconds = 59
+          } else {
+            seconds -= 1;
+          }
+        }
+
+        if (minute > 0) {
+          this.setData({
+            minute,
+            seconds,
+            hour
+          })
+        } else {
+          clearInterval(interval);
+        }
+      }, 1000)
+    },
+    //获取相差的秒数
+    getMySec(time) {
+      let endTime = new Date(time*1000)
+      let startTime = new Date(new Date().getTime())
+      let tempEnd = formatTime(endTime)
+      let tempStart = formatTime(startTime)
+      let sec = getSec(tempEnd, tempStart)
+      return sec
+    },
+    //支付倒计时
     countTime(newVal) {
       let time = newVal
       let interval = null,
