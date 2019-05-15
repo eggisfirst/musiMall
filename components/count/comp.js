@@ -6,7 +6,7 @@ Component({
       observer(newVal){
         // this.activityCountTime(newVal)
         // this.getMySec(newVal)
-        this.time(newVal)
+        // this.time(newVal)
       }
     },
     startTime: String,
@@ -15,6 +15,17 @@ Component({
       value: 0,
       observer(newVal){
         this.countTime(newVal)
+      }
+    },
+    status: {
+      type: String,
+      value: '',
+      observer(newVal) {
+        if (newVal == 1) {
+          this.time(this.properties.endTime)
+        }else if(newVal == 0) {
+          this.time(this.properties.startTime)
+        }
       }
     }
   },
@@ -31,7 +42,7 @@ Component({
       let interval = null;
       let remainingTime = endTime - Date.now(); // 剩余毫秒
       let day = Math.floor(remainingTime / 1000 / 60 / 60 / 24)
-      let hour = Math.floor(remainingTime / 1000 / 60 / 60 % 24) + Math.floor(remainingTime / 1000 / 60 / 60)
+      let hour = Math.floor(remainingTime / 1000 / 60 / 60 % 24) + day*24
       let minute = Math.floor(remainingTime / 1000 / 60 % 60)
       let seconds = Math.floor(remainingTime / 1000 % 60)
       interval = setInterval(() => {

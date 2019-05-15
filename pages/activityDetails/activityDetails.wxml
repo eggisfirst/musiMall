@@ -13,7 +13,10 @@
     <view class='activity-count'>
       <text class='count-title' style='{{productDetails.activityState == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
       <view class='count' wx:if="{{productDetails.activityState != 2}}">
-        <count startTime="{{productDetails.startTime}}" endTime="{{productDetails.endTime}}"/>
+        <count 
+          status="{{productDetails.activityState}}"
+          startTime="{{productDetails.startTime}}" 
+          endTime="{{productDetails.endTime}}"/>
       </view>
     </view>
   </view>
