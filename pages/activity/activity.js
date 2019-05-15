@@ -126,7 +126,7 @@ Page({
   //跳转登录页面
   _toLoginPage() {
     wx.redirectTo({
-      url: '../login/login'
+      url: '../login/login?type=activity'
     })
   },
   //

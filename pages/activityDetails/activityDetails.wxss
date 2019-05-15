@@ -3,7 +3,7 @@
   width: 750rpx;
   background-color: #f1f1f1;
   overflow: scroll;
-  height: 100vh;
+  min-height: 100vh;
   padding-bottom: 180rpx;
   box-sizing: border-box;
 }

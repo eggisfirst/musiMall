@@ -45,13 +45,13 @@
 					"id": 0,
 					"name": "订单详情",
 					"pathName": "pages/orderStatus/orderStatus",
-					"query": "status=4&no=15576252458569065"
+					"query": "no=1128580125853032449"
 				},
 				{
 					"id": 1,
 					"name": "秒杀详情",
 					"pathName": "pages/activityDetails/activityDetails",
-					"query": "id=1126785256746283010"
+					"query": "id=1128580125853032449"
 				},
 				{
 					"id": -1,

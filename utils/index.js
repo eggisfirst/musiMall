@@ -72,7 +72,7 @@ function changeImgStyle(html) {
 
 
 function format(startTime) {
-  var time = new Date(startTime);
+  var time = new Date(startTime*1000);
   var mouth = time.getMonth() + 1;
   var day = time.getDate();
   var hour = time.getHours();

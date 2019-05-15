@@ -11,11 +11,19 @@
  */
 
 .wxParse{
-    margin: 0 5px;
+    margin: 0 10rpx;
     font-family: Helvetica,sans-serif;
     font-size: 28rpx;
     color: #666;
     line-height: 1.8;
+}
+.wxParse-p{
+  margin: 0;
+  padding: 0;
+  width: 700rpx!important;
+}
+.wxParse-p image{
+  width: 700rpx!important;
 }
 view{
     word-break:break-all; overflow:auto;

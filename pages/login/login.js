@@ -6,7 +6,9 @@ Page({
 
   },
   onLoad: function (options) {
-
+    this.setData({
+      type: options.type
+    })
   },
   //获取个人信息的回调。
   getPhoneNumber (e) {
@@ -25,8 +27,9 @@ Page({
       if(res.data) {
         app.globalData.phone = res.data.mobileNumber
         app.globalData.login = true
+        let type = this.data.type
         wx.switchTab({
-          url: '/pages/activity/activity'
+          url: `/pages/${type}/${type}`
         })
       }
     })
