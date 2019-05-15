@@ -8,7 +8,7 @@ class IndexModel extends Request {
   //     }
   //   })
   // }
-  //
+  //获取openid
   getOpenId(code) {
     return this.getData({
       url: 'smallprogram/userInfo/getOpenId',
@@ -17,14 +17,14 @@ class IndexModel extends Request {
       }
     })
   }
-  //验证绑定
+  //验证客户绑定
   decodeUserInfo(obj) {
     return this.getData({
       url: 'smallprogram/userInfo/decodeUserInfo',
       data: obj
     })
   }
-  //后台返回手机
+  //后台手机绑定
   getPhoneNumber(obj) {
     return this.getData({
       url: 'smallprogram/userInfo/getPhoneNumber',
@@ -41,6 +41,7 @@ class IndexModel extends Request {
       }
     })
   }
+  //查询用户信息
   getUserInfoByMap(id) {
     return this.getData({
       url: 'smallprogram/userInfo/getUserInfoByMap',

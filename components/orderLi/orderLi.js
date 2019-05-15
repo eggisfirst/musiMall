@@ -8,7 +8,6 @@ Component({
     type: String
   },
   data: {
-   
   },
   ready() {
     // this.getIp()

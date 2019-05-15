@@ -29,14 +29,11 @@ Page({
     key: true,
     page: 1
   },
-  onShow() {
-    console.log('show')
-  },
   onLoad(options) {
-    console.log('onload')
     this.getAdvertisement()
     this.initData()
   },
+  //触底刷新
   onReachBottom() {
     if (this.data.key) {
       let page = this.data.page + 1
@@ -47,6 +44,7 @@ Page({
   },
   //初始的时候选择正在抢购
   initData() {
+    //一键登录跳转过来
     if (getApp().globalData.key || getApp().globalData.login) {
       getApp().globalData.key = false
       this.getArtivityProductList(1,1)
@@ -106,7 +104,7 @@ Page({
     let status = index == 0 ? 1 : index == 1? 0 : 2
     this.getArtivityProductList(status,1)
   },
-  //打开提示
+  //打开登录提示
   setLoginTips(e) {
     this.setData({
       showTips: e.detail.loginTips
