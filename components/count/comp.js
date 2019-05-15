@@ -57,9 +57,9 @@ Component({
             seconds = 59 
             minute = 59
             hour -=1
-          }else if(hour <= 0 && minute <= 0 && seconds <= 0) {
+          }else if(hour <= 0 && minute > 0 && seconds <= 0) {
             seconds = 59
-            minute = 59
+            minute -= 1
             hour = 0
           }else {
             seconds -= 1

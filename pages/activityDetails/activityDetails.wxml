@@ -36,7 +36,8 @@
     <!-- 动态更改left的值 -->
     <view class='hasRobbed' style='left: {{progressLeft}}rpx'>  
       <!-- <image class='image-robbed' src='/images/activityDetails/robbed.png'/> -->
-      <text class='text'>已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
+      <text class='text' wx:if="{{productDetails.onsaleStock}}">已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
+      <text class='text' wx:else>已抢光 </text>
     </view>
     
   </view>
@@ -68,6 +69,7 @@
     <bottomTab 
       bind:clickBeginBtn='clickBeginBtn'
       bind:openSelectNum='openSelectNum' 
+      onsaleStock="{{productDetails.onsaleStock}}"
       activityState="{{productDetails.activityState}}"
       regulation="{{productDetails.regulation}}"
       />

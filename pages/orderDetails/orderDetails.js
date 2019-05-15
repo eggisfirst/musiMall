@@ -19,7 +19,8 @@ Page({
     }],
     contentList: [],
     page: 1,
-    key: true
+    key: true,
+    hasData: false
   },
   //页面显示的时候刷新数据
   onShow() {
@@ -52,7 +53,10 @@ Page({
           })
         }else {
           if(res.data.list && res.data.list.length < 10) {
-            this.setData({key: false})
+            this.setData({
+              key: false,
+              hasData: true
+            })
           }
           let list = this.data.contenList.concat(res.data.list)
           this.setData({

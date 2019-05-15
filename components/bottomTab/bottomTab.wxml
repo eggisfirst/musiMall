@@ -16,10 +16,17 @@
       <text>即将开始</text>
     </view>
 
-    <view class='btn-box-buy' wx:if="{{activityState == 1}}" catchtap='buyBtn'>
-      <image class='image-buy' src='/images/activityDetails/shopCar.png' />
-      <text>立即抢购</text>
-    </view>
+    <block wx:if="{{activityState == 1}}">
+      <view class='btn-box-buy' catchtap='buyBtn' wx:if="{{onsaleStock}}">
+        <image class='image-buy' src='/images/activityDetails/shopCar.png' />
+        <text>立即抢购</text>
+      </view>
+      <view class='btn-box-selled' wx:else>
+        <view class='selled'>
+          <text>已抢光</text>
+        </view>
+      </view>
+     </block>
   </view>
 
   <view class='tab-right-end' wx:else>

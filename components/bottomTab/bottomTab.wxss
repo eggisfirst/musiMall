@@ -77,3 +77,19 @@
   height: 40rpx;
   margin-right: 5rpx;
 }
+
+.btn-box-selled {
+  width: 375rpx;
+  height: 100%;
+  background: #666;
+  color: #fff;
+  font-size: 36rpx;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+}
+.selled {
+  display: flex;
+  align-items: center;
+  margin-top: -66rpx;
+}

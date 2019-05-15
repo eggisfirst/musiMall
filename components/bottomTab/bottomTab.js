@@ -2,7 +2,8 @@ Component({
   properties: {
     queryData: Object,
     activityState: Number,
-    regulation: String
+    regulation: String,
+    onsaleStock: Number
   },
   data: {
     

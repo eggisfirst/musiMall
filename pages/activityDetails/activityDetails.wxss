@@ -108,6 +108,7 @@
   display: inline-block;
   height: 30rpx;
   line-height: 30rpx;
+  padding: 0 4rpx;
   /* position: absolute;
   left: 0;
   top: 0 */

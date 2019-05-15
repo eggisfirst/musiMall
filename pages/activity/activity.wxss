@@ -12,6 +12,7 @@
   width: 750rpx;
   height: 300rpx;
   background: #efeff4;
+  z-index: 99;
 }
 .tab {
   position: fixed;
@@ -19,6 +20,7 @@
   top: 300rpx;
   width:750rpx;
   height: 80rpx; 
+  z-index: 99;
 }
 .content {
   width: 750rpx;

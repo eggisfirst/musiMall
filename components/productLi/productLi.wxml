@@ -1,6 +1,13 @@
  <view class='productLi-container'>
     <view class='product-cover'>
       <image class='image' src='{{productType.productImg}}'/>
+      <view class='image-mask' wx:if="{{productType.onsaleStock==0}}">
+        <view class='text-box'>
+          <view class='text'>
+            <text>抢光</text>
+          </view>
+        </view>
+      </view>
     </view>
 
     <view class='product-content'>
