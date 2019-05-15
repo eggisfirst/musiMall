@@ -101,7 +101,7 @@ Page({
   //关闭提示
   closeTips(e) {
     this.setData({
-      showTips: e.detail.tips
+      showTips: true
     })
   },
   //弹出提示

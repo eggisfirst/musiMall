@@ -3,6 +3,7 @@ const indexModel = new IndexModel()
 const app = getApp()
 Page({
   data: {
+    key:false
   },
   onLoad: function (options) {
     this.getOrderDetails(options.no)
@@ -19,7 +20,11 @@ Page({
   },
   //支付订单
   comfirm() {
-   this.orderPay()
+    if (this._isLock()) {
+      return
+    }
+    this._lock()
+    this.orderPay()
   },
   //请求数据
   orderPay() {
@@ -49,9 +54,11 @@ Page({
           signType: 'MD5',
           paySign: data.paySign,
           success: res => {
+            this._unlock()
             this.toOrderPage()
           },
           fail: res => {
+            this._unlock()
             this.toOrderPage()
           }
         })
@@ -97,5 +104,23 @@ Page({
         })
       }
     })
+  },
+  _isLock() {
+    return this.data.key
+  },
+  _lock() {
+    this.setData({
+      key: true
+    })
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+  },
+  _unlock() {
+    this.setData({
+      key: false
+    })
+    wx.hideLoading()
   }
 })

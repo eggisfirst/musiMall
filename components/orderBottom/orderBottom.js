@@ -6,13 +6,17 @@ Component({
     orderList:null
   },
   data: {
-
+    key: false
   },
   ready() {
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
     pay() {
+      if(this._isLock()) {
+        return
+      }
+      this._lock()
       this.orderPay()
     },
     //请求数据
@@ -43,9 +47,11 @@ Component({
             signType: 'MD5',
             paySign: data.paySign,
             success: res => {
+              this._unlock()
               this.toOrderPage()
             },
             fail: res => {
+              this._unlock()
               this.toOrderPage()
             }
           })
@@ -57,6 +63,24 @@ Component({
       wx.redirectTo({
         url: "/pages/orderDetails/orderDetails?index=0"
       })
+    },
+    _isLock() {
+     return this.data.key
+    },
+    _lock() {
+      this.setData({
+        key: true
+      })
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+    },
+    _unlock() {
+      this.setData({
+        key: false
+      })
+      wx.hideLoading()
     }
   }
 })

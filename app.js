@@ -34,11 +34,11 @@ App({
   },
   //获取openid
   getOpenId(code) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
     indexModel.getOpenId(code).then(res => {
-      wx.showLoading({
-        title: '加载中',
-        mask: true,
-      })
       if (res.status) {
         wx.hideLoading()
         this.globalData.openId = res.data.openId

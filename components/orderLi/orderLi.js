@@ -8,11 +8,16 @@ Component({
     type: String
   },
   data: {
+    key:false
   },
   ready() {
   },
   methods: {
     payBtn() {
+      if (this._isLock()) {
+        return
+      }
+      this._lock()
       this.orderPay()
     },
     //支付
@@ -43,14 +48,22 @@ Component({
             signType: 'MD5',
             paySign: data.paySign,
             success: res => {
-             this.toOrderPage()
+              this._unlock()
+              this.toOrderPage()
             },
             fail: res => {
+              this._unlock()
               wx.showToast({
                 title: '支付失败',
                 icon: 'none'
               })
             }
+          })
+        }else {
+          this._unlock()
+          wx.showToast({
+            title: '支付超时，请重新下单',
+            icon: 'none'
           })
         }
       })
@@ -60,6 +73,24 @@ Component({
       wx.redirectTo({
         url: "/pages/orderDetails/orderDetails?index=0"
       })
+    },
+    _isLock() {
+      return this.data.key
+    },
+    _lock() {
+      this.setData({
+        key: true
+      })
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
+    },
+    _unlock() {
+      this.setData({
+        key: false
+      })
+      wx.hideLoading()
     }
   }
 })
