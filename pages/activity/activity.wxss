@@ -1,6 +1,6 @@
 .activity-container {
   width: 750rpx;
-  /* height: 100vh; */
+  min-height: 100vh;
   background: #efeff4;
   overflow: scroll;
   position: relative;

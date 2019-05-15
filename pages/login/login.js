@@ -18,20 +18,12 @@ Page({
     let obj = {
       encryptedData: e.detail.encryptedData,
       iv: e.detail.iv,
-      code: app.globalData.code
+      sessionKey: app.globalData.sessionKey,
+      openId: app.globalData.openId
     }
-    indexModel.decodeUserInfo(obj).then(res => {
+    indexModel.getPhoneNumber(obj).then(res => {
       if(res.data) {
         app.globalData.phone = res.data.mobileNumber
-        app.globalData.openId = res.data.openId
-        this.wxRegister(res.data.mobileNumber, res.data.openId)
-      }
-    })
-  },
-  //绑定手机
-  wxRegister(phone,id) {
-    indexModel.wxRegister(phone, id).then(res => {
-      if(res.status) {
         app.globalData.login = true
         wx.switchTab({
           url: '/pages/activity/activity'

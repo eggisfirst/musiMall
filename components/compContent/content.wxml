@@ -1,42 +1,37 @@
-  <!-- <swiper class="swiper" style="{{orderHeight}}" current='{{tabVal}}' duration="200" bindchange="swiperChange">
-    <swiper-item class='swiper-item'
-      wx:for="{{list}}" 
-      wx:key="{{tab}}" > -->
-      <block  wx:if="{{type == 'activity'}}">
-        <!-- 活动首页 -->
-        <view 
-          class='activity'
-          wx:for='{{contenList}}' 
-          wx:for-item="el"
-          wx:key="{{name}}"
-          data-id="{{el.id}}"
-          bindtap='toProductDetails'>
-          <productLi productType="{{el}}" bind:timeTo='timeTo'/>
-        </view>
-        <view class='noMore' wx:if="{{(contenList.length)%10 > 0}}">
-          <text>没有更多了</text>
-        </view>
-        <view class='nomore' wx:if='{{contenList.length == 0}}'>
-          <text class='text'>没有更多了</text>
-        </view>
-      </block> 
-      <!-- 订单页面 -->
-      <block wx:else>
-        <view class='orderList'  
-          wx:for="{{contenList}}"
-          wx:key="{{orderNumber}}"
-          wx:for-item="el"
-          bindtap='toOrderStatus'
-          data-no="{{el.orderNumber}}"
-          >
-          <orderLi orderList="{{el}}"/>
-        </view>
-        <view class='noOrder'  wx:if="{{contenList.length == 0 || !contenList}}" >
-          <image src='/images/index/noorder.png' class='image'/>
-          <text class='order-text'>暂无相关订单</text>
-        </view>
-      </block>
-    <!-- </swiper-item>
-  </swiper> -->
+<block  wx:if="{{type == 'activity'}}">
+  <!-- 活动首页 -->
+  <view 
+    class='activity'
+    wx:for='{{contenList}}' 
+    wx:for-item="el"
+    wx:key="{{name}}"
+    data-id="{{el.id}}"
+    bindtap='toProductDetails'>
+    <productLi productType="{{el}}" bind:timeTo='timeTo'/>
+  </view>
+  <view class='noMore' wx:if="{{(contenList.length)%10 > 0}}">
+    <text>没有更多了</text>
+  </view>
+  <view class='nomore' wx:if='{{contenList.length == 0}}'>
+    <text class='text'>没有更多了</text>
+  </view>
+</block> 
+<!-- 订单页面 -->
+<block wx:else>
+  <view class='orderList'  
+    wx:for="{{contenList}}"
+    wx:key="{{orderNumber}}"
+    wx:for-item="el"
+    bindtap='toOrderStatus'
+    data-no="{{el.orderNumber}}"
+    >
+    <orderLi orderList="{{el}}"/>
+  </view>
+  <view class='noOrder'  wx:if="{{contenList.length == 0 || !contenList}}" >
+    <image src='/images/index/noorder.png' class='image'/>
+    <text class='order-text'>暂无相关订单</text>
+  </view>
+</block>
+
  
 

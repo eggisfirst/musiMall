@@ -1,15 +1,12 @@
-// components/count/comp.js
-import { formatTime } from '../../utils/util.js'
-import { getSec } from '../../utils/index.js'
 Component({
   properties: {
     endTime: {
       type: String,
-      value: '',
+      value: '15889990022',
       observer(newVal){
-        this.activityCountTime(newVal)
+        // this.activityCountTime(newVal)
         // this.getMySec(newVal)
-        // this.time(newVal)
+        this.time(newVal)
       }
     },
     startTime: String,
@@ -32,70 +29,41 @@ Component({
       // let endTime = new Date('2019/05/13 13:13:10').getTime() + 1000;
       let endTime = newVal*1000
       let interval = null;
+      let remainingTime = endTime - Date.now(); // 剩余毫秒
+      let day = Math.floor(remainingTime / 1000 / 60 / 60 / 24)
+      let hour = Math.floor(remainingTime / 1000 / 60 / 60 % 24) + Math.floor(remainingTime / 1000 / 60 / 60)
+      let minute = Math.floor(remainingTime / 1000 / 60 % 60)
+      let seconds = Math.floor(remainingTime / 1000 % 60)
       interval = setInterval(() => {
-        let remainingTime = endTime - Date.now(); // 剩余毫秒
         // console.log(123, remainingTime)
         if (remainingTime >= 0) {
+          if (hour > 0 && minute > 0 && seconds > 0) {
+            seconds -=1
+          }else if(hour > 0 && minute > 0 && seconds <= 0) {
+            seconds = 59
+            minute -=1
+          }else if(hour > 0 && minute <= 0 && seconds <= 0) {
+            seconds = 59 
+            minute = 59
+            hour -=1
+          }else if(hour <= 0 && minute <= 0 && seconds <= 0) {
+            seconds = 59
+            minute = 59
+            hour = 0
+          }else {
+            seconds -= 1
+          }
           this.setData({
-            day: Math.floor(remainingTime / 1000 / 60 / 60 / 24),
-            hour: Math.floor(remainingTime / 1000 / 60 / 60 % 24) + Math.floor(remainingTime / 1000 / 60 / 60),
-            minute: Math.floor(remainingTime / 1000 / 60 % 60),
-            seconds: Math.floor(remainingTime / 1000 % 60)
+            seconds,
+            minute,
+            hour
           })
+          // console.log(seconds,minute,hour)
         } else {
           clearInterval(interval);
           this.triggerEvent('timeTo',{timeTo: true})
         }
-      }, 0);
-    },
-    //活动倒计时
-    activityCountTime(time) {
-      let sec = this.getMySec(time)
-      console.log(sec)
-      let interval = null,
-        hour = Math.floor(sec/60/60),
-        minute = Math.floor(sec % 60),
-        seconds = Math.floor(sec /60 % 60);
-      interval = setInterval(() => {
-        if(hour > 0) {
-          if (seconds <= 0 && minute > 0) {
-            minute -= 1;
-            seconds = 59
-          } else if (seconds <= 0 && minute <= 0) {
-            hour -= 1;
-            minute = 59;
-            seconds = 59;
-          } else {
-            seconds -= 1;
-          }
-        }else {
-          if (seconds <= 0) {
-            minute -= 1;
-            seconds = 59
-          } else {
-            seconds -= 1;
-          }
-        }
-
-        if (minute > 0) {
-          this.setData({
-            minute,
-            seconds,
-            hour
-          })
-        } else {
-          clearInterval(interval);
-        }
-      }, 1000)
-    },
-    //获取相差的秒数
-    getMySec(time) {
-      let endTime = new Date(time*1000)
-      let startTime = new Date(new Date().getTime())
-      let tempEnd = formatTime(endTime)
-      let tempStart = formatTime(startTime)
-      let sec = getSec(tempEnd, tempStart)
-      return sec
+      }, 1000);
     },
     //支付倒计时
     countTime(newVal) {

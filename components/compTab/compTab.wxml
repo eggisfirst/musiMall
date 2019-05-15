@@ -1,7 +1,8 @@
 <view class="swiper-tab" >
-  <view class="tab-item {{currentTab==item.tab ? 'on' : ''}}" 
-    wx:for='{{list}}' wx:key='{{item.tab}}'
-    data-current="{{item.tab}}" 
+  <view class="tab-item {{currentTab==index ? 'on' : ''}}" 
+    wx:for='{{list}}' 
+    wx:key='*this'
+    data-index="{{index}}" 
     catchtap="swichNav">
     {{item.name}}
   </view>

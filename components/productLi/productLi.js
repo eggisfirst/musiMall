@@ -25,11 +25,11 @@ Component({
       if (newVal.stock == newVal.onsaleStock) {
         percent = 0
       } else {
-        percent = ((newVal.stock - newVal.onsaleStock) / newVal.stock)
+        percent = (((newVal.stock - newVal.onsaleStock) / newVal.stock) *100).toFixed(2)
       }
       this.setData({
         progressWidth: percent * 490,
-        percent: percent * 100
+        percent: percent
       })
     },
     initStartTime(newVal) {

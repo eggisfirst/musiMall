@@ -14,7 +14,6 @@
     contenList="{{contenList}}"
     list="{{list}}"
     tabVal="{{tabVal}}" 
-    bind:setCurrentTab="setCurrentTab" 
     loginTips="{{loginTips}}"
     bind:setLoginTips='setLoginTips'/>
    <view class='tips' hidden="{{showTips}}">

@@ -9,7 +9,7 @@ Component({
 
   },
   ready() {
-    this.getIp()
+    // this.getIp()
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
@@ -26,7 +26,8 @@ Component({
         detail: list.productSpecification,//    商品详细描述,
         totalPrice: list.totalPrice,//  交易金额，订单总价,
         'sceneInfo': {},
-        ip: app.globalData.ip,//   客户端ip,
+        // ip: app.globalData.ip,//   客户端ip,
+        ip: '',
         openId: openId,//   会员微信openid'
       }
       this.sendData(obj)

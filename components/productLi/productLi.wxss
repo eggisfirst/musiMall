@@ -46,6 +46,7 @@
 .product-slider {
   margin-bottom: 28rpx;
   width: 490rpx;
+  overflow: hidden;
 }
 .product-slider .slider{
   width: 490rpx;
@@ -86,6 +87,7 @@
   justify-content: space-between;
   color: #ff3701;
   font-size: 28rpx;
+  overflow: hidden;
 }
 
 .endDay {

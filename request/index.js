@@ -8,10 +8,26 @@ class IndexModel extends Request {
   //     }
   //   })
   // }
+  //
+  getOpenId(code) {
+    return this.getData({
+      url: 'smallprogram/userInfo/getOpenId',
+      data: {
+        code
+      }
+    })
+  }
   //验证绑定
   decodeUserInfo(obj) {
     return this.getData({
       url: 'smallprogram/userInfo/decodeUserInfo',
+      data: obj
+    })
+  }
+  //后台返回手机
+  getPhoneNumber(obj) {
+    return this.getData({
+      url: 'smallprogram/userInfo/getPhoneNumber',
       data: obj
     })
   }

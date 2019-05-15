@@ -29,7 +29,11 @@ Page({
     key: true,
     page: 1
   },
+  onShow() {
+    console.log('show')
+  },
   onLoad(options) {
+    console.log('onload')
     this.getAdvertisement()
     this.initData()
   },
@@ -43,7 +47,7 @@ Page({
   },
   //初始的时候选择正在抢购
   initData() {
-    if (getApp().globalData.key) {
+    if (getApp().globalData.key || getApp().globalData.login) {
       getApp().globalData.key = false
       this.getArtivityProductList(1,1)
     }
@@ -62,6 +66,7 @@ Page({
   getArtivityProductList(status,page) {
     indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
+        this._loaded()
         if (page == 1) {
           this.setData({
             contenList: res.data.list
@@ -78,8 +83,20 @@ Page({
       }
     })
   },
+  //加载图标
+  _loading() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+  },
+  //隐藏加载图标
+  _loaded() {
+    wx.hideLoading()
+  },
   //tab组件触发
   getCurrentTab(e) {
+    this._loading()
     let index = e.detail.currentTab
     this.setData({
       tabVal: index,
@@ -87,15 +104,6 @@ Page({
       page: 1
     })
     let status = index == 0 ? 1 : index == 1? 0 : 2
-    this.getArtivityProductList(status,1)
-  },
-  //content组件触发
-  setCurrentTab(e) {
-    let index = e.detail.current
-    this.setData({
-      current: index
-    })
-    let status = index == 0 ? 1 : index == 1 ? 0 : 2
     this.getArtivityProductList(status,1)
   },
   //打开提示

@@ -7,8 +7,6 @@
     list="{{list}}"/>
   <compContent 
     class='content'
-    tabVal="{{tabVal}}" 
-    bind:setCurrentTab="setCurrentTab" 
     contenList="{{contenList}}"
     list="{{list}}"
     type="order"
