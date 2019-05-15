@@ -28,11 +28,6 @@ Page({
     }
   },
   onLoad: function (options) {
-    this.setData({
-      phone: app.globalData.phone
-    })
-    // console.log(options.index)
-    // console.log(this.data.phone)
     this.initQueryData(options.index)
     this.getOrderList(options.index,1)
   },
@@ -72,7 +67,8 @@ Page({
     if(index) {
       this.setData({
         current: index,
-        tabVal: index
+        tabVal: index,
+        phone: app.globalData.phone
       })
     }
   },
@@ -85,14 +81,5 @@ Page({
       key: true
     })
     this.getOrderList(index,1)
-  },
-  //content组件触发
-  setCurrentTab(e) {
-    let index = e.detail.current
-    this.setData({
-      current: index,
-      key: true
-    })
-    this.getOrderList(index,1)
-  },
+  }
 })

@@ -1,7 +1,4 @@
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     imgUrls: {
       type: Array,
@@ -12,10 +9,7 @@ Component({
       }
       ]
     },
-    swiperType: {
-      type: Object,
-      value: ''
-    }
+    swiperType: Object
   },
   data: {
 

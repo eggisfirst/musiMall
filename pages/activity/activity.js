@@ -27,7 +27,8 @@ Page({
     showTips: true,
     tipsText: '请先登录',
     key: true,
-    page: 1
+    page: 1,
+    hasData: false
   },
   onLoad(options) {
     this.getAdvertisement()
@@ -38,7 +39,7 @@ Page({
     if (this.data.key) {
       let page = this.data.page + 1
       this.setData({ page })
-      let status = this.data.tabVal || 1
+      let status = this.data.status || 1
       this.getArtivityProductList(status, page)
     }
   },
@@ -71,7 +72,10 @@ Page({
           })
         } else {
           if (res.data.list && res.data.list.length < 10) {
-            this.setData({ key: false })
+            this.setData({ 
+              key: false,
+              hasData: true
+            })
           }
           let list = this.data.contenList.concat(res.data.list)
           this.setData({
@@ -97,7 +101,7 @@ Page({
     this._loading()
     let index = e.detail.currentTab
     this.setData({
-      tabVal: index,
+      status: index,
       key: true,
       page: 1
     })
@@ -113,11 +117,11 @@ Page({
   //关闭提示
   closeTips(e) {
     this.setData({
-      showTips: e.detail.tips
+      showTips: true
     })
-    //登录
+    //跳转登录页面
     wx.redirectTo({
       url: '../login/login'
     })
-  },
+  }
 })

@@ -18,7 +18,6 @@ Component({
     },
     //弹出规则提示框
     showRules() {
-      // console.log(111,this.properties.regulation)
       wx.showModal({
         title: '活动规则',
         content: this.properties.regulation,

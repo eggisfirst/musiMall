@@ -10,13 +10,12 @@ Component({
   data: {
   },
   ready() {
-    // this.getIp()
   },
-  // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
     payBtn() {
       this.orderPay()
     },
+    //支付
     orderPay() {
       let list = this.properties.orderList
       let openId = app.globalData.openId
@@ -56,6 +55,7 @@ Component({
         }
       })
     },
+    //跳转页面
     toOrderPage() {
       wx.redirectTo({
         url: "/pages/orderDetails/orderDetails?index=0"

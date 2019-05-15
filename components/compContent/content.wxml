@@ -4,12 +4,12 @@
     class='activity'
     wx:for='{{contenList}}' 
     wx:for-item="el"
-    wx:key="{{name}}"
+    wx:key="{{productName}}"
     data-id="{{el.id}}"
     bindtap='toProductDetails'>
     <productLi productType="{{el}}" bind:timeTo='timeTo'/>
   </view>
-  <view class='noMore' wx:if="{{(contenList.length)%10 > 0}}">
+  <view class='noMore' wx:if="{{contenList.length%10>0 || hasData}}">
     <text>没有更多了</text>
   </view>
   <view class='nomore' wx:if='{{contenList.length == 0}}'>
@@ -20,7 +20,7 @@
 <block wx:else>
   <view class='orderList'  
     wx:for="{{contenList}}"
-    wx:key="{{orderNumber}}"
+    wx:key="{{productName}}"
     wx:for-item="el"
     bindtap='toOrderStatus'
     data-no="{{el.orderNumber}}"

@@ -6,15 +6,12 @@
   <compTab 
     class='tab'
     bind:getCurrentTab="getCurrentTab" 
-    current="{{current}}" 
     list="{{list}}"/>
   <compContent 
     class='content'
+    hasData="{{hasData}}"
     type="activity"
     contenList="{{contenList}}"
-    list="{{list}}"
-    tabVal="{{tabVal}}" 
-    loginTips="{{loginTips}}"
     bind:setLoginTips='setLoginTips'/>
    <view class='tips' hidden="{{showTips}}">
     <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>

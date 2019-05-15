@@ -3,20 +3,9 @@ const indexModel = new IndexModel()
 const app = getApp()
 Page({
   data: {
-    endTime: "1557399093826"
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    // this.init(options)
     this.getOrderDetails(options.no)
-  },
-  init(options) {
-    this.setData({
-      queryData: options
-    })
   },
   //获取订单详情
   getOrderDetails(number) {

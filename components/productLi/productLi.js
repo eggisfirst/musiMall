@@ -19,9 +19,9 @@ Component({
     // console.log(this.properties.current)
   },
   methods: {
+    //初始进度条的长度
     initPercent(newVal) {
       let percent;
-      // console.log(newVal.stock)
       if (newVal.stock == newVal.onsaleStock) {
         percent = 0
       } else {
@@ -32,6 +32,7 @@ Component({
         percent: percent
       })
     },
+    //初始活动即将开始时间
     initStartTime(newVal) {
       let time = format(Number(newVal.startTime))
       this.setData({

@@ -14,8 +14,7 @@ Page({
       autoplay: false,
       interval: 3000,
       duration: 1000,
-      circular: true,
-      html: ''
+      circular: true
     },
     // showRules: true,
     showTips: true,

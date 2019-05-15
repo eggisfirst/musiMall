@@ -14,7 +14,7 @@ App({
         // console.log('登陆成功：', res)
         this.globalData.code = res.code
         this.getOpenId(res.code)
-        this.getMyUserInfo()
+        
         // this.getIp()
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
@@ -32,9 +32,26 @@ App({
       }
     })
   },
+  //获取openid
+  getOpenId(code) {
+    indexModel.getOpenId(code).then(res => {
+      if (res.status) {
+        this.globalData.openId = res.data.openId
+        this.globalData.sessionKey = res.data.sessionKey
+        if (res.data.mobileNumber) {
+          this.globalData.hasPhone = true
+          this.globalData.phone = res.data.mobileNumber
+          this.globalData.login = true
+        }
+
+        this.getMyUserInfo()
+        // this.getInfo(res.data.openId)
+      }
+    })
+  },
   //验证用户有没有绑定手机
   getMyUserInfo() {
-    // 获取用户信息
+    // 验证用户有没有授权
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -58,7 +75,7 @@ App({
       }
     })
   },
-  //获取用户信息
+  //获取用户信息，如果有手机号码，不再验证绑定
   getInfo(id) {
     indexModel.getUserInfoByMap(id).then(res => {
       if (res.data.mobileNumber) {
@@ -83,16 +100,7 @@ App({
       }
     })
   },
-  //获取openid
-  getOpenId(code) {
-    indexModel.getOpenId(code).then(res => {
-      if(res.status) {
-        this.globalData.openId = res.data.openId
-        this.globalData.sessionKey = res.data.sessionKey
-        this.getInfo(res.data.openId)
-      }
-    })
-  },
+ 
   //获取手机ip
   getIp() {
     wx.request({
@@ -103,7 +111,7 @@ App({
     })
   },
   globalData: {
-    hasPhone: false,
+    hasPhone: '',
     userInfo: null,
     login: false,
     key: true,

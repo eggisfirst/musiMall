@@ -8,7 +8,6 @@
   <compContent 
     class='content'
     contenList="{{contenList}}"
-    list="{{list}}"
     type="order"
    />
 

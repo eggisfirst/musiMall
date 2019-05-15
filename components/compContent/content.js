@@ -2,15 +2,14 @@ Component({
   //从父组件接收
   properties: {
     contenList: null,
-    list: Array,
-    type:String
+    type:String,
+    hasData: Boolean
   },
   data: {
     current: 0,
     orderHeight: ''
   }, 
   ready() {
-    // this.initHeight()
   },
   methods: {
     //先判断有没有登陆再跳转
@@ -33,8 +32,7 @@ Component({
     },
     //活动到时
     timeTo(e) {
-      if(e.detail.timeTo) {
-      }
+      
     }
   }
 })
