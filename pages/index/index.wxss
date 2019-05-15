@@ -66,3 +66,19 @@ button::after {
   margin-top: 20rpx
 }
 
+.tips {
+  width: 750rpx;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5)
+}
+.tipsBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -185rpx;
+  margin-left: -280rpx;
+}
+

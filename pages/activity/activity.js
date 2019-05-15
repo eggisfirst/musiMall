@@ -116,12 +116,23 @@ Page({
   },
   //关闭提示
   closeTips(e) {
-    this.setData({
-      showTips: true
-    })
-    //跳转登录页面
+    if(e.detail.tips) {
+      this._setShowTips()
+      this._toLoginPage()
+    }else {
+      this._setShowTips()
+    }
+  },
+  //跳转登录页面
+  _toLoginPage() {
     wx.redirectTo({
       url: '../login/login'
+    })
+  },
+  //
+  _setShowTips() {
+    this.setData({
+      showTips: true
     })
   }
 })

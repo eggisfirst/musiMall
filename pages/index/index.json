@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "个人中心",
   "usingComponents": {
-    "orderTab": "/components/index/orderBanner/orderTab"
+    "orderTab": "/components/index/orderBanner/orderTab",
+    "tipsBox": "/components/tipsBox/tipsBox"
   }
 }

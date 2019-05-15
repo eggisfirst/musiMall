@@ -34,13 +34,22 @@
 .msg-li {
   font-size: 30rpx;
   line-height: 60rpx;
+  display: flex;
 }
 .key {
   color: #999;
   width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
   display: inline-block;
   text-align-last: justify;
   text-align: justify;
+  overflow: hidden;
+}
+.key::after {
+  content:"";
+  display: inline-block;
+  width: 100%;
 }
 .key-icon {
   color: #999;

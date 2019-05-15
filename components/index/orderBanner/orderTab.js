@@ -28,6 +28,11 @@ Component({
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
     toDetails(e) {
+      let tips = getApp().globalData.login
+      this.triggerEvent('setLoginTips', { loginTips: tips });
+      if(!tips) {
+        return
+      }
       let index = e.currentTarget.dataset.index
       wx.navigateTo({
         url: '/pages/orderDetails/orderDetails?index=' + index

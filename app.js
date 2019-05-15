@@ -21,21 +21,26 @@ App({
     })
     
     // 获取用户地理位置
-    wx.getLocation({
-      type: 'wgs84',
-      success(res) {
-        // console.log('获取客户地理位置：', res)
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-      }
-    })
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success(res) {
+    //     // console.log('获取客户地理位置：', res)
+    //     const latitude = res.latitude
+    //     const longitude = res.longitude
+    //     const speed = res.speed
+    //     const accuracy = res.accuracy
+    //   }
+    // })
   },
   //获取openid
   getOpenId(code) {
     indexModel.getOpenId(code).then(res => {
+      wx.showLoading({
+        title: '加载中',
+        mask: true,
+      })
       if (res.status) {
+        wx.hideLoading()
         this.globalData.openId = res.data.openId
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
@@ -46,6 +51,8 @@ App({
 
         this.getMyUserInfo()
         // this.getInfo(res.data.openId)
+      }else {
+        wx.hideLoading()
       }
     })
   },

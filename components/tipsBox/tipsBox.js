@@ -14,6 +14,9 @@ Component({
   methods: {
     closeTips() {
       this.triggerEvent('closeTips', {tips: true})
+    },
+    cancle() {
+      this.triggerEvent('closeTips', {tips: false})
     }
   }
 })

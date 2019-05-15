@@ -1,3 +1,4 @@
+
 Component({
   //从父组件接收
   properties: {

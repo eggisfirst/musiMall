@@ -16,10 +16,23 @@
   align-items: center;
   justify-content: center;
 }
-.tips-btn {
+.btn {
+  border-top: 1px solid #d2d3d5;
   height: 100rpx;
   line-height: 100rpx;
-  border-top: 1px solid #d2d3d5;
-  color: #00c200;
   font-size: 36rpx;
+  text-align: center;
+  width: 100%;
+  display: flex;
+}
+.cancle-btn {
+  display: inline-block;
+  width: 50%;
+  color: #363636;
+  border-right: 1px solid #d2d3d5;
+}
+.tips-btn {
+  display: inline-block;
+  width: 50%;
+  color: #00c200;
 }

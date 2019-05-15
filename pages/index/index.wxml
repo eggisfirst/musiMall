@@ -17,6 +17,10 @@
   </view>
 
   <view class='orderBanner'>
-    <orderTab />
+    <orderTab bind:setLoginTips='setLoginTips'/>
+  </view>
+
+  <view class='tips' hidden="{{showTips}}">
+    <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>
   </view>
 </view>
