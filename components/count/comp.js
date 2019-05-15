@@ -61,8 +61,13 @@ Component({
             seconds = 59
             minute -= 1
             hour = 0
+          } else if (hour <= 0 && minute <= 0 && seconds <= 0){
+            hour = 0
+            minute = 0 
+            seconds = 0
+            clearInterval(interval);
           }else {
-            seconds -= 1
+            seconds -=1
           }
           this.setData({
             seconds,

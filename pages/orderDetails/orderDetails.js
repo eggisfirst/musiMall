@@ -24,9 +24,9 @@ Page({
   },
   //页面显示的时候刷新数据
   onShow() {
-    if(this.data.mydata) {
-      this.getOrderList(this.data.mydata.index,1)
-    }
+    // if(this.data.mydata) {
+    //   this.getOrderList(this.data.mydata.index,1)
+    // }
   },
   onLoad: function (options) {
     this.initQueryData(options.index)

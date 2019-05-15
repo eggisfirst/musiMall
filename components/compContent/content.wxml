@@ -23,6 +23,7 @@
     wx:key="{{productName}}"
     wx:for-item="el"
     bindtap='toOrderStatus'
+   
     data-no="{{el.orderNumber}}"
     >
     <orderLi orderList="{{el}}"/>

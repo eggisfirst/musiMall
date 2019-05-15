@@ -94,13 +94,16 @@ Page({
   cancleOrder(number) {
     indexModel.cancleOrder(number).then(res => {
       if(res.status == 1) {
-        var pages = getCurrentPages();
-        var prevPage = pages[pages.length - 2];  //上一个页面
-        prevPage.setData({
-          mydata: { index:1 }
-        })
-        wx.navigateBack({
-          delta: 1
+        // var pages = getCurrentPages();
+        // var prevPage = pages[pages.length - 2];  //上一个页面
+        // prevPage.setData({
+        //   mydata: { index: 0 }
+        // })
+        // wx.navigateBack({
+        //   delta: 1
+        // })
+        wx.redirectTo({
+          url: '/pages/orderDetails/orderDetails?index=0'
         })
       }
     })

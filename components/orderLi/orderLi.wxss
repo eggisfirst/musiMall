@@ -22,6 +22,8 @@
   width: 200rpx;
   height: 200rpx;
   border-radius: 12rpx;
+  overflow: hidden;
+
   /* border: 1rpx solid #eee; */
 }
 .orderLi-content {

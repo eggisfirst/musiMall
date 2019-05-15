@@ -77,11 +77,14 @@ function format(startTime) {
   var day = time.getDate();
   var hour = time.getHours();
   var minute = time.getMinutes();
+  var second = time.getSeconds()
   mouth = mouth < 10 ? '0' + mouth : mouth
   day = day < 10 ? '0' + day : day
   hour = hour < 10 ? '0' + hour : hour
   minute = minute < 10 ? '0' + minute : minute
-  return mouth + '月' + day + '日' + hour + ':' + minute
+  second = second < 10 ? '0' + second : second
+
+  return mouth + '月' + day + '日' + hour + ':' + minute + ":" + second
 }
 
 export {format}

@@ -8,8 +8,13 @@
     <text wx:if="{{hour < 10}}">0</text>
     <text>{{hour}} :</text>
   </block>
+  <block wx:if="{{hour == 0}}">
+    <text>00 :</text>
+  </block>
+
   <text wx:if="{{minute < 10}}">0</text>
   <text>{{minute}} :</text>
+
   <text wx:if="{{seconds < 10}}">0</text>
   <text>{{seconds}}</text>
 </view>
