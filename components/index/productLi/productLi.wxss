@@ -52,6 +52,10 @@
   color: #ff3701;
   font-size: 28rpx;
   line-height: 30rpx;
+  /* border: 1px solid red; */
+  overflow: hidden;
+  height: 30rpx;
+  width: 450rpx;
 }
 
 .right-icon {
