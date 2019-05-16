@@ -109,7 +109,8 @@ Page({
     this.setData({
       status: index,
       key: true,
-      page: 1
+      page: 1,
+      contenList: []
     })
     let status = index == 0 ? 1 : index == 1? 0 : 2
     this.getArtivityProductList(status,1)

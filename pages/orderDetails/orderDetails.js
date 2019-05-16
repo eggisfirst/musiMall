@@ -17,7 +17,7 @@ Page({
       name: '已核销',
       tab: 3,
     }],
-    contentList: [],
+    contenList: [],
     page: 1,
     key: true
   },
@@ -85,7 +85,8 @@ Page({
       tabVal: index,
       page: 1,
       key: true,
-      current: index
+      current: index,
+      contenList: []
     })
     this.getOrderList(index,1)
   },
