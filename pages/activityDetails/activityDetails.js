@@ -22,7 +22,8 @@ Page({
     showSelect: true,
     html: '',
     percent: 0,
-    progressLeft: 0
+    progressLeft: 0,
+    productDetails: {}
   },
   onLoad(options) {
     this.getData(options.id)

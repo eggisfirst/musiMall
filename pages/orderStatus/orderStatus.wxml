@@ -19,7 +19,11 @@
   <orderMsg orderDetails="{{orderDetails}}"/>
 
   <view class='payBtn' wx:if="{{orderDetails.orderState == 0}}">
-    <view class='cancle' bindtap='cancle'>取消订单</view>
-    <view class='comfirm' bindtap='comfirm'>立即支付</view>
+    <view class='cancle'
+          style='padding-top: {{height}}rpx' 
+          bindtap='cancle'>取消订单</view>
+    <view class='comfirm'
+          style='padding-top: {{height}}rpx'  
+          bindtap='comfirm'>立即支付</view>
   </view>
 </view>

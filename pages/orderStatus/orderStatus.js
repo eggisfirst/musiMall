@@ -3,10 +3,19 @@ const indexModel = new IndexModel()
 const app = getApp()
 Page({
   data: {
-    key:false
+    key:false,
+    height: ''
   },
   onLoad: function (options) {
     this.getOrderDetails(options.no)
+    this.phoneSystem()
+  },
+  //判断手机机型
+  phoneSystem() {
+    if (app.globalData.isIphoneX)
+      this.setData({
+        height: '40',
+      })
   },
   //获取订单详情
   getOrderDetails(number) {

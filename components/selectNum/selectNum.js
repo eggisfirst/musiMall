@@ -3,7 +3,13 @@ const indexModel = new IndexModel()
 const app = getApp()
 Component({
   properties: {
-    productDetails: Object
+    productDetails: {
+      type: Object,
+      value: {},
+      observer(newVal) {
+        this.initNumColor(newVal)
+      }
+    }
   },
   data: {
     cutColor: 'background: #efeff4',
@@ -11,7 +17,6 @@ Component({
     buyNum: 1
   },
   ready() {
-    this.initNumColor()
     this.setData({
       phone: app.globalData.phone
     })
@@ -19,9 +24,9 @@ Component({
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
     //初始化加号的颜色
-    initNumColor() {
-      let details = this.properties.productDetails
-      if (details && details.everybodyNum == 1) {
+    initNumColor(newVal) {
+      // let details = this.properties.productDetails
+      if (newVal && newVal.everybodyNum == 1) {
         this.setData({
           addColor: 'background: #efeff4'
         })

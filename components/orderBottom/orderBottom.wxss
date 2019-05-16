@@ -4,12 +4,14 @@
   height: 164rpx;
   box-sizing: border-box;
   display: flex;
+  overflow: hidden;
 }
 .btn-left {
   width: 510rpx;
   height: 100%;
   background-color: #fff;
   padding: 33rpx 30rpx;
+  padding-top: 50rpx;
   box-sizing: border-box;
   font-size: 36rpx;
 }
@@ -24,7 +26,7 @@
   width: 240rpx;
   height: 100%;
   background-color: #ff3701;
-  padding: 33rpx 0;
+  padding-top: 50rpx;
   box-sizing: border-box;
   color: #fff;
   text-align: center;

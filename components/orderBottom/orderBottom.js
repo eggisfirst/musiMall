@@ -6,12 +6,21 @@ Component({
     orderList:null
   },
   data: {
-    key: false
+    key: false,
+    height: ''
   },
   ready() {
+    this.phoneSystem()
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
+    //判断手机机型
+    phoneSystem() {
+      if (app.globalData.isIphoneX)
+        this.setData({
+          height: '40',
+        })
+    },
     pay() {
       if(this._isLock()) {
         return

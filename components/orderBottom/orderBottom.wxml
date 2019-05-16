@@ -1,10 +1,10 @@
 <!--components/orderBottom/orderBottom.wxml-->
 <view class='orderBottom-container'>
-  <view class='btn-left'>
+  <view class='btn-left' style='padding-top: {{height}}rpx' >
     <text class='left-text'>共{{orderList.totalQuantity}}件，合计：</text>
     <text class='left-price'>¥{{orderList.totalPrice}}</text>
   </view>
-  <view class='btn-right' catchtap='pay'>
+  <view class='btn-right' catchtap='pay' style='padding-top: {{height}}rpx' >
     <text>立即支付</text>
   </view>
 </view>

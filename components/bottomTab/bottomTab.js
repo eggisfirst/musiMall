@@ -1,3 +1,4 @@
+const app = getApp()
 Component({
   properties: {
     queryData: Object,
@@ -6,11 +7,21 @@ Component({
     onsaleStock: Number
   },
   data: {
-    
+    leftHeight: '',
+    rightHeight: ''
   },
   ready() {
+    this.phoneSystem()
   },
   methods: {
+    //判断手机机型
+    phoneSystem() {
+      if (app.globalData.isIphoneX)
+        this.setData({
+          leftHeight: '22',
+          rightHeight: '37'
+        })
+    },
     //跳转到秒杀首页
     toActivity() {
       wx.switchTab({

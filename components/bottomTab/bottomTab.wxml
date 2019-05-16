@@ -1,37 +1,46 @@
 <!--components/bottomTab/bottomTab.wxml-->
-<view class='tab-box'>
-  <view class='tab-left'>
-    <view class='toActivity' bindtap='toActivity'>
-      <image class='image' src='/images/activityDetails/activity.png' />
-      <text>秒杀活动</text>
-    </view>
-    <view class='tab-rules' bindtap='showRules'>
-      <image class='image' src='/images/activityDetails/rules.png' />
-      <text>活动规则</text>
+<view class='tab-box' >
+  <view class='tab-left' >
+    <view class='left' style="margin-top:{{leftHeight}}rpx">
+      <view class='toActivity' bindtap='toActivity'>
+        <image class='image' src='/images/activityDetails/activity.png' />
+        <text class='text'>秒杀活动</text>
+      </view>
+      <view class='tab-rules' bindtap='showRules'>
+        <image class='image' src='/images/activityDetails/rules.png' />
+        <text class='text'>活动规则</text>
+      </view>
     </view>
   </view>
+
   <view class='tab-right'  wx:if="{{activityState != 2}}">
-    <view class='btn-box'  wx:if="{{activityState == 0}}" catchtap='clickBeginBtn'>
-      <image class='image-start' src='/images/activityDetails/time.png' />
-      <text>即将开始</text>
-    </view>
-
-    <block wx:if="{{activityState == 1}}">
-      <view class='btn-box-buy' catchtap='buyBtn' wx:if="{{onsaleStock}}">
-        <image class='image-buy' src='/images/activityDetails/shopCar.png' />
-        <text>立即抢购</text>
+      <view class='btn-box'  
+            style="margin-top:{{rightHeight}}rpx"
+            wx:if="{{activityState == 0}}" 
+            catchtap='clickBeginBtn'>
+        <image class='image-start' src='/images/activityDetails/time.png' />
+        <text class='Text'>即将开始</text>
       </view>
-      <view class='btn-box-selled' wx:else>
-        <view class='selled'>
-          <text>已抢光</text>
+
+      <block wx:if="{{activityState == 1}}">
+        <view class='btn-box-buy' 
+              style="margin-top:{{rightHeight}}rpx"
+              catchtap='buyBtn' 
+              wx:if="{{onsaleStock}}">
+          <image class='image-buy' src='/images/activityDetails/shopCar.png' />
+          <text>立即抢购</text>
         </view>
+        <view class='btn-box-selled' wx:else >
+          <view class='selled'style="margin-top:{{rightHeight}}rpx">
+            <text>已抢光</text>
+          </view>
+        </view>
+      </block>
+  </view>
+  
+    <view class='tab-right-end' wx:else >
+      <view class='btn-box-end' style="margin-top:{{rightHeight}}rpx">
+        <text>活动已结束</text>
       </view>
-     </block>
-  </view>
-
-  <view class='tab-right-end' wx:else>
-    <view class='btn-box-end'>
-      <text>活动已结束</text>
     </view>
-  </view>
 </view>
