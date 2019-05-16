@@ -1,6 +1,6 @@
  <view class='productLi-container'>
     <view class='product-cover'>
-      <image class='image' src='{{productType.productImg}}'/>
+      <image class='image' src='{{productType.productImg}}' lazy-load='true'/>
       <view class='image-mask' wx:if="{{productType.onsaleStock==0}}">
         <view class='text-box'>
           <view class='text'>

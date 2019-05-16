@@ -11,7 +11,7 @@
 
   <view class='product-container'>
     <view class='orderLi-cover'>
-      <image src='{{orderList.productImg}}' class='image'/>
+      <image src='{{orderList.productImg}}' class='image'lazy-load='true' />
     </view>
 
     <view class='orderLi-content'>
