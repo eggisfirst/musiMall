@@ -39,19 +39,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 6,
 			"list": [
 				{
 					"id": 0,
 					"name": "订单详情",
 					"pathName": "pages/orderStatus/orderStatus",
-					"query": "no=1128580125853032449"
+					"query": "no=16000001254559961"
 				},
 				{
 					"id": 1,
 					"name": "秒杀详情",
 					"pathName": "pages/activityDetails/activityDetails",
-					"query": "id=1128580125853032449"
+					"query": "id= 1128859267966189570"
 				},
 				{
 					"id": -1,
@@ -76,6 +76,12 @@
 					"name": "login",
 					"pathName": "pages/login/login",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的订单",
+					"pathName": "pages/order/order",
+					"query": "num= 16000000726765083"
 				}
 			]
 		}
