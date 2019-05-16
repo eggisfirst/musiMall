@@ -42,8 +42,9 @@
       <view class='product-count'>
         <view class='price'>
           <text>秒杀价：</text>
-          <text>¥{{productType.productPrice}}</text>
+          <text class='price-text'>¥{{productType.productPrice}}</text>
         </view>
+
         <view class='count' wx:if="{{productType.activityState == 1}}">
           <count 
             status="{{productType.activityState}}"
@@ -51,6 +52,7 @@
             startTime="{{productType.startTime}}" 
             bind:timeTo="timeTo"/>
         </view>
+
         <view  wx:if="{{productType.activityState == 2}}" class='endDay'>
           <text>已结束</text>
         </view>

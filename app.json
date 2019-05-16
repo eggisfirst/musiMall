@@ -26,14 +26,14 @@
       {
         "text": "秒杀活动",
         "pagePath": "pages/activity/activity",
-        "iconPath": "images/bottomBtn2_0.png",
-        "selectedIconPath": "images/bottomBtn2_1.png"
+        "iconPath": "images/bottomBtn2_1.png",
+        "selectedIconPath": "images/bottomBtn2_0.png"
       },
       {
         "text": "个人中心",
         "pagePath": "pages/index/index",
-        "iconPath": "images/bottomBtn1_0.png",
-        "selectedIconPath": "images/bottomBtn1_1.png"
+        "iconPath": "images/bottomBtn1_1.png",
+        "selectedIconPath": "images/bottomBtn1_0.png"
       }
     ]
   },

@@ -25,7 +25,8 @@ Page({
   //页面显示的时候刷新数据
   onShow() {
     // if(this.data.mydata) {
-    //   this.getOrderList(this.data.mydata.index,1)
+      
+    //   // this.getOrderList(this.data.mydata.index,1)
     // }
   },
   onLoad: function (options) {
@@ -82,7 +83,8 @@ Page({
     this.setData({
       tabVal: index,
       page: 1,
-      key: true
+      key: true,
+      current: index
     })
     this.getOrderList(index,1)
   }

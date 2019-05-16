@@ -39,6 +39,7 @@
   color: #909090;
   font-size: 24rpx;
 }
+
 .count {
   width:130rpx;
   height:40rpx;

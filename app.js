@@ -19,7 +19,14 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
-    
+    wx.getSystemInfo({
+      success: res => {
+        let modelmes = res.model;
+        if (modelmes.search('iPhone X') != -1) {
+          this.globalData.isIphoneX = true
+        }
+      }
+    })
     // 获取用户地理位置
     // wx.getLocation({
     //   type: 'wgs84',
@@ -68,9 +75,7 @@ App({
               this.globalData.userInfo = res.userInfo
               // console.log('获取用户信息成功：', res)
               // 可以将 res 发送给后台解码出 unionId
-              if(!this.globalData.hasPhone) {
                 this.decodeUserInfo(res)
-              }
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -126,6 +131,7 @@ App({
     openId: '',
     ip: '',
     sessionKey: '',
-    loading: false
+    loading: false,
+    isIphoneX: false
   }
 })

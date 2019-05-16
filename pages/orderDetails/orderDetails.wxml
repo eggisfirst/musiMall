@@ -6,6 +6,7 @@
     current="{{current}}" 
     list="{{list}}"/>
   <compContent 
+    current="{{current}}"
     class='content'
     contenList="{{contenList}}"
     type="order"

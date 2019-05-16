@@ -4,11 +4,22 @@ const app = getApp()
 Page({
   data: {
     key:false,
-    height: ''
+    height: '',
+    skipKey: true
   },
   onLoad: function (options) {
+    // console.log(123,options.status)
+    this.setData({
+      queryData: options
+    })
+    this.initData(options)
     this.getOrderDetails(options.no)
     this.phoneSystem()
+  },
+  initData(options) {
+    this.setData({
+      index: options.status
+    })
   },
   //判断手机机型
   phoneSystem() {
@@ -103,18 +114,39 @@ Page({
   cancleOrder(number) {
     indexModel.cancleOrder(number).then(res => {
       if(res.status == 1) {
-        // var pages = getCurrentPages();
-        // var prevPage = pages[pages.length - 2];  //上一个页面
-        // prevPage.setData({
-        //   mydata: { index: 0 }
-        // })
-        // wx.navigateBack({
-        //   delta: 1
-        // })
-        wx.redirectTo({
-          url: '/pages/orderDetails/orderDetails?index=0'
-        })
+        this.toLastPage()
       }
+    })
+  },
+  //支付时间到
+  timeTo(e) {
+    if(!e.detail.timeTo) {
+      return
+    }
+    if (this.data.skipKey) {
+      this.refreshPage()
+      this.setData({
+        skipKey: false
+      })
+    }
+  },
+  //刷新当前页面
+  refreshPage() {
+    if(this.data.skipKey) {
+      this.onLoad(this.data.queryData)
+    }
+  },
+  //跳转到前一个页面
+  toLastPage() {
+    this.setData({ skipKey: false })
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];  //上一个页面
+    let obj = {
+      index: this.data.index
+    }
+    prevPage.onLoad(obj)
+    wx.navigateBack({
+      delta: 1
     })
   },
   _isLock() {

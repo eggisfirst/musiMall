@@ -139,4 +139,15 @@
   line-height: 30rpx;
 }
 
+.count {
+  width:180rpx;
+  height:40rpx;
+  overflow: hidden;
+  text-align: right;
+  /* border-radius:10rpx; */
+}
+.count text {
+  font-size: 28rpx;
+  color: #ff0101;
+}
 

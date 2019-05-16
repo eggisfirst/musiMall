@@ -4,13 +4,14 @@ Component({
   properties: {
     contenList: null,
     type:String,
-    hasData: Boolean
+    hasData: Boolean,
+    current: String
   },
   data: {
-    current: 0,
     orderHeight: ''
   }, 
   ready() {
+    // console.log(11, this.properties.current)
   },
   methods: {
     //先判断有没有登陆再跳转
@@ -28,7 +29,7 @@ Component({
     toOrderStatus(e) {
       let no = e.currentTarget.dataset.no
       wx.navigateTo({
-        url: `/pages/orderStatus/orderStatus?no=${no}`,
+        url: `/pages/orderStatus/orderStatus?no=${no}&status=${this.properties.current}`,
       })
     },
     //活动到时

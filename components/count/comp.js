@@ -30,7 +30,10 @@ Component({
     }
   },
   data: {
-    
+    seconds: 0,
+    minute: 0,
+    hour: 0,
+    key: true
   },
   ready() {
   },
@@ -77,7 +80,7 @@ Component({
           // console.log(seconds,minute,hour)
         } else {
           clearInterval(interval);
-          this.triggerEvent('timeTo',{timeTo: true})
+          this.timeTo()
         }
       }, 1000);
     },
@@ -87,22 +90,32 @@ Component({
       let interval = null,
           minute = Math.floor(time/60),
           seconds = time%60;
+          console.log(minute, seconds)
       interval = setInterval(() => {
-        if(seconds <= 0) {
+        if (minute <= 0 && seconds <= 0) {
+          seconds = 0
+          minute = 0
+          clearInterval(interval);
+          this.triggerEvent('timeTo', { timeTo: true })
+          console.log(0)          
+        } else if (minute >0 && seconds > 0) {
+          seconds -= 1
+        } else if(minute <= 0 && seconds > 0){
+          seconds -= 1
+        } else if (minute > 0 && seconds <= 0){
           minute -= 1;
           seconds = 59
-        }else {
-          seconds -= 1;
         }
-        if (minute >= 0) {
-          this.setData({
-            minute,
-            seconds
-          })
-        }else {
-          clearInterval(interval);
-        }
+        this.setData({
+          minute,
+          seconds,
+          hour: -1
+        })
       },1000)
+    },
+    //倒计时完成
+    timeTo() {
+      this.triggerEvent('timeTo', { timeTo: true })
     }
   }
 })
