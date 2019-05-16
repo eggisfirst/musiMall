@@ -62,10 +62,10 @@ Page({
   },
   //获取活动列表
   getArtivityProductList(status,page) {
-    this._loading()
+    // this._loading()
     indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
-        this._loaded()
+        // this._loaded()
         if (page == 1) {
           this._locked(res.data.list)
           this._setList(res.data.list)
