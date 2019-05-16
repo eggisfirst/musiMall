@@ -9,7 +9,7 @@
     list="{{list}}"/>
   <compContent 
     class='content'
-    hasData="{{hasData}}"
+    key="{{key}}"
     type="activity"
     contenList="{{contenList}}"
     bind:setLoginTips='setLoginTips'/>

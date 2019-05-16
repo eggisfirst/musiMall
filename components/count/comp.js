@@ -80,7 +80,7 @@ Component({
           // console.log(seconds,minute,hour)
         } else {
           clearInterval(interval);
-          this.timeTo()
+          // this.timeTo()
         }
       }, 1000);
     },
@@ -97,7 +97,7 @@ Component({
           minute = 0
           clearInterval(interval);
           this.triggerEvent('timeTo', { timeTo: true })
-          console.log(0)          
+          // console.log(0)          
         } else if (minute >0 && seconds > 0) {
           seconds -= 1
         } else if(minute <= 0 && seconds > 0){

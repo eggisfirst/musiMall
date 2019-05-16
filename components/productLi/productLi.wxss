@@ -150,4 +150,11 @@
   font-size: 28rpx;
   color: #ff0101;
 }
+.price {
+  width: 50%;
+  height: 40rpx;
+  overflow: hidden;
+}
+.price-text {
 
+}

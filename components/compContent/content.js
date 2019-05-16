@@ -4,8 +4,8 @@ Component({
   properties: {
     contenList: null,
     type:String,
-    hasData: Boolean,
-    current: String
+    current: String,
+    key: Boolean
   },
   data: {
     orderHeight: ''

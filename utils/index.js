@@ -1,11 +1,4 @@
-//base64解码
-function b64DecodeUnicode(str) {
-  return decodeURIComponent(atob(str).split('').map(function (c) {
-    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-  }).join(''));
-}
 
-export { b64DecodeUnicode }
 
 function base64_decode(input) { // 解码，配合decodeURIComponent使用
   var base64EncodeChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -61,14 +54,7 @@ function utf8_decode(utftext) { // utf-8解码
 
 
 
-//正则匹配html中的img，把img中alt换成style样式 //alt
-function changeImgStyle(html) {
-  var newContent = html.replace(/<img[^>]*>/gi, function (match, capture) {
-    var match = match.replace(/title=\"(.*)\"/gi, 'style="width: 100%;height:auto"');
-    return match;
-  });
-  return newContent;
-}
+
 
 
 function format(startTime) {
@@ -89,27 +75,3 @@ function format(startTime) {
 
 export {format}
 
-function getTime(time) {
-  let tempDay = time.split(" ")[0]
-  let tempSec = time.split(" ")[1]
-  let temp1 = tempDay.split("/")
-  let y = temp1[0]
-  let m = temp1[1]
-  let d = temp1 [2]
-  let temp2 = tempSec.split(":")
-  let h = temp2[0]
-  let mm = temp2[1]
-  let sec = temp2[2]
-  return [y,m,d,h,mm,sec]
-}
-
-function getSec(endTime, startTime) {
-  let end = getTime(endTime)
-  let start = getTime(startTime)
-  let d = (end[0] - start[0]) * 365 + (end[1] - start[1])*30 + end[2] - start[2]
-  let sec = (end[3] - start[3]) * 60*60 + (end[4] - start[4]) * 60 + end[5] - start[5]
-  console.log(end[3],start[3])
-  let sec1 = d*24*60*60 + sec
-  // return sec
-}
-export {getSec}

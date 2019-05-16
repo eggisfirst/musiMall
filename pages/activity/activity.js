@@ -27,8 +27,7 @@ Page({
     showTips: true,
     tipsText: '请先登录',
     key: true,
-    page: 1,
-    hasData: false
+    page: 1
   },
   onLoad(options) {
     this.getAdvertisement()
@@ -63,27 +62,34 @@ Page({
   },
   //获取活动列表
   getArtivityProductList(status,page) {
+    this._loading()
     indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
         this._loaded()
         if (page == 1) {
-          this.setData({
-            contenList: res.data.list
-          })
+          this._locked(res.data.list)
+          this._setList(res.data.list)
         } else {
-          if (res.data.list && res.data.list.length < 10) {
-            this.setData({ 
-              key: false,
-              hasData: true
-            })
-          }
+          this._locked(res.data.list)
           let list = this.data.contenList.concat(res.data.list)
-          this.setData({
-            contenList: list
-          })
+          this._setList(list)
         }
       }
     })
+  },
+  //设置数据
+  _setList(list) {
+    this.setData({
+      contenList: list
+    })
+  },
+  //上锁
+  _locked(list) {
+    if (list && list.length < 10) {
+      this.setData({
+        key: false
+      })
+    }
   },
   //加载图标
   _loading() {

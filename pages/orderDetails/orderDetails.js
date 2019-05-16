@@ -19,15 +19,7 @@ Page({
     }],
     contentList: [],
     page: 1,
-    key: true,
-    hasData: false
-  },
-  //页面显示的时候刷新数据
-  onShow() {
-    // if(this.data.mydata) {
-      
-    //   // this.getOrderList(this.data.mydata.index,1)
-    // }
+    key: true
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
@@ -45,27 +37,35 @@ Page({
   },
   //获取订单列表
   getOrderList(status,page) {
+    this._loading()
     let index = status - 1
     indexModel.getOrderList(this.data.phone,index,page).then(res => {
       if(res.status == 1) {
+        this._loaded()
         if(page == 1) {
-          this.setData({
-            contenList: res.data.list
-          })
+          this._locked(res.data.list)
+          this._setList(res.data.list)
         }else {
-          if(res.data.list && res.data.list.length < 10) {
-            this.setData({
-              key: false,
-              hasData: true
-            })
-          }
+          this._locked(res.data.list)
           let list = this.data.contenList.concat(res.data.list)
-          this.setData({
-            contenList: list
-          })
+          this._setList(list)
         }
       }
     })
+  },
+  //设置数据
+  _setList(list) {
+    this.setData({
+      contenList: list
+    })
+  },
+  //上锁
+  _locked(list) {
+    if (list && list.length < 10) {
+      this.setData({
+        key: false
+      })
+    }
   },
   //判断第几个tab
   initQueryData(index) {
@@ -79,6 +79,7 @@ Page({
   },
   //tab组件触发
   getCurrentTab(e) {
+    this._loading()
     let index = e.detail.currentTab
     this.setData({
       tabVal: index,
@@ -87,5 +88,16 @@ Page({
       current: index
     })
     this.getOrderList(index,1)
+  },
+  //加载图标
+  _loading() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+  },
+  //隐藏加载图标
+  _loaded() {
+    wx.hideLoading()
   }
 })

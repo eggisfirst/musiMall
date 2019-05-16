@@ -41,7 +41,7 @@
       </view>
       <view class='product-count'>
         <view class='price'>
-          <text>秒杀价：</text>
+          <text class='price-text'>秒杀价：</text>
           <text class='price-text'>¥{{productType.productPrice}}</text>
         </view>
 

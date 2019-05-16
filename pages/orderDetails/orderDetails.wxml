@@ -10,7 +10,7 @@
     class='content'
     contenList="{{contenList}}"
     type="order"
-    hasData="{{hasData}}"
+    key="{{key}}"
    />
 
 </view>

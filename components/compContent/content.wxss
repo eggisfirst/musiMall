@@ -63,3 +63,8 @@
   line-height: 30rpx;
   margin-top: 30rpx;
 }
+
+.loading {
+  display: block;
+  margin: 30rpx 375rpx;
+}
