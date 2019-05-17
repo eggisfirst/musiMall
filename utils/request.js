@@ -1,6 +1,6 @@
 class Request {
-  baseUrl = 'http://10.11.8.228:8088/'
-  // baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
+  // baseUrl = 'http://10.11.8.228:8088/'
+  baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
 
   getData({ url, data = {}, method = "post" }) {
     return new Promise((resolve, reject) => {

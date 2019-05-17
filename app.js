@@ -41,13 +41,10 @@ App({
   },
   //获取openid
   getOpenId(code) {
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-    })
+    this._loading()
     indexModel.getOpenId(code).then(res => {
+      this._unload()
       if (res.status) {
-        wx.hideLoading()
         this.globalData.openId = res.data.openId
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
@@ -55,11 +52,8 @@ App({
           this.globalData.phone = res.data.mobileNumber
           this.globalData.login = true
         }
-
         this.getMyUserInfo()
         // this.getInfo(res.data.openId)
-      }else {
-        wx.hideLoading()
       }
     })
   },
@@ -105,14 +99,24 @@ App({
       sessionKey: this.globalData.sessionKey,
       openId: this.globalData.openId
     }
+    this._loading()
     indexModel.decodeUserInfo(obj).then(res => {
+      this._unload()
       if (res.data && res.data.mobileNumber) {
         this.globalData.phone = res.data.mobileNumber
         this.globalData.login = true
       }
     })
   },
- 
+  _loading() {
+    wx.showLoading({
+      title: '加载中',
+      mask: true,
+    })
+  },
+  _unload() {
+    wx.hideLoading()
+  },
   //获取手机ip
   getIp() {
     wx.request({

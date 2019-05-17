@@ -28,7 +28,7 @@
     >
     <orderLi orderList="{{el}}"/>
   </view>
-  <!-- <loading hidden="{{!key}}" class='loading-order'/> -->
+  <!-- <loading hidden="{{!isloading}}" class='loading-order'/> -->
   <view class='noMore' wx:if="{{!key}}">
     <text>没有更多了</text>
   </view>

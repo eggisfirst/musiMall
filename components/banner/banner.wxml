@@ -18,6 +18,7 @@
               src="{{item.img || item}}" 
               class="slide-image" 
               mode='widthFix' 
+              lazy-load='true'
               />
       </swiper-item>
     </block>
