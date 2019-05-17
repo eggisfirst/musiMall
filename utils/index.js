@@ -57,20 +57,23 @@ function utf8_decode(utftext) { // utf-8解码
 
 
 
-function format(startTime) {
-  var time = new Date(startTime*1000);
-  var mouth = time.getMonth() + 1;
-  var day = time.getDate();
-  var hour = time.getHours();
-  var minute = time.getMinutes();
-  var second = time.getSeconds()
-  mouth = mouth < 10 ? '0' + mouth : mouth
-  day = day < 10 ? '0' + day : day
-  hour = hour < 10 ? '0' + hour : hour
-  minute = minute < 10 ? '0' + minute : minute
-  second = second < 10 ? '0' + second : second
+function format(time) {
+  var timeArr = time.split(" ")
+  var dayArr = timeArr[0].split("-")
+  return dayArr[0] + '年' + dayArr[1] + '月' + dayArr[2] + '日' + timeArr[1]
+   // var time = new Date(startTime*1000);
+  // var mouth = time.getMonth() + 1;
+  // var day = time.getDate();
+  // var hour = time.getHours();
+  // var minute = time.getMinutes();
+  // var second = time.getSeconds()
+  // mouth = mouth < 10 ? '0' + mouth : mouth
+  // day = day < 10 ? '0' + day : day
+  // hour = hour < 10 ? '0' + hour : hour
+  // minute = minute < 10 ? '0' + minute : minute
+  // second = second < 10 ? '0' + second : second
 
-  return mouth + '月' + day + '日' + hour + ':' + minute + ":" + second
+  // return mouth + '月' + day + '日' + hour + ':' + minute + ":" + second
 }
 
 export {format}

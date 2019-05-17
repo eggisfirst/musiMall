@@ -6,7 +6,7 @@
   <view class='selectNum-content'>
     <view class='content'>
       <view class='content-cover'>
-        <image class='image-cover' src='{{productDetails.productImgs[0]}}'/>
+        <image class='image-cover' src='{{imgArr[0]}}'/>
       </view>
       <view class='content-product'>
         <view class='product-name'>{{productDetails.productName}}</view>

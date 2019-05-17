@@ -34,7 +34,8 @@ Component({
     },
     //初始活动即将开始时间
     initStartTime(newVal) {
-      let time = format(Number(newVal.startTime))
+      // let time = format(Number(newVal.startTime))
+      let time = (format(newVal.startTime))
       this.setData({
         time
       })

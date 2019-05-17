@@ -13,16 +13,7 @@ Page({
       duration: 1000,
       circular: true
     },
-    list: [{
-      name: '正在疯抢',
-      tab: 0,
-      }, {
-      name: '即将开抢',
-      tab: 1,
-      }, {
-      name: '抢购结束',
-      tab: 2,
-    }],
+    list: [ '正在疯抢','即将开抢','抢购结束'],
     contenList: [],
     showTips: true,
     tipsText: '请先登录',

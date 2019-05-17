@@ -68,3 +68,7 @@
   display: block;
   margin: 30rpx 375rpx;
 }
+.loading-order {
+  display: block;
+  margin: 0 375rpx;
+}

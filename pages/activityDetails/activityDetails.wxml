@@ -3,7 +3,7 @@
 
 
 <view class='detail-container'>
-  <banner imgUrls="{{productDetails.productImgs}}" swiperType="{{swiperType}}"/>
+  <banner imgUrls="{{imgArr}}" swiperType="{{swiperType}}"/>
 
   <view class='price-box'>
     <view class='price'>
@@ -86,6 +86,7 @@
   <view class='selectNum-box' hidden='{{showSelect}}'>
     <selectNum class='selectNum' 
       productDetails="{{productDetails}}"
+      imgArr="{{imgArr}}"
       bind:closeSelectNum="closeSelectNum"/>
   </view>
 </view>

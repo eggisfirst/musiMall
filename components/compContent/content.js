@@ -11,7 +11,7 @@ Component({
     orderHeight: ''
   }, 
   ready() {
-    // console.log(11, this.properties.current)
+    // console.log(11, this.properties.key)
   },
   methods: {
     //先判断有没有登陆再跳转

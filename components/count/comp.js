@@ -2,7 +2,7 @@ Component({
   properties: {
     endTime: {
       type: String,
-      value: '15889990022',
+      value: '',
       observer(newVal){
         // this.activityCountTime(newVal)
         // this.getMySec(newVal)
@@ -40,8 +40,7 @@ Component({
   methods: {
     //倒计时  当开始时间大于等于现在的时间，开始倒计时。
     time(newVal) {
-      // let endTime = new Date('2019/05/13 13:13:10').getTime() + 1000;
-      let endTime = newVal*1000
+      let endTime = new Date(newVal).getTime() + 1000;
       let interval = null;
       let remainingTime = endTime - Date.now(); // 剩余毫秒
       let day = Math.floor(remainingTime / 1000 / 60 / 60 / 24)

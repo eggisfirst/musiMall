@@ -4,19 +4,7 @@ const indexModel = new IndexModel()
 const app = getApp()
 Page({
   data: {
-    list: [{
-      name: '全部',
-      tab: 0,
-    }, {
-      name: '待付款',
-      tab: 1,
-    }, {
-      name: '待核销',
-      tab: 2,
-    }, {
-      name: '已核销',
-      tab: 3,
-    }],
+    list: ['全部','待付款','待核销','已核销'],
     contenList: [],
     page: 1,
     key: true
@@ -37,11 +25,9 @@ Page({
   },
   //获取订单列表
   getOrderList(status,page) {
-    // this._loading()
     let index = status - 1
     indexModel.getOrderList(this.data.phone,index,page).then(res => {
       if(res.status == 1) {
-        // this._loaded()
         if(page == 1) {
           this._locked(res.data.list)
           this._setList(res.data.list)
@@ -79,7 +65,6 @@ Page({
   },
   //tab组件触发
   getCurrentTab(e) {
-    this._loading()
     let index = e.detail.currentTab
     this.setData({
       tabVal: index,
@@ -89,16 +74,5 @@ Page({
       contenList: []
     })
     this.getOrderList(index,1)
-  },
-  //加载图标
-  _loading() {
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-    })
-  },
-  //隐藏加载图标
-  _loaded() {
-    wx.hideLoading()
   }
 })

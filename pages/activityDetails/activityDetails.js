@@ -33,22 +33,34 @@ Page({
     indexModel.getArtivityProductDetails(id).then(res => {
       if(res.status == 1) {
         this.initPercent(res.data)
+        let imgArr = this.changeImg(res.data.productImgs)
         if (res.data.productDetails) {
           let html = base64_decode(res.data.productDetails)
           this.setData({
             productDetails: res.data,
-            html: html
+            html: html,
+            imgArr
           })
           WxParse.wxParse('article', 'html', html, this, 5);
         }else {
           this.setData({
-            productDetails: res.data
+            productDetails: res.data,
+            imgArr
           })
         }
         this.initData(res.data.activityState)
         // Html2wxml.html2wxml('article', html, this, 5);
       }
     })
+  },
+  changeImg(imgs) {
+    let arr = []
+    if(imgs.indexOf(';') === -1) {
+      arr.push(imgs)
+      return arr
+    }else {
+      return imgs.split(";")
+    }
   },
   //初始化进度条
   initPercent(data) {

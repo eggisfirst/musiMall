@@ -9,7 +9,8 @@ Component({
       observer(newVal) {
         this.initNumColor(newVal)
       }
-    }
+    },
+    imgArr: Array
   },
   data: {
     cutColor: 'background: #efeff4',

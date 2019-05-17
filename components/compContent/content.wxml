@@ -9,7 +9,7 @@
     bindtap='toProductDetails'>
     <productLi productType="{{el}}" bind:timeTo='timeTo'/>
   </view>
-  <loading hidden="{{!key}}" class='loading'/>
+  <!-- <loading hidden="{{!key}}" class='loading'/> -->
   <view class='noMore' wx:if="{{!key}}">
     <text>没有更多了</text>
   </view>
@@ -28,6 +28,7 @@
     >
     <orderLi orderList="{{el}}"/>
   </view>
+  <!-- <loading hidden="{{!key}}" class='loading-order'/> -->
   <view class='noMore' wx:if="{{!key}}">
     <text>没有更多了</text>
   </view>
