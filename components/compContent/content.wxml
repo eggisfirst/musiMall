@@ -9,11 +9,11 @@
     bindtap='toProductDetails'>
     <productLi productType="{{el}}" bind:timeTo='timeTo'/>
   </view>
-  <!-- <loading hidden="{{!key}}" class='loading'/> -->
+  <loading hidden="{{!key}}" class='loading'/>
   <view class='noMore' wx:if="{{!key}}">
     <text>没有更多了</text>
   </view>
-  <view class='nomore' wx:if='{{contenList.length == 0}}'>
+  <view class='nomore' wx:if='{{ !key &&  contenList.length == 0}}'>
     <text class='text'>没有更多了</text>
   </view>
 </block> 
@@ -31,7 +31,7 @@
   <view class='noMore' wx:if="{{!key}}">
     <text>没有更多了</text>
   </view>
-  <view class='noOrder'  wx:if="{{contenList.length == 0 || !contenList}}" >
+  <view class='noOrder'  wx:if="{{!key && contenList.length == 0}}" >
     <image src='/images/index/noorder.png' class='image'/>
     <text class='order-text'>暂无相关订单</text>
   </view>

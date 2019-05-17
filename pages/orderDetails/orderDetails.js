@@ -37,11 +37,11 @@ Page({
   },
   //获取订单列表
   getOrderList(status,page) {
-    this._loading()
+    // this._loading()
     let index = status - 1
     indexModel.getOrderList(this.data.phone,index,page).then(res => {
       if(res.status == 1) {
-        this._loaded()
+        // this._loaded()
         if(page == 1) {
           this._locked(res.data.list)
           this._setList(res.data.list)
