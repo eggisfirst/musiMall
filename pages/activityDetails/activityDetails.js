@@ -27,14 +27,14 @@ Page({
   },
   onLoad(options) {
     this.getData(options.id)
-    // this.setBackData(options)
+    this.setBackData(options)
   },
   //设置后退返回的数据
   setBackData(options) {
     var pages = getCurrentPages(); //获取页面栈
     var prevPage = pages[pages.length - 2];  //上一个页面
     prevPage.setData({		//设置上一个页面的数据
-      backData: options.current
+      status: options.current
     })
   },
   //获取活动详情数据

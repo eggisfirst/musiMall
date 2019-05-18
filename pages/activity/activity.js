@@ -19,22 +19,18 @@ Page({
     tipsText: '请先登录',
     key: true,
     page: 1,
-    backKey: true
+    backKey: true,
+    status: 0
   },
-  onShow() {
-    // const curPages = getCurrentPages();
-    // const index = curPages.length - 1;
-    // // let type = ''
-    // console.log(curPages[index].route )
-      // this.getAdvertisement()
-      // if(this.data.backData) {
-      //   let status = this.data.backData == 0 ? 1 : this.data.backData == 1 ? 0 : 2
-      //   this.getArtivityProductList(status, 1)
-      // }
+  //下拉刷新
+  onPullDownRefresh: function () {
+    wx.showNavigationBarLoading();//在当前页面显示导航条加载动画。
+    let status = this.data.status == 0 ? 1 : this.data.status == 1 ? 0 : 2
+    this.getArtivityProductList(status, 1)
   },
   onLoad(options) {
-      this.getAdvertisement()
-      this.initData()
+    this.getAdvertisement()
+    this.initData()
   },
   //触底刷新
   onReachBottom() {
@@ -71,6 +67,8 @@ Page({
     // this._loading()
     indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
+        wx.hideNavigationBarLoading();//隐藏导航条加载动画。
+        wx.stopPullDownRefresh();//停止当前页面下拉刷新。
         // this._loaded()
         if (page == 1) {
           this._locked(res.data.list)

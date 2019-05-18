@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的订单",
   "onReachBottomDistance": 150,
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "compTab": "../../components/compTab/compTab",
     "compContent": "../../components/compContent/content"

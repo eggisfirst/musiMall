@@ -13,13 +13,18 @@ Page({
     this.initQueryData(options.index)
     this.getOrderList(options.index,1)
   },
-
+  //下拉刷新
+  onPullDownRefresh() {
+    // console.log(this.data.current)
+    wx.showNavigationBarLoading();//在当前页面显示导航条加载动画。
+    this.getOrderList(this.data.current, 1)
+  },
   //触底刷新
   onReachBottom() {
     if(this.data.key) {
       let page = this.data.page + 1
       this.setData({ page })
-      let status = this.data.tabVal
+      let status = this.data.current
       this.getOrderList(status, page)
     }
   },
@@ -28,6 +33,8 @@ Page({
     let index = status - 1
     indexModel.getOrderList(this.data.phone,index,page).then(res => {
       if(res.status == 1) {
+        wx.hideNavigationBarLoading();//隐藏导航条加载动画。
+        wx.stopPullDownRefresh();//停止当前页面下拉刷新。
         if(page == 1) {
           this._locked(res.data.list)
           this._setList(res.data.list)
@@ -58,7 +65,7 @@ Page({
     if(index) {
       this.setData({
         current: index,
-        tabVal: index,
+        // tabVal: index,
         phone: app.globalData.phone
       })
     }
@@ -67,7 +74,7 @@ Page({
   getCurrentTab(e) {
     let index = e.detail.currentTab
     this.setData({
-      tabVal: index,
+      // tabVal: index,
       page: 1,
       key: true,
       current: index,

@@ -92,7 +92,7 @@ Component({
       let interval = null,
           minute = Math.floor(time/60),
           seconds = time%60;
-          console.log(minute, seconds)
+          // console.log(minute, seconds)
       interval = setInterval(() => {
         if (minute <= 0 && seconds <= 0) {
           seconds = 0
