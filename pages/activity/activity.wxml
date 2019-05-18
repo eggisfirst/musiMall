@@ -11,6 +11,8 @@
   <compContent 
     class='content'
     key="{{key}}"
+    hasMoreData="{{hasMoreData}}"
+    noData="{{noData}}"
     type="activity"
     current="{{current}}" 
     contenList="{{contenList}}"

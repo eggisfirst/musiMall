@@ -5,12 +5,21 @@ Component({
     contenList: null,
     type:String,
     current: String,
-    key: Boolean
+    key: Boolean,
+    hasMoreData: Boolean,
+    noData: {
+      type:Boolean,
+      value: '',
+      observer(newVal) {
+        console.log(22,newVal)
+      }
+    }
   },
   data: {
     orderHeight: ''
   }, 
   ready() {
+    // console.log(111,this.properties.noData)
   },
   methods: {
     //先判断有没有登陆再跳转

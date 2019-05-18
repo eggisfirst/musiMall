@@ -66,9 +66,5 @@
 
 .loading {
   display: block;
-  margin: 30rpx 375rpx;
-}
-.loading-order {
-  display: block;
-  margin: 0 375rpx;
+  margin: 30rpx 360rpx;
 }

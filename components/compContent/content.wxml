@@ -9,8 +9,8 @@
     bindtap='toProductDetails'>
     <productLi productType="{{el}}" bind:timeTo='timeTo'/>
   </view>
-  <!-- <loading hidden="{{!key}}" class='loading'/> -->
-  <view class='noMore' wx:if="{{!key}}">
+  <loading hidden="{{!hasMoreData}}" class='loading'/>
+  <view class='noMore' wx:if="{{noData}}">
     <text>没有更多了</text>
   </view>
   <view class='nomore' wx:if='{{ !key &&  contenList.length == 0}}'>
@@ -28,8 +28,8 @@
     >
     <orderLi orderList="{{el}}"/>
   </view>
-  <!-- <loading hidden="{{!isloading}}" class='loading-order'/> -->
-  <view class='noMore' wx:if="{{!key}}">
+  <loading hidden="{{!hasMoreData}}" class='loading'/>
+  <view class='noMore' wx:if="{{noData}}">
     <text>没有更多了</text>
   </view>
   <view class='noOrder'  wx:if="{{!key && contenList.length == 0}}" >

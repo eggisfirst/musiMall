@@ -19,12 +19,14 @@ Page({
     tipsText: '请先登录',
     key: true,
     page: 1,
-    backKey: true,
-    status: 0
+    status: 0,
+    hasMoreData: false,
+    noData:false
   },
   //下拉刷新
-  onPullDownRefresh: function () {
+  onPullDownRefresh() {
     wx.showNavigationBarLoading();//在当前页面显示导航条加载动画。
+    this.initParmas()
     let status = this.data.status == 0 ? 1 : this.data.status == 1 ? 0 : 2
     this.getArtivityProductList(status, 1)
   },
@@ -36,10 +38,22 @@ Page({
   onReachBottom() {
     if (this.data.key) {
       let page = this.data.page + 1
-      this.setData({ page })
-      let status = this.data.status || 1
+      this.setData({ 
+        page,
+        hasMoreData: true
+      })
+      let status = this.data.status == 0 ? 1 : this.data.status == 1 ? 0 : 2
       this.getArtivityProductList(status, page)
     }
+  },
+  //初始化参数
+  initParmas() {
+    this.setData({
+      hasMoreData: false,
+      noData: false,
+      key: true,
+      page: 1
+    })
   },
   //初始的时候选择正在抢购
   initData() {
@@ -74,26 +88,55 @@ Page({
           this._locked(res.data.list)
           this._setList(res.data.list)
         } else {
-          this._locked(res.data.list)
           let list = this.data.contenList.concat(res.data.list)
           this._setList(list)
+          this._locked(res.data.list)
         }
       }
     })
   },
+  //tab组件触发
+  getCurrentTab(e) {
+    this._loading()
+    let index = e.detail.currentTab
+    this.setData({
+      status: index,
+      contenList: [],
+      current: index,
+      key: true,
+      page: 1,
+      noData: false,
+      hasMoreData: false
+    })
+    let status = index == 0 ? 1 : index == 1 ? 0 : 2
+    this.getArtivityProductList(status, 1)
+  },
   //设置数据
   _setList(list) {
     this.setData({
-      contenList: list
+      contenList: list,
+      hasMoreData: false
     })
   },
   //上锁
-  _locked(list) {
+  _locked(list,page) {
     if (list && list.length < 10) {
-      this.setData({
-        key: false
-      })
+      list.length === 0 ? this.hasNoData() : this.noMoreData()
     }
+  },
+  //初始没有数据
+  hasNoData() {
+    this.setData({
+      key: false,
+      noData: false
+    })
+  },
+  //数据不到10条
+  noMoreData() {
+    this.setData({
+      key: false,
+      noData: true
+    })
   },
   //加载图标
   _loading() {
@@ -105,20 +148,6 @@ Page({
   //隐藏加载图标
   _loaded() {
     wx.hideLoading()
-  },
-  //tab组件触发
-  getCurrentTab(e) {
-    this._loading()
-    let index = e.detail.currentTab
-    this.setData({
-      status: index,
-      key: true,
-      page: 1,
-      contenList: [],
-      current: index
-    })
-    let status = index == 0 ? 1 : index == 1? 0 : 2
-    this.getArtivityProductList(status,1)
   },
   //打开登录提示
   setLoginTips(e) {
