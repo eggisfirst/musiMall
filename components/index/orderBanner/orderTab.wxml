@@ -7,10 +7,10 @@
 
   <view class='tab-box'>
     <view class='tab-li' 
-      wx:for="{{tabList}}" 
-      wx:key="{{name}}" 
-      bindtap='toDetails'
-      data-index="{{index}}">
+          wx:for="{{tabList}}" 
+          wx:key="{{name}}" 
+          catchtap='toDetails'
+          data-index="{{index}}">
       <view class='tab-circle' style="{{item.color}}">
         <image class='image-tab' src="{{item.imgUrl}}"/>
       </view>

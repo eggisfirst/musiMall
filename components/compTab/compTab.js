@@ -5,9 +5,8 @@ Component({
       type: String,
       value: '0',
       observer(newVal) {
-        // console.log(newVal)
         this.setData({
-          currentTab: newVal  //监听变化的时候
+          currentTab: newVal 
         })
       }
     },

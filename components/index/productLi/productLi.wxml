@@ -1,4 +1,3 @@
-<!--components/index/productLi/productLi.wxml-->
 <view class='productLi-container' bindtap='toProductDetails'>
   <view class='pic-cover'>
     <image class='image' src='{{orderDetails.productImg}}'/>

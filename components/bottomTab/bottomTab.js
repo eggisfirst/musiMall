@@ -31,13 +31,6 @@ Component({
     },
     //弹出规则提示框
     showRules() {
-      // wx.showModal({
-      //   title: '活动规则',
-      //   content: this.properties.regulation,
-      //   confirmText: '知道了',
-      //   showCancel: false,
-      //   confirmColor: '#1a1a1a'
-      // })
       this.triggerEvent('clickRule', { rules: !this.properties.showRules });
     },
     //出现即将抢购提示

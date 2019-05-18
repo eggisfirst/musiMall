@@ -1,4 +1,3 @@
-<!--components/orderLi/orderLi.wxml-->
 <view class='orderLi-container'>
   <view class='order-status' wx:if="{{type != 'activity'}}">
     <text class='number'>订单编号{{orderList.orderNumber}}</text>

@@ -7,13 +7,7 @@ Component({
     current: String,
     key: Boolean,
     hasMoreData: Boolean,
-    noData: {
-      type:Boolean,
-      value: '',
-      observer(newVal) {
-        console.log(22,newVal)
-      }
-    }
+    noData: Boolean
   },
   data: {
     orderHeight: ''
@@ -40,10 +34,6 @@ Component({
       wx.navigateTo({
         url: `/pages/orderStatus/orderStatus?no=${no}&status=${this.properties.current}`,
       })
-    },
-    //活动到时
-    timeTo(e) {
-      
     }
   }
 })

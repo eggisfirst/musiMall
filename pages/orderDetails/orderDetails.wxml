@@ -1,10 +1,9 @@
-<!--pages/orderDetails/orderDetails.wxml-->
 <view class='orderDetails-container'>
   <compTab 
-            class='tab'
-            bind:getCurrentTab="getCurrentTab" 
-            current="{{current}}" 
-            list="{{list}}"/>
+          class='tab'
+          catch:getCurrentTab="getCurrentTab" 
+          current="{{current}}" 
+          list="{{list}}"/>
   <compContent 
               class='content'
               hasMoreData="{{hasMoreData}}"
@@ -12,7 +11,5 @@
               current="{{current}}"
               contenList="{{contenList}}"
               type="order"
-              key="{{key}}"
-            />
-
+              key="{{key}}"/>
 </view>

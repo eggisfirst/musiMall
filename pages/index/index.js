@@ -1,5 +1,6 @@
 const app = getApp()
-
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
 Page({
   data: {
     userInfo: {},
@@ -44,6 +45,7 @@ Page({
   //获取个人信息的回调。
   getUserInfo: function(e) {
     if(e.detail.userInfo) {
+      this.decodeUserInfo(e)
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
         userInfo: e.detail.userInfo,
@@ -51,7 +53,18 @@ Page({
       })
     }
   },
-
+  //验证绑定
+  decodeUserInfo(data) {
+    let obj = {
+      encryptedData: data.encryptedData,
+      iv: data.iv,
+      sessionKey: app.globalData.sessionKey,
+      openId: app.globalData.openId
+    }
+    indexModel.decodeUserInfo(obj).then(res => {
+      console.log(res)
+    })
+  },
   //打开登录提示
   setLoginTips(e) {
     this.setData({

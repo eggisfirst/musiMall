@@ -1,7 +1,6 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <!-- <import src="../../html2wxml-template/html2wxml.wxml" /> -->
 
-
 <view class='detail-container'>
   <banner imgUrls="{{imgArr}}" swiperType="{{swiperType}}"/>
 
@@ -14,9 +13,9 @@
       <text class='count-title' style='{{productDetails.activityState == 2? "font-size:30rpx": ""}}'>{{priceText}}</text>
       <view class='count' wx:if="{{productDetails.activityState != 2}}">
         <count 
-          status="{{productDetails.activityState}}"
-          startTime="{{productDetails.startTime}}" 
-          endTime="{{productDetails.endTime}}"/>
+              status="{{productDetails.activityState}}"
+              startTime="{{productDetails.startTime}}" 
+              endTime="{{productDetails.endTime}}"/>
       </view>
     </view>
   </view>
@@ -25,12 +24,12 @@
     <view class='progress-box'>
       <text class='p-text'>0</text>
       <progress 
-        class='progress'
-        percent="{{percent}}" 
-        stroke-width='6'
-        backgroundColor='#ccc'
-        activeColor='#ff3701'
-        style='border-radius:7rpx;overflow:hidden'/>
+              class='progress'
+              percent="{{percent}}" 
+              stroke-width='6'
+              backgroundColor='#ccc'
+              activeColor='#ff3701'
+              style='border-radius:7rpx;overflow:hidden'/>
       <text class='p-text'>{{productDetails.stock || 100}}</text>
     </view>
     <!-- 动态更改left的值 -->
@@ -81,14 +80,14 @@
 
   <view class='rule-box' hidden="{{!showRules}}">
     <ruleTips class='ruleTips' 
-              bind:setRulesTips="setRulesTips" 
+              catch:setRulesTips="setRulesTips" 
               showRules='{{showRules}}'
               rules="{{productDetails.regulation}}"/>
   </view>
 
    <view class='tips' hidden="{{showTips}}">
     <tipsBox  class='tipsBox' 
-              bind:closeTips="closeTips" 
+              catch:closeTips="closeTips" 
               tipsText="{{tipsText}}"/>
   </view>
 
@@ -96,6 +95,6 @@
     <selectNum class='selectNum' 
       productDetails="{{productDetails}}"
       imgArr="{{imgArr}}"
-      bind:closeSelectNum="closeSelectNum"/>
+      catch:closeSelectNum="closeSelectNum"/>
   </view>
 </view>

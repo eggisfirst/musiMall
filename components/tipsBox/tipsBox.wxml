@@ -1,4 +1,3 @@
-<!--components/tipsBox/tipsBox.wxml-->
 <view class='tips-box'>
   <text class='tips-text'>{{tipsText}}</text>
   <view class='btn'>

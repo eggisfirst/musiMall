@@ -39,13 +39,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 6,
+			"current": 0,
 			"list": [
 				{
 					"id": 0,
 					"name": "订单详情",
 					"pathName": "pages/orderStatus/orderStatus",
-					"query": "no=16000001254559961"
+					"query": "no=16000000127002623"
 				},
 				{
 					"id": 1,

@@ -1,4 +1,3 @@
-<!--components/ruleTips/ruleTips.wxml-->
 <view class='tips-box'>
   <text class='tips-title'>活动规则</text>
   <text class='tips-content'>{{rules}}</text>

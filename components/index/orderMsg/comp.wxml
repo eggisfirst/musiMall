@@ -1,4 +1,3 @@
-<!--components/index/orderMsg/comp.wxml-->
 <view class='orderMsg-container'>
   <view class='banner'>
     <image src='/images/index/order-icon.png' class='image'/>

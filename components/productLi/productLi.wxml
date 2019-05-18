@@ -21,12 +21,12 @@
             style="width:{{progressWidth}}rpx"></view>
         </view> -->
         <progress 
-          percent="{{percent}}" 
-          border-radius= '50'
-          stroke-width='6'
-          backgroundColor='#ccc'
-          activeColor='#ff3701'
-          style='border-radius:7rpx;overflow:hidden' />
+                percent="{{percent}}" 
+                border-radius= '50'
+                stroke-width='6'
+                backgroundColor='#ccc'
+                activeColor='#ff3701'
+                style='border-radius:7rpx;overflow:hidden' />
         <view class='slider-progress'>
           <text>{{percent}}%</text>
           <text>已抢{{productType.stock - productType.onsaleStock}}件</text>
@@ -47,10 +47,10 @@
 
         <view class='count' wx:if="{{productType.activityState == 1}}">
           <count 
-            status="{{productType.activityState}}"
-            endTime="{{productType.endTime}}" 
-            startTime="{{productType.startTime}}" 
-            bind:timeTo="timeTo"/>
+                status="{{productType.activityState}}"
+                endTime="{{productType.endTime}}" 
+                startTime="{{productType.startTime}}" 
+                />
         </view>
 
         <view  wx:if="{{productType.activityState == 2}}" class='endDay'>

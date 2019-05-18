@@ -1,23 +1,23 @@
 <view class='activity-container'>
   <banner 
-    class='banner'
-    imgUrls="{{imgUrls}}" 
-    swiperType="{{swiperType}}"/>
+        class='banner'
+        imgUrls="{{imgUrls}}" 
+        swiperType="{{swiperType}}"/>
   <compTab 
-    class='tab'
-    bind:getCurrentTab="getCurrentTab"
-    current="{{current}}" 
-    list="{{list}}"/>
+          class='tab'
+          catch:getCurrentTab="getCurrentTab"
+          current="{{current}}" 
+          list="{{list}}"/>
   <compContent 
-    class='content'
-    key="{{key}}"
-    hasMoreData="{{hasMoreData}}"
-    noData="{{noData}}"
-    type="activity"
-    current="{{current}}" 
-    contenList="{{contenList}}"
-    bind:setLoginTips='setLoginTips'/>
+              class='content'
+              key="{{key}}"
+              hasMoreData="{{hasMoreData}}"
+              noData="{{noData}}"
+              type="activity"
+              current="{{current}}" 
+              contenList="{{contenList}}"
+              catch:setLoginTips='setLoginTips'/>
    <view class='tips' hidden="{{showTips}}">
-    <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>
+    <tipsBox class='tipsBox' catch:closeTips="closeTips" tipsText="{{tipsText}}"/>
   </view>
 </view>

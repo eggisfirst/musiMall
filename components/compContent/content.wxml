@@ -1,13 +1,13 @@
 <block  wx:if="{{type == 'activity'}}">
   <!-- 活动首页 -->
   <view 
-    class='activity'
-    wx:for='{{contenList}}' 
-    wx:for-item="el"
-    wx:key="{{productName}}"
-    data-id="{{el.id}}"
-    bindtap='toProductDetails'>
-    <productLi productType="{{el}}" bind:timeTo='timeTo'/>
+      class='activity'
+      wx:for='{{contenList}}' 
+      wx:for-item="el"
+      wx:key="{{productName}}"
+      data-id="{{el.id}}"
+      catch:tap='toProductDetails'>
+      <productLi productType="{{el}}" />
   </view>
   <loading hidden="{{!hasMoreData}}" class='loading'/>
   <view class='noMore' wx:if="{{noData}}">
@@ -20,12 +20,11 @@
 <!-- 订单页面 -->
 <block wx:else>
   <view class='orderList'  
-    wx:for="{{contenList}}"
-    wx:key="{{productName}}"
-    wx:for-item="el"
-    bindtap='toOrderStatus'
-    data-no="{{el.orderNumber}}"
-    >
+        wx:for="{{contenList}}"
+        wx:key="{{productName}}"
+        wx:for-item="el"
+        bindtap='toOrderStatus'
+        data-no="{{el.orderNumber}}">
     <orderLi orderList="{{el}}"/>
   </view>
   <loading hidden="{{!hasMoreData}}" class='loading'/>

@@ -4,8 +4,8 @@
   <view class='login-btn'>
     <!-- <text>微信一键登录</text> -->
     <button 
-      class='login'
-      open-type='getPhoneNumber'
-      bindgetphonenumber='getPhoneNumber'>微信一键登录</button>  
+            class='login'
+            open-type='getPhoneNumber'
+            catchgetphonenumber='getPhoneNumber'>微信一键登录</button>  
   </view>
 </view>

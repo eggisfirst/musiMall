@@ -8,8 +8,7 @@
         indicator-color="{{swiperType.indicatorCcolor}}"
         circular="{{swiperType.circular}}"
         class='swiper'
-        style='height: {{swiperType.height}}rpx'
-  >
+        style='height: {{swiperType.height}}rpx'>
     <block 
           wx:for="{{imgUrls}}" 
           wx:key="`imgUls${index}`">
@@ -18,8 +17,7 @@
               src="{{item.img || item}}" 
               class="slide-image" 
               mode='widthFix' 
-              lazy-load='true'
-              />
+              lazy-load='true'/>
       </swiper-item>
     </block>
   </swiper> 
