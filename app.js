@@ -59,9 +59,7 @@ App({
   },
   //获取openid
   getOpenId(code) {
-    this._loading()
     indexModel.getOpenId(code).then(res => {
-      this._unload()
       if (res.status) {
         this.globalData.openId = res.data.openId
         this.globalData.sessionKey = res.data.sessionKey
@@ -72,15 +70,6 @@ App({
         }
       }
     })
-  },
-  _loading() {
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-    })
-  },
-  _unload() {
-    wx.hideLoading()
   },
   globalData: {
     hasPhone: '',

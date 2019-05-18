@@ -1,6 +1,7 @@
 
 import {IndexModel} from '../../request/index.js'
 const indexModel = new IndexModel()
+const app = getApp()
 Page({
   data: {
     swiperType: {

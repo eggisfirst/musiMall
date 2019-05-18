@@ -45,13 +45,37 @@ Page({
   //获取个人信息的回调。
   getUserInfo: function(e) {
     if(e.detail.userInfo) {
-      this.decodeUserInfo(e)
+      this.checkSession(e)
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
     }
+  },
+  //先校验sessionkey有无过期
+  checkSession(e) {
+    wx.checkSession({
+      success:() => {
+        this.decodeUserInfo(e)
+      },
+      fail:() => {
+        wx.login({
+          success: res => {
+            this.getOpenId(res.code,e)
+          }
+        })
+      }
+    })
+  },
+  //重新获取sessionkey
+  getOpenId(code,e) {
+    indexModel.getOpenId(code).then(res => {
+      if (res.status) {
+        app.globalData.sessionKey = res.data.sessionKey
+        this.decodeUserInfo(e)
+      }
+    })
   },
   //验证绑定
   decodeUserInfo(data) {
