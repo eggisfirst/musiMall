@@ -41,7 +41,9 @@ App({
   },
   //获取openid
   getOpenId(code) {
-    this._loading()
+    // setTimeout(()=> {
+      this._loading()
+    // },1000)
     indexModel.getOpenId(code).then(res => {
       this._unload()
       if (res.status) {
@@ -133,9 +135,9 @@ App({
     key: true,
     phone: '',
     openId: '',
-    ip: '',
     sessionKey: '',
     loading: false,
-    isIphoneX: false
+    isIphoneX: false,
+    onshow:false
   }
 })

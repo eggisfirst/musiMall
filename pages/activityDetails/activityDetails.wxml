@@ -31,12 +31,14 @@
         backgroundColor='#ccc'
         activeColor='#ff3701'
         style='border-radius:7rpx;overflow:hidden'/>
-      <text class='p-text'>{{productDetails.stock}}</text>
+      <text class='p-text'>{{productDetails.stock || 100}}</text>
     </view>
     <!-- 动态更改left的值 -->
-    <view class='hasRobbed' style='left: {{progressLeft}}rpx'>  
+    <view class='hasRobbed' 
+          style='left: {{progressLeft}}rpx' 
+          wx:if="{{productDetails.onsaleStock}}">  
       <!-- <image class='image-robbed' src='/images/activityDetails/robbed.png'/> -->
-      <text class='text' wx:if="{{productDetails.onsaleStock}}">已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
+      <text class='text' wx:if="{{productDetails.onsaleStock !== 0}}">已抢{{productDetails.stock - productDetails.onsaleStock}}件</text>
       <text class='text' wx:else>已抢光 </text>
     </view>
     
@@ -67,20 +69,27 @@
   </view> -->
    <view class='bottomTab'>
     <bottomTab 
-      bind:clickBeginBtn='clickBeginBtn'
-      bind:openSelectNum='openSelectNum' 
-      onsaleStock="{{productDetails.onsaleStock}}"
-      activityState="{{productDetails.activityState}}"
-      regulation="{{productDetails.regulation}}"
-      />
+              showRules='{{showRules}}'
+              catch:clickRule="clickRule"
+              catch:clickBeginBtn='clickBeginBtn'
+              catch:openSelectNum='openSelectNum' 
+              onsaleStock="{{productDetails.onsaleStock}}"
+              activityState="{{productDetails.activityState}}"
+              regulation="{{productDetails.regulation}}"
+              />
   </view>
 
-  <!-- <view class='rule-box' hidden="{{showRules}}">
-    <ruleTips class='ruleTips' bind:setRulesTips="setRulesTips" />
-  </view> -->
+  <view class='rule-box' hidden="{{!showRules}}">
+    <ruleTips class='ruleTips' 
+              bind:setRulesTips="setRulesTips" 
+              showRules='{{showRules}}'
+              rules="{{productDetails.regulation}}"/>
+  </view>
 
    <view class='tips' hidden="{{showTips}}">
-    <tipsBox class='tipsBox' bind:closeTips="closeTips" tipsText="{{tipsText}}"/>
+    <tipsBox  class='tipsBox' 
+              bind:closeTips="closeTips" 
+              tipsText="{{tipsText}}"/>
   </view>
 
   <view class='selectNum-box' hidden='{{showSelect}}'>

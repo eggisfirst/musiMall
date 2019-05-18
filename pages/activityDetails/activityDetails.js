@@ -27,6 +27,15 @@ Page({
   },
   onLoad(options) {
     this.getData(options.id)
+    // this.setBackData(options)
+  },
+  //设置后退返回的数据
+  setBackData(options) {
+    var pages = getCurrentPages(); //获取页面栈
+    var prevPage = pages[pages.length - 2];  //上一个页面
+    prevPage.setData({		//设置上一个页面的数据
+      backData: options.current
+    })
   },
   //获取活动详情数据
   getData(id) {
@@ -122,17 +131,17 @@ Page({
     this.setData({
       showTips: e.detail.tips
     })
-  }
+  },
     //关闭规则
-  // setRulesTips(e){
-  //   this.setData({
-  //     showRules: e.detail.isShowRules
-  //   })
-  // },
+  setRulesTips(e){
+    this.setData({
+      showRules: e.detail.isShowRules
+    })
+  },
   //弹出规则
-  // clickRule(e) {
-  //   this.setData({
-  //     showRules: e.detail.rules
-  //   })
-  // },
+  clickRule(e) {
+    this.setData({
+      showRules: e.detail.rules
+    })
+  },
 })

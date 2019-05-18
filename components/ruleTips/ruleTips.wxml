@@ -1,7 +1,6 @@
 <!--components/ruleTips/ruleTips.wxml-->
 <view class='tips-box'>
   <text class='tips-title'>活动规则</text>
-  <text class='tips-content'>活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则活动规则
-  </text>
+  <text class='tips-content'>{{rules}}</text>
   <text class='tips-btn' catchtap='closeTips'>知道了</text>
 </view>

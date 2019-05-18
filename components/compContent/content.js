@@ -19,8 +19,9 @@ Component({
       this.triggerEvent('setLoginTips', { loginTips: tips});
       if(tips) {
         let id = e.currentTarget.dataset.id
+        let current = this.properties.current
         wx.navigateTo({
-          url: `../../pages/activityDetails/activityDetails?id=${id}`
+          url: `../../pages/activityDetails/activityDetails?id=${id}&current=${current}`
         })
       }
     },

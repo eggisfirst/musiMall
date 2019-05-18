@@ -49,8 +49,9 @@ Component({
           })
         }else {
           wx.showToast({
-            title: '已达到最大限购数',
-            icon: 'none'
+            title: res.msg,
+            icon: 'none',
+            duration:2000
           })
         }
       })

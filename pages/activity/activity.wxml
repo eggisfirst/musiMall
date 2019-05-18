@@ -5,12 +5,14 @@
     swiperType="{{swiperType}}"/>
   <compTab 
     class='tab'
-    bind:getCurrentTab="getCurrentTab" 
+    bind:getCurrentTab="getCurrentTab"
+    current="{{current}}" 
     list="{{list}}"/>
   <compContent 
     class='content'
     key="{{key}}"
     type="activity"
+    current="{{current}}" 
     contenList="{{contenList}}"
     bind:setLoginTips='setLoginTips'/>
    <view class='tips' hidden="{{showTips}}">

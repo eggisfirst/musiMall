@@ -40,7 +40,10 @@ Component({
   methods: {
     //倒计时  当开始时间大于等于现在的时间，开始倒计时。
     time(newVal) {
+      var subStr = new RegExp('-','g');  //全局匹配/
+      newVal = newVal.replace(subStr, "/");//把'-'替换为空字符串
       let endTime = new Date(newVal).getTime() + 1000;
+      // console.log(endTime)
       let interval = null;
       let remainingTime = endTime - Date.now(); // 剩余毫秒
       let day = Math.floor(remainingTime / 1000 / 60 / 60 / 24)

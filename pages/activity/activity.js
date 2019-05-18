@@ -18,11 +18,23 @@ Page({
     showTips: true,
     tipsText: '请先登录',
     key: true,
-    page: 1
+    page: 1,
+    backKey: true
+  },
+  onShow() {
+    // const curPages = getCurrentPages();
+    // const index = curPages.length - 1;
+    // // let type = ''
+    // console.log(curPages[index].route )
+      // this.getAdvertisement()
+      // if(this.data.backData) {
+      //   let status = this.data.backData == 0 ? 1 : this.data.backData == 1 ? 0 : 2
+      //   this.getArtivityProductList(status, 1)
+      // }
   },
   onLoad(options) {
-    this.getAdvertisement()
-    this.initData()
+      this.getAdvertisement()
+      this.initData()
   },
   //触底刷新
   onReachBottom() {
@@ -38,6 +50,9 @@ Page({
     //一键登录跳转过来
     if (getApp().globalData.key || getApp().globalData.login) {
       getApp().globalData.key = false
+      this.setData({
+        current: '0'
+      })
       this.getArtivityProductList(1,1)
     }
   },
@@ -101,7 +116,8 @@ Page({
       status: index,
       key: true,
       page: 1,
-      contenList: []
+      contenList: [],
+      current: index
     })
     let status = index == 0 ? 1 : index == 1? 0 : 2
     this.getArtivityProductList(status,1)

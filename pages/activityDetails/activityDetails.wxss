@@ -84,7 +84,8 @@
   align-items: center; 
   justify-content: center;
   box-sizing: border-box;
-  /* overflow: hidden; */
+  overflow: hidden;
+  min-width: 100rpx;
 }
 .hasRobbed::after{
   position: absolute;

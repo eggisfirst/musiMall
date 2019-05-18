@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/activity/activity",
-    
     "pages/index/index",
     "pages/orderStatus/orderStatus",
     "pages/orderDetails/orderDetails",
@@ -11,7 +10,7 @@
     "pages/login/login"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "秒杀活动",
     "navigationBarTextStyle": "black",
