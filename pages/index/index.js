@@ -43,7 +43,7 @@ Page({
     }
   },
   //获取个人信息的回调。
-  getUserInfo: function(e) {
+  getUserInfo(e) {
     if(e.detail.userInfo) {
       this.checkSession(e)
       app.globalData.userInfo = e.detail.userInfo
@@ -57,6 +57,7 @@ Page({
   checkSession(e) {
     wx.checkSession({
       success:() => {
+        // console.log(e)
         this.decodeUserInfo(e)
       },
       fail:() => {
@@ -78,10 +79,10 @@ Page({
     })
   },
   //验证绑定
-  decodeUserInfo(data) {
+  decodeUserInfo(e) {
     let obj = {
-      encryptedData: data.encryptedData,
-      iv: data.iv,
+      encryptedData: e.detail.encryptedData,
+      iv: e.detail.iv,
       sessionKey: app.globalData.sessionKey,
       openId: app.globalData.openId
     }
