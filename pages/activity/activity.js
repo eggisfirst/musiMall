@@ -34,7 +34,9 @@ Page({
   onLoad(options) {
     this.getAdvertisement()
     this.initData()
+   
   },
+ 
   //触底刷新
   onReachBottom() {
     if (this.data.key) {

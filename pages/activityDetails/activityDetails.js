@@ -26,8 +26,35 @@ Page({
     productDetails: {}
   },
   onLoad(options) {
+    this.setData({
+      initData: options
+    })
     this.getData(options.id)
     this.setBackData(options)
+  },
+  //转发
+  onShareAppMessage(res) {
+    let id = this.data.initData.id
+    let current = this.data.initData.current
+    return {
+      title: '慕思超值购',
+      path: '/pages/activityDetails/activityDetails?id='+ id + '&current=' + current,
+      imageUrl: '',
+      success:(shareTickets) => {
+        wx.showToast({
+          title: '转发成功',
+          mask:true,
+          icon: 'none'
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '转发失败',
+          mask: true,
+          icon: 'none'
+        })
+      }
+    }
   },
   //设置后退返回的数据
   setBackData(options) {

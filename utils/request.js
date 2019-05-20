@@ -1,12 +1,12 @@
 class Request {
-  baseUrl = 'http://10.11.8.228:8088/'
-  // baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
+  // baseUrl = 'http://10.11.8.228:8088/'
+  baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
 
   getData({ url, data = {}, method = "post" }) {
     return new Promise((resolve, reject) => {
       wx.showLoading({
         title: '加载中',
-        mask: true,
+        mask: true
       })
       wx.request({
         url: this.baseUrl + url,
