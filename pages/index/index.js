@@ -51,6 +51,13 @@ Page({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
       })
+    }else {
+      wx.showToast({
+        title: '获取个人信息失败',
+        icon: 'none',
+        duration: 1500,
+        mask: true
+      })
     }
   },
   //先校验sessionkey有无过期
