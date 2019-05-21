@@ -24,19 +24,57 @@ Page({
     hasMoreData: false,
     noData:false
   },
+  onLoad(options) {
+    this.getAdvertisement()
+    this.initData()
+    // console.log('onload')
+  },
+  //转发
+  onShareAppMessage(res) {
+    return {
+      title: '慕思超值购',
+      path: '/pages/activity/activity',
+      imageUrl: '',
+      success: (shareTickets) => {
+        wx.showToast({
+          title: '转发成功',
+          mask: true,
+          icon: 'none'
+        })
+      },
+      fail: (res) => {
+        wx.showToast({
+          title: '转发失败',
+          mask: true,
+          icon: 'none'
+        })
+      }
+    }
+  },
+  //初始化参数
+  initParmas() {
+    this.setData({
+      hasMoreData: false,
+      noData: false,
+      key: true,
+      page: 1
+    })
+  },
+  //初始
+  initData() {
+    //一键登录跳转过来
+    this.setData({
+      current: this.data.status
+    })
+    this.initParmas()
+    this.resetData()
+  },
   //下拉刷新
   onPullDownRefresh() {
     wx.showNavigationBarLoading();//在当前页面显示导航条加载动画。
     this.initParmas()
-    let status = this.data.status == 0 ? 1 : this.data.status == 1 ? 0 : 2
-    this.getArtivityProductList(status, 1)
+    this.resetData()
   },
-  onLoad(options) {
-    this.getAdvertisement()
-    this.initData()
-   
-  },
- 
   //触底刷新
   onReachBottom() {
     if (this.data.key) {
@@ -49,25 +87,10 @@ Page({
       this.getArtivityProductList(status, page)
     }
   },
-  //初始化参数
-  initParmas() {
-    this.setData({
-      hasMoreData: false,
-      noData: false,
-      key: true,
-      page: 1
-    })
-  },
-  //初始的时候选择正在抢购
-  initData() {
-    //一键登录跳转过来
-    if (getApp().globalData.key || getApp().globalData.login) {
-      getApp().globalData.key = false
-      this.setData({
-        current: '0'
-      })
-      this.getArtivityProductList(1,1)
-    }
+  //重置数据
+  resetData() {
+    let status = this.data.status == 0 ? 1 : this.data.status == 1 ? 0 : 2
+    this.getArtivityProductList(status, 1)
   },
   //获取首页轮播图
   getAdvertisement() {
@@ -81,12 +104,10 @@ Page({
   },
   //获取活动列表
   getArtivityProductList(status,page) {
-    // this._loading()
     indexModel.getArtivityProductList(status,page).then(res => {
       if(res.status) {
         wx.hideNavigationBarLoading();//隐藏导航条加载动画。
         wx.stopPullDownRefresh();//停止当前页面下拉刷新。
-        // this._loaded()
         if (page == 1) {
           this._locked(res.data.list)
           this._setList(res.data.list)

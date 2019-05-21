@@ -26,19 +26,14 @@ Page({
     productDetails: {}
   },
   onLoad(options) {
-    this.setData({
-      initData: options
-    })
     this.getData(options.id)
-    this.setBackData(options)
+    // this.setBackData(options)
   },
   //转发
   onShareAppMessage(res) {
-    let id = this.data.initData.id
-    let current = this.data.initData.current
     return {
       title: '慕思超值购',
-      path: '/pages/activityDetails/activityDetails?id='+ id + '&current=' + current,
+      path: '/pages/activity/activity',
       imageUrl: '',
       success:(shareTickets) => {
         wx.showToast({
@@ -61,7 +56,7 @@ Page({
     var pages = getCurrentPages(); //获取页面栈
     var prevPage = pages[pages.length - 2];  //上一个页面
     prevPage.setData({		//设置上一个页面的数据
-      status: options.current
+      status: options.current || 0
     })
   },
   //获取活动详情数据

@@ -62,7 +62,7 @@ Component({
         }else {
           this._unlock()
           wx.showToast({
-            title: '请重新下单',
+            title: '支付超时,请重新下单',
             icon: 'none'
           })
         }

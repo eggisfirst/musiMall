@@ -12,9 +12,28 @@ Page({
   },
   //获取个人信息的回调。
   getPhoneNumber (e) {
-    this.checkSession(e)
+    if(e.detail.encryptedData) {
+      this.checkSession(e)
+    }else {
+      //拒绝获取手机
+      this.showTips()
+      let type = this.data.type
+      setTimeout(() => {
+        wx.switchTab({
+          url: `/pages/${type}/${type}`
+        })
+      },1500)
+    }
   },
-
+  //获取提示框
+  showTips() {
+    wx.showToast({
+      title: '获取手机失败',
+      icon: 'none',
+      mask: true,
+      duration: 1500
+    })
+  },
   //先校验sessionkey有无过期
   checkSession(e) {
     wx.checkSession({
