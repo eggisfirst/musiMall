@@ -23,7 +23,8 @@ Page({
     html: '',
     percent: 0,
     progressLeft: 0,
-    productDetails: {}
+    productDetails: {},
+    indexFixed: ''
   },
   onLoad(options) {
     this.getData(options.id)
@@ -157,13 +158,15 @@ Page({
     //关闭规则
   setRulesTips(e){
     this.setData({
-      showRules: e.detail.isShowRules
+      showRules: e.detail.isShowRules,
+      indexFixed: ''
     })
   },
   //弹出规则
   clickRule(e) {
     this.setData({
-      showRules: e.detail.rules
+      showRules: e.detail.rules,
+      indexFixed: 'indexFixed'
     })
   },
 })

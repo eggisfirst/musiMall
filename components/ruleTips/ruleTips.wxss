@@ -20,9 +20,10 @@
   color: #909090;
   line-height: 48rpx;
   height: 436rpx;
-  overflow: scroll;
   padding: 10rpx 49rpx 0 34rpx;
   box-sizing: border-box;
+  overflow: scroll;
+
 }
 .tips-btn {
   height: 101rpx;

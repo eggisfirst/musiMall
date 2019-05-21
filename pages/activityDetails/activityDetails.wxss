@@ -7,6 +7,12 @@
   padding-bottom: 180rpx;
   box-sizing: border-box;
 }
+.indexFixed {
+  position: fixed;
+  left: 0;
+  overflow: hidden;
+}
+
 
 .price-box {
   background-color: #fff;

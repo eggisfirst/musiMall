@@ -1,7 +1,7 @@
 <import src="../../wxParse/wxParse.wxml"/>
 <!-- <import src="../../html2wxml-template/html2wxml.wxml" /> -->
 
-<view class='detail-container'>
+<view class='detail-container {{indexFixed}}'>
   <banner imgUrls="{{imgArr}}" swiperType="{{swiperType}}"/>
 
   <view class='price-box'>
