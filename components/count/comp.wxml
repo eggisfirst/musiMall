@@ -1,4 +1,4 @@
-<view>
+<view class='count'>
   <block wx:if="{{hour > 0}}">
     <text wx:if="{{hour < 10}}">0</text>
     <text>{{hour}} :</text>

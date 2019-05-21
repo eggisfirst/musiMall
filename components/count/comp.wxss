@@ -1,1 +1,3 @@
-/* components/count/comp.wxss */
+.count {
+  overflow: hidden;
+}

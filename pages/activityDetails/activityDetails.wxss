@@ -45,6 +45,7 @@
   height:40rpx;
   border:1px solid #ff2d55;
   border-radius:10rpx;
+  overflow: hidden;
 }
 .count text {
   font-size: 24rpx;
