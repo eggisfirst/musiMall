@@ -2,7 +2,7 @@ import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
 var WxParse = require('../../wxParse/wxParse.js');
 // var Html2wxml = require('../../html2wxml-template/html2wxml.js');
-import { b64DecodeUnicode, base64_decode } from '../../utils/index.js'
+import { base64_decode } from '../../utils/index.js'
 
 Page({
   data: {

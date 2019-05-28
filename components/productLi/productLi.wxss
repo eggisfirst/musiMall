@@ -45,8 +45,8 @@
 
 }
 .text {
-  width: 80%;
-  height: 80%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: 5rpx solid #eee;
   color: #eee;
@@ -55,7 +55,13 @@
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  -webkit-transform: rotate(-25deg);
+  box-sizing: border-box;
+  transform: scale(0.8);
+  /* -webkit-transform: rotate(-25deg); */
+}
+.text-box {
+  -webkit-transform: rotate(-15deg);
+  font-size: 28rpx;
 }
 
 .image {

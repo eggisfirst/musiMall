@@ -11,7 +11,9 @@ Page({
   },
   onLoad: function () {
     this.init()
+    this.mapCtx = wx.createMapContext('myMap')
   },
+
   //验证客户有没有授权
   init() {
     //判断有没有授权。已授权则直接获取信息。
@@ -44,6 +46,7 @@ Page({
   },
   //获取个人信息的回调。
   getUserInfo(e) {
+    console.log(e)
     if(e.detail.userInfo) {
       this.checkSession(e)
       app.globalData.userInfo = e.detail.userInfo

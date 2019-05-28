@@ -4,7 +4,7 @@
       <view class='image-mask' wx:if="{{productType.onsaleStock==0}}">
         <view class='text-box'>
           <view class='text'>
-            <text>抢光</text>
+            <text class='text-box'>抢光</text>
           </view>
         </view>
       </view>
