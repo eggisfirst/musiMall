@@ -1,5 +1,5 @@
 { 
-  "navigationBarTitleText": "秒杀活动",
+  "navigationBarTitleText": "慕思超值购",
   "onReachBottomDistance": 50,
   "enablePullDownRefresh": true,
   "usingComponents": {

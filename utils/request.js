@@ -33,7 +33,7 @@ class Request {
 
   _showError() {
     wx.showToast({
-      title: '请求错误',
+      title: '网络异常',
       icon: 'none'
     })
   }
