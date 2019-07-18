@@ -1,0 +1,6 @@
+/* components/homeCmp/eggPicker/cmp.wxss */
+.icon {
+  width: 25rpx;
+  margin-top: 8rpx;
+  margin-left: 10rpx;
+}

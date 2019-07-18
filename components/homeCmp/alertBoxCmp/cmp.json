@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "posterCmp": "/components/homeCmp/posterCmp/cmp"
+  }
+}

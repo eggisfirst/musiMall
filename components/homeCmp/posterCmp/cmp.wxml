@@ -1,0 +1,28 @@
+<!--components/homeCmp/posterCmp/cmp.wxml-->
+<cover-view class='wrapper'>
+  <cover-view class='box'>
+
+    <cover-image class='image' src='/images/basketball/poster.png' />
+
+    <cover-view class='content'>
+      <cover-image class='content_image' src='/images/basketball/bottom.png'/>
+      <cover-view class='content_text'>
+        <cover-image class='qcord' src='/images/basketball/qcord.png' />
+        <cover-view class='text'>
+          chenyi邀请你一起来为 慕思篮球王全国挑战赛 打CALL !
+        </cover-view>
+        <cover-image class='via' src='/images/basketball/via.png' mode="WidthFix" />
+      
+      </cover-view>
+
+      <cover-view >前往抽奖</cover-view>
+    </cover-view>
+
+  </cover-view>
+
+  <cover-view class='bottom_btn'>
+    <cover-view class='share'>取消</cover-view>
+    <cover-view class='share'>保存海报</cover-view>
+  </cover-view>
+
+</cover-view>

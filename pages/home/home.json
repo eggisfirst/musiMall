@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "activeCmp": "/components/homeCmp/activeCmp/activeCmp"
+  }
+}

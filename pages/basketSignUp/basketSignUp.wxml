@@ -1,0 +1,17 @@
+<!--pages/basketSignUp/basketSignUp.wxml-->
+<view class='basketBall-container'>
+  <image class='bg' src='/images/basketball/bg.png' mode="widthFix" />
+  <view class='content' >
+    <view class='areaSelect' wx:for="{{list}}" wx:key="item.id">
+      <eggPicker wx:if="{{item.select}}" title="{{item.text}}"/>
+      <eggInput wx:else  title="{{item.text}}"/>
+    </view>
+    <text class='tips'>点击报名表示同意本活动规则 </text>
+
+    <view class='comfirm' bindtap='handleSignUp'>我要报名</view>
+
+    <alertBoxCmp  wx:if="{{signUpStatus}}" 
+                  status="{{signUpStatus}}"
+                  catch:setSignUpStatus='setSignUpStatus'/>
+  </view>
+</view>

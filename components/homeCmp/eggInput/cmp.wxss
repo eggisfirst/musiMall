@@ -1,0 +1,4 @@
+/* components/homeCmp/eggInput/cmp.wxss */
+.input {
+  color: #fff
+}

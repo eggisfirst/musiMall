@@ -1,0 +1,13 @@
+<!--pages/home/home.wxml-->
+<view class='home-container'>
+  <image class='bg' src='/images/home/bg.png'></image>
+  <scroll-view scroll-y style="height: 100vh">
+    <view class='banner'>
+      <image class='image' src="/images/home/title.png" />
+    </view>
+    <view  wx:for="{{activeList}}" wx:key="{{item.id}}">
+      <activeCmp activeData="{{item}}"/>
+    </view>
+  </scroll-view>
+</view>
+ 

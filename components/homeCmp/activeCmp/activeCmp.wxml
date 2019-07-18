@@ -1,0 +1,12 @@
+<!--components/homeCmp/activeCmp/activeCmp.wxml-->
+<view class='activeCmp-container'>
+  <view class='banner'>
+    <image class='banner-image' src="/images/home/banner.png"/>
+    <text class='text'>{{activeData.activeName}}</text>
+  </view>
+  <view class='content' catchtap='navigateTo'>
+    <image class='border' src='/images/home/activeBorder.png' />
+    <image class='content-image' src="{{activeData.activeImage}}" />
+    <view class='button' style="background: {{activeData.id === 5? '#FCB21C' : ''}}">{{activeData.activeIconName}}</view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+/* pages/home/home.wxss */
+.home-container {
+  width: 750rpx;
+  height: 1334rpx;
+  position: fixed;
+  top: 0;
+  left: 0
+}
+.bg {
+  width: 750rpx;
+  height: 1334rpx;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.banner {
+  margin: 0 auto;
+  width: 550rpx;
+  margin-top: 100rpx;
+}
+.image {
+  width: 509rpx;
+  height: 343rpx;
+}

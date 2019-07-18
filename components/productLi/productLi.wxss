@@ -57,6 +57,7 @@
   font-weight: bold;
   box-sizing: border-box;
   transform: scale(0.8);
+  overflow: hidden;
   /* -webkit-transform: rotate(-25deg); */
 }
 .text-box {

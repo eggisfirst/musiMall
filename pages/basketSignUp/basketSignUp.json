@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "eggPicker": "/components/homeCmp/eggPicker/cmp",
+    "eggInput": "/components/homeCmp/eggInput/cmp",
+    "alertBoxCmp": "/components/homeCmp/alertBoxCmp/cmp"
+  }
+}
