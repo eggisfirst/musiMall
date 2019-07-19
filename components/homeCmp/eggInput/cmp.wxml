@@ -1,4 +1,0 @@
-<!--components/homeCmp/eggInput/cmp.wxml-->
-<view>
-  <input class='input' placeholder='{{title}}' placeholder-style="color:#fff;"/>
-</view>

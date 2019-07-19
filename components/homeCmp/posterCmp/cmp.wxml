@@ -1,28 +1,26 @@
 <!--components/homeCmp/posterCmp/cmp.wxml-->
-<cover-view class='wrapper'>
-  <cover-view class='box'>
+<!-- <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="shareFrends"></canvas> -->
 
-    <cover-image class='image' src='/images/basketball/poster.png' />
+<view class='wrapper' >
+  <view class='box'>
 
-    <cover-view class='content'>
-      <cover-image class='content_image' src='/images/basketball/bottom.png'/>
-      <cover-view class='content_text'>
-        <cover-image class='qcord' src='/images/basketball/qcord.png' />
-        <cover-view class='text'>
-          chenyi邀请你一起来为 慕思篮球王全国挑战赛 打CALL !
-        </cover-view>
-        <cover-image class='via' src='/images/basketball/via.png' mode="WidthFix" />
+    <image class='image' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/poster.png' />
+
+    <view class='content'>
+      <image class='content_image' src='/images/basketball/bottom.png'/>
+      <view class='content_text'>
+        <image class='qcord' src='/images/basketball/qcord.png' />
+        <view class='text'> chenyi邀请你一起来为 慕思篮球王全国挑战赛 打CALL !</view>
+        <image class='via' src='/images/basketball/via.png' mode="widthFix"/>
       
-      </cover-view>
+      </view>
 
-      <cover-view >前往抽奖</cover-view>
-    </cover-view>
+    </view>
 
-  </cover-view>
+  </view>
 
-  <cover-view class='bottom_btn'>
-    <cover-view class='share'>取消</cover-view>
-    <cover-view class='share'>保存海报</cover-view>
-  </cover-view>
-
-</cover-view>
+  <view class='bottom_btn'>
+    <view class='share' catchtap='handleCancle'>取消</view>
+    <view class='share' catchtap='handleSave'>保存海报</view>
+  </view>
+</view>

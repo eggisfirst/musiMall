@@ -10,9 +10,13 @@
   width: 344rpx;
   box-sizing: border-box;
   overflow: hidden;
-   margin: 0 auto;
-   position: relative;
-  line-height: 51rpx;
+  margin: 0 auto;
+  /* position: relative; */
+  height: 51rpx;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/home/banner.png") no-repeat center;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center
 
 }
 .banner-image {
@@ -27,7 +31,6 @@
   display: inline-block;
   color: #fff;
   position: relative;
-  z-index: 10;
   text-align: center;
   font-size: 25rpx;
   font-weight: bold;

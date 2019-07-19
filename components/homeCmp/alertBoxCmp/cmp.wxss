@@ -14,7 +14,9 @@
   height: 662rpx;
   margin: 0 auto;
   margin-top: 200rpx;
-  position: relative
+  position: relative;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/basketball/succBox.png") no-repeat center;
+  background-size: 100% 100%;
 }
 
 .image {

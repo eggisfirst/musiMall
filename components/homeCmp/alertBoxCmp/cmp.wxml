@@ -1,35 +1,35 @@
 <!--components/homeCmp/alertBoxCmp/cmp.wxml-->
-<block wx:if="{{true}}">
-  <cover-view class='wrapper'>
-      <cover-view class='box'>
+<block wx:if="{{!showPoster}}">
+  <view class='wrapper'>
+      <view class='box'>
 
-        <cover-image class='image' src='/images/basketball/succBox.png' />
-        <cover-view class='title'>报名成功!</cover-view>
+        <!-- <image class='image' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/succBox.png' /> -->
+        <view class='title'>报名成功!</view>
 
-        <cover-view class='content'>
-          <cover-view class='content_text'>恭喜您~</cover-view>
+        <view class='content'>
+          <view class='content_text'>恭喜您~</view>
 
-          <cover-view class='score_tips'>
-            <cover-image class='score' src="/images/basketball/score.png" />
+          <view class='score_tips'>
+            <image class='score' src="/images/basketball/score.png" />
             奖励50积分（分享获得更多积分）
-          </cover-view>
+          </view>
 
-          <cover-view class='btn'>前往抽奖</cover-view>
-        </cover-view>
+          <view class='btn'>前往抽奖</view>
+        </view>
 
-      </cover-view>
+      </view>
 
-      <cover-view class='bottom_btn'>
-        <cover-view class='share' catchtap='handleShare'>分享活动</cover-view>
-        <cover-view class='share' catchtap='handlePoster'>生成海报</cover-view>
-      </cover-view>
+      <view class='bottom_btn'>
+        <button class='share' catchshare='handleShare' open-type="share">分享活动</button>
+        <view class='share' catchtap='handlePoster'>生成海报</view>
+      </view>
 
-      <cover-image  class='close' 
+      <image  class='close' 
                     catchtap='handleClose' 
                     src='/images/basketball/close.png' />
-  </cover-view>
+  </view>
 </block>
 
 <block wx:else>
-  <posterCmp />
+  <posterCmp catch:handleSavePoster="handleSavePoster"/>
 </block>

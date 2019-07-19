@@ -5,6 +5,8 @@
   position: fixed;
   top: 0;
   left: 0;
+  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/basketball/bg.png") no-repeat center;
+  background-size: 100% 100% */
 }
 
 .bg {
@@ -13,6 +15,16 @@
   top: 0;
   left: 0;
   z-index: -1
+}
+
+.icon {
+  width: 25rpx;
+  margin-top: 8rpx;
+  margin-left: 10rpx;
+}
+
+.input {
+  color: #fff
 }
 
 .content {

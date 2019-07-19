@@ -1,7 +1,0 @@
-<!--components/homeCmp/eggPicker/cmp.wxml-->
-<view>
-  <text>{{title}}</text>
-  <image  class='icon' 
-          src='/images/basketball/down.png' 
-          mode="widthFix"/>
-</view>

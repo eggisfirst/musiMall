@@ -8,14 +8,14 @@ Page({
         activeIconName: "马上报名",
         id:1,
         type:'page',
-        activeImage: "/images/home/basket.png"
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/basket.png"
       },
       {
         activeName: "幸运抽奖",
         linkTo: "lottery",
         activeIconName: "点击抽奖",
         id:2,
-        activeImage: "/images/home/choujiang.png"
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/choujiang.png"
 
       },
       {
@@ -23,7 +23,7 @@ Page({
         linkTo: "activity",
         activeIconName: "立即抢购",
         id:3,
-        activeImage: "/images/home/miaosha.png"
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/miaosha.png"
 
       },
       {
@@ -31,7 +31,7 @@ Page({
         linkTo: "basketSignUp",
         activeIconName: "开始游戏",
         id:4,
-        activeImage: "/images/home/bollbg.png"
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/bollbg.png"
 
       },
       {
@@ -39,7 +39,7 @@ Page({
         linkTo: "basketSignUp",
         activeIconName: "查看中奖名单",
         id:5,
-        activeImage: "/images/home/award.png"
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/award.png"
 
       }
     ]

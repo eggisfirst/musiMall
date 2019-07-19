@@ -1,0 +1,46 @@
+.index {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 999
+}
+.pickerView {
+  width: 100%;
+  /* height: 500rpx; */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+
+
+.btnbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+.btn {
+  color: #154B8A;
+  padding: 40rpx;
+  padding-bottom: 0
+}
+
+.picker {
+  color: #000;
+  /* background: rgba(21,75,138,0.2); */
+}
+.picker-box{
+  /* background-color: rgba(41,96,155,0.2); */
+  width:100%;
+  height: 100rpx;
+  /* color: #fff; */
+  /* border-top:1px solid transparent;
+  border-bottom:1px solid transparent;
+  border-image:linear-gradient(to right,white,#154B8A,white) 1 10; */
+}

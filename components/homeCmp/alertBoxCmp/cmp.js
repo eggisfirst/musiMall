@@ -1,19 +1,12 @@
 // components/homeCmp/alertBoxCmp/cmp.js
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     signUpStatus: Boolean
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
-
+    showPoster: false
   },
-
+  
   /**
    * 组件的方法列表
    */
@@ -21,13 +14,23 @@ Component({
     //分享活动
     handleShare() {
       console.log('share')
+      // this.handlePoster(false)
     },
-    //生产海报
-    handlePoster() {
+    //生成海报
+    handlePoster(status=true) {
+      this.setData({
+        showPoster: status
+      })
     },
     //关闭弹框
     handleClose() {
       this.triggerEvent('setSignUpStatus', { signUpStatus: false });
+    },
+    //取消海报
+    handleSavePoster(e) {
+      if(e.detail.cancle) {
+        this.handlePoster(false)
+      }
     }
   }
 })

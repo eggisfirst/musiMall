@@ -1,11 +1,37 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
-  <image class='bg' src='/images/basketball/bg.png' mode="widthFix" />
+  <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/bg.png' mode="widthFix" />
   <view class='content' >
-    <view class='areaSelect' wx:for="{{list}}" wx:key="item.id">
-      <eggPicker wx:if="{{item.select}}" title="{{item.text}}"/>
-      <eggInput wx:else  title="{{item.text}}"/>
+
+    <view class='areaSelect' catchtap='handleSelectArea'>
+      <text>选择您的所在地区</text>
+      <image  class='icon' 
+          src='/images/basketball/down.png' 
+          mode="widthFix"/>
     </view>
+
+    <view class='areaSelect' catchtap='handleSelectSex'>
+      <text>{{sex}}</text>
+      <image  class='icon' 
+          src='/images/basketball/down.png' 
+          mode="widthFix"/>
+    </view>
+
+    <view class='areaSelect'>
+      <input  class='input' 
+              placeholder='请输入您的姓名' 
+              placeholder-style="color:#fff;"
+              maxlength="20"/>
+    </view>
+
+    <view class='areaSelect'>
+      <input  class='input' 
+              type="number"
+              placeholder='请输入您的个人手机号' 
+              placeholder-style="color:#fff;"
+              maxlength="13"/>
+    </view>
+
     <text class='tips'>点击报名表示同意本活动规则 </text>
 
     <view class='comfirm' bindtap='handleSignUp'>我要报名</view>
@@ -13,5 +39,15 @@
     <alertBoxCmp  wx:if="{{signUpStatus}}" 
                   status="{{signUpStatus}}"
                   catch:setSignUpStatus='setSignUpStatus'/>
+
+    <pickerViewCmp  wx:if="{{pickerStatus}}"
+                    catch:setPickerStatus='setPickerStatus'
+                    sexValue="{{sexValue}}"
+                    sexName="{{sex}}"/>
+
+    <selectAreaCmp  wx:if="{{areaStatus}}"
+                    catch:setPickerArea='setPickerArea'
+                    value="{{value}}"/>
+    
   </view>
 </view>
