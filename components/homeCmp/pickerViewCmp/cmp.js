@@ -1,16 +1,16 @@
 // components/homeCmp/pickerViewCmp/cmp.js
 Component({
   properties: {
+    //设置选中的选项
     sexValue: {
       type: Array,
       value: [0],
-      observer(newVal) {
+      observer(newVal,oldVal) {
         this.setData({
           value: newVal,
         })
       }
-    },
-    sexName:String
+    }
   },
   data: {
     sex:['请选择性别','男','女'],
@@ -21,13 +21,20 @@ Component({
   },
   methods: {
     //选择框改变
-    drugChange (e) {
+    bindChange (e) {
+      console.log(e)
       const val = e.detail.value
       this.setData({
         val: this.data.sex[val],    //选中的值
         status: true,               //为true才能触发comfirm事件
         activeIndex: val            //选中的index
       })
+    },
+    bindpickend(e) {
+      console.log('end')
+    },
+    bindpickstart(e) {
+      console.log('start')
     },
     //取消
     handleCancle() {
@@ -38,19 +45,7 @@ Component({
     },
     //确定
     handleComfirm() {
-      console.log(this.data.value,this.data.sexName)
-      //change动画停止才触发
-      // console.log(this.data.sex[this.data.value])
-      // console.log(this.data.sexName)
-      // if (this.data.sex[this.data.activeIndex] === this.data.sexName) {
-      //   const val = {
-      //     type: 'comfirm',
-      //   }
-      //   this.triggerEvent("setPickerStatus", val)
-      //   return
-      // }
-
-      if (this.data.status && this.data.val !== '请选择性别' ) {
+      // if (this.data.status) {
         const val = {
           val: this.data.val,
           type: 'comfirm',
@@ -60,23 +55,15 @@ Component({
         this.setData({
           status: false
         })
-      }else {
-        // if (this.data.sex[this.data.value] === this.data.sexName) {
-        //   const val = {
-        //     type: 'comfirm',
-        //   }
-        //   this.triggerEvent("setPickerStatus", val)
-        // }else {
-          wx.showToast({
-            title: '请选择性别',
-            duration: 1000,
-            icon: 'none',
-            mask: true
+      // }else {
+      //     wx.showToast({
+      //       title: '请选择性别',
+      //       duration: 1000,
+      //       icon: 'none',
+      //       mask: true
 
-          })
-        // }
-       
-      }
+      //     })
+      // }
 
     }
   }

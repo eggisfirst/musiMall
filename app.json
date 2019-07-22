@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/basketSignUp/basketSignUp",
+    
     "pages/home/home",
     "pages/activity/activity",
     "pages/index/index",

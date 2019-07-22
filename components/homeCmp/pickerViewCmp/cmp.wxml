@@ -8,9 +8,9 @@
           <picker-view 
             indicator-class="picker-box"
             style="width: 100%; height: 200px;"
-            bindchange="drugChange"
-            bindpickstart="pickerStart"
-            bindpickend="pickerEnd"
+            bindchange="bindChange"
+            bindpickend="bindpickend"
+            bindpickstart="bindpickstart"
             value="{{value}}"
            >
             <picker-view-column>
@@ -23,3 +23,7 @@
       </view>
   </view>
 </view>
+
+
+
+
