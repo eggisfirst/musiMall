@@ -7,12 +7,26 @@
     <text class='rules'>使用积分可参与超级大抽奖，</text>
     <text class='rules'>赢取2019篮球世界杯VIP门票、</text>
     <text class='rules'>慕思精品枕头、500元代金券等好礼！</text>
-    <view class='getBtn' catchtap='handleGetScore'>
-      <image src='/images/getscore.png' class='image_score' />
+
+
+    <block wx:if="{{phoneStatus}}">
+      <view class='getBtn' catchtap='handleGetScore'>
+        <image src='/images/getscore.png' class='image_score' />
+      </view>
+    </block>
+    <block wx:else>
+      <button class='getBtn' 
+              open-type="getPhoneNumber" 
+              bindgetphonenumber="getPhoneNumber">
+        <image src='/images/getscore.png' class='image_score' />
+      </button>
+    </block>
+
+  </view>
+
+    <view class='btn' catchtap='handleClose'>
+      <image src='/images/close.png' class='image'/>
     </view>
-  </view>
-  <view class='btn' catchtap='handleClose'>
-    <image src='/images/close.png' class='image'/>
-  </view>
+ 
 
 </view>

@@ -90,11 +90,16 @@ Page({
   },
   //验证绑定
   decodeUserInfo(e) {
+    let shareUserId = "";
+    if (app.globalData.shareUserId) {
+      shareUserId = app.globalData.shareUserId
+    }
     let obj = {
       encryptedData: e.detail.encryptedData,
       iv: e.detail.iv,
       sessionKey: app.globalData.sessionKey,
-      openId: app.globalData.openId
+      openId: app.globalData.openId,
+      shareUserId
     }
     indexModel.decodeUserInfo(obj).then(res => {
       console.log(res)

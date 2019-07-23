@@ -6,10 +6,14 @@
       <image class='image' src="https://mobiletest.derucci.net/web/musiMall/images/home/title.png" />
     </view>
     <view  wx:for="{{activeList}}" wx:key="{{item.id}}">
-      <activeCmp activeData="{{item}}"/>
+      <activeCmp activeData="{{item}}"
+                 phoneStatus="{{phoneStatus}}"
+                 catchsetPhoneStatus="setPhoneStatus"/>
     </view>
   </scroll-view>
   <getScoreCmp  wx:if="{{btnStatus}}"
-                catchhandleBtnStatus="handleBtnStatus"/>
+                phoneStatus="{{phoneStatus}}"
+                catchhandleBtnStatus="handleBtnStatus"
+                catchsetPhoneStatus="setPhoneStatus"/>
 </view>
  

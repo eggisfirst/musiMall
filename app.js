@@ -2,7 +2,13 @@
 import { IndexModel } from './request/index.js'
 const indexModel = new IndexModel()
 App({
-  onLaunch: function () {
+  onLaunch: function (options) {
+    console.log(options)
+    //判断是否通过分享进来的
+    if(options.query.userId) {
+      this.globalData.shareUserId = options.query.userId
+    }
+
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -94,5 +100,6 @@ App({
     isIphoneX: false,
     onshow:false,
     userId: "",
+    shareUserId: ""
   }
 })

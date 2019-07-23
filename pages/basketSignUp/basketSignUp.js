@@ -23,12 +23,13 @@ Page({
   },
   //分享
   onShareAppMessage:(res) => {
+    const userId = app.globalData.userId 
     if (res.from === 'button') {
       console.log(res.target)
     }
     return {
       title: '一起为慕思篮球王全国挑战赛打Call>>点击参与',
-      path: '/page/basketSigbUp/basketSigbUp',
+      path: '/page/home/home?userId=' + userId,
       imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/basketball/poster.png",
       success:() => {
         wx.showToast({

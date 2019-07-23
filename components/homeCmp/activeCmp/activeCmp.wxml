@@ -4,9 +4,24 @@
     <!-- <image class='banner-image' src="https://mobiletest.derucci.net/web/musiMall/images/home/banner.png"/> -->
     <text class='text'>{{activeData.activeName}}</text>
   </view>
-  <view class='content' catchtap='navigateTo'>
+  <view class='content'>
     <image class='border' src='https://mobiletest.derucci.net/web/musiMall/images/home/activeBorder.png' />
     <image class='content-image' src="{{activeData.activeImage}}" />
-    <view class='button' style="background: {{activeData.id === 5? '#FCB21C' : ''}}">{{activeData.activeIconName}}</view>
+    <block wx:if="{{phoneStatus}}">
+      <view class='button'
+            catchtap='navigateTo'
+            style="background: {{activeData.id === 5? '#FCB21C' : ''}}">
+            {{activeData.activeIconName}}</view>
+    </block>
+    <block wx:else>
+      <button class='button'
+              style="background: {{activeData.id === 5? '#FCB21C' : ''}}"
+              open-type="getPhoneNumber" 
+              bindgetphonenumber="getPhoneNumber">
+              {{activeData.activeIconName}}
+      </button> 
+    </block>
+
+   
   </view>
 </view>

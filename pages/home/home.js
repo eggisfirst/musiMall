@@ -31,7 +31,7 @@ Page({
       },
       {
         activeName: "趣味篮球游戏",
-        linkTo: "basketSignUp",
+        linkTo: "game",
         activeIconName: "开始游戏",
         id:4,
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/bollbg.png"
@@ -39,29 +39,39 @@ Page({
       },
       {
         activeName: "慕思满额抽奖",
-        linkTo: "basketSignUp",
+        linkTo: "check",
         activeIconName: "查看中奖名单",
         id:5,
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/award.png"
 
       }
     ],
-    btnStatus: false
+    phoneStatus: false,
+    btnStatus: true
   },
   onLoad () {
     //判断onLaunch是否执行完毕
-    // if (app.globalData.userId) {
-    //   this.getUserIntegral(app.globalData.userId)
-    // } else {
-    //   app.checkLoginReadyCallback = res => {
-    //     this.getOtherActivity(res.data.id)
-    //   };
-    // }
+    if (app.globalData.userId) {
+      this.handlePhoneStatus(app.globalData.phone)
+    } else {
+      app.checkLoginReadyCallback = res => {
+        this.handlePhoneStatus(res.data.mobileNumber)
+      };
+    }
   },
-  getOtherActivity(userId) {
-    indexModel.getOtherActivity(userId).then(res => {
-      console.log(res)
-    })
+  handlePhoneStatus(phone) {
+    if(phone) {
+      this.setData({
+        phoneStatus: true
+      })
+    }
+  },
+  setPhoneStatus(e) {
+    if (e.detail) {
+      this.setData({
+        phoneStatus: true
+      })
+    }
   },
   handleBtnStatus(e) {
     this.setData({
