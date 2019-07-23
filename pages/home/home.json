@@ -1,5 +1,7 @@
 {
   "usingComponents": {
-    "activeCmp": "/components/homeCmp/activeCmp/activeCmp"
+    "activeCmp": "/components/homeCmp/activeCmp/activeCmp",
+    "getScoreCmp": "/components/homeCmp/getScoreCmp/cmp"
+
   }
 }

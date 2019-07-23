@@ -11,10 +11,10 @@
 
           <view class='score_tips'>
             <image class='score' src="/images/basketball/score.png" />
-            奖励50积分（分享获得更多积分）
+            活动报名成功，奖励50积分，分享获得更多积分。（积分可参与大抽奖活动）
           </view>
 
-          <view class='btn'>前往抽奖</view>
+          <view class='btn' catchtap='handlelottery'>前往抽奖</view>
         </view>
 
       </view>

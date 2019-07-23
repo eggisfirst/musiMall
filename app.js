@@ -60,8 +60,17 @@ App({
   },
   //获取openid
   getOpenId(code) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
+        wx.hideLoading()
+        this.globalData.userId = res.data.id;
+        if (this.checkLoginReadyCallback) {
+          this.checkLoginReadyCallback(res);
+        }
         this.globalData.openId = res.data.openId
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
@@ -72,6 +81,7 @@ App({
       }
     })
   },
+  
   globalData: {
     hasPhone: '',
     userInfo: null,
@@ -82,6 +92,7 @@ App({
     sessionKey: '',
     loading: false,
     isIphoneX: false,
-    onshow:false
+    onshow:false,
+    userId: "",
   }
 })

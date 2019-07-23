@@ -116,6 +116,39 @@ class IndexModel extends Request {
       data: obj
     })
   }
+  
+
+  //小程序第二次迭代
+  //获取篮球活动报名地区
+  getRegionForBasketballActivities(type,parentId) {
+    return this.getSecretData({
+      url: "v1/api/useraddress/getRegionForBasketballActivities",
+      data: {
+        type: type,
+        parentId: parentId
+      }
+    })
+  }
+
+  //篮球报名
+  signUp(obj) {
+    return this.getSecretData({
+      url: "v1/api/useraddress/add",
+      data: obj
+    })
+  }
+ 
+ //生成海报
+  getPoster(userId) {
+   return this.getSecretData({
+     url: "v1/api/spactivity/generatePoster",
+     data: {
+       userId
+     }
+   })
+ }
+
+
 }
 
 export { IndexModel }

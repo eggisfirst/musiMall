@@ -56,9 +56,11 @@
   align-items: center;
   margin-top: 24rpx;
   margin-bottom: 35rpx;
+  width: 80%;
+  box-sizing: border-box;
 }
 .score {
-  width: 11rpx;
+  width: 18rpx;
   height: 24rpx;
   margin-right: 11rpx;
 }

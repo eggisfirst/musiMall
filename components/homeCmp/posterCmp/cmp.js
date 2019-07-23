@@ -1,10 +1,15 @@
 // components/homeCmp/posterCmp/cmp.js
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
+
 Component({
   properties: {
 
   },
   data: {
-    tmpPath: ''
+    tmpPath: '',
+    saveStatus: false
   },
   methods: {
     //取消保存
@@ -13,29 +18,28 @@ Component({
       this.triggerEvent("handleSavePoster",{cancle: true})
     },
     handleSave() {
-      console.log('save')
-      const ctx = wx.createCanvasContext('myCanvas');
-      wx.getImageInfo({
-        src: 'https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1395765958,3377106680&fm=27&gp=0.jpg',
-        success: function (res) {
-          console.log(res.width)
-          console.log(res.path)
+      let that = this
+      wx.saveImageToPhotosAlbum({
+        filePath: "/images/basketball/bottom.png",
+        success(res) { 
+          that.savePoster()
+          wx.switchTab({
+            url: '/pages/home/home'
+          })
+          wx.showToast({
+            title: '保存成功',
+            icon: 'none',
+            duration: 2000
+          })
+        
         }
       })
-      ctx.draw(true, setTimeout(() => {
-        wx.canvasToTempFilePath({
-          canvasId: 'myCanvas',
-          success: function (res) {
-            console.log(111111)
-            this.data.tmpPath = res.tempFilePath
-          },
-        })
-      }, 1000));
-
-      wx.saveImageToPhotosAlbum({
-        success(res) { 
-          console.log(res)
-        }
+    },
+    //保存成功获得积分
+    savePoster() {
+      const userId = app.globalData.userId
+      indexModel.getPoster(userId).then(res => {
+        console.log(res)
       })
     }
   }

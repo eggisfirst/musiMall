@@ -16,6 +16,15 @@ Component({
       console.log('share')
       // this.handlePoster(false)
     },
+    //前往抽奖
+    handlelottery() {
+      wx.showToast({
+        title: '活动尚未开始',
+        duration: 1000,
+        icon: 'none',
+        mask: true
+      })
+    },
     //生成海报
     handlePoster(status=true) {
       this.setData({

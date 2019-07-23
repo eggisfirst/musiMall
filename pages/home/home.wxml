@@ -9,5 +9,7 @@
       <activeCmp activeData="{{item}}"/>
     </view>
   </scroll-view>
+  <getScoreCmp  wx:if="{{btnStatus}}"
+                catchhandleBtnStatus="handleBtnStatus"/>
 </view>
  

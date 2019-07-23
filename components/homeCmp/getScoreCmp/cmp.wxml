@@ -1,0 +1,18 @@
+<!--components/homeCmp/getScoreCmp/cmp.wxml-->
+<view class='index'>
+  <view class='box'>
+    <text class='text'>恭喜您</text>
+    <image src='/images/80.png' class='score'/>
+    <text class='rules'>活动期间</text>
+    <text class='rules'>使用积分可参与超级大抽奖，</text>
+    <text class='rules'>赢取2019篮球世界杯VIP门票、</text>
+    <text class='rules'>慕思精品枕头、500元代金券等好礼！</text>
+    <view class='getBtn' catchtap='handleGetScore'>
+      <image src='/images/getscore.png' class='image_score' />
+    </view>
+  </view>
+  <view class='btn' catchtap='handleClose'>
+    <image src='/images/close.png' class='image'/>
+  </view>
+
+</view>
