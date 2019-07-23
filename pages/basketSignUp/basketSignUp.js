@@ -165,24 +165,19 @@ Page({
 
   //输入姓名
   nameConfirm(e) {
-    this.setData({
-      nameVal: e.detail.value
-    })
+    const val = e.detail.value
+    const reg = new RegExp(/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/, 'g')
+    if (reg.test(val)) {
+      this.setData({
+        nameVal: e.detail.value
+      })
+    }
   },
   //输入手机号码
   phoneConfirm(e) {
     const val = e.detail.value
     const reg = new RegExp(/^1[3|4|5|8][0-9]\d{4,8}$/,'g')
-    if(!reg.test(val)) {
-      this.setData({
-        phone: ""
-      })
-      wx.showToast({
-        title: '请输入正确的手机号码',
-        icon: 'none',
-        duration: 1500
-      })
-    }else {
+    if(reg.test(val)) {
       this.setData({
         phone: e.detail.value
       })
@@ -202,11 +197,11 @@ Page({
       },
       nameVal: {
         value: this.data.nameVal,
-        msg: "请输入姓名"
+        msg: "请输入正确的姓名"
       },
       phone: {
         value: this.data.phone,
-        msg: "请输入手机号码"
+        msg: "请输入正确的手机号码"
       }
     }
     for(let key in data) {

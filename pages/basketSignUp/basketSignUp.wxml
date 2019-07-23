@@ -28,7 +28,7 @@
               placeholder='请输入您的姓名' 
               placeholder-style="color:#fff;"
               maxlength="20"
-              bindconfirm="nameConfirm"/>
+              bindblur="nameConfirm"/>
     </view>
 
     <view class='areaSelect'>
@@ -37,7 +37,7 @@
               placeholder='请输入您的个人手机号' 
               placeholder-style="color:#fff;"
               maxlength="13"
-              bindconfirm="phoneConfirm"
+              bindblur="phoneConfirm"
               value="{{phone}}"/>
     </view>
 
