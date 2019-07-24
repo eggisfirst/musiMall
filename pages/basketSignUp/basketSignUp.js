@@ -16,13 +16,25 @@ Page({
     sexVal: "",
     phone:"",
     nameVal:"",
-    posterBtn: true
+    posterBtn: true,
+    hasSignUp: false
     
   },
-  onLoad() {
+  onLoad(options) {
+    // console.log(1122,options)
+    this.hasSignUp(options)
     this.initAreaArr()
     this.hasGetInfo()
   },
+  //判断有没有报名
+  hasSignUp(options) {
+    if (options.type) {
+      this.setData({
+        hasSignUp: true
+      })
+    }
+  },
+
   //判断有没有授权个人信息
   hasGetInfo() {
     if (!app.globalData.userInfo) {
@@ -57,6 +69,12 @@ Page({
       }
     }
   },
+  //跳转规则页面
+  navigateToRule() {
+    wx.navigateTo({
+      url: '/pages/basketRule/basketRule',
+    })
+  },
   //选择性别
   sexPickerChange (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -81,7 +99,7 @@ Page({
         }
       })
       //如果没有省的话返回空
-      console.log(1111,provinceArr)
+      // console.log(1111,provinceArr)
       if (!provinceArr.length) {
         return
       }

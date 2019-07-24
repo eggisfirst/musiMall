@@ -1,4 +1,100 @@
 /* pages/basketRule/basketRule.wxss */
+.container {
+  
+}
+
+.banner {
+  position: relative;
+  width: 750rpx;
+  height: 749rpx;
+  z-index: -1;
+}
+
 .ruleBanner {
   width: 750rpx;
+}
+
+.content {
+  width: 707rpx;
+  border: 3rpx solid #881b27;
+  background: #fff;
+  margin: 0 auto;
+  margin-top: -114rpx;
+ 
+  box-sizing: border-box;
+}
+
+.section {
+  margin-top: 46rpx;
+  border-bottom: 1rpx dotted #881b27;
+  padding-bottom: 33rpx;
+   margin-left: 54rpx;
+  margin-right: 34rpx;
+
+}
+
+.name {
+  background:rgba(136,27,39,1);
+  border-radius:17rpx;
+  width: 123rpx;
+  color: #fff;
+  font-size: 24rpx;
+  text-align: center;
+  line-height: 33rpx;
+  margin-bottom: 18rpx;
+}
+.textWrapper {
+  padding-left: 14rpx;
+   /* padding-top: 18rpx; */
+  
+  color: #4e4e4e;
+  font-size: 18rpx;
+}
+
+.red {
+  color: #ff0024;
+}
+.text {
+  display: inline-block
+}
+.attention {
+  margin-top: 20rpx;
+  display: inline-block
+}
+
+.eventSchedule {
+  color: #881B27;
+  font-size: 43rpx;
+  text-align: center;
+  margin-top: 59rpx;
+}
+.english {
+  font-size: 18rpx;
+  color: #881B27;
+  text-align: center;
+
+}
+.date {
+  width: 681rpx;
+  margin: 0 auto;
+  margin-top: 47rpx;
+}
+.image {
+  width: 681rpx;
+  /* height: 1825rpx; */
+}
+
+.tips {
+   margin-top: 46rpx;
+  padding-bottom: 33rpx;
+   margin-left: 54rpx;
+  margin-right: 34rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx dotted #881b27;
+  margin-bottom: 31rpx;
+}
+
+.tip {
+  color: #4E4E4E;
+  font-size: 18rpx;
 }

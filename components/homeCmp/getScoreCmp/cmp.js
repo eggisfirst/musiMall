@@ -85,6 +85,7 @@ Component({
     //接口领取积分
     authorizationGiveIntegral(userId) {
       indexModel.authorizationGiveIntegral(userId).then(res => {
+        console.log(res)
         if(res.status) {
           this.triggerEvent("handleBtnStatus", false)
           wx.showToast({

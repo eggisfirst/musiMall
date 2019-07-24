@@ -155,6 +155,18 @@ class IndexModel extends Request {
     })
   }
 
+//判断有没有报名
+hasSignUp(userId) {
+  return this.getSecretData({
+    url: "v1/api/useraddress/getListByUserId",
+    data: {
+      userId,
+      type: 2
+    }
+
+  })
+}
+
 }
 
 export { IndexModel }

@@ -1,7 +1,8 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
-  <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" /> -->
-  <view class="rule">活动规则</view>
+  <block wx:if="{{!hasSignUp}}">
+  <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
+  <view class="rule" catchtap="navigateToRule">活动规则</view>
   <view class='content' >
 
     <view class="areaSelect">
@@ -52,4 +53,30 @@
                   posterBtn="{{posterBtn}}"
                   catchsetPosterBtn="setPosterBtn"/>
   </view>
+  </block>
+
+  <block wx:else>
+    <view class="egg_bg">
+      <image class='egg_image' 
+      src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
+      <view class="egg_mask"></view>
+       <view class="egg_rule" catchtap="navigateToRule">活动规则</view>
+       <view class="signUp">已报名！</view>
+       <view class="sharetext">分享一下，邀请好友参与</view>
+       <view class="egg_btn">
+        <view class="my_btn">
+          <button class="egg_btn"></button>
+          <view class="share">分享好友</view>
+        </view>
+        <view  class="my_btn">
+          <image class="btn_image" src="/images/basketball/photo.png" mode="widthFix"/>
+          <view class="photo">生成图片</view>
+        </view>
+       
+       </view>
+    </view>
+  
+  </block>
 </view>
+
+

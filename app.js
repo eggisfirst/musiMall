@@ -3,26 +3,13 @@ import { IndexModel } from './request/index.js'
 const indexModel = new IndexModel()
 App({
   onLaunch: function (options) {
-    console.log(options)
-    //判断是否通过分享进来的
-    if(options.query.userId) {
-      this.globalData.shareUserId = options.query.userId
-    }
-
+    // console.log(options)
+   
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录
-    wx.login({
-      success: res => {
-        // console.log('登陆成功：', res)
-        this.globalData.code = res.code
-        this.getOpenId(res.code)
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
     // 验证用户有没有授权
     wx.getSetting({
       success: res => {
@@ -64,6 +51,15 @@ App({
     //   }
     // })
   },
+  onShow(options) {
+    console.log(options)
+    //判断是否通过分享进来的
+    if (options.query.userId) {
+      this.globalData.shareUserId = options.query.userId
+    }
+    // 登录
+    this.checkSession()
+  },
   //获取openid
   getOpenId(code) {
     wx.showLoading({
@@ -72,6 +68,36 @@ App({
     })
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
+        wx.hideLoading()
+        //回调，确定这个函数走完才走页面的onload
+        this.globalData.userId = res.data.id;
+        if (this.checkLoginReadyCallback) {
+          this.checkLoginReadyCallback(res);
+        }
+        //
+        this.globalData.openId = res.data.openId
+        wx.setStorage({
+          key: 'openId',
+          data: res.data.openId,
+        })
+        //判断有没有领取积分
+        this.globalData.integralStatus = res.data.integralStatus
+        this.globalData.sessionKey = res.data.sessionKey
+        if (res.data.mobileNumber) {
+          this.globalData.hasPhone = true
+          this.globalData.phone = res.data.mobileNumber
+          this.globalData.login = true
+        }
+      }
+    })
+  },
+  getInfo(id) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+    indexModel.getUserInfoByMap(id).then(res => {
+      if(res.status) {
         wx.hideLoading()
         //回调，确定这个函数走完才走页面的onload
         this.globalData.userId = res.data.id;
@@ -91,7 +117,28 @@ App({
       }
     })
   },
-  
+  checkSession() {
+    wx.checkSession({
+      success: () => {
+        console.log(111)
+        wx.getStorage({
+          key: 'openId',
+          success: (res) => {
+            this.getInfo(res.data)
+          },
+        })
+      },
+      fail: (err) => {
+        console.log(22)
+        wx.login({
+          success: res => {
+            this.globalData.code = res.code
+            this.getOpenId(res.code)
+          }
+        })
+      }
+    })
+  },
   globalData: {
     hasPhone: '',
     userInfo: null,

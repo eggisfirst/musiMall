@@ -7,25 +7,25 @@
 }
 
 .banner {
-  width: 489rpx;
+  width: 526rpx;
   box-sizing: border-box;
   overflow: hidden;
   margin: 0 auto;
   /* position: relative; */
-  height: 120rpx;
+  /* height: 100rpx; */
   /* background: url("https://mobiletest.derucci.net/web/musiMall/images/home/banner.png") no-repeat center; */
   /* background-size: 100% 100%; */
   /* display: flex;
   align-items: center */
-  position: relative
+  /* position: relative */
 }
 .banner-image {
-  width: 459rpx;
-  height: 90rpx;
-  position: absolute;
+  width: 526rpx;
+  /* height: 100rpx; */
+  /* position: absolute;
   top: 0;
-  left: 20rpx;
-  z-index: 1
+  left: 0; */
+  /* z-index: 1 */
 }
 .text {
   display: inline-block;

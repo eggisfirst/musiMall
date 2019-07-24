@@ -1,9 +1,41 @@
 <!--pages/basketRule/basketRule.wxml-->
-<view>  
+<view class="container">  
   <view class="banner">
     <image  class="ruleBanner"
-            src="https://mobiletest.derucci.net/web/musiMall/images/basketBG.png' 
+            src="https://mobiletest.derucci.net/web/musiMall/images/ruleBanner.png" 
             mode="widthFix" />
+  </view>
+  <view class="content">
+    <view class="section" wx:for="{{rules}}" wx:key="item.title">
+      <view class="name">{{item.title}}</view>
+      <view class="textWrapper" wx:for="{{item.rules}}" wx:key="{{item}}">
+        <block wx:if="{{!item.title}}">
+           <view class="text">{{item}}</view>
+        </block>
+        <block wx:else>
+          <text class="text" >{{item.attention? "": item.title}}</text>
+          <text class="red">{{item.text}}</text>
+          <view class="accention">{{item.attention}}</view>
+        </block>
+      </view>
+    </view>
+
+    <view class="eventSchedule">[ 城市赛日程 ]</view>
+    <view class="english">  Competition schedule </view>
+    <view class="date">
+      <image class="image" mode="widthFix"
+            src="https://mobiletest.derucci.net/web/musiMall/images/newHome/date.png"  />
+    </view>
+
+    <view class="tips">
+      <view class="name">报名须知</view>
+      <view class="tip">1、请按比赛城市，时间信息，进行选择报名。</view>
+      <view class="tip">2、报名选手需年满18周岁以上，无心脑血管疾病、高血压、冠状动脉病、
+        血糖过高或过低或严重心率不齐等疾病。</view>
+      <view class="tip">3、报名成功后，城市赛组委会人员，会联系参赛者，请知悉!</view>
+      <view class="tip">4、所有选手须阅读并同意《参赛声明》、《报名须知》、《风险提示》后
+        按要求如实填写所有报名信息并提交。</view>
+    </view>
   </view>
 
 

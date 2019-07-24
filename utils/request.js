@@ -1,4 +1,4 @@
-var util = require("./sha1.js")
+const util = require("./sha1.js")
 
 class Request {
   // baseUrl = 'http://10.11.8.228:8088/'

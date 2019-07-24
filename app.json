@@ -2,8 +2,10 @@
   "pages": [
     "pages/home/home",
     
-    "pages/basketRule/basketRule",
     "pages/basketSignUp/basketSignUp",
+    
+    "pages/basketRule/basketRule",
+    
     "pages/activity/activity",
     "pages/index/index",
     "pages/orderStatus/orderStatus",

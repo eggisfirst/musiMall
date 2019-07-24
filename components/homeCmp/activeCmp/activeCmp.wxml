@@ -1,8 +1,8 @@
 <!--components/homeCmp/activeCmp/activeCmp.wxml-->
 <view class='activeCmp-container'>
   <view class='banner'>
-    <image class='banner-image' src="{{activeData.bannerImage}}"/>
-    <text class='text'>{{activeData.activeName}}</text>
+    <image class='banner-image' src="{{activeData.bannerImage}}"  mode="widthFix"/>
+    <!-- <text class='text'>{{activeData.activeName}}</text> -->
   </view>
   <view class='content'>
     <!-- <image class='border' src='https://mobiletest.derucci.net/web/musiMall/images/home/activeBorder.png' /> -->

@@ -8,7 +8,6 @@ Component({
     phoneStatus: Boolean
   },
   data: {
-
   },
   methods: {
     getPhoneNumber(e) {
@@ -83,11 +82,34 @@ Component({
         })
 
       }
-      else {
-        wx.navigateTo({
-          url: `../${url}/${url}`,
-        })
+      else if (url === "basketSignUp"){
+        if (app.globalData.userId) {
+          indexModel.hasSignUp(app.globalData.userId).then(res => {
+            if (res.data) {
+              this.toSignUped(url)
+            } else {
+              this.toSignUp(url)
+            }
+          })
+        } else {
+          this.toSignUp(url)
+        }
       }
+    },
+    //跳转到报名
+    toSignUp(url) {
+      wx.navigateTo({
+        url: `../${url}/${url}`,
+      })
+    },
+    toSignUped(url) {
+      wx.navigateTo({
+        url: `../${url}/${url}?type=1`  ,
+      })
+    },
+    //判断有没有报名
+    hasSignUp() {
+     
     }
   }
 })
