@@ -1,16 +1,17 @@
 <!--pages/home/home.wxml-->
 <view class='home-container'>
   <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/home/bg.png'></image> -->
-  <scroll-view scroll-y style="height: 100vh">
+  <!-- <scroll-view scroll-y style="height: 100vh"> -->
+    <image class="logo" src="/images/logo.png" />
     <view class='banner'>
-      <image class='image'      src="https://mobiletest.derucci.net/web/musiMall/images/home/title.png" />
+      <image class='image'      src="https://mobiletest.derucci.net/web/musiMall/images/newHome/title.png" />
     </view>
     <view  wx:for="{{activeList}}" wx:key="{{item.id}}">
       <activeCmp activeData="{{item}}"
                  phoneStatus="{{phoneStatus}}"
                  catchsetPhoneStatus="setPhoneStatus"/>
     </view>
-  </scroll-view>
+  <!-- </scroll-view> -->
   <getScoreCmp  wx:if="{{btnStatus}}"
                 phoneStatus="{{phoneStatus}}"
                 catchhandleBtnStatus="handleBtnStatus"

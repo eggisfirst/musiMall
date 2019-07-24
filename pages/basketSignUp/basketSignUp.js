@@ -15,11 +15,27 @@ Page({
     region: '',
     sexVal: "",
     phone:"",
-    nameVal:""
+    nameVal:"",
+    posterBtn: true
     
   },
   onLoad() {
     this.initAreaArr()
+    this.hasGetInfo()
+  },
+  //判断有没有授权个人信息
+  hasGetInfo() {
+    if (!app.globalData.userInfo) {
+      this.setData({
+        posterBtn: false
+      })
+    }
+  },
+  //授权登录后
+  setPosterBtn() {
+    this.setData({
+      posterBtn: true
+    })
   },
   //分享
   onShareAppMessage:(res) => {
@@ -30,7 +46,7 @@ Page({
     return {
       title: '一起为慕思篮球王全国挑战赛打Call>>点击参与',
       path: '/page/home/home?userId=' + userId,
-      imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/basketball/poster.png",
+      imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
       success:() => {
         wx.showToast({
           title: '成功',
@@ -51,15 +67,7 @@ Page({
       showSex: true
     })
   },
-  //选择地区
-  bindMultiPickerChange (e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    const region = this.data.multiArray[0][0] + this.data.multiArray[1][0] + (this.data.multiArray[2][0] || "")
-    this.setData({
-      region,
-      showRegion: true
-    })
-  },
+
   //初始地区选择框
   initAreaArr() {
     let multiArray = this.data.multiArray
@@ -67,17 +75,24 @@ Page({
       let provinceArr = [],
           provinceIdArr = []
       res.forEach(item => {
-        if (item.chooseStatus) {
+        if (!item.chooseStatus) {
           provinceArr.push(item.name)
           provinceIdArr.push(item.id)
         }
       })
+      //如果没有省的话返回空
+      console.log(1111,provinceArr)
+      if (!provinceArr.length) {
+        return
+      }
       const id = provinceIdArr[0]
+      let cityIdArr = []
       this._getRegion(3 ,id).then(res => {
         let cityArr = []
         res.forEach(item => {
-          if (item.chooseStatus) {
+          if (!item.chooseStatus) {
             cityArr.push(item.name)
+            cityIdArr.push(item.id)
           }
         })
         const cityId = res[0].id
@@ -85,7 +100,7 @@ Page({
           console.log(res)
           let areaArr = []
           res.forEach(item => {
-            if (item.chooseStatus) {
+            if (!item.chooseStatus) {
               areaArr.push(item.name)
             }
           })
@@ -94,16 +109,38 @@ Page({
           multiArray[2] = areaArr
           this.setData({
             multiArray,
-            provinceIdArr
+            provinceIdArr,
+            cityIdArr
           })
         })
       })
     })
   },
+  //选择地区
+  bindMultiPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    if (!this.data.multiArray[1][0]) {
+      this.setData({
+        region: "",
+        showRegion: false
+      })
+      return
+    }
+    const region = this.data.multiArray[0][0] + this.data.multiArray[1][0] + (this.data.multiArray[2][0] || "")
+    this.setData({
+      region,
+      showRegion: true
+    })
+  },
   //获取地区
-  _getRegion(type,id) {
+  _getRegion(type, parentId) {
     return new Promise((resolve, reject) => {
-      indexModel.getRegionForBasketballActivities(type,id).then(res => {
+      let obj = {}
+      obj.type = type
+      if(parentId) {
+        obj.parentId = parentId
+      }
+      indexModel.getRegionForBasketballActivities(obj).then(res => {
         if(res.data) {
           resolve(res.data)
         }
@@ -121,7 +158,7 @@ Page({
       this._getRegion(3,id).then(res => {
         let arr = []
         res.forEach(item => {
-          if (item.chooseStatus) {
+          if (!item.chooseStatus) {
             arr.push(item.name)
           }
           multiArray[1] = arr
@@ -130,7 +167,7 @@ Page({
         this._getRegion(4,res[0].id).then(res => {
           let areaArr = []
           res.forEach(item => {
-            if (item.chooseStatus) {
+            if (!item.chooseStatus) {
               areaArr.push(item.name)
             }
             multiArray[2] = areaArr
@@ -148,7 +185,7 @@ Page({
       this._getRegion(4, id).then(res => {
         let arr = []
         res.forEach(item => {
-          if (item.chooseStatus) {
+          if (!item.chooseStatus) {
             arr.push(item.name)
           }
           multiArray[2] = arr;

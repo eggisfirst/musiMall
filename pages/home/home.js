@@ -6,45 +6,46 @@ Page({
   data: {
     activeList: [
       {
-        activeName: "篮球王全国挑战赛",
+        activeName: "慕思篮球王全国挑战赛报名",
         linkTo: "basketSignUp",
-        activeIconName: "马上报名",
         id:1,
         type:'page',
-        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/basket.png"
+        bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/1.png",
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/basketball.png"
       },
+      
       {
-        activeName: "幸运抽奖",
+        activeName: "2019篮球世界杯门票大抽奖",
         linkTo: "lottery",
-        activeIconName: "点击抽奖",
         id:2,
-        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/choujiang.png"
+        bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/2.png",
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/choujiang.png"
 
       },
       {
-        activeName: "限时秒杀",
+        activeName: "慕思产品超低价秒杀",
         linkTo: "activity",
-        activeIconName: "立即抢购",
         id:3,
-        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/miaosha.png"
+        bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/3.png",
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/miaosha.png"
 
       },
       {
-        activeName: "趣味篮球游戏",
+        activeName: "慕思全民篮球王小游戏",
         linkTo: "game",
-        activeIconName: "开始游戏",
         id:4,
-        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/bollbg.png"
+        bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/4.png",
+        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/game.png"
 
       },
-      {
-        activeName: "慕思满额抽奖",
-        linkTo: "check",
-        activeIconName: "查看中奖名单",
-        id:5,
-        activeImage: "https://mobiletest.derucci.net/web/musiMall/images/home/award.png"
+      // {
+      //   activeName: "慕思满额抽奖",
+      //   linkTo: "check",
+      //   activeIconName: "查看中奖名单",
+      //   id:5,
+      //   activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/choujiang.png"
 
-      }
+      // }
     ],
     phoneStatus: false,
     btnStatus: false

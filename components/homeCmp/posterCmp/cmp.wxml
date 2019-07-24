@@ -6,7 +6,7 @@
 
     <image class='image' src='/images/poster.png' />
 
-    <view class='content'>
+    <!-- <view class='content'>
       <image class='content_image' src='/images/basketball/bottom.png'/>
       <view class='content_text'>
         <image class='qcord' src='/images/basketball/qcord.png' />
@@ -15,7 +15,7 @@
       
       </view>
 
-    </view>
+    </view> -->
 
   </view>
 

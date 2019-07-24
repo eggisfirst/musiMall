@@ -1,20 +1,21 @@
 // components/homeCmp/alertBoxCmp/cmp.js
+const app = getApp()
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+
 Component({
   properties: {
-    signUpStatus: Boolean
+    signUpStatus: Boolean,
+    posterBtn: Boolean
   },
   data: {
-    showPoster: false
+    showPoster: false,
+    imgUrl: ""
   },
-  
-  /**
-   * 组件的方法列表
-   */
   methods: {
     //分享活动
     handleShare() {
       console.log('share')
-      // this.handlePoster(false)
     },
     //前往抽奖
     handlelottery() {
@@ -26,11 +27,76 @@ Component({
       })
     },
     //生成海报
-    handlePoster(status=true) {
-      this.setData({
-        showPoster: status
+    handlePoster() {
+      if (this.data.posterBtn) {
+        this.setData({
+          showPoster: true
+        })
+        this.data.imgUrl = app.globalData.userInfo.avatarUrl
+      }
+    },
+    //授权登录
+    getUserInfo(e) {
+      if (e.detail.userInfo) {
+        this.checkSession(e)
+        app.globalData.userInfo = e.detail.userInfo
+        this.setData({
+          userInfo: e.detail.userInfo,
+          hasUserInfo: true
+        })
+      } else {
+        wx.showToast({
+          title: '获取个人信息失败',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+      }
+    },
+    //先校验sessionkey有无过期
+    checkSession(e) {
+      wx.checkSession({
+        success: () => {
+          // console.log(e)
+          this.decodeUserInfo(e)
+        },
+        fail: () => {
+          wx.login({
+            success: res => {
+              this.getOpenId(res.code, e)
+            }
+          })
+        }
       })
     },
+    //重新获取sessionkey
+    getOpenId(code, e) {
+      indexModel.getOpenId(code).then(res => {
+        if (res.status) {
+          app.globalData.sessionKey = res.data.sessionKey
+          this.decodeUserInfo(e)
+        }
+      })
+    },
+    //验证绑定
+    decodeUserInfo(e) {
+      let obj = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        sessionKey: app.globalData.sessionKey,
+        openId: app.globalData.openId,
+      }
+      indexModel.decodeUserInfo(obj).then(res => {
+        if(res.status) {
+          this.triggerEvent('setPosterBtn', true);
+          this.setData({
+            showPoster: true
+          })
+          this.data.imgUrl = res.data.avatarUrl
+        }
+      })
+    },
+
     //关闭弹框
     handleClose() {
       this.triggerEvent('setSignUpStatus', { signUpStatus: false });
@@ -38,7 +104,9 @@ Component({
     //取消海报
     handleSavePoster(e) {
       if(e.detail.cancle) {
-        this.handlePoster(false)
+        this.setData({
+          showPoster: false
+        })
       }
     }
   }

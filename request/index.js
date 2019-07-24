@@ -120,13 +120,10 @@ class IndexModel extends Request {
 
   //小程序第二次迭代
   //获取篮球活动报名地区
-  getRegionForBasketballActivities(type,parentId) {
+  getRegionForBasketballActivities(obj) {
     return this.getSecretData({
       url: "v1/api/useraddress/getRegionForBasketballActivities",
-      data: {
-        type: type,
-        parentId: parentId
-      }
+      data: obj
     })
   }
 

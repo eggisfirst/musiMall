@@ -1,6 +1,7 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
-  <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/bg.png' mode="widthFix" />
+  <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketBG.png' mode="widthFix" /> -->
+  <view class="rule">活动规则</view>
   <view class='content' >
 
     <view class="areaSelect">
@@ -47,6 +48,8 @@
 
     <alertBoxCmp  wx:if="{{signUpStatus}}" 
                   status="{{signUpStatus}}"
-                  catch:setSignUpStatus='setSignUpStatus'/>
+                  catch:setSignUpStatus='setSignUpStatus'
+                  posterBtn="{{posterBtn}}"
+                  catchsetPosterBtn="setPosterBtn"/>
   </view>
 </view>

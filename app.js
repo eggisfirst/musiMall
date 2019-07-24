@@ -73,11 +73,15 @@ App({
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
         wx.hideLoading()
+        //回调，确定这个函数走完才走页面的onload
         this.globalData.userId = res.data.id;
         if (this.checkLoginReadyCallback) {
           this.checkLoginReadyCallback(res);
         }
+        //
         this.globalData.openId = res.data.openId
+        //判断有没有领取积分
+        this.globalData.integralStatus = res.data.integralStatus
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
           this.globalData.hasPhone = true
@@ -100,6 +104,7 @@ App({
     isIphoneX: false,
     onshow:false,
     userId: "",
-    shareUserId: ""
+    shareUserId: "",
+    integralStatus: 0
   }
 })

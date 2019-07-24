@@ -2,11 +2,18 @@
 .home-container {
   width: 750rpx;
   height: 3494rpx;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
   background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/bg.png") no-repeat center;
   background-size: 100% 100%
+}
+.logo {
+  width:158rpx;
+  height: 86rpx;
+  position: absolute;
+  left: 42rpx;
+  top: 58rpx;
 }
 .bg {
   width: 750rpx;
@@ -16,11 +23,11 @@
   left: 0;
 }
 .banner {
-  margin: 0 auto;
-  width: 550rpx;
-  margin-top: 100rpx;
+  /* margin: 0 auto; */
+  width: 705rpx;
+  margin-top: 600rpx;
 }
 .image {
-  width: 509rpx;
-  height: 343rpx;
+  width: 705rpx;
+  height: 232rpx;
 }

@@ -127,7 +127,7 @@ _getToken() {
 
 //加密参数
 _getSign(obj,token) {
-  console.log(obj)
+  // console.log(obj)
   let str = ""
   let keyArr = []
   for(let key in obj) {

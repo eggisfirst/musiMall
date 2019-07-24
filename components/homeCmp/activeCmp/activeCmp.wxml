@@ -1,27 +1,29 @@
 <!--components/homeCmp/activeCmp/activeCmp.wxml-->
 <view class='activeCmp-container'>
   <view class='banner'>
-    <!-- <image class='banner-image' src="https://mobiletest.derucci.net/web/musiMall/images/home/banner.png"/> -->
+    <image class='banner-image' src="{{activeData.bannerImage}}"/>
     <text class='text'>{{activeData.activeName}}</text>
   </view>
   <view class='content'>
-    <image class='border' src='https://mobiletest.derucci.net/web/musiMall/images/home/activeBorder.png' />
-    <image class='content-image' src="{{activeData.activeImage}}" />
+    <!-- <image class='border' src='https://mobiletest.derucci.net/web/musiMall/images/home/activeBorder.png' /> -->
+    <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix"/>
     <block wx:if="{{phoneStatus}}">
       <view class='button'
             catchtap='navigateTo'
-            style="background: {{activeData.id === 5? '#FCB21C' : ''}}">
-            {{activeData.activeIconName}}</view>
+            style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">
+           </view>
     </block>
     <block wx:else>
       <button class='button'
-              style="background: {{activeData.id === 5? '#FCB21C' : ''}}"
+             style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}"
               open-type="getPhoneNumber" 
               bindgetphonenumber="getPhoneNumber">
-              {{activeData.activeIconName}}
+             
       </button> 
     </block>
 
    
   </view>
 </view>
+
+ <!-- style="background: url('{{activeData.bannerImage}}')" -->

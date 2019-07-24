@@ -11,20 +11,21 @@
 }
 
 .box {
-  width: 642rpx;
-  height: 920rpx;
-  border-radius: 34rpx;
-  background: #fff;
-  margin: 0 auto;
-  margin-top: 150rpx;
+  width: 669rpx;
+  height: 995rpx;
+  /* border-radius: 34rpx;
+  background: #fff; */
+  /* margin: 0 auto; */
+  margin-top: 100rpx;
   position: relative;
-  padding: 34rpx 27rpx;
+  /* padding: 34rpx 27rpx; */
   box-sizing: border-box;
-  overflow: hidden
+  overflow: hidden;
+  margin-left: 50rpx;
 }
 .image {
-  width: 591rpx;
-  height: 684rpx;
+   width: 669rpx;
+  height: 995rpx;
 
 }
 

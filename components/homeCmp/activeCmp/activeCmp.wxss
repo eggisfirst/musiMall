@@ -7,21 +7,21 @@
 }
 
 .banner {
-  width: 344rpx;
+  width: 489rpx;
   box-sizing: border-box;
   overflow: hidden;
   margin: 0 auto;
   /* position: relative; */
-  height: 51rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/home/banner.png") no-repeat center;
-  background-size: 100% 100%;
-  display: flex;
-  align-items: center
-
+  height: 120rpx;
+  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/home/banner.png") no-repeat center; */
+  /* background-size: 100% 100%; */
+  /* display: flex;
+  align-items: center */
+  position: relative
 }
 .banner-image {
-  width: 344rpx;
-  height: 51rpx;
+  width: 459rpx;
+  height: 90rpx;
   position: absolute;
   top: 0;
   left: 0;
@@ -29,54 +29,62 @@
 }
 .text {
   display: inline-block;
-  color: #fff;
-  position: relative;
+  position: absolute;
+  top: 60rpx;
+  left: 60rpx;
   text-align: center;
-  font-size: 25rpx;
+  font-size: 30rpx;
   font-weight: bold;
-  width: 344rpx;
+  width: 350rpx;
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  color: #A6AAE3
 }
 
 .content {
   margin: 0 auto;
-  width: 672rpx;
+  width: 100%;
   box-sizing: border-box;
   overflow: hidden;
   margin-top: 20rpx;
   position: relative;
   margin-bottom: 20rpx;
-   height: 299rpx;
+  height: 400rpx;
 }
-.border {
-  width: 672rpx;
-  height: 292rpx;
+/* .border {
+  width: 683rpx;
+  height: 369rpx;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 99
-}
+} */
 .content-image {
   z-index: 90;
-  width: 622rpx;
-  height: 242rpx;
-  border-radius: 20rpx;
+  width: 685rpx;
+  /* height: 369rpx; */
+  /* border-radius: 20rpx; */
   position: absolute;
   top: 25rpx;
-  left: 25rpx
+  left: 35rpx
 }
 
 .button {
-  line-height: 40rpx;
   position: absolute;
-  bottom: 70rpx;
-  right:60rpx;
+  bottom: 52rpx;
+  left:68rpx;
   z-index: 100;
-  background: #D91B06;
   color: #fff;
   font-size: 26rpx;
-  padding: 4rpx 24rpx;
   border-radius: 5rpx;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/btn.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 161rpx;
+  height: 43rpx;
+}
+
+.btnStyle {
+  left: 261rpx;
+  bottom:42rpx
 }

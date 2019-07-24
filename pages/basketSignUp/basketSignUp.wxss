@@ -1,13 +1,28 @@
 /* pages/basketSignUp/basketSignUp.wxss */
 .basketBall-container {
   width: 750rpx;
-  height: 1334rpx;
+  height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
-  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/basketball/bg.png") no-repeat center;
-  background-size: 100% 100% */
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/basketBG.png") no-repeat center;
+  background-size: 100% 100%
 }
+
+.rule {
+  border-radius:26rpx 0px 0px 26rpx;
+  width: 166rpx;
+  height: 52rpx;
+  background: rgba(255,255,255,0.34);
+  font-size: 26rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 52rpx;
+  position: absolute;
+  right: 0;
+  top: 120rpx;
+}
+
 
 .bg {
   width: 100%;

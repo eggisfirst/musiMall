@@ -21,7 +21,16 @@
 
       <view class='bottom_btn'>
         <button class='share' catchshare='handleShare' open-type="share">分享活动</button>
-        <view class='share' catchtap='handlePoster'>生成海报</view>
+      <block  wx:if="{{!posterBtn}}">
+        <button class='share'
+                style="marginLeft:131rpx"
+                open-type='getUserInfo'
+                catch:getuserinfo='getUserInfo'
+                >生成海报</button>  
+      </block>
+      <block  wx:else>
+        <view class='button' catchtap='handlePoster'>生成海报</view>
+      </block>
       </view>
 
       <image  class='close' 
@@ -31,5 +40,6 @@
 </block>
 
 <block wx:else>
-  <posterCmp catch:handleSavePoster="handleSavePoster"/>
+  <posterCmp catch:handleSavePoster="handleSavePoster"
+              imgUrl="{{imgUrl}}"/>
 </block>

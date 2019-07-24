@@ -92,6 +92,18 @@
   border-radius: 29rpx;
   color: #fff;
   font-size: 28rpx;
+  display: inline-block;
+}
+
+.button {
+  background:linear-gradient(-15deg,rgba(142,59,237,1) 0%,rgba(156,82,239,1) 100%);
+  width: 222rpx;
+  line-height: 58rpx;
+  border-radius: 29rpx;
+  color: #fff;
+  font-size: 28rpx;
+  display: inline-block;
+  margin-right: 25rpx
 }
 
 .close {
