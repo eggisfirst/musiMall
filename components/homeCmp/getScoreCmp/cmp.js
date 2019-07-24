@@ -23,7 +23,7 @@ Component({
     },
     //领取积分
     handleGetScore() {
-      console.log('get')
+      this.authorizationGiveIntegral(app.globalData.userId)
     },
     getPhoneNumber(e) {
       console.log(e.detail)
@@ -75,9 +75,23 @@ Component({
         openId: app.globalData.openId,
         shareUserId
       }
-      indexModel.decodeUserInfo(obj).then(res => {
+      indexModel.getPhoneNumber(obj).then(res => {
         if (res.status) {
           this.triggerEvent("setPhoneStatus", true)
+          this.authorizationGiveIntegral(res.data.id)
+        }
+      })
+    },
+    //接口领取积分
+    authorizationGiveIntegral(userId) {
+      indexModel.authorizationGiveIntegral(userId).then(res => {
+        if(res.status) {
+          this.triggerEvent("handleBtnStatus", false)
+          wx.showToast({
+            title: '领取成功',
+            icon: "none",
+            duration: 1500
+          })
         }
       })
     },

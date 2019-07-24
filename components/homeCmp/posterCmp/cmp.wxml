@@ -4,7 +4,7 @@
 <view class='wrapper' >
   <view class='box'>
 
-    <image class='image' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/poster.png' />
+    <image class='image' src='/images/poster.png' />
 
     <view class='content'>
       <image class='content_image' src='/images/basketball/bottom.png'/>

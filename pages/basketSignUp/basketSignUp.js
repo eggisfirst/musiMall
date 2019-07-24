@@ -185,37 +185,37 @@ Page({
   },
   //点击弹出报名成功
   handleSignUp() {
-    // this._handleSignStatus()
-    const data = {
-      region: {
-        value: this.data.region,
-        msg: "请选择地区"
-      },
-      sexVal: {
-        value: this.data.sexVal,
-        msg: "请选择性别"
-      },
-      nameVal: {
-        value: this.data.nameVal,
-        msg: "请输入正确的姓名"
-      },
-      phone: {
-        value: this.data.phone,
-        msg: "请输入正确的手机号码"
-      }
-    }
-    for(let key in data) {
-      if(!data[key].value) {
-        wx.showToast({
-          title: data[key].msg,
-          icon: 'none',
-          duration: 1500
-        })
-        return
-      }
-    }
-    const obj = this._getParmas()
-    this._signUp(obj)
+    this._handleSignStatus()
+    // const data = {
+    //   region: {
+    //     value: this.data.region,
+    //     msg: "请选择地区"
+    //   },
+    //   sexVal: {
+    //     value: this.data.sexVal,
+    //     msg: "请选择性别"
+    //   },
+    //   nameVal: {
+    //     value: this.data.nameVal,
+    //     msg: "请输入正确的姓名"
+    //   },
+    //   phone: {
+    //     value: this.data.phone,
+    //     msg: "请输入正确的手机号码"
+    //   }
+    // }
+    // for(let key in data) {
+    //   if(!data[key].value) {
+    //     wx.showToast({
+    //       title: data[key].msg,
+    //       icon: 'none',
+    //       duration: 1500
+    //     })
+    //     return
+    //   }
+    // }
+    // const obj = this._getParmas()
+    // this._signUp(obj)
   },
   _signUp(obj) {
     indexModel.signUp(obj).then(res => {

@@ -62,7 +62,7 @@ Component({
         openId: app.globalData.openId,
         shareUserId
       }
-      indexModel.decodeUserInfo(obj).then(res => {
+      indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
           this.triggerEvent("setPhoneStatus",true)
         }

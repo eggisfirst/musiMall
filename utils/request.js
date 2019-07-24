@@ -1,4 +1,4 @@
-import {sha1} from './util.js'
+var util = require("./sha1.js")
 
 class Request {
   // baseUrl = 'http://10.11.8.228:8088/'
@@ -42,7 +42,7 @@ class Request {
             key: "token",
             data: res.refresh_token
           })
-          this._getSign(data)
+          const sign = this._getSign(data)
           wx.request({
             url: this.baseUrl + url,
             method: "post",
@@ -50,7 +50,7 @@ class Request {
             header: {
               'content-type': 'application/x-www-form-urlencoded',
               "Authorization": `Bearer ${res.access_token}`,
-              // 'sign': sign
+              'sign': sign
             },
             dataType: 'json',
             responseType: 'text',
@@ -151,7 +151,7 @@ _getSign(obj,token) {
       }
     }
   })
-  console.log(str)
+  return util.sha1(str + token)
 }
 
   _showError() {

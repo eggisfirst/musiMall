@@ -47,18 +47,29 @@ Page({
       }
     ],
     phoneStatus: false,
-    btnStatus: true
+    btnStatus: false
   },
   onLoad () {
     //判断onLaunch是否执行完毕
     if (app.globalData.userId) {
       this.handlePhoneStatus(app.globalData.phone)
+      this.scoreStatus(app.globalData.integralStatus)
     } else {
       app.checkLoginReadyCallback = res => {
         this.handlePhoneStatus(res.data.mobileNumber)
+        this.scoreStatus(res.data.integralStatus)
       };
     }
   },
+  //是否已经领取积分
+  scoreStatus(status) {
+    const btnStatus = status? false : true
+    this.setData({
+      btnStatus
+    })
+  },
+
+  //手机授权
   handlePhoneStatus(phone) {
     if(phone) {
       this.setData({

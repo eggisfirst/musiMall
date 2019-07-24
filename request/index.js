@@ -148,6 +148,15 @@ class IndexModel extends Request {
    })
  }
 
+//领取积分
+  authorizationGiveIntegral(userId) {
+    return this.getSecretData({
+      url: "v1/api/integral/authorizationGiveIntegral",
+      data: {
+        userId
+      }
+    })
+  }
 
 }
 

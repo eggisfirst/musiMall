@@ -20,7 +20,7 @@ Component({
     handleSave() {
       let that = this
       wx.saveImageToPhotosAlbum({
-        filePath: "/images/basketball/bottom.png",
+        filePath: "/images/poster.png",
         success(res) { 
           that.savePoster()
           wx.switchTab({
