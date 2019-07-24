@@ -1,3 +1,5 @@
+import {sha1} from './util.js'
+
 class Request {
   // baseUrl = 'http://10.11.8.228:8088/'
   baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
@@ -40,7 +42,7 @@ class Request {
             key: "token",
             data: res.refresh_token
           })
-
+          this._getSign(data)
           wx.request({
             url: this.baseUrl + url,
             method: "post",
@@ -127,6 +129,29 @@ _getToken() {
         }
       })
     })
+}
+
+//加密参数
+_getSign(obj,token) {
+  console.log(obj)
+  let str = ""
+  let keyArr = []
+  for(let key in obj) {
+    keyArr.push(key)
+  }
+  keyArr.sort((a,b) => {
+    return a.length - b.length
+  })
+  keyArr.map((item, index) => {
+    if(obj[item]) {
+      if(!str) {
+        str = `${item}=${obj[item]}`
+      }else {
+        str += `&${item}=${obj[item]}`
+      }
+    }
+  })
+  console.log(str)
 }
 
   _showError() {
