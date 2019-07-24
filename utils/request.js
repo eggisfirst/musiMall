@@ -78,7 +78,7 @@ class Request {
 _getToken() {
   return new Promise((resolve, reject) => {
     wx.request({
-      url: this.baseUrl + "/oauth/token",
+      url: this.baseUrl + "oauth/token",
       method: "POST",
       data: {
         grant_type: 'client_credentials',
@@ -102,19 +102,13 @@ _getToken() {
 }
 
   _refreshToken() {
-    wx.getStorage({
-      key: 'token',
-      success(res) {
-        this.refreshToken = res.data
-      }
-    })
     return new Promise((resolve, reject) => {
       wx.request({
-        url: this.baseUrl + "/oauth/token",
+        url: this.baseUrl + "oauth/token",
         method: "POST",
         data: {
           grant_type: 'refresh_token',
-          refresh_token: this.refreshToken,
+          refresh_token: wx.getStorageSync('token'),
         },
         header: { 'content-type': 'application/x-www-form-urlencoded' },
         dataType: 'json',

@@ -3,7 +3,7 @@
   <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/home/bg.png'></image> -->
   <scroll-view scroll-y style="height: 100vh">
     <view class='banner'>
-      <image class='image' src="https://mobiletest.derucci.net/web/musiMall/images/home/title.png" />
+      <image class='image'      src="https://mobiletest.derucci.net/web/musiMall/images/home/title.png" />
     </view>
     <view  wx:for="{{activeList}}" wx:key="{{item.id}}">
       <activeCmp activeData="{{item}}"
