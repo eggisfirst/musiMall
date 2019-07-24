@@ -24,14 +24,14 @@
   height: 90rpx;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 20rpx;
   z-index: 1
 }
 .text {
   display: inline-block;
   position: absolute;
   top: 60rpx;
-  left: 60rpx;
+  left: 80rpx;
   text-align: center;
   font-size: 30rpx;
   font-weight: bold;
@@ -75,13 +75,15 @@
   bottom: 52rpx;
   left:68rpx;
   z-index: 100;
-  color: #fff;
-  font-size: 26rpx;
+  font-size: 24rpx;
   border-radius: 5rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/btn.png") no-repeat center;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/btnBg.png") no-repeat center;
   background-size: 100% 100%;
   width: 161rpx;
   height: 43rpx;
+  color: #261f2a;
+  text-align: center;
+  line-height: 43rpx;
 }
 
 .btnStyle {

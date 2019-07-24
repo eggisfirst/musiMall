@@ -7,10 +7,11 @@
   <view class='content'>
     <!-- <image class='border' src='https://mobiletest.derucci.net/web/musiMall/images/home/activeBorder.png' /> -->
     <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix"/>
+
     <block wx:if="{{phoneStatus}}">
       <view class='button'
             catchtap='navigateTo'
-            style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">
+            style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">{{activeData.active}}
            </view>
     </block>
     <block wx:else>
@@ -18,6 +19,7 @@
              style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}"
               open-type="getPhoneNumber" 
               bindgetphonenumber="getPhoneNumber">
+              {{activeData.active}}
              
       </button> 
     </block>

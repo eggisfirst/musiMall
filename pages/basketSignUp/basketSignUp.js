@@ -45,7 +45,7 @@ Page({
     }
     return {
       title: '一起为慕思篮球王全国挑战赛打Call>>点击参与',
-      path: '/page/home/home?userId=' + userId,
+      path: '/pages/home/home?userId=' + userId,
       imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
       success:() => {
         wx.showToast({
@@ -213,7 +213,7 @@ Page({
   //输入手机号码
   phoneConfirm(e) {
     const val = e.detail.value
-    const reg = new RegExp(/^1[3|4|5|8][0-9]\d{4,8}$/,'g')
+    const reg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/
     if(reg.test(val)) {
       this.setData({
         phone: e.detail.value
@@ -248,6 +248,7 @@ Page({
           icon: 'none',
           duration: 1500
         })
+        console.log('no')
         return
       }
     }
@@ -260,7 +261,7 @@ Page({
         this._handleSignStatus()
       } else {
         wx.showToast({
-          title: res.msg,
+          title: '您已报名成功，请勿重复报名！',
           icon: 'none',
           duration: 1500
         })

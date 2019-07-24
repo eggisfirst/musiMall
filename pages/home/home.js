@@ -10,6 +10,7 @@ Page({
         linkTo: "basketSignUp",
         id:1,
         type:'page',
+        active: "我要报名",
         bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/1.png",
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/basketball.png"
       },
@@ -18,6 +19,7 @@ Page({
         activeName: "2019篮球世界杯门票大抽奖",
         linkTo: "lottery",
         id:2,
+        active: "点击抽奖",
         bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/2.png",
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/choujiang.png"
 
@@ -26,6 +28,7 @@ Page({
         activeName: "慕思产品超低价秒杀",
         linkTo: "activity",
         id:3,
+        active: "立即抢购",
         bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/3.png",
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/miaosha.png"
 
@@ -34,6 +37,7 @@ Page({
         activeName: "慕思全民篮球王小游戏",
         linkTo: "game",
         id:4,
+        active: "开始游戏",
         bannerImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/4.png",
         activeImage: "https://mobiletest.derucci.net/web/musiMall/images/newHome/game.png"
 

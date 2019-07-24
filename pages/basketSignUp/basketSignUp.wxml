@@ -1,6 +1,6 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
-  <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketBG.png' mode="widthFix" /> -->
+  <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" /> -->
   <view class="rule">活动规则</view>
   <view class='content' >
 

@@ -1,0 +1,11 @@
+<!--pages/basketRule/basketRule.wxml-->
+<view>  
+  <view class="banner">
+    <image  class="ruleBanner"
+            src="https://mobiletest.derucci.net/web/musiMall/images/basketBG.png' 
+            mode="widthFix" />
+  </view>
+
+
+
+</view>

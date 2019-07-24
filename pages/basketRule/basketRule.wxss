@@ -1,0 +1,4 @@
+/* pages/basketRule/basketRule.wxss */
+.ruleBanner {
+  width: 750rpx;
+}
