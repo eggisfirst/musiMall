@@ -293,8 +293,10 @@ Page({
         msg: "请输入正确的手机号码"
       }
     }
+    
     for(let key in data) {
       if(!data[key].value) {
+        console.log(data[key])
         wx.showToast({
           title: data[key].msg,
           icon: 'none',
@@ -330,7 +332,7 @@ Page({
       sex: this.data.sexVal,
       province: this.data.multiArray[0][this.data.multiIndex[0]],
       city: this.data.multiArray[1][this.data.multiIndex[1]],
-      area: this.data.multiArray[2][this.data.multiIndex[2]] || "",
+      // area: this.data.multiArray[2][this.data.multiIndex[2]] || "",
     }
   },
   //关闭报名弹框
