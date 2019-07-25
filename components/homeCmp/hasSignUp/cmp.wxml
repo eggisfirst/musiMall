@@ -21,7 +21,7 @@
              wx:else 
              src="/images/basketball/photo.png" mode="widthFix"
              catchtap="handlePosterBtn"/>
-      <view class="photo">生成图片</view>
+      <view class="photo">生成海报</view>
     </view>
     </view>
 </view>

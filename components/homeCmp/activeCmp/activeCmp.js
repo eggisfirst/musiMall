@@ -63,7 +63,27 @@ Component({
       }
       indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
+          const url = this.data.activeData.linkTo
           this.triggerEvent("setPhoneStatus",true)
+          if (url === "activity") {
+            wx.switchTab({
+              url: `../${url}/${url}`,
+            })
+          }
+          else if (url === 'lottery' || url === "check" || url === 'game') {
+            if(url === 'game') {
+              this.playGame()
+            }
+            wx.showToast({
+              title: '活动尚未开始',
+              icon: 'none',
+              duration: 1500
+            })
+    
+          }
+          else if (url === "basketSignUp"){
+            this.toSignUp(url)
+          }
         }
       })
     },
@@ -75,6 +95,9 @@ Component({
         })
       }
       else if (url === 'lottery' || url === "check" || url === 'game') {
+        if(url === 'game') {
+          this.playGame()
+        }
         wx.showToast({
           title: '活动尚未开始',
           icon: 'none',
@@ -84,13 +107,7 @@ Component({
       }
       else if (url === "basketSignUp"){
         if (app.globalData.userId) {
-          indexModel.hasSignUp(app.globalData.userId).then(res => {
-            if (res.data && res.data.length) {
-              this.toSignUped(url)
-            } else {
-              this.toSignUp(url)
-            }
-          })
+          this.hasSignUp()
         } else {
           this.toSignUp(url)
         }
@@ -109,7 +126,26 @@ Component({
     },
     //判断有没有报名
     hasSignUp() {
-     
+      const url = this.data.activeData.linkTo
+      indexModel.hasSignUp(app.globalData.userId).then(res => {
+        if (res.data && res.data.length) {
+          this.toSignUped(url)
+        } else {
+          this.toSignUp(url)
+        }
+      })
+    },
+    //领取游戏积分
+    playGame() {
+      const value = wx.getStorageSync('playGame')
+      if(value) {
+        return
+      }
+      indexModel.playGame(app.globalData.userId).then(res => {
+        if(res.status) {
+          wx.setStorageSync('playGame', true)
+        }
+      })
     }
   }
 })

@@ -30,7 +30,7 @@
   width:145rpx;
   border:1rpx solid rgba(255,255,255,1);
   border-radius:17rpx;
-  position: absolute;
+  position: fixed;
   right: 32rpx;
   top: 45rpx;
   color: #fff;
@@ -43,7 +43,7 @@
   font-size: 78rpx;
   color: #fff;
   width: 100%;
-  position: absolute;
+  position: fixed;
   left: 256rpx;
   top: 252rpx;
 }
@@ -55,18 +55,19 @@
   color: #fff;
   line-height: 66rpx;
   text-align: center;
-  position: absolute;
+  position: fixed;
   left: 102rpx;
   top: 391rpx;
+  font-size: 26rpx;
 }
 
 .egg_btn {
-  width: 750rpx;
+  width: 76%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  position: absolute;
-  left: 0;
+  position: fixed;
+  left: 12%;
   top: 522rpx;
 }
 
@@ -84,24 +85,24 @@
 }
 
 .share {
-  margin-top: 22rpx;
+  margin-top: 37rpx;
 }
 .photo {
   margin-top: 37rpx;
 }
 
 .egg_sharebtn {
-  background:url("https://mobiletest.derucci.net/web/musiMall/images/newHome/share.png") no-repeat center;
+  background:url("https://mobiletest.derucci.net/web/musiMall/images/basketball/share.png") no-repeat center;
   background-size: 100% 100%;
   width: 89rpx;
-  height: 100rpx;
+  height: 89rpx;
 }
 
 .photoBtn {
   display: inline-block;
   width: 89rpx;
   height: 89rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/photo.png") no-repeat center;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/basketball/photo.png") no-repeat center;
   background-size: 100% 100%;
 
 }

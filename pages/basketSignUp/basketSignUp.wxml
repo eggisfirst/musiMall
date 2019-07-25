@@ -1,28 +1,30 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
   <block wx:if="{{!hasSignUp}}">
-    <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
+    <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketBg.png' mode="widthFix" />
     <view class="rule" catchtap="navigateToRule">活动规则</view>
     <view class='content' >
 
       <view class="areaSelect">
-        <picker mode="multiSelector" 
+        <picker mode="multiSelector"
+                style="width:100%" 
                 bindchange="bindMultiPickerChange"
                 bindcolumnchange="bindMultiPickerColumnChange" 
                 value="{{multiIndex}}" 
                 range="{{multiArray}}">
-        <view class="picker">{{showRegion? region: '请选择地区'}}</view>
-        </picker>
+        <text class="picker">{{showRegion? region: '请选择地区'}}</text>
         <image  class='icon' src='/images/basketball/down.png'  mode="widthFix"/>
+        </picker>
       </view>
       
       <view class="areaSelect">
         <picker bindchange="sexPickerChange"
+                 style="width:100%" 
                 value="{{sexIndex}}" 
                 range="{{sexArr}}">
-          <view class="picker">{{showSex? sexVal: "请选择性别"}}</view>
+          <text class="picker">{{showSex? sexVal: "请选择性别"}}</text>
+          <image class='icon' src='/images/basketball/down.png' mode="widthFix"/>
         </picker>
-        <image class='icon' src='/images/basketball/down.png' mode="widthFix"/>
       </view>
 
       <view class='areaSelect'>

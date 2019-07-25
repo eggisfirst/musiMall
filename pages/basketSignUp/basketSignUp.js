@@ -76,7 +76,7 @@ Page({
       console.log(res.target)
     }
     return {
-      title: '一起为慕思篮球王全国挑战赛打Call>>点击参与',
+      title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
       path: '/pages/home/home?userId=' + userId,
       imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
       success:() => {
@@ -165,7 +165,8 @@ Page({
       })
       return
     }
-    const region = this.data.multiArray[0][0] + this.data.multiArray[1][0] + (this.data.multiArray[2][0] || "")
+    
+    const region = this.data.multiArray[0][this.data.multiIndex[0]] + this.data.multiArray[1][this.data.multiIndex[1]] + (this.data.multiArray[2][this.data.multiIndex[2]] || "")
     this.setData({
       region,
       showRegion: true

@@ -6,36 +6,20 @@
   <block wx:if="{{phoneStatus}}" >
     <view class='content' catchtap='navigateTo'>
       <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix"/>
-        <view class='button'
-              style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">{{activeData.active}}
-            </view>
+        <view class='button'>{{activeData.active}}</view>
     </view>
   
   </block>
     
     <block wx:else>
-      <view wx:if="{{activeData.id === 1}}">
-        <view class="content">
-          <button class='myBtn'  
-                  open-type="getPhoneNumber"  
-                  bindgetphonenumber="getPhoneNumber"
-                  >
-            <view class='button'
-                  style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">{{activeData.active}}
-                </view>
-          </button>
-        </view>
+      <view class="content">
+        <button class='myBtn'  
+                open-type="getPhoneNumber"  
+                bindgetphonenumber="getPhoneNumber"
+                style="background:url({{activeData.activeImage}});background-size:100% 100%"
+                >
+          <view class='button'>{{activeData.active}}</view>
+        </button>
       </view>
-
-      <view wx:else>
-        <view class='content' catchtap='navigateTo'>
-          <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix"/>
-            <view class='button'
-                  style="left: {{activeData.id === 4? '281rpx' : ''}};bottom: {{activeData.id === 4? '42rpx' : ''}}">{{activeData.active}}
-                </view>
-        </view>
-      </view>
-
-     
     </block>
 </view>

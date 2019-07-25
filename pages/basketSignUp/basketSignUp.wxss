@@ -92,3 +92,9 @@
   line-height: 87rpx;
   margin-top: 23rpx;
 }
+
+
+.egg_picker {
+  display: flex;
+  width: 100%;
+}
