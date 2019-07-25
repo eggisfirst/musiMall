@@ -23,9 +23,9 @@ Component({
         filePath: "/images/poster.png",
         success(res) { 
           that.savePoster()
-          wx.switchTab({
-            url: '/pages/home/home'
-          })
+          // wx.switchTab({
+          //   url: '/pages/home/home'
+          // })
           wx.showToast({
             title: '保存成功',
             icon: 'none',

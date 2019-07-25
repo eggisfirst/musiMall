@@ -18,7 +18,6 @@ Page({
     nameVal:"",
     posterBtn: true,
     hasSignUp: false
-    
   },
   onLoad(options) {
     // console.log(1122,options)
@@ -74,6 +73,14 @@ Page({
     wx.navigateTo({
       url: '/pages/basketRule/basketRule',
     })
+  },
+  //关闭海报
+  handleSavePoster(e) {
+    if(e.detail.cancle) {
+      this.setData({
+        showPoster: false
+      })
+    }
   },
   //选择性别
   sexPickerChange (e) {

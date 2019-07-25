@@ -1,81 +1,66 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container'>
   <block wx:if="{{!hasSignUp}}">
-  <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
-  <view class="rule" catchtap="navigateToRule">活动规则</view>
-  <view class='content' >
+    <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
+    <view class="rule" catchtap="navigateToRule">活动规则</view>
+    <view class='content' >
 
-    <view class="areaSelect">
-      <picker mode="multiSelector" 
-              bindchange="bindMultiPickerChange"
-              bindcolumnchange="bindMultiPickerColumnChange" 
-              value="{{multiIndex}}" 
-              range="{{multiArray}}">
-      <view class="picker">{{showRegion? region: '请选择地区'}}</view>
-      </picker>
-      <image  class='icon' src='/images/basketball/down.png'  mode="widthFix"/>
+      <view class="areaSelect">
+        <picker mode="multiSelector" 
+                bindchange="bindMultiPickerChange"
+                bindcolumnchange="bindMultiPickerColumnChange" 
+                value="{{multiIndex}}" 
+                range="{{multiArray}}">
+        <view class="picker">{{showRegion? region: '请选择地区'}}</view>
+        </picker>
+        <image  class='icon' src='/images/basketball/down.png'  mode="widthFix"/>
+      </view>
+      
+      <view class="areaSelect">
+        <picker bindchange="sexPickerChange"
+                value="{{sexIndex}}" 
+                range="{{sexArr}}">
+          <view class="picker">{{showSex? sexVal: "请选择性别"}}</view>
+        </picker>
+        <image class='icon' src='/images/basketball/down.png' mode="widthFix"/>
+      </view>
+
+      <view class='areaSelect'>
+        <input  class='input' 
+                placeholder='请输入您的姓名' 
+                placeholder-style="color:#fff;"
+                maxlength="20"
+                bindblur="nameConfirm"/>
+      </view>
+
+      <view class='areaSelect'>
+        <input  class='input' 
+                type="number"
+                placeholder='请输入您的个人手机号' 
+                placeholder-style="color:#fff;"
+                maxlength="13"
+                bindblur="phoneConfirm"
+                value="{{phone}}"/>
+      </view>
+
+      <text class='tips'>点击报名表示同意本活动规则 </text>
+
+      <view class='comfirm' bindtap='handleSignUp'>我要报名</view>
+
+      <alertBoxCmp  wx:if="{{signUpStatus}}" 
+                    status="{{signUpStatus}}"
+                    catch:setSignUpStatus='setSignUpStatus'
+                    posterBtn="{{posterBtn}}"
+                    catchsetPosterBtn="setPosterBtn"/>
     </view>
-    
-    <view class="areaSelect">
-      <picker bindchange="sexPickerChange"
-              value="{{sexIndex}}" 
-              range="{{sexArr}}">
-        <view class="picker">{{showSex? sexVal: "请选择性别"}}</view>
-      </picker>
-       <image class='icon' src='/images/basketball/down.png' mode="widthFix"/>
-    </view>
-
-    <view class='areaSelect'>
-      <input  class='input' 
-              placeholder='请输入您的姓名' 
-              placeholder-style="color:#fff;"
-              maxlength="20"
-              bindblur="nameConfirm"/>
-    </view>
-
-    <view class='areaSelect'>
-      <input  class='input' 
-              type="number"
-              placeholder='请输入您的个人手机号' 
-              placeholder-style="color:#fff;"
-              maxlength="13"
-              bindblur="phoneConfirm"
-              value="{{phone}}"/>
-    </view>
-
-    <text class='tips'>点击报名表示同意本活动规则 </text>
-
-    <view class='comfirm' bindtap='handleSignUp'>我要报名</view>
-
-    <alertBoxCmp  wx:if="{{signUpStatus}}" 
-                  status="{{signUpStatus}}"
-                  catch:setSignUpStatus='setSignUpStatus'
-                  posterBtn="{{posterBtn}}"
-                  catchsetPosterBtn="setPosterBtn"/>
-  </view>
   </block>
 
   <block wx:else>
-    <view class="egg_bg">
-      <image class='egg_image' 
-      src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
-      <view class="egg_mask"></view>
-       <view class="egg_rule" catchtap="navigateToRule">活动规则</view>
-       <view class="signUp">已报名！</view>
-       <view class="sharetext">分享一下，邀请好友参与</view>
-       <view class="egg_btn">
-        <view class="my_btn">
-          <button class="egg_btn"></button>
-          <view class="share">分享好友</view>
-        </view>
-        <view  class="my_btn">
-          <image class="btn_image" src="/images/basketball/photo.png" mode="widthFix"/>
-          <view class="photo">生成图片</view>
-        </view>
-       
-       </view>
-    </view>
-  
+    <hasSignUp  posterBtn="{{posterBtn}}"
+                catchsetPosterBtn="setPosterBtn"/>
+    <posterCmp  wx:if="{{posterBtn}}"
+                catchhandleSavePoster="handleSavePoster"
+                />
   </block>
 </view>
 

@@ -1,99 +1,4 @@
-/* pages/basketSignUp/basketSignUp.wxss */
-.basketBall-container {
-  width: 750rpx;
-  /* height: 100vh; */
-  /* position: fixed;
-  top: 0;
-  left: 0; */
-  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/basketBG.png") no-repeat center;
-  background-size: 100% 100% */
-}
-
-.rule {
-  border-radius:26rpx 0px 0px 26rpx;
-  width: 166rpx;
-  height: 52rpx;
-  background: rgba(255,255,255,0.34);
-  font-size: 26rpx;
-  color: #fff;
-  text-align: center;
-  line-height: 52rpx;
-  position: absolute;
-  right: 0;
-  top: 120rpx;
-}
-
-
-.bg {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1
-}
-
-.icon {
-  width: 25rpx;
-  margin-top: 8rpx;
-  margin-left: 10rpx;
-}
-
-.input {
-  color: #fff
-}
-
-.content {
-  width: 602rpx;
-  height: 758rpx;
-  border-radius: 10rpx;
-  background:rgba(21,75,138,0.65);
-  margin: auto;
-  margin-top: 300rpx;
-  box-sizing: border-box;
-  padding: 52rpx 40rpx;
-  text-align: center;
-
-}
-
-.areaSelect {
-  width: 100%;
-  height: 80rpx;
-  background: rgba(41,96,155,0.75);
-  border-radius: 10rpx;
-  color: #fff;
-  font-size: 24rpx;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 25rpx;
-}
-
-.icon {
-  width: 25rpx;
-  margin-top: 8rpx;
-  margin-left: 10rpx;
-}
-
-.tips {
-  color:rgba(73,163,255,0.61);
-  font-size: 20rpx;
-  font-weight: "500";
-}
-
-.comfirm {
-  width: 522rpx;
-  height: 87rpx;
-  background: rgba(255,192,0,0.96);
-  border-radius: 10rpx;
-  color: #fff;
-  font-weight: bold;
-  font-size: 36rpx;
-  line-height: 87rpx;
-  margin-top: 23rpx;
-}
-
-
+/* components/homeCmp/hasSignUp/cmp.wxss */
 .egg_bg {
   width: 100%;
   height: 100vh;
@@ -190,4 +95,13 @@
   background-size: 100% 100%;
   width: 89rpx;
   height: 100rpx;
+}
+
+.photoBtn {
+  display: inline-block;
+  width: 89rpx;
+  height: 89rpx;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/photo.png") no-repeat center;
+  background-size: 100% 100%;
+
 }
