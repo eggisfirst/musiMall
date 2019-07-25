@@ -24,7 +24,6 @@ Page({
   onLoad(options) {
     // console.log(1122,options)
     this.hasSignUp(options)
-    this.initAreaArr()
     this.hasGetInfo()
   },
    //打开海报
@@ -51,6 +50,8 @@ Page({
       this.setData({
         hasSignUp: true
       })
+    }else {
+      this.initAreaArr()
     }
   },
 

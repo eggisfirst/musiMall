@@ -9,10 +9,10 @@ class Request {
   refreshToken = ''
   getData({ url, data = {}, method = "post" }) {
     return new Promise((resolve, reject) => {
-      // wx.showLoading({
-      //   title: '加载中',
-      //   mask: true
-      // })
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
       wx.request({
         url: this.baseUrl + url,
         method: method,
@@ -22,7 +22,7 @@ class Request {
         responseType: 'text',
         success: res => {
           if (res.data) {
-            // wx.hideLoading()
+            wx.hideLoading()
             resolve(res.data)
           }
         },
@@ -36,6 +36,10 @@ class Request {
   //有token
   getSecretData({ url, data = {}}) {
     return new Promise((resolve, reject) => {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
       this._getToken().then(res => {
         if (res.access_token) {
           wx.setStorage({
@@ -55,6 +59,7 @@ class Request {
             dataType: 'json',
             responseType: 'text',
             success: res => {
+              wx.hideLoading()
               if (res.data) {
                 resolve(res.data)
               }
