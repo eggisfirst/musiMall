@@ -9,7 +9,8 @@ Page({
     sexArr: ['男','女'],
     sexIndex: [0],
     multiArray: [],
-    multiIndex: [0, 0, 0],
+    // 1.multiIndex: [0, 0, 0],
+    multiIndex: [0, 0],
     showRegion: false,
     showSex: false,
     region: '',
@@ -134,24 +135,30 @@ Page({
             cityIdArr.push(item.id)
           }
         })
-        const cityId = res[0].id
-        this._getRegion(4, cityId).then(res => {
-          console.log(res)
-          let areaArr = []
-          res.forEach(item => {
-            if (!item.chooseStatus) {
-              areaArr.push(item.name)
-            }
-          })
           multiArray[0] = provinceArr
           multiArray[1] = cityArr
-          multiArray[2] = areaArr
-          this.setData({
-            multiArray,
-            provinceIdArr,
-            cityIdArr
-          })
+        this.setData({
+          multiArray,
+          provinceIdArr
         })
+        // 5.const cityId = res[0].id
+        // this._getRegion(4, cityId).then(res => {
+        //   console.log(res)
+        //   let areaArr = []
+        //   res.forEach(item => {
+        //     if (!item.chooseStatus) {
+        //       areaArr.push(item.name)
+        //     }
+        //   })
+        //   multiArray[0] = provinceArr
+        //   multiArray[1] = cityArr
+        //   multiArray[2] = areaArr
+        //   this.setData({
+        //     multiArray,
+        //     provinceIdArr,
+        //     cityIdArr
+        //   })
+        // })
       })
     })
   },
@@ -166,7 +173,8 @@ Page({
       return
     }
     
-    const region = this.data.multiArray[0][this.data.multiIndex[0]] + this.data.multiArray[1][this.data.multiIndex[1]] + (this.data.multiArray[2][this.data.multiIndex[2]] || "")
+    //2. const region = this.data.multiArray[0][this.data.multiIndex[0]] + this.data.multiArray[1][this.data.multiIndex[1]] + (this.data.multiArray[2][this.data.multiIndex[2]] || "")
+    const region = this.data.multiArray[0][this.data.multiIndex[0]] + this.data.multiArray[1][this.data.multiIndex[1]] 
     this.setData({
       region,
       showRegion: true
@@ -204,16 +212,16 @@ Page({
           multiArray[1] = arr
           multiIndex[1] = 0;
         })
-        this._getRegion(4,res[0].id).then(res => {
-          let areaArr = []
-          res.forEach(item => {
-            if (!item.chooseStatus) {
-              areaArr.push(item.name)
-            }
-            multiArray[2] = areaArr
-            multiIndex[2] = 0
-          })
-        })
+        // 3.this._getRegion(4,res[0].id).then(res => {
+        //   let areaArr = []
+        //   res.forEach(item => {
+        //     if (!item.chooseStatus) {
+        //       areaArr.push(item.name)
+        //     }
+        //     multiArray[2] = areaArr
+        //     multiIndex[2] = 0
+        //   })
+        // })
         this.setData({
           multiArray,
           multiIndex
@@ -221,21 +229,25 @@ Page({
       })
     }
     else if(e.detail.column === 1) {
-      let id = this.data.cityIdArr[e.detail.value]
-      this._getRegion(4, id).then(res => {
-        let arr = []
-        res.forEach(item => {
-          if (!item.chooseStatus) {
-            arr.push(item.name)
-          }
-          multiArray[2] = arr;
-          multiIndex[2] = 0;
-          this.setData({
-            multiArray,
-            multiIndex
-          })
-        })
+      // let id = this.data.cityIdArr[e.detail.value]
+      this.setData({
+        multiArray,
+        multiIndex
       })
+      // 4.this._getRegion(4, id).then(res => {
+      //   let arr = []
+      //   res.forEach(item => {
+      //     if (!item.chooseStatus) {
+      //       arr.push(item.name)
+      //     }
+      //     multiArray[2] = arr;
+      //     multiIndex[2] = 0;
+      //     this.setData({
+      //       multiArray,
+      //       multiIndex
+      //     })
+      //   })
+      // })
     }
   
   },
