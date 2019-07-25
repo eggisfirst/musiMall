@@ -255,7 +255,8 @@ Page({
   //输入姓名
   nameConfirm(e) {
     const val = e.detail.value
-    const reg = new RegExp(/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/, 'g')
+    // const reg = new RegExp(/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/, 'g')
+    const reg = /^([\\u4e00-\\u9fa5]{2,20}|[a-zA-Z\\.\\s]{2,20})$/gi
     if (reg.test(val)) {
       this.setData({
         nameVal: e.detail.value

@@ -76,7 +76,7 @@
 }
 
 .tips {
-  color:rgba(73,163,255,0.61);
+  color:rgba(255,255,255,0.61);
   font-size: 20rpx;
   font-weight: "500";
 }

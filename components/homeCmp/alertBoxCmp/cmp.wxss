@@ -36,7 +36,7 @@
 }
 
 .content {
-  margin-top: 167rpx;
+  margin-top: 100rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +50,7 @@
 
 .score_tips {
   color: #f73c17;
-  font-size: 19rpx;
+  font-size: 22rpx;
   display: flex;
   justify-content: center;
   align-items: center;
