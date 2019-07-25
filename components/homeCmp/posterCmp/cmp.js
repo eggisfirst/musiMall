@@ -12,7 +12,8 @@ Component({
     tmpPath: '',
     saveStatus: false,
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
-    cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png"
+    cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
+    bgImg: "../../../images/poster.png"
   },
   ready() {
     this.openAndDraw()
@@ -20,33 +21,44 @@ Component({
   methods: {
     openAndDraw() {
       var ctx = wx.createCanvasContext('canvasIn',this)
-      this.setBg(ctx)
-    },
-    // 第一步绘制背景图片
-    setBg (context) {
+      const that = this
       wx.showLoading({
         title: '生成中',
       })
-      
-      var that = this;
-      var path = that.data.cardCreateImgUrl
+      wx.downloadFile({
+        url: that.data.cardCreateImgUrl,
+        success: function (sres) {
+          // that.data.mysrc = sres.tempFilePath
+          wx.downloadFile({
+            url: that.data.imgUrl,
+            success(res) {
+              that.setBg(ctx,sres.tempFilePath,res.tempFilePath)
+            }
+          })
+
+        }
+      })
+    },
+    // 第一步绘制背景图片
+    setBg (context,path,viaPath) {
+      const that = this;
       wx.getImageInfo({
         src: path,
         success: function (res) {
           var path = res.path;
-          context.drawImage(path, 24, 45, 334, 500);
+          context.drawImage(path, 0, 0, 334, 500);
           //添加文字
           var text = `${that.data.name}邀请你一起来为慕思篮球王全国挑战赛打CALL !`;//这是要绘制的文本
           that.setText(context,text)
           //绘制完背景图之后绘制头像
-          that.setHandle(context)
+          that.setHandle(context,viaPath)
         }
       })
     },
     //第三个绘制指纹图片
-    setHandle (context) {
+    setHandle (context,HandleUrl) {
       var that = this;
-      var HandleUrl = this.data.imgUrl;
+      // var HandleUrl = this.data.imgUrl;
       wx.getImageInfo({
         src: HandleUrl,
         success: function (res) {
@@ -54,32 +66,40 @@ Component({
           // context.drawImage(path, 280, 500, 50, 50);
           context.save();
           context.beginPath()//开始创建一个路径
-          context.arc(305, 485, 25, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
+          context.arc(285, 445, 25, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
           context.clip()//裁剪
-          context.drawImage(path, 280, 460, 50, 50)//绘制图片
+          context.drawImage(path, 260, 420, 50, 50)//绘制图片
   
           context.restore();
           context.stroke();
-          //绘制的最后一张图片绘制完之后回调生成图片
-          context.draw(false, function (e) {
-            console.log("绘制完成之后回调")
-            wx.canvasToTempFilePath({
-              canvasId: 'mycanvas',
-              success: function (res) {
-                var tempFilePath = res.tempFilePath;
-                console.log(tempFilePath);
-                that.setData({
-                  newImage: tempFilePath,
-                })
-                wx.hideToast()
-              },
-              fail: function (res) {
-                console.log(res);
-              }
-            });
-            wx.hideLoading()
 
-          })
+          context.draw()
+          //绘制的最后一张图片绘制完之后回调生成图片
+          wx.canvasToTempFilePath({
+            canvasId: 'canvasIn',
+            success: (res) => {
+              console.log('suc',res)
+              wx.hideLoading()
+
+            },
+            fail: (res) => {
+              console.log('err',res);
+            }
+          },that);
+  
+          // context.draw(false, wx.canvasToTempFilePath({
+          //   canvasId: 'canvasIn',
+          //   success: function (res) {
+          //     var tempFilePath = res.tempFilePath;
+          //     console.log(tempFilePath);
+          //     that.setData({
+          //       newImage: tempFilePath,
+          //     });
+          //   },
+          //   fail: function (res) {
+          //     console.log(res);
+          //   }
+          // }),this);
         },
         fail: function (res) {
           console.log(res);
@@ -95,7 +115,7 @@ Component({
       context.setFontSize(14)
       context.setFillStyle("#fff")
       for (var a = 0; a < chr.length; a++) {
-        if (context.measureText(temp).width < 140) {
+        if (context.measureText(temp).width < 135) {
           temp += chr[a];
         }
         else {
@@ -106,13 +126,14 @@ Component({
       }
       row.push(temp);
       for (var b = 0; b < row.length; b++) {
-        context.fillText(row[b], 125, 470 + b * 20, 140);
+        context.fillText(row[b], 110, 430 + b * 20, 135);
       }
       context.restore();
       context.stroke();
     },
     //取消保存
     handleCancle() {
+      wx.hideLoading()
       console.log('cancle')  
       this.triggerEvent("handleSavePoster",{cancle: true})
       this.triggerEvent("closePoster",true)
