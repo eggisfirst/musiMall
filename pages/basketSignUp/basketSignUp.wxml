@@ -57,9 +57,12 @@
 
   <block wx:else>
     <hasSignUp  posterBtn="{{posterBtn}}"
-                catchsetPosterBtn="setPosterBtn"/>
-    <posterCmp  wx:if="{{posterBtn}}"
-                catchhandleSavePoster="handleSavePoster"
+                catchsetPosterBtn="setPosterBtn"
+                catch:setViaImage="setViaImage"
+                catch:setPosterStatus="setPosterStatus"/>
+    <posterCmp  wx:if="{{posterStatus}}"
+                imgUrl="{{imgUrl}}"
+                catch:closePoster="closePoster"
                 />
   </block>
 </view>

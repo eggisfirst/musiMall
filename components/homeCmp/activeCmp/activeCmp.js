@@ -85,7 +85,7 @@ Component({
       else if (url === "basketSignUp"){
         if (app.globalData.userId) {
           indexModel.hasSignUp(app.globalData.userId).then(res => {
-            if (res.data) {
+            if (res.data && res.data.length) {
               this.toSignUped(url)
             } else {
               this.toSignUp(url)

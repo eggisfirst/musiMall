@@ -12,7 +12,11 @@
       <view class="share">分享好友</view>
     </view>
     <view  class="my_btn">
-      <button class="photoBtn" wx:if="{{posterBtn}}"></button>
+      <button class="photoBtn"  
+              wx:if="{{!posterBtn}}"
+              open-type='getUserInfo'
+              catch:getuserinfo='getUserInfo'
+              ></button>
       <image class="btn_image" 
              wx:else 
              src="/images/basketball/photo.png" mode="widthFix"

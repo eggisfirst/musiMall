@@ -14,8 +14,9 @@ Component({
   methods: {
     //取消保存
     handleCancle() {
-      console.log('cancle')
+      console.log('cancle')  
       this.triggerEvent("handleSavePoster",{cancle: true})
+      this.triggerEvent("closePoster",true)
     },
     handleSave() {
       let that = this

@@ -17,13 +17,33 @@ Page({
     phone:"",
     nameVal:"",
     posterBtn: true,
-    hasSignUp: false
+    hasSignUp: false,
+    imgUrl: "",
+    posterStatus:false
   },
   onLoad(options) {
     // console.log(1122,options)
     this.hasSignUp(options)
     this.initAreaArr()
     this.hasGetInfo()
+  },
+   //打开海报
+   setPosterStatus(e) {
+    this.setData({
+      posterStatus: true
+    })
+  },
+  //关闭海报
+  closePoster() {
+    this.setData({
+      posterStatus: false
+    })
+  },
+  //获取个人头像
+  setViaImage(e) {
+    this.setData({
+      imgUrl:e.detail.image
+    })
   },
   //判断有没有报名
   hasSignUp(options) {
@@ -74,14 +94,7 @@ Page({
       url: '/pages/basketRule/basketRule',
     })
   },
-  //关闭海报
-  handleSavePoster(e) {
-    if(e.detail.cancle) {
-      this.setData({
-        showPoster: false
-      })
-    }
-  },
+ 
   //选择性别
   sexPickerChange (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -309,6 +322,9 @@ Page({
   //关闭报名弹框
   setSignUpStatus(e) {
     this._handleSignStatus(false)
+    this.setData({
+      hasSignUp:true
+    })
   },
   //报名
   _handleSignStatus(status=true) {
