@@ -65,6 +65,7 @@
     <posterCmp  wx:if="{{posterStatus}}"
                 imgUrl="{{imgUrl}}"
                 catch:closePoster="closePoster"
+                name="{{name}}"
                 />
   </block>
 </view>

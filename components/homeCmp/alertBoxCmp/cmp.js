@@ -10,7 +10,8 @@ Component({
   },
   data: {
     showPoster: false,
-    imgUrl: ""
+    imgUrl: "",
+    name: ''
   },
   methods: {
     //分享活动
@@ -33,6 +34,7 @@ Component({
           showPoster: true
         })
         this.data.imgUrl = app.globalData.userInfo.avatarUrl
+        this.data.name = app.globalData.userInfo.nickName
       }
     },
     //授权登录
@@ -93,6 +95,7 @@ Component({
             showPoster: true
           })
           this.data.imgUrl = res.data.avatarUrl
+          this.data.name = res.data.nickName
         }
       })
     },

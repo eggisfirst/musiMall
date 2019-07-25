@@ -30,7 +30,7 @@ Component({
     //打开海报
     handlePosterBtn() {
       if (this.data.posterBtn) {
-        this.triggerEvent('setViaImage', {image: app.globalData.userInfo.avatarUrl});
+        this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
         this.triggerEvent("setPosterStatus",true)
       }
     },
@@ -89,7 +89,7 @@ Component({
         if(res.status) {
           this.triggerEvent('setPosterBtn', true);
           this.triggerEvent("setPosterStatus",true)
-          this.triggerEvent('setViaImage', {image: res.data.avatarUrl});
+          this.triggerEvent('setViaImage', {user: res.data});
         }
       })
     },

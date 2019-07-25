@@ -2,22 +2,10 @@
 <!-- <canvas style="width: 286px;height: 415px;background:red;position: fixed;top: -10000px;" canvas-id="shareFrends"></canvas> -->
 
 <view class='wrapper' >
-  <view class='box'>
-
+  <canvas canvas-id="canvasIn" class="canvas"></canvas>
+  <!-- <view class='box'>
     <image class='image' src='/images/poster.png' />
-
-    <!-- <view class='content'>
-      <image class='content_image' src='/images/basketball/bottom.png'/>
-      <view class='content_text'>
-        <image class='qcord' src='/images/basketball/qcord.png' />
-        <view class='text'> chenyi邀请你一起来为 慕思篮球王全国挑战赛 打CALL !</view>
-        <image class='via' src='/images/basketball/via.png' mode="widthFix"/>
-      
-      </view>
-
-    </view> -->
-
-  </view>
+  </view> -->
 
   <view class='bottom_btn'>
     <view class='share' catchtap='handleCancle'>取消</view>

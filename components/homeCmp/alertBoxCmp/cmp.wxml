@@ -41,5 +41,6 @@
 
 <block wx:else>
   <posterCmp catch:handleSavePoster="handleSavePoster"
-              imgUrl="{{imgUrl}}"/>
+              imgUrl="{{imgUrl}}"
+              name="{{name}}"/>
 </block>

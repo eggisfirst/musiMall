@@ -20,6 +20,7 @@ Page({
     posterBtn: true,
     hasSignUp: false,
     imgUrl: "",
+    name: "",
     posterStatus:false
   },
   onLoad(options) {
@@ -42,7 +43,8 @@ Page({
   //获取个人头像
   setViaImage(e) {
     this.setData({
-      imgUrl:e.detail.image
+      imgUrl:e.detail.user.avatarUrl,
+      name: e.detail.user.nickName
     })
   },
   //判断有没有报名
