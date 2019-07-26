@@ -9,10 +9,10 @@ class Request {
   refreshToken = ''
   getData({ url, data = {}, method = "post" }) {
     return new Promise((resolve, reject) => {
-      // wx.showLoading({
-      //   title: '加载中',
-      //   mask: true
-      // })
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
       wx.request({
         url: this.baseUrl + url,
         method: method,
@@ -22,11 +22,12 @@ class Request {
         responseType: 'text',
         success: res => {
           if (res.data) {
-            // wx.hideLoading()
+            wx.hideLoading()
             resolve(res.data)
           }
         },
         fail: err => {
+          wx.hideLoading()
           reject(err)
           this._showError()
         }
@@ -35,6 +36,52 @@ class Request {
   }
   //有token
   getSecretData({ url, data = {}}) {
+    return new Promise((resolve, reject) => {
+      wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
+      this._getToken().then(res => {
+        if (res.access_token) {
+          wx.setStorage({
+            key: "token",
+            data: res.refresh_token
+          })
+          const sign = this._getSign(data)
+          wx.request({
+            url: this.baseUrl + url,
+            method: "post",
+            data: data,
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              "Authorization": `Bearer ${res.access_token}`,
+              'sign': sign
+            },
+            dataType: 'json',
+            responseType: 'text',
+            success: res => {
+              wx.hideLoading()
+              if (res.data) {
+                resolve(res.data)
+              }
+            },
+            fail: err => {
+              reject(err)
+              wx.hideLoading()
+              this._showError()
+            }
+          })
+        }else {
+          this._refreshToken().then(res => {
+            if (res.access_token) {
+              this.getSecretData()
+            }
+          })
+        }
+      })
+    })
+  }
+  getNoLoadingData({ url, data = {}}) {
     return new Promise((resolve, reject) => {
       // wx.showLoading({
       //   title: '加载中',

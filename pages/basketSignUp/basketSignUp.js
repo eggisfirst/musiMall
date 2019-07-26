@@ -112,7 +112,6 @@ Page({
 
   //初始地区选择框
   initAreaArr() {
-    this._showLoading()
     let multiArray = this.data.multiArray
     this._getRegion(2).then(res => {
       let provinceArr = [],
@@ -126,14 +125,12 @@ Page({
       //如果没有省的话返回空
       // console.log(1111,provinceArr)
       if (!provinceArr.length) {
-        this._hideLoading()
         return
       }
       const id = provinceIdArr[0]
       let cityIdArr = []
       this._getRegion(3 ,id).then(res => {
         let cityArr = []
-        this._hideLoading()
         res.forEach(item => {
           if (!item.chooseStatus) {
             cityArr.push(item.name)
@@ -187,7 +184,6 @@ Page({
   },
   //获取地区
   _getRegion(type, parentId) {
-    this._showLoading()
     return new Promise((resolve, reject) => {
       let obj = {}
       obj.type = type
@@ -196,7 +192,6 @@ Page({
       }
       indexModel.getRegionForBasketballActivities(obj).then(res => {
         if(res.data) {
-          this._hideLoading()
           resolve(res.data)
         }
       })
@@ -318,9 +313,7 @@ Page({
     this._signUp(obj)
   },
   _signUp(obj) {
-    this._showLoading()
     indexModel.signUp(obj).then(res => {
-      this._hideLoading()
       if (res.data) {
         this._handleSignStatus()
       } else {
@@ -358,15 +351,5 @@ Page({
       signUpStatus: status
     })
   },
-
-  _showLoading() {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
-  },
-  _hideLoading() {
-    wx.hideLoading()
-  }
 
 })

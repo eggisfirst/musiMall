@@ -55,12 +55,18 @@ Page({
     btnStatus: false
   },
   onLoad () {
+     wx.showLoading({
+        title: '加载中',
+        mask: true
+      })
     //判断onLaunch是否执行完毕
     if (app.globalData.userId) {
+      wx.hideLoading()
       this.handlePhoneStatus(app.globalData.phone)
       this.scoreStatus(app.globalData.integralStatus)
     } else {
       app.checkLoginReadyCallback = res => {
+        wx.hideLoading()
         this.handlePhoneStatus(res.data.mobileNumber)
         this.scoreStatus(res.data.integralStatus)
       };

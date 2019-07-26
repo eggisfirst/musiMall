@@ -25,7 +25,6 @@ Component({
     },
     //先校验sessionkey有无过期
     checkSession(e) {
-      this._showLoading()
       wx.checkSession({
         success: () => {
           // console.log(e)
@@ -63,7 +62,6 @@ Component({
         shareUserId
       }
       indexModel.getPhoneNumber(obj).then(res => {
-        this._hideLoading()
         if(res.status) {
           const url = this.data.activeData.linkTo
           this.triggerEvent("setPhoneStatus",true)
@@ -128,10 +126,8 @@ Component({
     },
     //判断有没有报名
     hasSignUp() {
-      this._showLoading()
       const url = this.data.activeData.linkTo
       indexModel.hasSignUp(app.globalData.userId).then(res => {
-        this._hideLoading()
         if (res.data && res.data.length) {
           this.toSignUped(url)
         } else {
@@ -151,15 +147,6 @@ Component({
         }
       })
     },
-    _showLoading() {
-      wx.showLoading({
-        title: '加载中',
-        mask: true
-      })
-    },
-    _hideLoading() {
-      wx.hideLoading()
-    }
 
   }
 })
