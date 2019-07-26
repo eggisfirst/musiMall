@@ -2,9 +2,10 @@ const util = require("./sha1.js")
 
 class Request {
   // baseUrl = 'http://10.11.8.228:8088/'
-  baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
+  // baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
   // baseUrl = 'https://op.derucci.com/'
-  // baseUrl = 'https://qiang.derucci.com/'
+  baseUrl = 'https://qiang.derucci.com/'
+  tokenUrl = "https://op.derucci.com/"
 
   refreshToken = ''
   getData({ url, data = {}, method = "post" }) {
@@ -42,6 +43,7 @@ class Request {
         mask: true
       })
       this._getToken().then(res => {
+        console.log(2333,res)
         if (res.access_token) {
           wx.setStorage({
             key: "token",
@@ -81,51 +83,7 @@ class Request {
       })
     })
   }
-  getNoLoadingData({ url, data = {}}) {
-    return new Promise((resolve, reject) => {
-      // wx.showLoading({
-      //   title: '加载中',
-      //   mask: true
-      // })
-      this._getToken().then(res => {
-        if (res.access_token) {
-          wx.setStorage({
-            key: "token",
-            data: res.refresh_token
-          })
-          const sign = this._getSign(data)
-          wx.request({
-            url: this.baseUrl + url,
-            method: "post",
-            data: data,
-            header: {
-              'content-type': 'application/x-www-form-urlencoded',
-              "Authorization": `Bearer ${res.access_token}`,
-              'sign': sign
-            },
-            dataType: 'json',
-            responseType: 'text',
-            success: res => {
-              // wx.hideLoading()
-              if (res.data) {
-                resolve(res.data)
-              }
-            },
-            fail: err => {
-              reject(err)
-              this._showError()
-            }
-          })
-        }else {
-          this._refreshToken().then(res => {
-            if (res.access_token) {
-              this.getSecretData()
-            }
-          })
-        }
-      })
-    })
-  }
+
 
 _getToken() {
   return new Promise((resolve, reject) => {
@@ -141,6 +99,7 @@ _getToken() {
       dataType: 'json',
       responseType: 'text',
       success: res => {
+        console.log(222,res)
         if(res.data) {
           resolve(res.data)
         }

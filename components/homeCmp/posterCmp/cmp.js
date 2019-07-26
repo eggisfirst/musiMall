@@ -27,13 +27,13 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
-          const w = 334/750 * res.windowWidth*4
-          const h = 500.5/1334 * res.windowHeight*4
+          const w = 334/750 * res.windowWidth*2
+          const h = 500/1334 * res.windowHeight*2
           this.setData({
             width: res.windowWidth,
             height: res.windowHeight,
-            canvasH: h + 'rpx',
-            canvasW: w + 'rpx'
+            canvasH: h + 'px',
+            canvasW: w + 'px'
           })
         }
       })
@@ -108,6 +108,7 @@ Component({
           wx.canvasToTempFilePath({
             canvasId: 'canvasIn',
             success: (res) => {
+             
               console.log('suc',res)
               wx.hideLoading()
 
