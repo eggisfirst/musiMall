@@ -13,12 +13,35 @@ Component({
     saveStatus: false,
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
     cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
-    bgImg: "../../../images/poster.png"
+    bgImg: "../../../images/poster.png",
+    width:'',
+    height: ""
   },
   ready() {
     this.openAndDraw()
+    this.getSize()
   },
   methods: {
+    //获取宽高
+    getSize() {
+      wx.getSystemInfo({
+        success: res => {
+          this.setData({
+            width: res.windowWidth,
+            height: res.windowHeight
+          })
+          // const changeWidth = x/750 * res.windowWidth
+          // const changeHeight = y/1624 * res.windowHeight
+        }
+      })
+    },
+    //转化设计图的单位
+    toPx(x,y) {
+      return {
+        x: x/750 * this.data.width*2,
+        y: y/1624 * this.data.height*2
+      }
+    },
     openAndDraw() {
       var ctx = wx.createCanvasContext('canvasIn',this)
       const that = this
@@ -46,7 +69,9 @@ Component({
         src: path,
         success: function (res) {
           var path = res.path;
-          context.drawImage(path, 0, 0, 334, 500);
+          const size = that.toPx(334,500)
+          // console.log(123,w)
+          context.drawImage(path, 0, 0, size.x, size.y);
           //添加文字
           var text = `${that.data.name}邀请你一起来为慕思篮球王全国挑战赛打CALL !`;//这是要绘制的文本
           that.setText(context,text)
@@ -63,12 +88,14 @@ Component({
         src: HandleUrl,
         success: function (res) {
           var path = res.path;
+          const size = that.toPx(285,446)
+          const size2 = that.toPx(260,418)
           // context.drawImage(path, 280, 500, 50, 50);
           context.save();
           context.beginPath()//开始创建一个路径
-          context.arc(285, 445, 25, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
+          context.arc(size.x, size.y,that.toPx(25,0).x, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
           context.clip()//裁剪
-          context.drawImage(path, 260, 420, 50, 50)//绘制图片
+          context.drawImage(path, size2.x, size2.y, that.toPx(50,0).x, that.toPx(50,0).x)//绘制图片
   
           context.restore();
           context.stroke();
@@ -126,7 +153,8 @@ Component({
       }
       row.push(temp);
       for (var b = 0; b < row.length; b++) {
-        context.fillText(row[b], 110, 430 + b * 20, 135);
+        // context.fillText(row[b], 110, 430 + b * 20, 135);
+        context.fillText(row[b], this.toPx(110,0).x, this.toPx(110,430).y + b * 20, 135);
       }
       context.restore();
       context.stroke();
