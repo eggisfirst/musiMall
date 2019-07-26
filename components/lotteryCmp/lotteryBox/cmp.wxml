@@ -17,6 +17,6 @@
       </block>
      
     </view>
-    <tipsBox />
+    <tipsBox wx:if="{{tipsStatus}}" tipsData="{{tipsData}}"/>
 </view>
 

@@ -1,9 +1,14 @@
 <!--components/lotteryCmp/tipsBox/cmp.wxml-->
 <view class="mask">
   <view class="container">
-    <view class="banner">
-      <!-- <image src="/images/lottery/" /> -->
+    <view class="content">
+      <view class="title">温馨提示</view>
+      <view class="text">活动暂未开始哦</view>
+      <view class="remark">活动开始时间：2019年8月10日</view>
     </view>
-
+    <view class="btn" catchtap="handleBtn">我知道了</view>
+  </view>
+  <view class="banner">
+    <image src="/images/lottery/news.png" class="banner_image" mode="widthFix"/>
   </view>
 </view>

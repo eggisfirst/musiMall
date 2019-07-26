@@ -43,15 +43,18 @@
 .score_box {
   width:710rpx;
   height:1021rpx;
-  background:rgba(14,15,29,1);
-  border:1rpx solid;
-  border-image:linear-gradient(270deg, rgba(206,64,80,1), rgba(55,77,153,1)) 10 10;
+  background: -webkit-linear-gradient(-190deg,#CE4050,#374D99);
   border-radius:12rpx;
   margin: 0 auto;
-  background: #fff;
   margin-top: 30rpx;
   margin-bottom: 31rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+
 
 .list {
   width:708rpx;

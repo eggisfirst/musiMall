@@ -37,7 +37,7 @@
 
 canvas {
   width: 669rpx;
-  height: 1334rpx;
+  /* height: 1334rpx; */
   position: fixed;
   left: 50%;
   top: 60rpx;

@@ -1,0 +1,111 @@
+/* components/lotteryCmp/scoreBox/cmp.wxss */
+.index {
+  width:706rpx;
+  height:1017rpx;
+  background: #000;
+  border-radius:12rpx;
+  overflow: hidden;
+}
+
+.banner {
+  width:100%;
+  height:150rpx;
+  background:rgba(30,43,86,1);
+  border-radius:12rpx 12rpx 0px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.score_Image {
+  width: 36rpx;
+  margin-left: 37rpx;
+  margin-right: 19rpx;
+}
+.text {
+  color: #FADAA0;
+  font-size: 30rpx;
+}
+.score {
+  display: flex;
+  align-items: center;
+}
+.score_num {
+  color: #FADAA0;
+  font-size: 48rpx;
+}
+
+.record {
+  width: 223rpx;
+  height: 77rpx;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/record.png") no-repeat center;
+  background-size: 100% 100%;
+  color: #261F2A;
+  font-size: 30rpx;
+  line-height: 77rpx;
+  text-align: center;
+}
+
+.content {
+  padding: 45rpx 40rpx;
+  box-sizing: border-box;
+  color: #FADAA0;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 47rpx;
+}
+
+.section {
+  width:630rpx;
+  height:156rpx;
+  background:rgba(30,43,86,1);
+  border-radius:10rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.sec_image {
+  width: 60rpx;
+}
+.center {
+  text-align: left;
+}
+.sec_text1 {
+  color: #FEF1CC;
+  font-size: 34rpx;
+  width: 330rpx;
+}
+.sec_text2 {
+  color: #FEF1CC;
+  font-size: 26rpx;
+  width: 232rpx;
+}
+
+.right {
+
+}
+.sec_text3 {
+  color: #A6AAE3;
+  font-size: 26rpx;
+}
+.right_item {
+  margin-top: 20rpx;
+}
+.msg_image {
+  width: 24rpx;
+}
+.btn {
+  width: 129rpx;
+  height: 60rpx;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/btn2.png") no-repeat center;
+  background-size: 100% 100%;
+  color: #261F2A;
+  font-size: 26rpx;
+  line-height: 60rpx;
+  margin-top: 10rpx;
+}

@@ -4,7 +4,8 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    hasChange: Boolean
+    hasChange: Boolean,
+    activeStatus: String //判断提示的状态
   },
   data: {
     optionsList:[
@@ -45,7 +46,14 @@ Component({
         imgUrl: "../../../images/lottery/thank.png"
       },
       
-    ]
+    ],
+    tipsData: {
+      title: "",
+      imgUrl:"",
+      text:"",
+      remark: ""
+    },
+    tipsStatus: false
   },
 
   /**
@@ -56,7 +64,15 @@ Component({
     handleStart() {
       if(this.data.hasChange) {
         console.log('start')
+      }else {
+        this.setData({
+          tipsStatus: true
+        })
       }
+    },
+    //提示的内容
+    setActiveStatus() {
+      
     }
   }
 })

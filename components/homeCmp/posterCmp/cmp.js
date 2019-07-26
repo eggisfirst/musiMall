@@ -14,7 +14,9 @@ Component({
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
     cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
     width:'',
-    height: ""
+    height: "",
+    canvasW: "",
+    canvasH: ""
   },
   ready() {
     this.openAndDraw()
@@ -25,9 +27,13 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
+          const w = 334/750 * res.windowWidth*4
+          const h = 500.5/1334 * res.windowHeight*4
           this.setData({
             width: res.windowWidth,
-            height: res.windowHeight
+            height: res.windowHeight,
+            canvasH: h + 'rpx',
+            canvasW: w + 'rpx'
           })
         }
       })

@@ -1,0 +1,34 @@
+<!--components/lotteryCmp/scoreBox/cmp.wxml-->
+<view class="index">
+  <view class="banner">
+    <view class="score">
+      <image class="score_Image" src="/images/lottery/score.png" mode="widthFix"/>
+      <text class="text">当前积分：</text>
+      <text class="score_num">500</text>
+      <text class="text">分</text>
+    </view>
+    <view class="record" catchtap="handleRecord">我的中奖记录</view>
+  </view>
+  <view class="content">
+    <view class="title">如何获得积分?</view>
+    <view class="section" wx:for="{{optionsList}}" wx:key="*this">
+      <image class="sec_image" src="{{item.imgUrl}}" mode="widthFix"/>
+      <view class="center">
+        <view class="sec_text1">{{item.title}}</view>
+        <view class="sec_text2">{{item.content}}</view>
+      </view>
+      <view class="right">
+        <view wx:if="{{item.right.status}}" class="sec_text3">{{item['right'].text}}</view>
+        <view class="right_item" wx:else>
+          <view class="msg">
+            <image class="msg_image" src="/images/lottery/score.png" mode="widthFix"/>
+            <text class="sec_text3">{{item.right.score}}</text>
+          </view>
+           <view class="btn" data-index="{{index}}" catchtap="handleBtn">{{item.right.text}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <recordBox wx:if="{{showRecord}}"/>
+
+</view>

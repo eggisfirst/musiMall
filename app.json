@@ -1,7 +1,9 @@
 {
   "pages": [
     "pages/home/home",
+
     "pages/lottery/lottery",
+
     "pages/basketSignUp/basketSignUp",
     
     "pages/basketRule/basketRule",
@@ -34,7 +36,7 @@
         "iconPath": "images/home2.png",
         "selectedIconPath": "images/home.png"
       },
-    
+   
       {
         "text": "秒杀",
         "pagePath": "pages/activity/activity",
