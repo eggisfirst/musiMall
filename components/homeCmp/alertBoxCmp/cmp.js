@@ -31,10 +31,10 @@ Component({
     handlePoster() {
       if (this.data.posterBtn) {
         this.setData({
-          showPoster: true
+          showPoster: true,
+          imgUrl:app.globalData.userInfo.avatarUrl,
+          name: app.globalData.userInfo.nickName
         })
-        this.data.imgUrl = app.globalData.userInfo.avatarUrl
-        this.data.name = app.globalData.userInfo.nickName
       }
     },
     //授权登录
@@ -92,10 +92,10 @@ Component({
         if(res.status) {
           this.triggerEvent('setPosterBtn', true);
           this.setData({
-            showPoster: true
+            showPoster: true,
+            imgUrl: res.data.avatarUrl,
+            name:res.data.nickName
           })
-          this.data.imgUrl = res.data.avatarUrl
-          this.data.name = res.data.nickName
         }
       })
     },

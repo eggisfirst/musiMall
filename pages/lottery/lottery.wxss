@@ -1,4 +1,6 @@
 /* pages/lottery/lottery.wxss */
+
+
 .container {
   background: #050B23;
   width: 100%;
@@ -27,11 +29,10 @@
 }
 
 .lottery_box {
-  width:671rpx;
+   width:671rpx;
   height:617rpx;
   margin: 0 auto;
-  background:linear-gradient(0deg,rgba(19,29,75,1) 0%,rgba(59,74,139,1) 100%);
-  opacity:0.62;
+  background:linear-gradient(0deg,rgba(19,29,75,0.62) 0%,rgba(59,74,139,0.62) 100%);
   border-radius:15rpx;
   padding: 18rpx;
   padding-bottom: 16rpx;

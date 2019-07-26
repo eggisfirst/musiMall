@@ -1,5 +1,7 @@
 /* components/lotteryCmp/lotteryBox/cmp.wxss */
+
 .wrapper {
+  z-index: 99;
   width:633rpx;
   height:583rpx;
   background:linear-gradient(0deg,rgba(44,58,117,1) 0%,rgba(112,131,216,1) 100%);
@@ -23,10 +25,40 @@
   height:182rpx;
   background:url("https://mobiletest.derucci.net/web/musiMall/images/lottery/btn.png") no-repeat center;
   background-size: 100% 100%;
+  color: #e9edff;
+  font-size: 19rpx;
+  text-align: center;
+  padding-left: 23rpx;
+  padding-right: 23rpx;
+  padding-top: 37rpx;
+  box-sizing: border-box;
 }
+.optionBtn {
+  width: 155rpx;
+}
+.box_text {
+  margin-top: -9rpx;
+}
+.thank {
+  width: 93rpx
+}
+
 .startBtn {
   width:200rpx;
   height:182rpx;
   background:url("https://mobiletest.derucci.net/web/musiMall/images/lottery/startbtn.png") no-repeat center;
   background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 23rpx;
+  box-sizing: border-box;
+  text-align: center;
 }
+.start {
+  width: 90rpx;
+  height: 90rpx;
+  margin: auto;
+}
+

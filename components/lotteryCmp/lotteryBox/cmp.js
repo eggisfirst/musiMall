@@ -9,32 +9,42 @@ Component({
   data: {
     optionsList:[
       {
-        text: "399元代金券"
+        text: "399元代金券",
+        imgUrl: "../../../images/lottery/399.png"
       },
       {
-        text: "399元代金券"
+        text: "500元代金券",
+        imgUrl: "../../../images/lottery/500.png"
       },
       {
-        text: "399元代金券"
+        text: "时尚释压枕",
+        imgUrl: "../../../images/lottery/bed.png"
       },
       {
-        text: "399元代金券"
+        text: "篮球世界杯决赛VIP门票一张",
+        imgUrl: "../../../images/lottery/ticket.png"
       },
       {
-        text: "399元代金券"
+        text: "每次消耗50积分",
+        imgUrl: "../../../images/lottery/start.png"
       },
       {
-        text: "399元代金券"
+        text: "篮球世界杯排位赛门票一张",
+        imgUrl: "../../../images/lottery/ticket.png"
       },
       {
-        text: "399元代金券"
+        text: "眼精灵按摩眼罩",
+        imgUrl: "../../../images/lottery/eye.png"
       },
       {
-        text: "399元代金券"
+        text: "助眠四季精油礼盒套装",
+        imgUrl: "../../../images/lottery/box.png"
       },
       {
-        text: "399元代金券"
+        text: "谢谢参与",
+        imgUrl: "../../../images/lottery/thank.png"
       },
+      
     ]
   },
 
