@@ -1,16 +1,22 @@
 <!--components/lotteryCmp/lotteryBox/cmp.wxml-->
 <view class="wrapper">
   <view class="border">
-    <block wx:for="{{optionsList}}" wx:key="*this">
-    <view class="box" wx:if="{{index !== 4}}">
-      <image  src="{{item.imgUrl}}" class="optionBtn" mode="widthFix"
-              />
-      <view class="box_text">{{item.text}}</view>
+      <block wx:for="{{optionsList}}" wx:key="*this">
+        <view class="box" wx:if="{{index !== 4}}">
+          <image  src="{{item.imgUrl}}" class="optionBtn" mode="widthFix"
+                  />
+          <view class="box_text">{{item.text}}</view>
+        </view>
+        <view wx:else class="startBtn" catchtap="handleStart">
+          <image src="/images/lottery/start.png" class="start" mode="widthFix"/>
+          <view class="start_text">{{item.text}}</view>
+        </view>
+        <view>
+          <image class="run" src="/images/lottery/run.png" mode="widthFix" />
+        </view>
+      </block>
+     
     </view>
-    <view wx:else class="startBtn">
-      <image src="/images/lottery/start.png" class="start"/>
-    </view>
-    </block>
-  </view>
+    <tipsBox />
 </view>
 

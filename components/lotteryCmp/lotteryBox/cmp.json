@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+    "tipsBox": "/components/lotteryCmp/tipsBox/cmp"
+  }
 }

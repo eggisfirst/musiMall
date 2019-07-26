@@ -1,4 +1,5 @@
-{
+{ 
+  "navigationBarTitleText": "慕思全球睡眠文化之旅抽奖",
   "usingComponents": {
     "lotteryBox": "/components/lotteryCmp/lotteryBox/cmp"
   }

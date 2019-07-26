@@ -1,0 +1,9 @@
+<!--components/lotteryCmp/tipsBox/cmp.wxml-->
+<view class="mask">
+  <view class="container">
+    <view class="banner">
+      <!-- <image src="/images/lottery/" /> -->
+    </view>
+
+  </view>
+</view>

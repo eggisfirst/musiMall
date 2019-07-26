@@ -4,7 +4,7 @@
       <view class="rule">活动规则</view>
     </view>
     <view class="lottery_box">
-      <lotteryBox />
+      <lotteryBox  hasChange="{{true}}"/>
     </view>
     <view class="score_box">积分</view>
     <view class="list">中奖名单</view>

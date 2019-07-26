@@ -2,7 +2,9 @@
 .container {
   
 }
-
+.newImage {
+  width: 750rpx;
+}
 .banner {
   position: relative;
   width: 750rpx;

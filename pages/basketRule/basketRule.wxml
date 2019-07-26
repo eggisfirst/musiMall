@@ -1,6 +1,7 @@
 <!--pages/basketRule/basketRule.wxml-->
 <view class="container">  
-  <view class="banner">
+  <image class="newImage" src="https://mobiletest.derucci.net/web/musiMall/images/rules.jpeg" mode="widthFix" />
+  <!-- <view class="banner">
     <image  class="ruleBanner"
             src="https://mobiletest.derucci.net/web/musiMall/images/ruleBanner.png" 
             mode="widthFix" />
@@ -36,7 +37,7 @@
       <view class="tip">4、所有选手须阅读并同意《参赛声明》、《报名须知》、《风险提示》后
         按要求如实填写所有报名信息并提交。</view>
     </view>
-  </view>
+  </view> -->
 
 
 

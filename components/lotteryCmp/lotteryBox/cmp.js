@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    hasChange: Boolean
   },
   data: {
     optionsList:[
@@ -52,6 +52,11 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    //开始抽奖
+    handleStart() {
+      if(this.data.hasChange) {
+        console.log('start')
+      }
+    }
   }
 })
