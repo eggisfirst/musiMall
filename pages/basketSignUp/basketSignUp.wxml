@@ -1,5 +1,5 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
-<view class='basketBall-container'>
+<view class='basketBall-container {{fixed}}'>
   <block wx:if="{{!hasSignUp}}">
     <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/basketBg.png' mode="widthFix" />
     <view class="rule" catchtap="navigateToRule">活动规则</view>
@@ -45,7 +45,16 @@
                 value="{{phone}}"/>
       </view>
 
-      <text class='tips'>点击报名表示同意本活动规则 </text>
+      <view class='tips' >
+        <image  wx:if="{{!agreeState}}" 
+                src="/images/basketball/no.png" class="tipsImage" 
+                catchtap="handleAgreeState"/>
+        <image  wx:else 
+                class="tipsImage" src="/images/basketball/yes.png"
+                catchtap="handleAgreeState" />
+        我已详细阅读并同意
+        <text style="color:#f7bb04" catchtap="handleShowRules">风险提示及免责声明</text>
+      </view>
 
       <view class='comfirm' bindtap='handleSignUp'>我要报名</view>
 
@@ -55,6 +64,10 @@
                     posterBtn="{{posterBtn}}"
                     catchsetPosterBtn="setPosterBtn"/>
     </view>
+    <view class="rules" wx:if="{{showRules}}">
+      <rules catch:setRulesTips="setRulesTips"/>
+    </view>
+
   </block>
 
   <block wx:else>

@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "lotteryBox": "/components/lotteryCmp/lotteryBox/cmp"
+  }
+}

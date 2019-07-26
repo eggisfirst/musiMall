@@ -1,0 +1,11 @@
+<!--components/lotteryCmp/lotteryBox/cmp.wxml-->
+<!-- <view></view> -->
+<view class="wrapper">
+  <view class="border">
+    <view class="box">
+      
+    </view>
+  </view>
+
+</view>
+

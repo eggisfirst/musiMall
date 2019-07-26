@@ -85,10 +85,10 @@
 					"query": "num= 16000000726765083"
 				},
 				{
-					"id": -1,
+					"id": 7,
 					"name": "pages/basketSignUp/basketSignUp",
 					"pathName": "pages/basketSignUp/basketSignUp",
-					"query": "type=1",
+					"query": "",
 					"scene": null
 				}
 			]

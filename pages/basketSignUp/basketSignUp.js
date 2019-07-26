@@ -21,7 +21,10 @@ Page({
     hasSignUp: false,
     imgUrl: "",
     name: "",
-    posterStatus:false
+    posterStatus:false,
+    agreeState: false,
+    showRules: false,
+    fixed: ''
   },
   onLoad(options) {
     // console.log(1122,options)
@@ -309,8 +312,18 @@ Page({
         return
       }
     }
-    const obj = this._getParmas()
-    this._signUp(obj)
+    //判断有没有勾选
+    if(this.data.agreeState) {
+      const obj = this._getParmas()
+      this._signUp(obj)
+    }else {
+      wx.showToast({
+        title: "请阅读并同意风险提示及免责声明",
+        icon: "none",
+        duration: 1500
+      })
+    }
+   
   },
   _signUp(obj) {
     indexModel.signUp(obj).then(res => {
@@ -323,6 +336,27 @@ Page({
           duration: 1500
         })
       }
+    })
+  },
+  //同意免责声明
+  handleAgreeState() {
+    const status = !this.data.agreeState
+    this.setData({
+      agreeState: status
+    })
+  },
+  //出现规则弹框
+  handleShowRules() {
+    this.setData({
+      showRules: true,
+      fixed: "indexFixed"
+    })
+  },
+  //关闭规则弹框
+  setRulesTips() {
+    this.setData({
+      showRules: false,
+      fixed: ""
     })
   },
   //报名的参数

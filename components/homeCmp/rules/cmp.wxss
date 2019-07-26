@@ -1,0 +1,51 @@
+/* components/homeCmp/rules/cmp.wxss */
+/* components/ruleTips/ruleTips.wxss */
+.tips-box {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width:593rpx;
+  height:1048rpx;
+  border-radius:10rpx;
+  position: relative;
+  z-index: 9999;
+}
+.tips-title {
+  font-size: 36rpx;
+  color: #030304;
+  text-align: center;
+  line-height: 99rpx;
+  width: 100%;
+  border-bottom: 1rpx solid #e4e4e4;
+}
+
+.tips-content {
+  font-size: 30rpx;
+  color: #929294;
+  line-height: 48rpx;
+  height: 853rpx;
+  padding: 29rpx 48rpx;
+  box-sizing: border-box;
+  overflow: scroll;
+
+}
+.tips-btn {
+  height: 94rpx;
+  line-height: 94rpx;
+  border-top: 1px #e4e4e4 solid;
+  color: #0d3769;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+
+.title {
+  text-indent: 60rpx;
+  text-align: left;
+}
+.textImage {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 20rpx;
+}

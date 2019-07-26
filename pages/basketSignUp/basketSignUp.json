@@ -4,6 +4,7 @@
     "pickerViewCmp": "/components/homeCmp/pickerViewCmp/cmp",
     "selectAreaCmp": "/components/homeCmp/selectAreaCmp/cmp",
     "hasSignUp": "/components/homeCmp/hasSignUp/cmp",
-    "posterCmp": "/components/homeCmp/posterCmp/cmp"
+    "posterCmp": "/components/homeCmp/posterCmp/cmp",
+    "rules": "/components/homeCmp/rules/cmp"
   }
 }

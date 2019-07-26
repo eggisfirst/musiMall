@@ -1,9 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-    
+
+    "pages/lottery/lottery",
+
     "pages/basketSignUp/basketSignUp",
-    
     
     "pages/basketRule/basketRule",
     
@@ -14,8 +15,7 @@
     "pages/activityDetails/activityDetails",
     "pages/order/order",
     "pages/logs/logs",
-    "pages/login/login",
-    "pages/lottery/lottery"
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -36,6 +36,7 @@
         "iconPath": "images/home2.png",
         "selectedIconPath": "images/home.png"
       },
+    
       {
         "text": "秒杀",
         "pagePath": "pages/activity/activity",

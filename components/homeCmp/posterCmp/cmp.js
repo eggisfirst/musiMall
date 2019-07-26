@@ -13,7 +13,6 @@ Component({
     saveStatus: false,
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
     cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
-    bgImg: "../../../images/poster.png",
     width:'',
     height: ""
   },
@@ -30,8 +29,6 @@ Component({
             width: res.windowWidth,
             height: res.windowHeight
           })
-          // const changeWidth = x/750 * res.windowWidth
-          // const changeHeight = y/1624 * res.windowHeight
         }
       })
     },
@@ -80,7 +77,7 @@ Component({
         }
       })
     },
-    //第三个绘制指纹图片
+    //第三个绘制头像图片
     setHandle (context,HandleUrl) {
       var that = this;
       // var HandleUrl = this.data.imgUrl;
@@ -229,7 +226,6 @@ Component({
         }
       }, this)
     },
-
     //保存成功获得积分
     savePoster() {
       const userId = app.globalData.userId

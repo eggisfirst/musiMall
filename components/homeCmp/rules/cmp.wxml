@@ -1,0 +1,42 @@
+<!--components/homeCmp/rules/cmp.wxml-->
+<view class='tips-box'>
+  <view class='tips-title'>风险提示和免责声明</view>
+  <view class='tips-content'>
+    <view class="title">
+      通过填写报名，即默认参赛者已经完全获知和理解以下的条款和内容。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      我自愿参加本次慕思组织的篮球赛活动，我理解，同意和签署此有关责任豁免和风险情况。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      我知道，本次比赛是非专业比赛，是运动健康倡导的友谊赛，我同意组委会和现场执行裁判根据临时情况指定的比赛赛制。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      我配合组委会的比赛时间和工作人员的比赛邀请告知。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      比赛活动中，服装装备以本人运动着装，组委会不统一发放服装。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      比赛是竞技体育，我是符合参赛须知，没有心脑血管病，高血压等其他不适合参赛篮球赛的自身因素后才报名的
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      比赛过程中，会有身体对抗和个人球技突出，如遇到摔伤，扭伤以及其他比赛过程中因个人对抗出现的受伤，这些风险我能预见，并且我同意是我自己的责任所在，我同意免责组委会和当地执行门店的责任，我同意承担所有的这些因个人自己带来的风险和受伤及重大人身现场事故。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      活动中，由于我的行为和我的参加，导致第三方的财产和个人伤害的，我同意自行承担，免除主办方和当地执行方的赔偿责任。
+    </view>
+    <view>
+      <image class="textImage" src="/images/basketball/text.png" />
+      我已年满18周岁。
+    </view>
+  </view>
+  <view class='tips-btn' catchtap='closeTips'>确定</view>
+</view>
