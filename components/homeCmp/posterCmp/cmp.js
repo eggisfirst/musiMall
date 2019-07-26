@@ -36,7 +36,7 @@ Component({
     toPx(x,y) {
       return {
         x: x/750 * this.data.width*2,
-        y: y/1624 * this.data.height*2
+        y: y/1334 * this.data.height*2
       }
     },
     openAndDraw() {
@@ -85,14 +85,14 @@ Component({
         src: HandleUrl,
         success: function (res) {
           var path = res.path;
-          const size = that.toPx(285,446)
-          const size2 = that.toPx(260,418)
+          const size = that.toPx(284,447)
+          const size2 = that.toPx(259,420)
           // context.drawImage(path, 280, 500, 50, 50);
           context.save();
           context.beginPath()//开始创建一个路径
           context.arc(size.x, size.y,that.toPx(25,0).x, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
           context.clip()//裁剪
-          context.drawImage(path, size2.x, size2.y, that.toPx(50,0).x, that.toPx(50,0).x)//绘制图片
+          context.drawImage(path, size2.x, size2.y, that.toPx(54,0).x, that.toPx(54,0).x)//绘制图片
   
           context.restore();
           context.stroke();
@@ -139,7 +139,7 @@ Component({
       context.setFontSize(14)
       context.setFillStyle("#fff")
       for (var a = 0; a < chr.length; a++) {
-        if (context.measureText(temp).width < 135) {
+        if (context.measureText(temp).width < this.toPx(135,0).x) {
           temp += chr[a];
         }
         else {
@@ -151,7 +151,7 @@ Component({
       row.push(temp);
       for (var b = 0; b < row.length; b++) {
         // context.fillText(row[b], 110, 430 + b * 20, 135);
-        context.fillText(row[b], this.toPx(110,0).x, this.toPx(110,430).y + b * 20, 135);
+        context.fillText(row[b], this.toPx(110,0).x, this.toPx(110,430).y + b * 20, this.toPx(135,0).x);
       }
       context.restore();
       context.stroke();

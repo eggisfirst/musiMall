@@ -2,9 +2,13 @@
 <!-- <view></view> -->
 <view class="wrapper">
   <view class="border">
-    <view class="box">
+    <block wx:for="{{optionsList}}" wx:key="*this">
+    <view class="box" wx:if="{{index !== 4}}">
       
+      <text>{{item.text}}</text>
     </view>
+    <view wx:else class="startBtn">123</view>
+    </block>
   </view>
 
 </view>

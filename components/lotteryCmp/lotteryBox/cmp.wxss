@@ -14,10 +14,19 @@
   margin-top: 2rpx;
   padding: 10rpx;
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 .box {
   width:200rpx;
   height:182rpx;
   background:url("https://mobiletest.derucci.net/web/musiMall/images/lottery/btn.png") no-repeat center;
+  background-size: 100% 100%;
+}
+.startBtn {
+  width:200rpx;
+  height:182rpx;
+  background:url("https://mobiletest.derucci.net/web/musiMall/images/lottery/startbtn.png") no-repeat center;
   background-size: 100% 100%;
 }

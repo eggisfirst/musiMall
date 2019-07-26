@@ -6,7 +6,7 @@
   flex-direction: column;
   box-sizing: border-box;
   width:593rpx;
-  height:1048rpx;
+  height:848rpx;
   border-radius:10rpx;
   position: relative;
   z-index: 9999;
@@ -24,7 +24,7 @@
   font-size: 30rpx;
   color: #929294;
   line-height: 48rpx;
-  height: 853rpx;
+  height: 653rpx;
   padding: 29rpx 48rpx;
   box-sizing: border-box;
   overflow: scroll;

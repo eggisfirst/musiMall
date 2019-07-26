@@ -1,7 +1,7 @@
 <!--components/homeCmp/hasSignUp/cmp.wxml-->
 <view class="egg_bg">
   <image class='egg_image' 
-  src='https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg' mode="widthFix" />
+  src='https://mobiletest.derucci.net/web/musiMall/images/basketBg.jpeg' mode="widthFix" />
   <view class="egg_mask"></view>
     <view class="egg_rule" catchtap="navigateToRule">活动规则</view>
     <view class="signUp">已报名！</view>
