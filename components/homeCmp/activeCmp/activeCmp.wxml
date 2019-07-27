@@ -5,7 +5,7 @@
   </view>
   <block wx:if="{{phoneStatus}}" >
     <view class='content' catchtap='navigateTo'>
-      <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix"/>
+      <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix" lazy-load="{{true}}"/>
         <view class='button'>{{activeData.active}}</view>
     </view>
   
