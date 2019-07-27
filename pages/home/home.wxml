@@ -1,9 +1,10 @@
 <!--pages/home/home.wxml-->
 <view class='home-container'>
-  <!-- <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/home/bg.png'></image> -->
+  <image class='bg' src='https://mobiletest.derucci.net/web/musiMall/images/bg.jpg'  mode="widthFix" ></image>
     <image class="logo" src="/images/logo.png" />
     <view class='banner'>
-      <image class='image'      src="https://mobiletest.derucci.net/web/musiMall/images/newHome/title.png" />
+      <image class='image'  mode="widthFix"  src="https://mobiletest.derucci.net/web/musiMall/images/newHome/title.png" />
+      <view class="banner_text">活动时间：2019年8月10日-9月1日</view>
     </view>
     <view  wx:for="{{activeList}}" wx:key="{{item.id}}">
       <activeCmp activeData="{{item}}"

@@ -79,6 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40rpx;
 }
 .tipsImage {
   width: 31rpx;
@@ -95,7 +96,7 @@
   font-weight: bold;
   font-size: 36rpx;
   line-height: 87rpx;
-  margin-top: 43rpx;
+  margin-top: 15rpx;
 }
 
 

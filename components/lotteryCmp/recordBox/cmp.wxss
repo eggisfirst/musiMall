@@ -7,3 +7,20 @@
   top: 0;
   left: 0;
 }
+
+.container {
+  width: 635rpx;
+  height: 860rpx;
+  background: #121321;
+  margin: 0 auto;
+  margin-top: 105rpx;
+  position: relative;
+  border-radius: 48rpx;
+}
+.border {
+  position: absolute;
+  top: 100rpx;
+  left: 53rpx;
+  z-index: 99;
+  width: 645rpx;
+}

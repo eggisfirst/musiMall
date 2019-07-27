@@ -1,5 +1,7 @@
 <!--components/lotteryCmp/recordBox/cmp.wxml-->
 <view class="mask">
-
+  <image src="https://mobiletest.derucci.net/web/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
+  <view class="container">
+  </view>
 
 </view>

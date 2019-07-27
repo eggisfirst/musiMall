@@ -29,6 +29,6 @@
       </view>
     </view>
   </view>
-  <recordBox wx:if="{{showRecord}}"/>
+  <recordBox wx:if="{{true}}"/>
 
 </view>
