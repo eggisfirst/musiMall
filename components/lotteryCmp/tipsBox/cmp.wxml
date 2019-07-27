@@ -8,7 +8,11 @@
     </view>
     <view class="btn" catchtap="handleBtn">我知道了</view>
   </view>
-  <view class="banner">
+  <view class="banner" wx:if="{{tipsData.type}}">
     <image src="/images/lottery/news.png" class="banner_image" mode="widthFix"/>
+  </view>
+   <view class="award" wx:else>
+    <image src="/images/lottery/500.png" class="award_img" mode="widthFix"/>
+    <image src="/images/lottery/ye.png" class="award_ye" mode="widthFix"/>
   </view>
 </view>

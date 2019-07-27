@@ -1,13 +1,19 @@
 <!--pages/lottery/lottery.wxml-->
-  <view class="container">
+  <view class="container {{fixed}}">
     <view class="banner">
-      <view class="rule">活动规则</view>
+      <view class="rule" catchtap="handleRuleBtn">活动规则</view>
     </view>
     <view class="lottery_box">
-      <lotteryBox  hasChange="{{true}}" activeStatus="{{activeStatus}}"/>
+      <lotteryBox hasChange="{{true}}" 
+                  activeStatus="{{activeStatus}}"
+                  catch:sexFixStatus="sexFixStatus"/>
     </view>
     <view class="score_box">
-      <scoreBox />
+      <scoreBox catch:sexFixStatus="sexFixStatus"/>
     </view>
-    <view class="list">中奖名单</view>
+    <view class="list">
+      <awardList />
+    </view>
+
+    <activeRules wx:if="{{showRules}}" catch:setShowRules="setShowRules"/>
   </view>

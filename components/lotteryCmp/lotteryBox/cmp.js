@@ -51,7 +51,8 @@ Component({
       title: "",
       imgUrl:"",
       text:"",
-      remark: ""
+      remark: "",
+      type: 0
     },
     tipsStatus: false
   },
@@ -62,17 +63,29 @@ Component({
   methods: {
     //开始抽奖
     handleStart() {
-      if(this.data.hasChange) {
-        console.log('start')
-      }else {
-        this.setData({
-          tipsStatus: true
-        })
-      }
+      // if(this.data.hasChange) {
+      //   console.log('start')
+      // }else {
+      //   this.setData({
+      //     tipsStatus: true
+      //   })
+      // }
+      this._handleTipsBox()
+    },
+    //关闭提示
+    closeTipsBox() {
+      this._handleTipsBox(false)
     },
     //提示的内容
     setActiveStatus() {
       
+    },
+
+    _handleTipsBox(status=true) {
+      this.triggerEvent('sexFixStatus',{type:true,status})    //打开蒙层的时候底部固定
+      this.setData({
+        tipsStatus: status
+      })
     }
   }
 })

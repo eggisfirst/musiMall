@@ -1,0 +1,61 @@
+/* components/lotteryCmp/awardList/cmp.wxss */
+.index {
+  width:706rpx;
+  height:416rpx;
+  background: #0E0F1D;
+  border-radius:12rpx;
+  overflow: hidden;
+}
+.banner {
+  width: 100%;
+  height: 88rpx;
+  background: #1E2B56;
+  border-radius: 12rpx 12rpx 0 0;
+  display: flex;
+  align-items: center;
+}
+.ban_img {
+  width: 36rpx;
+  margin-left: 38rpx;
+  margin-right: 18rpx;
+}
+.title {
+  color: #FADAA0;
+  font-size: 36rpx;
+}
+
+.list {
+  width: 100%;
+  height: 320rpx;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+}
+
+.listItem {
+  font-size: 30rpx;
+  color: #667190;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 80rpx;
+  width: 100%;
+}
+.name {
+  flex:0.3;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.phone {
+  flex:0.4;
+  margin-left: 20rpx;
+}
+.price {
+  flex:0.6;
+  text-align: right;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

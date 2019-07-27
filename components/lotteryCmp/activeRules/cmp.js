@@ -1,10 +1,10 @@
-// components/lotteryCmp/tipsBox/cmp.js
+// components/lotteryCmp/activeRules/cmp.js
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-    tipsData:Object
+
   },
 
   /**
@@ -18,8 +18,8 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    handleBtn() {
-      this.triggerEvent("closeTipsBox",true)
+    handleCloseBtn() {
+      this.triggerEvent("setShowRules",true)
     }
   }
 })

@@ -2,6 +2,37 @@
 <view class="mask">
   <image src="https://mobiletest.derucci.net/web/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
   <view class="container">
+    <view class="banner">-中奖记录-</view>
+    <scroll-view class="wrapper" scroll-y="{{true}}">
+      <block wx:for="{{recordList}}" wx:key="*this">
+        <view class="record" wx:if="{{item.type === 0}}">
+          <image class="left_img" src="{{item.imgUrl}}" mode="widthFix"  />
+          <view class="center">
+            <text class="main" space="emsp">兑换码 {{item.number}}</text>
+            <view class="detail">{{item.title}}</view>
+          </view>
+          <view class="right">{{item.status}}</view>
+          <text class="time" space="emsp">{{item.time}}</text>
+        </view>
+
+        <view wx:else class="record">
+          <image class="left_img" src="{{item.imgUrl}}" mode="widthFix"  />
+          <view class="content">
+            <text class="main" space="emsp">{{item.title}}</text>
+            <view class="detail" space="emsp">姓名：{{item.name}}</view>
+            <view class="detail" space="emsp">电话：{{item.phone}}</view>
+            <view class="detail" space="emsp">地址：{{item.adress}}</view>
+          </view>
+          <text class="time" space="emsp">{{item.time}}</text>
+        </view>
+
+        <view class="line" wx:if='{{index !== recordList.length - 1}}'></view>
+      </block>
+    </scroll-view>
+  </view>
+  <view class="close">  
+    <image src="/images/close.png" mode="widthFix" class="close_img"
+            catchtap="handleCloseBtn"/>
   </view>
 
 </view>

@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "formCmp":"/components/lotteryCmp/formCmp/cmp"
+  }
+}

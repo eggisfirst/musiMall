@@ -70,18 +70,18 @@ Component({
               url: `../${url}/${url}`,
             })
           }
-          else if (url === 'lottery' || url === "check" || url === 'game') {
-            if(url === 'game') {
-              this.playGame()
-            }
+          else if (url === 'lottery' || url === "check") {
             wx.showToast({
               title: '活动尚未开始',
               icon: 'none',
               duration: 1500
             })
-    
           }
           else if (url === "basketSignUp"){
+            this.toSignUp(url)
+          }
+          else if(url === 'game') {
+            this.playGame()
             this.toSignUp(url)
           }
         }
@@ -94,10 +94,7 @@ Component({
           url: `../${url}/${url}`,
         })
       }
-      else if (url === 'lottery' || url === "check" || url === 'game') {
-        if(url === 'game') {
-          this.playGame()
-        }
+      else if (url === 'lottery' || url === "check") {
         wx.showToast({
           title: '活动尚未开始',
           icon: 'none',
@@ -111,6 +108,10 @@ Component({
         } else {
           this.toSignUp(url)
         }
+      }
+      else if(url === 'game') {
+        this.playGame()
+        this.toSignUp(url)
       }
     },
     //跳转到报名

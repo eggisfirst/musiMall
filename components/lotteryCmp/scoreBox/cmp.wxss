@@ -92,9 +92,11 @@
 .sec_text3 {
   color: #A6AAE3;
   font-size: 26rpx;
+  line-height: 40rpx;
+  margin-left: 2rpx;
 }
 .right_item {
-  margin-top: 20rpx;
+  /* margin-top: 10rpx; */
 }
 .msg_image {
   width: 24rpx;

@@ -58,16 +58,26 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    //点击
-    handleBtn(e) {
+    //点击参与活动/分享/按钮
+    handleActiveBtn(e) {
       console.log(e.currentTarget.dataset.index)
     },
-    //点击中奖记录
+    //点击打开中奖记录
     handleRecord() {
+      this._handleShowRecord()
+    },
+    //组件/关闭中奖记录
+    setShowRecord() {
+      this._handleShowRecord(false)
+    },
+
+
+
+    _handleShowRecord(status=true) {
+      this.triggerEvent("sexFixStatus",{status,type:true}) //背景固定
       this.setData({
-        showRecord: true
+        showRecord: status
       })
-      console.log('record')
     }
   }
 })

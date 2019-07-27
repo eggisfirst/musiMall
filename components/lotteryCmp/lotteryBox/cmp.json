@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "tipsBox": "/components/lotteryCmp/tipsBox/cmp"
+    "tipsBox": "/components/lotteryCmp/tipsBox/cmp",
+    "awardTipsBox": "/components/lotteryCmp/awardTipsBox/cmp"
   }
 }

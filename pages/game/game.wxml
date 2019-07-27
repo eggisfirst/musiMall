@@ -1,0 +1,2 @@
+<!--pages/game/geme.wxml-->
+<web-view src="http://tengshi.bjsidao.com/layas/basketball/"></web-view>

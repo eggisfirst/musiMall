@@ -1,14 +1,9 @@
 {
   "pages": [
     "pages/home/home",
-
     "pages/lottery/lottery",
-
-
     "pages/basketSignUp/basketSignUp",
-    
     "pages/basketRule/basketRule",
-    
     "pages/activity/activity",
     "pages/index/index",
     "pages/orderStatus/orderStatus",
@@ -16,7 +11,8 @@
     "pages/activityDetails/activityDetails",
     "pages/order/order",
     "pages/logs/logs",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/game/game"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -37,7 +33,12 @@
         "iconPath": "images/home2.png",
         "selectedIconPath": "images/home.png"
       },
-     
+      {
+        "text": "抽奖",
+        "pagePath": "pages/lottery/lottery",
+        "iconPath": "images/choujiang2.png",
+        "selectedIconPath": "images/choujiang.png"
+      },
       {
         "text": "秒杀",
         "pagePath": "pages/activity/activity",

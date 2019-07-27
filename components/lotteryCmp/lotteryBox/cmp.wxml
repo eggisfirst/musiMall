@@ -17,6 +17,9 @@
       </block>
      
     </view>
-    <tipsBox wx:if="{{tipsStatus}}" tipsData="{{tipsData}}"/>
+    <tipsBox wx:if="{{tipsStatus}}" 
+            tipsData="{{tipsData}}"
+            catchcloseTipsBox="closeTipsBox"/>
+    <awardTipsBox />
 </view>
 

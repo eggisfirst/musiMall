@@ -66,3 +66,26 @@
   text-align: center;
   margin: 0 auto;
 }
+
+.award {
+  position: absolute;
+  left: 50%;
+  top: 300rpx;
+  margin-top: -110.5rpx;
+  margin-left: -152rpx;
+  width: 304rpx;
+  height: 180rpx;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+.award_ye {
+  width: 300rpx;
+  position: absolute;
+  left: 0;
+  top: -20rpx;
+}
+.award_img {
+  width: 255rpx;
+  margin-top: 40rpx
+}

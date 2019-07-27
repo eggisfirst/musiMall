@@ -1,0 +1,29 @@
+<!--components/lotteryCmp/activeRules/cmp.wxml-->
+<view class="mask" >
+  <view class="container">
+    <view class="line">
+      <view class="title">-活动规则-</view>
+      <scroll-view class="content" scroll-y="{{true}}">
+        <view>（1）参与方式：活动期间内可参与抽奖，每次抽奖消耗50积分</view>
+        <view>（2）积分奖励设置：</view>
+        <view><text space="emsp">  -每天首次登录奖励50积分；</text></view>
+        <view><text space="emsp">  -邀请好友参加活动（邀请好友登录小程序）奖励30积分/人；</text></view>
+        <view><text space="emsp">  -生成助威海报奖励积分50（仅首次生成奖励积分）；</text></view>
+        <view><text space="emsp">  -参与趣味篮球小游戏奖励50积分（仅首次游玩奖励积分）。
+</text></view>
+        <view>（3）活动时间：2019年8月10日—2019年9月1日 23:59:59
+</view>
+        <view>（4）慕思总部客服人员会在活动结束后与中奖用户联系，确认客户信息后寄出中奖产品</view>
+        <view>（5）放弃奖品不做任何补偿，且获奖奖品不可替换，不可作为其他产品的抵扣款
+</view>
+        <view>（6）如有疑问可以拨打客服热线：400-777-0077</view>
+        <view>（7）活动最终解释权归慕思寝室用品有限公司所有</view>
+      </scroll-view>
+      <view class="bot"></view>
+    </view>
+  </view>
+  <view class="close">
+    <image class="close_btn" src="/images/close.png" mode="widthFix" catchtap="handleCloseBtn"/>
+  </view>
+</view>
+

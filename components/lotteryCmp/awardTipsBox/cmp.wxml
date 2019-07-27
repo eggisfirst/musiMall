@@ -1,0 +1,19 @@
+<!--components/lotteryCmp/awardTipsBox/cmp.wxml-->
+ 
+<view class="mask">
+  <view class="container">
+    <view class="banner">恭喜您抽中了</view>
+    <view class="gift">时尚释压枕</view>
+    <view class="remark">请填写信息，方便工作人员及时联系您，发放奖品。若需要补充或修改收货信息，请及时联系客（400-777-0077）</view>
+    <formCmp />
+    <viwe class="btn">
+      <view class="left_btn">暂不填写</view>
+      <view class="right_btn">确认无误，提交</view>
+    </viwe>
+  </view>
+
+   <view class="award">
+    <image src="/images/lottery/500.png" class="award_img" mode="widthFix"/>
+    <image src="/images/lottery/ye.png" class="award_ye" mode="widthFix"/>
+  </view>
+</view>
