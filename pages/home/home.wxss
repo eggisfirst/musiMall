@@ -37,5 +37,6 @@
 }
 .image {
   width: 705rpx;
+  margin-left: 20rpx;
   /* height: 232rpx; */
 }
