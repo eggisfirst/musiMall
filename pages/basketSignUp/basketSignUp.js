@@ -84,7 +84,7 @@ Page({
     return {
       title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
       path: '/pages/home/home?userId=' + userId,
-      imageUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
+      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
       success:() => {
         wx.showToast({
           title: '成功',

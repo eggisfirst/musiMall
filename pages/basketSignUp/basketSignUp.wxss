@@ -3,7 +3,7 @@
   width: 750rpx;
   /* height: 100vh; */
   
-  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/basketBG.png") no-repeat center;
+  /* background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketBG.png") no-repeat center;
   background-size: 100% 100% */
 }
 

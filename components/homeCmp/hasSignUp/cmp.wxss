@@ -5,7 +5,7 @@
   overflow: hidden;
   /* height: 1624rpx;
   overflow: hidden;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/poster.jpeg") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.jpeg") no-repeat center;
   background-size: 100% 100%; */
 }
 
@@ -92,7 +92,7 @@
 }
 
 .egg_sharebtn {
-  background:url("https://mobiletest.derucci.net/web/musiMall/images/basketball/share.png") no-repeat center;
+  background:url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketball/share.png") no-repeat center;
   background-size: 100% 100%;
   width: 89rpx;
   height: 89rpx;
@@ -102,7 +102,7 @@
   display: inline-block;
   width: 89rpx;
   height: 89rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/basketball/photo.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketball/photo.png") no-repeat center;
   background-size: 100% 100%;
 
 }

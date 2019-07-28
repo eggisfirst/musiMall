@@ -1,9 +1,11 @@
 /* pages/basketRule/basketRule.wxss */
 .container {
-  
+  font-size: 0;
 }
 .newImage {
   width: 750rpx;
+  margin: 0;
+  padding: 0;
 }
 .banner {
   position: relative;

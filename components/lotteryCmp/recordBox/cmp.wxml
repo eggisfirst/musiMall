@@ -1,6 +1,6 @@
 <!--components/lotteryCmp/recordBox/cmp.wxml-->
 <view class="mask">
-  <image src="https://mobiletest.derucci.net/web/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
+  <image src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
   <view class="container">
     <view class="banner">-中奖记录-</view>
     <scroll-view class="wrapper" scroll-y="{{true}}">

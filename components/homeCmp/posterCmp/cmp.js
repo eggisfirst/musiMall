@@ -12,7 +12,7 @@ Component({
     tmpPath: '',
     saveStatus: false,
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
-    cardCreateImgUrl: "https://mobiletest.derucci.net/web/musiMall/images/poster.png",
+    cardCreateImgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
     width:'',
     height: "",
     canvasW: "",

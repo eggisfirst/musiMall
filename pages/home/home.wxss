@@ -5,8 +5,8 @@
   /* position: fixed;
   top: 0;
   left: 0; */
-  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/newHome/bg.png") no-repeat center; */
-  /* background: url("https://mobiletest.derucci.net/web/musiMall/images/bg.jpg") no-repeat center; */
+  /* background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/bg.png") no-repeat center; */
+  /* background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/bg.jpg") no-repeat center; */
   /* background-size: 100% 100% */
 }
 .logo {

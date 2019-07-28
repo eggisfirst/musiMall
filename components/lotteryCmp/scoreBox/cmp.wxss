@@ -38,7 +38,7 @@
 .record {
   width: 223rpx;
   height: 77rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/record.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/record.png") no-repeat center;
   background-size: 100% 100%;
   color: #261F2A;
   font-size: 30rpx;
@@ -104,7 +104,7 @@
 .btn {
   width: 129rpx;
   height: 60rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/btn2.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/btn2.png") no-repeat center;
   background-size: 100% 100%;
   color: #261F2A;
   font-size: 26rpx;

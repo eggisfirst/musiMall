@@ -11,7 +11,7 @@
 .container {
   width: 701rpx;
   height: 817rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/rulebg.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/rulebg.png") no-repeat center;
   background-size: 100% 100%;
   margin: 0 auto;
   margin-top: 100rpx;
@@ -20,7 +20,7 @@
 .line {
   width: 632rpx;
   height: 750rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/ruleline.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/ruleline.png") no-repeat center;
   background-size: 100% 100%;
   margin-top: 15rpx;
   margin-left: 35rpx;
@@ -47,7 +47,7 @@
 .bot {
   width: 90%;
   height: 40rpx;
-  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/rulebot.png") no-repeat center;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/rulebot.png") no-repeat center;
   background-size: 100% 100%;
   position: absolute;
   left: 20rpx;

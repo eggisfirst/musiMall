@@ -1,9 +1,12 @@
 <!--pages/basketRule/basketRule.wxml-->
 <view class="container">  
-  <image class="newImage" src="https://mobiletest.derucci.net/web/musiMall/images/rules.jpeg" mode="widthFix" />
+  <image class="newImage" src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/rule1.jpg" mode="widthFix" />
+  <image class="newImage" src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/rule2.jpg" mode="widthFix" />
+  <image class="newImage" src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/rule3.jpg" mode="widthFix" />
+  <image class="newImage" src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/rule4.jpg" mode="widthFix" />
   <!-- <view class="banner">
     <image  class="ruleBanner"
-            src="https://mobiletest.derucci.net/web/musiMall/images/ruleBanner.png" 
+            src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/ruleBanner.png" 
             mode="widthFix" />
   </view>
   <view class="content">
@@ -25,7 +28,7 @@
     <view class="english">  Competition schedule </view>
     <view class="date">
       <image class="image" mode="widthFix"
-            src="https://mobiletest.derucci.net/web/musiMall/images/newHome/date.png"  />
+            src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/date.png"  />
     </view>
 
     <view class="tips">

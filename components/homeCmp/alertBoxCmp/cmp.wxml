@@ -3,7 +3,7 @@
   <view class='wrapper'>
       <view class='box'>
 
-        <!-- <image class='image' src='https://mobiletest.derucci.net/web/musiMall/images/basketball/succBox.png' /> -->
+        <!-- <image class='image' src='https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketball/succBox.png' /> -->
         <view class='title'>报名成功!</view>
 
         <view class='content'>
