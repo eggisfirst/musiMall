@@ -82,9 +82,14 @@ Component({
           }
           else if(url === 'game') {
             this.playGame()
-            this.toSignUp(url)
+            this.toGame()
           }
         }
+      })
+    },
+    toGame() {
+      wx.redirectTo({
+        url:"/pages/game/game"
       })
     },
     navigateTo(e) {
@@ -111,7 +116,7 @@ Component({
       }
       else if(url === 'game') {
         this.playGame()
-        this.toSignUp(url)
+        this.toGame()
       }
     },
     //跳转到报名
