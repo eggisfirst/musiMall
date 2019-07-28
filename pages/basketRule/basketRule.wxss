@@ -4,8 +4,9 @@
 }
 .newImage {
   width: 750rpx;
-  margin: 0;
-  padding: 0;
+}
+.newImage:first-child{
+  margin-bottom: -1rpx;
 }
 .banner {
   position: relative;

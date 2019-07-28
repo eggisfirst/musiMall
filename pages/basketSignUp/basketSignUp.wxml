@@ -6,7 +6,7 @@
     <view class='content' >
 
       <view class="areaSelect">
-        <picker mode="multiSelector"
+        <picker mode="multiSelector" wx:if="{{isTimeTo}}"
                 style="width:100%" 
                 bindchange="bindMultiPickerChange"
                 bindcolumnchange="bindMultiPickerColumnChange" 
@@ -15,6 +15,10 @@
         <text class="picker">{{showRegion? region: '请选择地区'}}</text>
         <image  class='icon' src='/images/basketball/down.png'  mode="widthFix"/>
         </picker>
+          <view style="width:100%" wx:else catchtap="aletrTips">
+            <text class="picker">{{showRegion? region: '请选择地区'}}</text>
+            <image  class='icon' src='/images/basketball/down.png'  mode="widthFix"/>
+          </view>
       </view>
       
       <view class="areaSelect">

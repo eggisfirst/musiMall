@@ -24,7 +24,8 @@ Page({
     posterStatus:false,
     agreeState: false,
     showRules: false,
-    fixed: ''
+    fixed: '',
+    isTimeTo: true   //报名时间
   },
   onLoad(options) {
     // console.log(1122,options)
@@ -128,6 +129,9 @@ Page({
       //如果没有省的话返回空
       // console.log(1111,provinceArr)
       if (!provinceArr.length) {
+        this.setData({
+          isTimeTo: false
+        })
         return
       }
       const id = provinceIdArr[0]
@@ -165,6 +169,13 @@ Page({
         //   })
         // })
       })
+    })
+  },
+  aletrTips() {
+    wx.showToast({
+      title: "报名活动还未开始!",
+      icon: "none",
+      duration: 1500
     })
   },
   //选择地区
