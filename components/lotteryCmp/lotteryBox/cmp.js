@@ -54,7 +54,12 @@ Component({
       remark: "",
       type: 0
     },
-    tipsStatus: false
+    tipsStatus: false,
+    awardTipsStatus: false,
+    awardData: {
+      imgUrl: '/images/lottery/bed.png',
+      name: "时尚释压枕"
+    }
   },
 
   /**
@@ -70,21 +75,25 @@ Component({
       //     tipsStatus: true
       //   })
       // }
-      this._handleTipsBox()
+      const tipsName = 'awardTipsStatus'  //中奖提示框类型
+      // const tipsName = 'tipsStatus'  //中奖提示框类型
+      this._handleTipsBox(tipsName)
     },
     //关闭提示
     closeTipsBox() {
-      this._handleTipsBox(false)
+      const tipsName = 'awardTipsStatus'
+      // const tipsName = 'tipsStatus'
+      this._handleTipsBox(tipsName,false)
     },
     //提示的内容
     setActiveStatus() {
       
     },
 
-    _handleTipsBox(status=true) {
+    _handleTipsBox(tipsName,status=true) {
       this.triggerEvent('sexFixStatus',{type:true,status})    //打开蒙层的时候底部固定
       this.setData({
-        tipsStatus: status
+        [tipsName]: status
       })
     }
   }

@@ -20,6 +20,8 @@
     <tipsBox wx:if="{{tipsStatus}}" 
             tipsData="{{tipsData}}"
             catchcloseTipsBox="closeTipsBox"/>
-    <awardTipsBox />
+    <awardTipsBox wx:if="{{awardTipsStatus}}"
+                  catch:closeTipsBox="closeTipsBox"
+                  awardData="{{awardData}}" />
 </view>
 

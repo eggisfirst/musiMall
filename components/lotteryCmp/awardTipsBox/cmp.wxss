@@ -15,7 +15,7 @@
   margin: 0 auto;
   margin-top: 150rpx;
   width:620rpx;
-  height:900rpx;
+  height:920rpx;
   background:#f5f5f5;
   box-shadow:0px 16rpx 24rpx 0px rgba(24,31,50,0.2);
   opacity:0.96;

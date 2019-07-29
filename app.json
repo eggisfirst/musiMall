@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/lottery/lottery",
+
+    "pages/home/home",
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",
     "pages/activity/activity",
@@ -33,7 +34,12 @@
         "iconPath": "images/home2.png",
         "selectedIconPath": "images/home.png"
       },
-    
+      {
+        "text": "抽奖",
+        "pagePath": "pages/lottery/lottery",
+        "iconPath": "images/choujiang2.png",
+        "selectedIconPath": "images/choujiang.png"
+      },
       {
         "text": "秒杀",
         "pagePath": "pages/activity/activity",
