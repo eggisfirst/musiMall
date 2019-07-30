@@ -342,7 +342,7 @@ Page({
         this._handleSignStatus()
       } else {
         wx.showToast({
-          title: '您已报名成功，请勿重复报名！',
+          title: '该城市报名人数已满额，请选择其他城市',
           icon: 'none',
           duration: 1500
         })

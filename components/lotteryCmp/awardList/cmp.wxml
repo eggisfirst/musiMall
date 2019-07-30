@@ -6,8 +6,8 @@
   </view>
    <scroll-view class="list" scroll-y="{{true}}" bindscrolltolower="bindscrolltolower">
       <view class="listItem" wx:for="{{awardList}}" wx:key="item.id">
-         <text class="name">{{item.real_name}}</text>
-         <text class="phone">{{filter(item.phone)}}</text>
+         <!-- <text class="name">{{item.real_name}}</text> -->
+         <text class="phone">{{filter(item.mobile_number)}}</text>
          <text class="price">{{item.title}}</text>
       </view>
     </scroll-view>

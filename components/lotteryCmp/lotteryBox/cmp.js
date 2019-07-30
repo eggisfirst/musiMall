@@ -101,7 +101,7 @@ Component({
     _luckDraw() {
       const userId = app.globalData.userId
       indexModel.luckDraw(userId).then(res => {
-        if(res.data) {
+        if(res.status) {
           this.triggerEvent("startLottery", true)
           const time = this._setAnimationTime(res.data.id)
           this._setAnimation(time)
@@ -113,6 +113,18 @@ Component({
             this._handleTipsBox(this.data.awardType)
             clearTimeout(timer)
           }, time*3);
+        }else { //活动时间未开始/已结束
+          const tipsData = this.data.tipsData
+          const title = res.msg.split(',')[0];
+          const remark = res.msg.split(',')[1]
+          tipsData.title = title
+          tipsData.remark = remark
+          tipsData.type = 0
+          this.setData({
+            tipsStatus: true,
+            awardType: "tipsStatus",
+            tipsData
+          })
         }
       })
     },
