@@ -1,4 +1,7 @@
 // components/lotteryCmp/recordBox/cmp.js
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -11,50 +14,45 @@ Component({
    * 组件的初始数据
    */
   data: {
-    recordList: [
-      {
-        imgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/record/500.png",
-        type: 0,  //优惠券
-        number: "0008898778",
-        title: "500元代金券",
-        status: "未核销",
-        time: "07-06 09:47:02"
-      },
-      {
-        imgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/record/399.png",
-        type: 0,  //优惠券
-        number: "0008891238",
-        title: "399元代金券",
-        status: "已核销",
-        time: "07-06 09:47:02"
-      },
-      {
-        imgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/record/gift.png",
-        type: 1,  //
-        title: "助眠四季精油礼盒套装",
-        name: "Tina",
-        phone: "15013999999",
-        adress: "东莞市厚街镇双岗上环工业区艾慕工业园",
-        time: "07-06 09:47:02"
-      },
-      {
-        imgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/record/gift.png",
-        type: 1,  //
-        title: "助眠四季精油礼盒套装",
-        name: "Tina",
-        phone: "15013999999",
-        adress: "东莞市厚街镇双岗上环工业区艾慕工业园",
-        time: "07-06 09:47:02"
-      }
-    ]
+    recordList: [],
+    status: false,
+    currentPage: 1
   },
-
-  /**
-   * 组件的方法列表
-   */
+  ready() {
+    this.getPrizeWinningList(1)
+  },
   methods: {
+    //请求中奖记录
+    getPrizeWinningList(page) {
+      this._setLoadMoreStatus(false)
+      const userId = app.globalData.userId
+      indexModel.getPrizeWinningList(userId,page).then(res => {
+        if(res.status) {
+          if(res.data.totalPage > res.data.currPage){
+            this._setLoadMoreStatus(true)
+          }
+          const list = [...this.data.recordList,...res.data.list]
+          this.setData({
+            recordList: list,
+            currentPage: res.data.currPage
+          })
+        }
+      })
+    },
+    //触底加载数据
+    bindscrolltolower() {
+      if(this.data.status) {
+        const page = this.data.currentPage + 1
+        this.getPrizeWinningList(page)
+      }
+    },
     handleCloseBtn() {
       this.triggerEvent("setShowRecord",true)
+    },
+    _setLoadMoreStatus(status) {
+      this.setData({
+        status: status
+      })
     }
   }
 })

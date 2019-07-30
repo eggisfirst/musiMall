@@ -45,7 +45,7 @@
   height: 80rpx;
 }
 .box_text {
-  margin-top: 20rpx;
+  /* margin-top: 6rpx; */
 }
 .thank {
   width: 93rpx

@@ -7,45 +7,6 @@ Component({
     allScore: Number
   },
   data: {
-    optionsList:[
-      {
-        text: "399元代金券",
-        imgUrl: "../../../images/lottery/399.png"
-      },
-      {
-        text: "500元代金券",
-        imgUrl: "../../../images/lottery/500.png"
-      },
-      {
-        text: "时尚释压枕",
-        imgUrl: "../../../images/lottery/bed.png"
-      },
-      {
-        text: "篮球世界杯决赛VIP门票一张",
-        imgUrl: "../../../images/lottery/ticket.png"
-      },
-      {
-        text: "每次消耗50积分",
-        imgUrl: "../../../images/lottery/start.png"
-      },
-      {
-        text: "篮球世界杯排位赛门票一张",
-        imgUrl: "../../../images/lottery/ticket.png"
-      },
-      {
-        text: "眼精灵按摩眼罩",
-        imgUrl: "../../../images/lottery/eye.png"
-      },
-      {
-        text: "助眠四季精油礼盒套装",
-        imgUrl: "../../../images/lottery/box.png"
-      },
-      {
-        text: "谢谢参与",
-        imgUrl: "../../../images/lottery/thank.png"
-      },
-      
-    ],
     tipsData: {
       title: "",
       imgUrl:"",
@@ -62,7 +23,6 @@ Component({
     awardAnimation:[],
     key: true,
     prizeList: [],
-
     awardType: ""
   },
   ready() {
@@ -148,7 +108,7 @@ Component({
 
           console.log(time)
           var timer = setTimeout(() => {
-            this._setAwardTipsType(res.data.title,res.data.id)
+            this._setAwardTipsType(res.data)
 
             this._handleTipsBox(this.data.awardType)
             clearTimeout(timer)
@@ -183,14 +143,33 @@ Component({
       return 1600 + 40*myId
     },
     //设置中奖类型
-    _setAwardTipsType(title,id) {
-      if(title.indexOf('代金卷') !== -1 || id === 8) {
+    _setAwardTipsType(data) {
+      const tipsData = this.data.tipsData
+      const awardData = this.data.awardData
+      if(data.title.indexOf('代金券') !== -1 ) {
+        tipsData.title = data.title
+        tipsData.imgUrl = data.detail_pictures
+        tipsData.remark = '请前往周边慕思门店使用'
+        tipsData.type = 1
         this.setData({
-          awardType: "tipsStatus"
+          awardType: "tipsStatus",
+          tipsData
         })
-      }else {
+      }else if(data.id === 8) {
+        tipsData.title = '谢谢参与'
+        tipsData.type = 2
+        tipsData.remark = '可前往周边慕思门店了解更多活动信息哦'
         this.setData({
-          awardType: "awardTipsStatus"
+          awardType: "tipsStatus",
+          tipsData
+        })
+      }
+      else {
+        awardData.imgUrl = data.detail_pictures
+        awardData.name = data.title
+        this.setData({
+          awardType: "awardTipsStatus",
+          awardData
         })
       }
     },
@@ -204,8 +183,15 @@ Component({
           this._luckDraw()
         }
       }else {
+        console.log(123123)
+        const tipsData = this.data.tipsData
+        tipsData.title = '您的积分不足'
+        tipsData.remark = '快去做任务赚积分吧'
+        tipsData.type = 0
         this.setData({
-          tipsStatus: true
+          tipsStatus: true,
+          awardType: "tipsStatus",
+          tipsData
         })
       }
      

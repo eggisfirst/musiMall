@@ -113,7 +113,9 @@ Component({
         address: formData[2].value
       }
       indexModel.signUp(obj).then(res => {
-        console.log(9009,res.data)
+        if(res.status) {
+          this.triggerEvent('handleComfrim', true)
+        }
       })
     },
     setErrorMsg(errorData,error) {

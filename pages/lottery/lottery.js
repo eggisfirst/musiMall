@@ -39,10 +39,14 @@ Page({
   },
   //点击开始抽奖
   startLottery() {
-    const allScore = this.data.allScore - 50
-    this.setData({
-      allScore
-    })
+    let allScore = this.data.allScore
+    if(allScore >= 50) {
+      allScore = allScore - 50
+      this.setData({
+        allScore
+      })
+    }
+   
   },
   //监听页面滚动距离
   onPageScroll(e) { // 获取滚动条当前位置

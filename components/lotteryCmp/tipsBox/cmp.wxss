@@ -89,3 +89,15 @@
   width: 255rpx;
   margin-top: 40rpx
 }
+
+.empty {
+  position: absolute;
+  left: 50%;
+  top: 300rpx;
+  margin-top: -171rpx;
+  margin-left: -213rpx;
+}
+.empty_image {
+  width: 342rpx;
+
+}

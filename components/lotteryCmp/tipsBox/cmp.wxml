@@ -2,17 +2,23 @@
 <view class="mask">
   <view class="container">
     <view class="content">
-      <view class="title">温馨提示</view>
-      <view class="text">活动暂未开始哦</view>
-      <view class="remark">活动开始时间：2019年8月10日</view>
+      <view class="title">{{tipsData.type === 0? '温馨提示' : tipsData.type === 1? '恭喜您抽中了' : '很遗憾'}}</view>
+      <view class="text">{{tipsData.title}}</view>
+      <view class="remark" >{{tipsData.remark}}</view>
     </view>
     <view class="btn" catchtap="handleBtn">我知道了</view>
   </view>
-  <view class="banner" wx:if="{{tipsData.type}}">
+
+  <view class="banner" wx:if="{{tipsData.type === 0}}">
     <image src="/images/lottery/news.png" class="banner_image" mode="widthFix"/>
   </view>
-   <view class="award" wx:else>
-    <image src="/images/lottery/500.png" class="award_img" mode="widthFix"/>
+
+   <view class="award" wx:elif="{{tipsData.type === 1}}">
+    <image src="{{tipsData.imgUrl}}" class="award_img" mode="widthFix"/>
     <image src="/images/lottery/ye.png" class="award_ye" mode="widthFix"/>
+  </view>
+
+  <view class="empty" wx:else>
+    <image src="/images/lottery/empty.png" class="empty_image" mode="widthFix"/>
   </view>
 </view>

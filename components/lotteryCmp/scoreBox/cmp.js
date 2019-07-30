@@ -1,4 +1,5 @@
 // components/lotteryCmp/scoreBox/cmp.js
+
 Component({
   /**
    * 组件的属性列表
@@ -62,6 +63,7 @@ Component({
     handleActiveBtn(e) {
       console.log(e.currentTarget.dataset.index)
     },
+    
     //点击打开中奖记录
     handleRecord() {
       this._handleShowRecord()
@@ -70,8 +72,6 @@ Component({
     setShowRecord() {
       this._handleShowRecord(false)
     },
-
-
 
     _handleShowRecord(status=true) {
       this.triggerEvent("sexFixStatus",{status,type:true}) //背景固定

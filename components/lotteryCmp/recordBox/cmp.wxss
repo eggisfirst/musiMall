@@ -41,17 +41,35 @@
   justify-content: space-between;
   box-sizing: border-box;
   padding: 20rpx 20rpx;
+  padding-bottom: 30rpx;
   overflow: hidden;
   position: relative;
 }
 
+
+.img_box {
+  width:120rpx;
+  height:120rpx;
+  background:rgba(7,7,14,1);
+  border:2rpx solid rgba(30,41,78,1);
+  border-radius:10rpx;
+  display: flex;
+  align-items: center
+}
 .left_img {
-  width: 124rpx;
+  width: 120rpx;
 }
 
 .main {
   font-size: 34rpx;
   color: #fff;
+  width: 300rpx;
+}
+
+.main_product {
+  font-size: 34rpx;
+  color: #fff;
+  width: 400rpx;
 }
 .detail {
   font-size: 26rpx;

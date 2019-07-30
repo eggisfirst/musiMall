@@ -3,27 +3,31 @@
   <image src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
   <view class="container">
     <view class="banner">-中奖记录-</view>
-    <scroll-view class="wrapper" scroll-y="{{true}}">
-      <block wx:for="{{recordList}}" wx:key="*this">
-        <view class="record" wx:if="{{item.type === 0}}">
-          <image class="left_img" src="{{item.imgUrl}}" mode="widthFix"  />
+    <scroll-view class="wrapper" scroll-y="{{true}}" bindscrolltolower="bindscrolltolower">
+      <block wx:for="{{recordList}}" wx:key="item.id">
+        <view class="record" wx:if="{{item.code === 'coupon'}}">
+          <view class="img_box">
+            <image class="left_img" src="{{item.detail_pictures}}" mode="widthFix"  />
+          </view>
           <view class="center">
-            <text class="main" space="emsp">兑换码 {{item.number}}</text>
+            <view class="main" space="emsp">兑换码 {{item.write_off_code}}</view>
             <view class="detail">{{item.title}}</view>
           </view>
-          <view class="right">{{item.status}}</view>
-          <text class="time" space="emsp">{{item.time}}</text>
+          <view class="right">{{item.status? '已核销' : '未核销'}}</view>
+          <text class="time" space="emsp">{{item.create_time}}</text>
         </view>
 
         <view wx:else class="record">
-          <image class="left_img" src="{{item.imgUrl}}" mode="widthFix"  />
-          <view class="content">
-            <text class="main" space="emsp">{{item.title}}</text>
-            <view class="detail" space="emsp">姓名：{{item.name}}</view>
-            <view class="detail" space="emsp">电话：{{item.phone}}</view>
-            <view class="detail" space="emsp">地址：{{item.adress}}</view>
+         <view class="img_box">
+            <image class="left_img" src="{{item.detail_pictures}}" mode="widthFix"  />
           </view>
-          <text class="time" space="emsp">{{item.time}}</text>
+          <view class="content">
+            <view class="main_product" space="emsp">{{item.title}}</view>
+            <view class="detail" space="emsp">姓名：{{item.real_name}}</view>
+            <view class="detail" space="emsp">电话：{{item.phone}}</view>
+            <view class="detail" space="emsp">地址：{{item.address}}</view>
+          </view>
+          <text class="time" space="emsp">{{item.create_time}}</text>
         </view>
 
         <view class="line" wx:if='{{index !== recordList.length - 1}}'></view>
