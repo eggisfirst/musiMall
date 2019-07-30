@@ -187,6 +187,28 @@ getUserIntegral(userId) {
   })
 }
 
+//获取九宫格奖项
+getPrizeList(userId) {
+  return this.getSecretData({
+    url: "v1/api/spactivity/getPrizeList",
+    data: {
+      userId
+    }
+  })
+}
+
+//抽奖
+luckDraw(userId) {
+  return this.getSecretData({
+    url: "v1/api/prizewinning/luckDraw",
+    data: {
+      userId
+    }
+  })
+}
+
+
+
 
 }
 

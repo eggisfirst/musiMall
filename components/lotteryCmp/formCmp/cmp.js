@@ -1,4 +1,8 @@
 // components/lotteryCmp/formCmp/cmp.js
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
+
 Component({
   properties: {
     formStatus: {
@@ -94,8 +98,23 @@ Component({
           error: errorData
         })
         //请求
+        this._addMsg()
         console.log('comfirm')
       }
+    },
+    //发起请求
+    _addMsg() {
+      const formData = this.data.formData
+      const obj = {
+        userId: app.globalData.userId,
+        type: 1,
+        realName: formData[0].value,
+        phone: formData[1].value,
+        address: formData[2].value
+      }
+      indexModel.signUp(obj).then(res => {
+        console.log(9009,res.data)
+      })
     },
     setErrorMsg(errorData,error) {
       for(let key in errorData) {

@@ -1,15 +1,48 @@
 // pages/lottery/lottery.js
-
+import { IndexModel } from '../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
 
 Page({
   data: {
-    activeStatus: "", //抽奖的状态/时间/积分
     fixed: "",
     scrollTop: 0,
-    showRules: false
+    showRules: false,
+    allScore: 0,
   },
   onLoad (options) {
-    
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    })
+  //判断onLaunch是否执行完毕
+  if (app.globalData.userId) {
+    wx.hideLoading()
+    this.getUserIntegral(app.globalData.userId)
+  } else {
+    app.checkLoginReadyCallback = res => {
+      wx.hideLoading()
+      this.getUserIntegral(res.data.id)
+    };
+  }
+  },
+  //获取用户积分
+  getUserIntegral() {
+    const userId = app.globalData.userId
+    indexModel.getUserIntegral(userId).then(res => {
+      if(res.status) {
+        this.setData({
+          allScore: res.data.surplusIntegral
+        })
+      }
+    })
+  },
+  //点击开始抽奖
+  startLottery() {
+    const allScore = this.data.allScore - 50
+    this.setData({
+      allScore
+    })
   },
   //监听页面滚动距离
   onPageScroll(e) { // 获取滚动条当前位置

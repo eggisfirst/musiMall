@@ -4,12 +4,13 @@
       <view class="rule" catchtap="handleRuleBtn">活动规则</view>
     </view>
     <view class="lottery_box">
-      <lotteryBox hasChange="{{true}}" 
-                  activeStatus="{{activeStatus}}"
-                  catch:sexFixStatus="sexFixStatus"/>
+      <lotteryBox allScore="{{allScore}}" 
+                  catch:sexFixStatus="sexFixStatus"
+                  catch:startLottery="startLottery"/>
     </view>
     <view class="score_box">
-      <scoreBox catch:sexFixStatus="sexFixStatus"/>
+      <scoreBox catch:sexFixStatus="sexFixStatus"
+                allScore="{{allScore}}" />
     </view>
     <view class="list">
       <awardList />

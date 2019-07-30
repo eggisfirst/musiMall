@@ -52,7 +52,7 @@ App({
     // })
   },
   onShow(options) {
-    console.log(options)
+    // console.log(options)
     //判断是否通过分享进来的
     if (options.query.userId) {
       this.globalData.shareUserId = options.query.userId
@@ -120,7 +120,7 @@ App({
   checkSession() {
     wx.checkSession({
       success: () => {
-        console.log(111)
+        // console.log(111)
         wx.getStorage({
           key: 'openId',
           success: (res) => {

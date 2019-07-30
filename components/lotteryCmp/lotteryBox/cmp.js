@@ -1,11 +1,10 @@
 // components/lotteryCmp/lotteryBox/cmp.js
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
-    hasChange: Boolean,
-    activeStatus: String //判断提示的状态
+    allScore: Number
   },
   data: {
     optionsList:[
@@ -60,14 +59,16 @@ Component({
       imgUrl: '/images/lottery/bed.png',
       name: "时尚释压枕"
     },
-    awardAnimation:[]
+    awardAnimation:[],
+    key: true,
+    prizeList: [],
+
+    awardType: ""
   },
   ready() {
     this.getSize()
+    this.getPrizeList()
   },
-  /**
-   * 组件的方法列表
-   */
   methods: {
     //获取宽高
     getSize() {
@@ -121,28 +122,101 @@ Component({
           awardAnimation: aniSize
         })
     },
+      //获取九宫格奖项
+    getPrizeList() {
+      const userId = app.globalData.userId
+      indexModel.getPrizeList(userId).then(res => {
+        if(res.status) {
+          let data = res.data
+          data.splice(4,0,{
+            title: "每次消耗50积分",
+          })
+          this.setData({
+            prizeList: data
+          })
+        }
+      })
+    },
+    //抽奖
+    _luckDraw() {
+      const userId = app.globalData.userId
+      indexModel.luckDraw(userId).then(res => {
+        if(res.data) {
+          this.triggerEvent("startLottery", true)
+          const time = this._setAnimationTime(res.data.id)
+          this._setAnimation(time)
+
+          console.log(time)
+          var timer = setTimeout(() => {
+            this._setAwardTipsType(res.data.title,res.data.id)
+
+            this._handleTipsBox(this.data.awardType)
+            clearTimeout(timer)
+          }, time*3);
+        }
+      })
+    },
+    //九宫格顺序
+    _changeId(id) {
+      if(id === 4) {
+        return 7
+      }else if(id === 5) {
+        return 3
+      }else if(id === 7) {
+        return 5
+      }else if(id === 8) {
+        return 4
+      }else if(id === 1) {
+        return 8
+      }else if(id === 2) {
+        return 1
+      }else if(id === 3) {
+        return 2
+      }
+      else {
+        return id
+      }
+    },
+    //设置动画时间
+    _setAnimationTime(id) {
+      const myId = this._changeId(id)
+      return 1600 + 40*myId
+    },
+    //设置中奖类型
+    _setAwardTipsType(title,id) {
+      if(title.indexOf('代金卷') !== -1 || id === 8) {
+        this.setData({
+          awardType: "tipsStatus"
+        })
+      }else {
+        this.setData({
+          awardType: "awardTipsStatus"
+        })
+      }
+    },
     //开始抽奖
     handleStart() {
-        this._setAnimation()
-
-      // if(this.data.hasChange) {
-      //   console.log('start')
-      // }else {
-      //   this.setData({
-      //     tipsStatus: true
-      //   })
-      // }
-      // const tipsName = 'awardTipsStatus'  //中奖提示框类型
-      // const tipsName = 'tipsStatus'  //中奖提示框类型
-      // this._handleTipsBox(tipsName)
+      if(this.data.allScore >= 50) {
+        if(this.data.key) {
+          this.setData({
+            key: false
+          })
+          this._luckDraw()
+        }
+      }else {
+        this.setData({
+          tipsStatus: true
+        })
+      }
+     
     },
-    _setAnimation() {
+    _setAnimation(time) {
       let animation = wx.createAnimation({
         duration: 20,
         timingFunction: 'ease',
         delay: 0
       });
-      var time = 1600 + 40*8 //奖品
+      // var time = 1600 + 40*3 //奖品
       const ani = this.data.awardAnimation
       for(let i = 0; i < ani.length + 1; i ++) {
         time -= 40
@@ -174,18 +248,16 @@ Component({
           this.setData({
             ani: animation.export()
           })
-          this.setData({
-            status: true
-          })
-          return true
+          return 
         }
       }
-     
     },
     //关闭提示
     closeTipsBox() {
-      const tipsName = 'awardTipsStatus'
-      // const tipsName = 'tipsStatus'
+      const tipsName = this.data.awardType
+      this.setData({
+        key: true
+      })
       this._handleTipsBox(tipsName,false)
     },
     //提示的内容

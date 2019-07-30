@@ -42,9 +42,10 @@
 }
 .optionBtn {
   width: 155rpx;
+  height: 80rpx;
 }
 .box_text {
-  margin-top: -8rpx;
+  margin-top: 20rpx;
 }
 .thank {
   width: 93rpx

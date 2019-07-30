@@ -43,7 +43,7 @@ class Request {
         mask: true
       })
       this._getToken().then(res => {
-        console.log(2333,res)
+        // console.log(2333,res)
         if (res.access_token) {
           wx.setStorage({
             key: "token",
@@ -99,7 +99,7 @@ _getToken() {
       dataType: 'json',
       responseType: 'text',
       success: res => {
-        console.log(222,res)
+        // console.log(222,res)
         if(res.data) {
           resolve(res.data)
         }

@@ -4,7 +4,7 @@
     <view class="score">
       <image class="score_Image" src="/images/lottery/score.png" mode="widthFix"/>
       <text class="text">当前积分：</text>
-      <text class="score_num">500</text>
+      <text class="score_num">{{allScore}}</text>
       <text class="text">分</text>
     </view>
     <view class="record" catchtap="handleRecord">我的中奖记录</view>
