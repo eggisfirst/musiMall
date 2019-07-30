@@ -32,6 +32,13 @@ Page({
     this.hasSignUp(options)
     this.hasGetInfo()
   },
+  onShow() {
+    const userId = app.globalData.userId
+    console.log(userId)
+    indexModel.addRecord(userId).then(res => {
+      console.log(res)
+    })
+  },
    //打开海报
    setPosterStatus(e) {
     this.setData({
