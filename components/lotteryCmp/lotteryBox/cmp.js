@@ -60,7 +60,7 @@ Component({
       imgUrl: '/images/lottery/bed.png',
       name: "时尚释压枕"
     },
-    awardAnimation:[],
+    awardAnimation:[]
   },
   ready() {
     this.getSize()
@@ -123,8 +123,7 @@ Component({
     },
     //开始抽奖
     handleStart() {
-      console.log(this.data.awardAnimation)
-      this._setAnimation()
+        this._setAnimation()
 
       // if(this.data.hasChange) {
       //   console.log('start')
@@ -174,6 +173,9 @@ Component({
           console.log('time',i)
           this.setData({
             ani: animation.export()
+          })
+          this.setData({
+            status: true
           })
           return true
         }

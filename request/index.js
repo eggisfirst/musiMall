@@ -167,14 +167,26 @@ hasSignUp(userId) {
   })
 }
 //玩游戏获得积分
-  playGame(userId) {
-    return this.getSecretData({
-      url: "v1/api/spactivity/playGame",
-      data: {
-        userId
-      }
-    })
-  }
+playGame(userId) {
+  return this.getSecretData({
+    url: "v1/api/spactivity/playGame",
+    data: {
+      userId
+    }
+  })
+}
+//抽奖
+
+//获取用户积分
+getUserIntegral(userId) {
+  return this.getSecretData({
+    url: "v1/api/integral/getUserIntegral",
+    data: {
+      userId
+    }
+  })
+}
+
 
 }
 

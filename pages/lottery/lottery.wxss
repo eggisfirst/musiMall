@@ -9,7 +9,7 @@
 .banner {
   width: 750rpx;
   height: 415rpx;
-  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/banner.png") no-repeat center;
+  background: url("https://mobiletest.derucci.net/web/musiMall/images/lottery/banner.png") no-repeat center;
   background-size: 100% 100%;
   position: relative;
 }

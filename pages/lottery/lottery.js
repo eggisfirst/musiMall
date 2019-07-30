@@ -1,4 +1,6 @@
 // pages/lottery/lottery.js
+
+
 Page({
   data: {
     activeStatus: "", //抽奖的状态/时间/积分
@@ -6,11 +8,11 @@ Page({
     scrollTop: 0,
     showRules: false
   },
-  onLoad: function (options) {
-
+  onLoad (options) {
+    
   },
   //监听页面滚动距离
-  onPageScroll: function (e) { // 获取滚动条当前位置
+  onPageScroll(e) { // 获取滚动条当前位置
     this.setData({
       scrollTop: e.scrollTop
     })
