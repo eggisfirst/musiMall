@@ -26,7 +26,7 @@ Component({
     getPrizeWinningList(page) {
       this._setLoadMoreStatus(false)
       const userId = app.globalData.userId
-      indexModel.getPrizeWinningList(userId,page).then(res => {
+      indexModel.getPrizeWinningList(page,userId).then(res => {
         if(res.status) {
           if(res.data.totalPage > res.data.currPage){
             this._setLoadMoreStatus(true)

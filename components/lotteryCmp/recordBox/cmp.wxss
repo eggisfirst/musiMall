@@ -116,3 +116,10 @@
 .close_img {
   width: 60rpx;
 }
+
+.noAwardtext {
+  font-size: 30rpx;
+  color: #667190;
+  text-align: center;
+  margin-top: 40%;
+}

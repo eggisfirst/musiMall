@@ -208,7 +208,7 @@ luckDraw(userId) {
 }
 
 //获取中奖记录
-getPrizeWinningList(userId,page) {
+getPrizeWinningList(page,userId) {
   return this.getSecretData({
     url: "v1/api/prizewinning/getPrizeWinningList",
     data: {

@@ -4,11 +4,11 @@
     <image class="ban_img" src="/images/lottery/gift.png" mode="widthFix" />
     <text class="title">中奖名单</text>
   </view>
-   <scroll-view class="list" scroll-y="{{true}}">
-      <view class="listItem" wx:for="{{awardList}}" wx:key="*this">
-         <text class="name">{{item.name}}</text>
+   <scroll-view class="list" scroll-y="{{true}}" bindscrolltolower="bindscrolltolower">
+      <view class="listItem" wx:for="{{awardList}}" wx:key="item.id">
+         <text class="name">{{item.real_name}}</text>
          <text class="phone">{{filter(item.phone)}}</text>
-         <text class="price">{{item.award}}</text>
+         <text class="price">{{item.title}}</text>
       </view>
     </scroll-view>
 </view>

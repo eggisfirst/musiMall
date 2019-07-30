@@ -3,7 +3,7 @@
   <image src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery/red_border.png" class="border" mode="widthFix" />
   <view class="container">
     <view class="banner">-中奖记录-</view>
-    <scroll-view class="wrapper" scroll-y="{{true}}" bindscrolltolower="bindscrolltolower">
+    <scroll-view wx:if="{{recordList.length}}" class="wrapper" scroll-y="{{true}}" bindscrolltolower="bindscrolltolower">
       <block wx:for="{{recordList}}" wx:key="item.id">
         <view class="record" wx:if="{{item.code === 'coupon'}}">
           <view class="img_box">
@@ -33,6 +33,8 @@
         <view class="line" wx:if='{{index !== recordList.length - 1}}'></view>
       </block>
     </scroll-view>
+
+    <view wx:else class="noAwardtext">您目前还没有中奖哦～</view>
   </view>
   <view class="close">  
     <image src="/images/close.png" mode="widthFix" class="close_img"
