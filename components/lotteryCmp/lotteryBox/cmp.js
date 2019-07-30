@@ -258,13 +258,8 @@ Component({
       })
       this._handleTipsBox(tipsName,false)
     },
-    //提示的内容
-    setActiveStatus() {
-      
-    },
-
     _handleTipsBox(tipsName,status=true) {
-      this.triggerEvent('sexFixStatus',{type:true,status})    //打开蒙层的时候底部固定
+      this.triggerEvent('sexFixStatus',{type:false,status})    //打开蒙层的时候底部固定
       this.setData({
         [tipsName]: status
       })
