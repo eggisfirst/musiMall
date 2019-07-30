@@ -1,9 +1,8 @@
 {
   "pages": [
-    "pages/lottery/lottery",
-
     "pages/home/home",
 
+    "pages/lottery/lottery",
 
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",

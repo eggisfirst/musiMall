@@ -24,12 +24,25 @@
             <image class="msg_image" src="/images/lottery/score.png" mode="widthFix"/>
             <text class="sec_text3">{{item.right.score}}</text>
           </view>
-           <view class="btn" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
+
+           <view class="btn" wx:if="{{index !== 1}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
+
+           <button  wx:else
+                    class="btn" 
+                    data-index="{{index}}"
+                    open-type="share"
+                    catchtap="handleActiveBtn">{{item.right.text}}</button>
+
         </view>
       </view>
     </view>
   </view>
   <recordBox wx:if="{{showRecord}}"
               catch:setShowRecord="setShowRecord"/>
+  <posterCmp  wx:if="{{posterStatus}}"
+              imgUrl="{{imgUrl}}"
+              catch:closePoster="closePoster"
+              name="{{name}}"
+              />
 
 </view>

@@ -1,16 +1,12 @@
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
 // components/lotteryCmp/scoreBox/cmp.js
 
 Component({
-  /**
-   * 组件的属性列表
-   */
   properties: {
     allScore: Number
   },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
     optionsList:[
       {
@@ -18,8 +14,11 @@ Component({
         title: "微信登陆",
         content: "仅首次登陆奖励积分",
         right: {
-          status: 1,
-          text: "已登陆"
+          status: 0,
+          text: "领取",
+          score: "+80"
+          // status: 1,
+          // text: "已登陆"
         }
       },
       {
@@ -51,19 +50,97 @@ Component({
         }
       }
     ],
-    showRecord: false
-  
+    showRecord: false,
+    posterStatus: false,
+    imgUrl: "",
+    name: ""
+    
   },
-
-  /**
-   * 组件的方法列表
-   */
+  ready() {
+    
+    this.getOtherActivity()
+    console.log('ready')
+  },
   methods: {
+    
+    //获取状态
+    getOtherActivity(){
+      const userId = app.globalData.userId
+      indexModel.getOtherActivity(userId).then(res => {
+        if(res.status) {
+          this.setOptionsList(res.data)
+        }
+      })
+    },
+    setOptionsList(data) {
+      const list = this.data.optionsList
+      data.map((item,index) => {
+        switch (index) {
+          case 0:
+            list[0].right.status = item.getIntegralStatus
+            list[0].right.text = item.getIntegralStatus? '已领取' : '领取'
+            break;
+          case 1:
+            break;
+          case 2:
+            list[2].right.status = item.getIntegralStatus
+            list[2].right.text = item.getIntegralStatus? '已生成' : '生成'
+            break;
+          case 3:
+            list[3].right.status = item.getIntegralStatus
+            list[3].right.text = item.getIntegralStatus? '已参与' : '参与'
+            break;
+          default:
+            break;
+        }
+      })
+      this.setData({
+        optionsList: list
+      })
+    },
     //点击参与活动/分享/按钮
     handleActiveBtn(e) {
-      console.log(e.currentTarget.dataset.index)
+      const index = e.currentTarget.dataset.index
+      if(index === 3) {
+        this.playGame()
+      }
+      else if(index === 0) {
+        this.getScore()
+      }
     },
-    
+    //领取积分
+    getScore() {
+      const userId = app.globalData.userId
+      const list = this.data.optionsList
+      indexModel.authorizationGiveIntegral(userId).then(res => {
+        if(res.status) {
+          list[0].right.status = 1
+          list[0].right.text = '已领取'
+          this.setData({
+            optionsList: list
+          })
+          wx.showToast({
+            title: '领取成功',
+            icon: 'none',
+            duration: 1500
+          })
+        }
+      })
+    },
+    //参与游戏
+    playGame() {
+      const userId = app.globalData.userId
+      indexModel.playGame(userId).then(res => {
+
+      })
+      wx.navigateTo({
+        url: "/pages/game/game"
+      })
+    },
+    handlePosterBtn() {
+      
+    },
+
     //点击打开中奖记录
     handleRecord() {
       this._handleShowRecord()
@@ -78,6 +155,67 @@ Component({
       this.setData({
         showRecord: status
       })
-    }
+    },
+
+
+        //授权登录
+      getUserInfo(e) {
+        if (e.detail.userInfo) {
+          this.checkSession(e)
+          app.globalData.userInfo = e.detail.userInfo
+          this.setData({
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true
+          })
+        } else {
+          wx.showToast({
+            title: '获取个人信息失败',
+            icon: 'none',
+            duration: 1500,
+            mask: true
+          })
+        }
+      },
+      //先校验sessionkey有无过期
+      checkSession(e) {
+        wx.checkSession({
+          success: () => {
+            // console.log(e)
+            this.decodeUserInfo(e)
+          },
+          fail: () => {
+            wx.login({
+              success: res => {
+                this.getOpenId(res.code, e)
+              }
+            })
+          }
+        })
+      },
+      //重新获取sessionkey
+      getOpenId(code, e) {
+        indexModel.getOpenId(code).then(res => {
+          if (res.status) {
+            app.globalData.sessionKey = res.data.sessionKey
+            this.decodeUserInfo(e)
+          }
+        })
+      },
+      //验证绑定
+      decodeUserInfo(e) {
+        let obj = {
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv,
+          sessionKey: app.globalData.sessionKey,
+          openId: app.globalData.openId,
+        }
+        indexModel.decodeUserInfo(obj).then(res => {
+          if(res.status) {
+            // this.triggerEvent('setPosterBtn', true);
+            // this.triggerEvent("setPosterStatus",true)
+            // this.triggerEvent('setViaImage', {user: res.data});
+          }
+        })
+      },
   }
 })

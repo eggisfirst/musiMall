@@ -9,6 +9,7 @@ Page({
     scrollTop: 0,
     showRules: false,
     allScore: 0,
+ 
   },
   onLoad (options) {
     wx.showLoading({
@@ -25,6 +26,26 @@ Page({
       this.getUserIntegral(res.data.id)
     };
   }
+  },
+  //分享
+  onShareAppMessage:(res) => {
+    const userId = app.globalData.userId 
+    if (res.from === 'button') {
+      console.log(res.target)
+    }
+    return {
+      title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
+      path: '/pages/home/home?userId=' + userId,
+      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
+      success:() => {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+
+      }
+    }
   },
   //获取用户积分
   getUserIntegral() {

@@ -220,6 +220,16 @@ getPrizeWinningList(page,userId) {
   })
 }
 
+//获取其他活动以及状态
+getOtherActivity(userId) {
+  return this.getSecretData({
+    url: "v1/api/spactivity/getOtherActivity",
+    data: {
+      userId
+    }
+  })
+}
+
 
 }
 

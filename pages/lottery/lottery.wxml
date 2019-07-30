@@ -17,4 +17,7 @@
     </view>
 
     <activeRules wx:if="{{showRules}}" catch:setShowRules="setShowRules"/>
+   
+
+
   </view>
