@@ -88,7 +88,7 @@ Component({
       })
     },
     toGame() {
-      wx.redirectTo({
+      wx.navigateTo({
         url:"/pages/game/game"
       })
     },

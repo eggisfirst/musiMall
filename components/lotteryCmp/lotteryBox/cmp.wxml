@@ -11,8 +11,8 @@
           <image src="/images/lottery/start.png" class="start" mode="widthFix"/>
           <view class="start_text">{{item.text}}</view>
         </view>
-        <view>
-          <image class="run" src="/images/lottery/run.png" mode="widthFix" />
+        <view >
+          <image animation="{{ani}}" class="run" src="/images/lottery/run.png" mode="widthFix" />
         </view>
       </block>
      
