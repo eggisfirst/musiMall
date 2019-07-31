@@ -94,3 +94,46 @@ button::after {
   height: 50rpx;
   width: 50rpx;
 }
+
+.coupon_box {
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+}
+
+.coupon {
+  padding-left: 32rpx;
+  border-bottom: 1rpx solid #e1e1e1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 87rpx;
+}
+.c_img {
+  width: 42rpx;
+
+}
+.title {
+  color: #1a1a1a;
+  font-size: 32rpx;
+  /* width: 400rpx; */
+  flex: 0.5
+
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 30rpx;
+  flex: 0.4
+}
+.r_img {
+  width: 16rpx;
+  margin-left: 13rpx;
+}
+.phone_num {
+  color: #909090;
+  font-size: 27rpx;
+}

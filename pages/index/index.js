@@ -7,7 +7,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     showTips: true,
-    tipsText: '请先登录'
+    tipsText: '请先登录',
+    
   },
   onLoad: function () {
     this.init()

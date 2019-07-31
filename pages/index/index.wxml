@@ -13,12 +13,31 @@
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <image 
-            src="{{userInfo.gender == 2? '/images/index/girl.png': '/images/index/boy.png'}}"              class='gender'/>
+            src="{{userInfo.gender == 2? '/images/index/girl.png': '/images/index/boy.png'}}" class='gender'/>
     </block>
   </view>
 
   <view class='orderBanner'>
     <orderTab catch:setLoginTips='setLoginTips'/>
+  </view>
+
+  <view class="coupon_box">
+    <view class="coupon">
+      <image class="c_img" src="/images/index/coupon.png" mode="widthFix" />
+      <view class="title">优惠券</view>
+      <view class="right">
+        <image class="r_img" src="/images/index/right-icon.png"  mode="widthFix"/>
+      </view>
+    </view>
+     <view class="coupon">
+      <image class="c_img" src="/images/index/phone.png" mode="widthFix" />
+      <view class="title">联系客服</view>
+      <view class="right">
+        <text class="phone_num">400-777-0077</text>
+        <image class="r_img" src="/images/index/right-icon.png"  mode="widthFix"/>
+      </view>
+    </view>
+  
   </view>
 
   <view class='tips' hidden="{{showTips}}">
