@@ -215,7 +215,7 @@ getPrizeWinningList(page,userId) {
       userId,
       winning: 1,
       page: page,
-      limit: limit
+      limit: 10
     }
   })
 }

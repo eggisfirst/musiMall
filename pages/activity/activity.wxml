@@ -17,6 +17,7 @@
               current="{{current}}" 
               contenList="{{contenList}}"
               catch:setLoginTips='setLoginTips'/>
+              
    <view class='tips' hidden="{{showTips}}">
     <tipsBox class='tipsBox' catch:closeTips="closeTips" tipsText="{{tipsText}}"/>
   </view>

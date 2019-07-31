@@ -24,7 +24,8 @@ Component({
     key: true,
     prizeList: [],
     awardType: "",
-    phoneStatus: true
+    phoneStatus: true,
+    productId: ""
   },
   ready() {
     console.log(app.globalData)
@@ -175,13 +176,16 @@ Component({
       indexModel.luckDraw(userId).then(res => {
         if(res.status) {
           this.triggerEvent("startLottery", true)
+          this.setData({
+            productId: res.data.prize_winning_record_id
+          })
           const time = this._setAnimationTime(res.data.id)
           this._setAnimation(time)
 
           console.log(time)
           var timer = setTimeout(() => {
             this._setAwardTipsType(res.data)
-
+            
             this._handleTipsBox(this.data.awardType)
             clearTimeout(timer)
           }, time*3.2);

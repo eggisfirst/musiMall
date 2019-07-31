@@ -8,7 +8,8 @@
    
     <formCmp  formStatus="{{formStatus}}" 
               catch:resetFormStatus="resetFormStatus"
-              catch:handleComfrim="handleComfrim"/>
+              catch:handleComfrim="handleComfrim"
+              productId="{{productId}}"/>
     <viwe class="btn">
       <view class="left_btn"  catchtap="closeBtn">暂不填写</view>
       <button class="right_btn" catchtap="comfirmBtn">确认无误，提交</button>

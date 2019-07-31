@@ -1,7 +1,8 @@
 // components/lotteryCmp/awardTipsBox/cmp.js
 Component({
   properties: {
-    awardData: Object
+    awardData: Object,
+    productId: String
   },
   data: {
     formStatus:false

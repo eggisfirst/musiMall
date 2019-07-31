@@ -10,7 +10,8 @@ Component({
       observer(newval) {
         this.setComfirm()
       }
-    }
+    },
+    productId: String
   },
   data: {
     formData: [{key:'name',value: ""},{key:'phone',value:""},{key:"address",value:""}],
@@ -110,7 +111,8 @@ Component({
         type: 1,
         realName: formData[0].value,
         phone: formData[1].value,
-        address: formData[2].value
+        address: formData[2].value,
+        prizeWinningRecordId: this.data.productId
       }
       indexModel.signUp(obj).then(res => {
         if(res.status) {

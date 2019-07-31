@@ -31,6 +31,7 @@
             catchcloseTipsBox="closeTipsBox"/>
     <awardTipsBox wx:if="{{awardTipsStatus}}"
                   catch:closeTipsBox="closeTipsBox"
-                  awardData="{{awardData}}" />
+                  awardData="{{awardData}}"
+                  productId="{{productId}}"/>
 </view>
 

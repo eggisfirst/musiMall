@@ -27,15 +27,15 @@ Component({
     hasPhoneStatus: true
   },
   ready() {
-    // if (app.globalData.userId) {
-    //   wx.hideLoading()
-    // } else {
-    //   app.checkLoginReadyCallback = res => {
-    //     wx.hideLoading()
-    //     this.handleHasPhoneStatus(res.data.mobileNumber)
-    //   };
-    // }
-    this.handleHasPhoneStatus(app.globalData.hasPhone)
+    if (app.globalData.userId) {
+      wx.hideLoading()
+    } else {
+      app.checkLoginReadyCallback = res => {
+        wx.hideLoading()
+        this.handleHasPhoneStatus(res.data.mobileNumber)
+      };
+    }
+    // this.handleHasPhoneStatus(app.globalData.hasPhone)
     // console.log(this.properties.current)
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
