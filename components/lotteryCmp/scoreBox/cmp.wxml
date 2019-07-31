@@ -12,11 +12,14 @@
   <view class="content">
     <view class="title">如何获得积分?</view>
     <view class="section" wx:for="{{optionsList}}" wx:key="item.title">
+
       <image class="sec_image" src="{{item.imgUrl}}" mode="widthFix"/>
+
       <view class="center">
         <view class="sec_text1">{{item.title}}</view>
         <view class="sec_text2">{{item.content}}</view>
       </view>
+      
       <view class="right">
         <view wx:if="{{item.right.status}}" class="sec_text3">{{item['right'].text}}</view>
         <view class="right_item" wx:else>

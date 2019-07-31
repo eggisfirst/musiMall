@@ -186,6 +186,7 @@ Component({
             clearTimeout(timer)
           }, time*3);
         }else { //活动时间未开始/已结束
+
           const tipsData = this.data.tipsData
           const title = res.msg.split(',')[0];
           const remark = res.msg.split(',')[1]
@@ -267,16 +268,18 @@ Component({
           this._luckDraw()
         }
       }else {
-        console.log(123123)
-        const tipsData = this.data.tipsData
-        tipsData.title = '您的积分不足'
-        tipsData.remark = '快去做任务赚积分吧'
-        tipsData.type = 0
-        this.setData({
-          tipsStatus: true,
-          awardType: "tipsStatus",
-          tipsData
-        })
+        if(this.data.key) {
+          console.log(123123)
+          const tipsData = this.data.tipsData
+          tipsData.title = '您的积分不足'
+          tipsData.remark = '快去做任务赚积分吧'
+          tipsData.type = 0
+          this.setData({
+            tipsStatus: true,
+            awardType: "tipsStatus",
+            tipsData
+          })
+        }
       }
      
     },

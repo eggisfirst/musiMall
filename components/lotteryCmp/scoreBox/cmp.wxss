@@ -74,6 +74,7 @@
 }
 .center {
   text-align: left;
+  /* width: 350rpx; */
 }
 .sec_text1 {
   color: #FEF1CC;
@@ -87,7 +88,7 @@
 }
 
 .right {
-
+  flex: 0.56;
 }
 .sec_text3 {
   color: #A6AAE3;
