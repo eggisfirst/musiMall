@@ -23,13 +23,85 @@ Component({
     awardAnimation:[],
     key: true,
     prizeList: [],
-    awardType: ""
+    awardType: "",
+    phoneStatus: true
   },
   ready() {
+    console.log(app.globalData)
+    this.hasPhone()
     this.getSize()
     this.getPrizeList()
   },
   methods: {
+    //判断有没有授权手机
+    hasPhone() {
+      if(!app.globalData.hasPhone) {
+        this.setData({
+          phoneStatus: false
+        })
+      }
+    },
+    //手机授权
+    getPhoneNumber(e) {
+      if (e.detail.encryptedData) {
+        this.checkSession(e)
+      }else {
+        wx.showToast({
+          title: '获取手机失败',
+          icon: "none",
+          duration: 1500
+        })
+      }
+    },
+    //先校验sessionkey有无过期
+    checkSession(e) {
+      wx.checkSession({
+        success: () => {
+          this.decodeUserInfo(e)
+        },
+        fail: () => {
+          wx.login({
+            success: res => {
+              this.getOpenId(res.code, e)
+            }
+          })
+        }
+      })
+    },
+    //重新获取sessionkey
+    getOpenId(code, e) {
+      indexModel.getOpenId(code).then(res => {
+        if (res.status) {
+          app.globalData.sessionKey = res.data.sessionKey
+          this.decodeUserInfo(e)
+        }
+      })
+    },
+    //验证绑定
+    decodeUserInfo(e) {
+      let shareUserId = "";
+      if (app.globalData.shareUserId) {
+        shareUserId = app.globalData.shareUserId
+      }
+      let obj = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        sessionKey: app.globalData.sessionKey,
+        openId: app.globalData.openId,
+        shareUserId
+      }
+      indexModel.getPhoneNumber(obj).then(res => {
+        if(res.status) {
+          app.globalData.phone = res.data.mobileNumber
+          app.globalData.hasPhone = true
+          this.setData({
+            phoneStatus: true
+          })
+        }
+      })
+    },
+
+
     //获取宽高
     getSize() {
       wx.getSystemInfo({

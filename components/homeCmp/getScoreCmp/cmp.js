@@ -77,6 +77,7 @@ Component({
       }
       indexModel.getPhoneNumber(obj).then(res => {
         if (res.status) {
+          app.globalData.hasPhone = true
           this.triggerEvent("setPhoneStatus", true)
           this.authorizationGiveIntegral(res.data.id)
         }

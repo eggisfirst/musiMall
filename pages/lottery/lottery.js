@@ -9,24 +9,70 @@ Page({
     scrollTop: 0,
     showRules: false,
     allScore: 0,
- 
+    imgUrl: '',
+    name: '',
+    posterStatus: false,
+    posterBtn: true,
+    hasSave: false,
+    getList: false
   },
   onLoad (options) {
-    wx.showLoading({
-      title: '加载中',
-      mask: true
-    })
-  //判断onLaunch是否执行完毕
-  if (app.globalData.userId) {
-    wx.hideLoading()
     this.getUserIntegral(app.globalData.userId)
-  } else {
-    app.checkLoginReadyCallback = res => {
-      wx.hideLoading()
-      this.getUserIntegral(res.data.id)
-    };
-  }
+    this.hasGetInfo()
   },
+  onShow() {
+    //每次请求中奖名单
+    const status = !this.data.getList
+    this.setData({
+      getList: status
+    })
+  },
+  //判断有没有授权个人信息
+  hasGetInfo() {
+    if (!app.globalData.userInfo) {
+      this.setData({
+        posterBtn: false
+      })
+    }
+  },
+  //获取个人头像
+  setViaImage(e) {
+    console.log('data',e.detail.user)
+    this.setData({
+      imgUrl:e.detail.user.avatarUrl,
+      name: e.detail.user.nickName
+    })
+  },
+   //打开海报
+  setPosterStatus(e) {
+    console.log('posterStatus',true)
+    this.setData({
+      posterStatus: true
+    })
+  },
+  //保存海报
+  savePoster() {
+    this.setData({
+      hasSave: true
+    })
+  },
+   //关闭海报
+  closePoster() {
+    this.setData({
+      posterStatus: false
+    })
+  },
+  //授权登录后
+  setPosterBtn() {
+    this.setData({
+      posterBtn: true
+    })
+  },
+  //活动每次操作完重新获取分数
+  setScore() {
+    this.getUserIntegral()
+  },
+  
   //分享
   onShareAppMessage:(res) => {
     const userId = app.globalData.userId 

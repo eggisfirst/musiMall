@@ -63,6 +63,7 @@ Component({
       }
       indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
+          app.globalData.hasPhone = true
           const url = this.data.activeData.linkTo
           this.triggerEvent("setPhoneStatus",true)
           if (url === "activity") {

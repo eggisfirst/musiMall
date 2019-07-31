@@ -7,10 +7,19 @@
                   />
           <view class="box_text">{{item.title}}</view>
         </view>
-        <view wx:else class="startBtn" catchtap="handleStart">
+
+        <view wx:if="{{index === 4 && phoneStatus}}" class="startBtn" catchtap="handleStart">
           <image src="/images/lottery/start.png" class="start" mode="widthFix"/>
           <view class="start_text">{{item.title}}</view>
         </view>
+
+        <button wx:if="{{index === 4 && !phoneStatus}}" class="startBtn" 
+                open-type="getPhoneNumber"  
+                bindgetphonenumber="getPhoneNumber">
+          <image src="/images/lottery/start.png" class="start" mode="widthFix"/>
+          <view class="start_text">{{item.title}}</view>
+        </button>
+
         <view >
           <image animation="{{ani}}" class="run" src="/images/lottery/run.png" mode="widthFix" />
         </view>

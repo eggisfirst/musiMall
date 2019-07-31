@@ -10,14 +10,27 @@
     </view>
     <view class="score_box">
       <scoreBox catch:sexFixStatus="sexFixStatus"
-                allScore="{{allScore}}" />
+                allScore="{{allScore}}" 
+                catch:setScore="setScore"
+                hasSave="{{hasSave}}"
+                posterBtn="{{posterBtn}}"
+                catchsetPosterBtn="setPosterBtn"
+                catch:setViaImage="setViaImage"
+                catch:setPosterStatus="setPosterStatus"/>
     </view>
     <view class="list">
-      <awardList />
+      <awardList getList="{{getList}}"/>
     </view>
 
     <activeRules wx:if="{{showRules}}" catch:setShowRules="setShowRules"/>
-   
+
+    <posterCmp  wx:if="{{posterStatus}}"
+                imgUrl="{{imgUrl}}"
+                catch:closePoster="closePoster"
+                name="{{name}}"
+                catch:savePoster='savePoster'
+                />
+    
 
 
   </view>

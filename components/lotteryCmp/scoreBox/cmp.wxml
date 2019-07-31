@@ -11,7 +11,7 @@
   </view>
   <view class="content">
     <view class="title">如何获得积分?</view>
-    <view class="section" wx:for="{{optionsList}}" wx:key="*this">
+    <view class="section" wx:for="{{optionsList}}" wx:key="item.title">
       <image class="sec_image" src="{{item.imgUrl}}" mode="widthFix"/>
       <view class="center">
         <view class="sec_text1">{{item.title}}</view>
@@ -25,24 +25,28 @@
             <text class="sec_text3">{{item.right.score}}</text>
           </view>
 
-           <view class="btn" wx:if="{{index !== 1}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
 
-           <button  wx:else
+           <view class="btn" wx:if="{{index === 0 || index === 3}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
+
+           <button  wx:if="{{index === 1}}"
                     class="btn" 
                     data-index="{{index}}"
                     open-type="share"
                     catchtap="handleActiveBtn">{{item.right.text}}</button>
 
+            <view class="btn" wx:if="{{index === 2 && posterBtn}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
+
+           <button  wx:if="{{index === 2 && !posterBtn}}"
+                    class="btn" 
+                    data-index="{{index}}"
+                    open-type="getUserInfo"
+                    catch:getuserinfo="getuserinfo">{{item.right.text}}</button>
         </view>
       </view>
     </view>
   </view>
   <recordBox wx:if="{{showRecord}}"
               catch:setShowRecord="setShowRecord"/>
-  <posterCmp  wx:if="{{posterStatus}}"
-              imgUrl="{{imgUrl}}"
-              catch:closePoster="closePoster"
-              name="{{name}}"
-              />
+
 
 </view>

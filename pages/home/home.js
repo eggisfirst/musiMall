@@ -55,8 +55,6 @@ Page({
     btnStatus: false
   },
   onLoad () {
-    // this.test()
-
      wx.showLoading({
         title: '加载中',
         mask: true
@@ -74,27 +72,14 @@ Page({
       };
     }
   },
-  test() {
-    wx.request({
-      url: "https://qiang.derucci.com/oauth/token",
-      // url: "https://op.derucci.com/oauth/token",
-      method:'post',
-      data: {
-        grant_type: 'client_credentials',
-        client_id: '20190425670723',
-        client_secret: '5964cf66364926afa2bf8523730465g8'
-      },
-      header: { 'content-type': 'application/x-www-form-urlencoded' },
-      dataType: 'json',
-      responseType: 'text',
-      success: res => {
-        console.log(222,res)
-      },
-      fail: err => {
-        reject(err)
-      }
+  //从抽奖跳转过来的时候已经手机授权
+  onShow() {
+    console.log(123123,app.globalData.phone)
 
-    })
+    if(app.globalData.phone) {
+      console.log(app.globalData.phone)
+      this.handlePhoneStatus(app.globalData.phone)
+    } 
   },
   //是否已经领取积分
   scoreStatus(status) {

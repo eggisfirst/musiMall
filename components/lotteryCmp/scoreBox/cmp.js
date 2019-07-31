@@ -5,7 +5,20 @@ const app = getApp()
 
 Component({
   properties: {
-    allScore: Number
+    allScore: Number,
+    posterBtn:Boolean,
+    hasSave: {
+      type: Boolean,
+      observer(newval) {
+        this.triggerEvent('setScore',true)
+        const list = this.data.optionsList
+        list[2].right.status = 1
+        list[2].right.text = '已生成'
+        this.setData({
+          optionsList: list
+        })
+      }
+    }
   },
   data: {
     optionsList:[
@@ -52,17 +65,15 @@ Component({
     ],
     showRecord: false,
     posterStatus: false,
+    posterBtn:true,
     imgUrl: "",
     name: ""
     
   },
   ready() {
-    
     this.getOtherActivity()
-    console.log('ready')
   },
   methods: {
-    
     //获取状态
     getOtherActivity(){
       const userId = app.globalData.userId
@@ -107,6 +118,9 @@ Component({
       else if(index === 0) {
         this.getScore()
       }
+      else if(index === 2) {
+        this.handlePosterBtn()
+      }
     },
     //领取积分
     getScore() {
@@ -114,6 +128,7 @@ Component({
       const list = this.data.optionsList
       indexModel.authorizationGiveIntegral(userId).then(res => {
         if(res.status) {
+          this.triggerEvent('setScore',true)
           list[0].right.status = 1
           list[0].right.text = '已领取'
           this.setData({
@@ -131,16 +146,27 @@ Component({
     playGame() {
       const userId = app.globalData.userId
       indexModel.playGame(userId).then(res => {
-
+        if(res.status) {
+          this.triggerEvent('setScore',true)          
+          const list = this.data.optionsList
+          list[3].right.status = 1
+          list[3].right.text = '已参与'
+          this.setData({
+            optionsList: list
+          })
+        }
       })
       wx.navigateTo({
         url: "/pages/game/game"
       })
     },
+    //打开海报
     handlePosterBtn() {
-      
+      if (this.data.posterBtn) {
+        this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
+        this.triggerEvent("setPosterStatus",true)
+      }
     },
-
     //点击打开中奖记录
     handleRecord() {
       this._handleShowRecord()
@@ -157,65 +183,60 @@ Component({
       })
     },
 
-
-        //授权登录
-      getUserInfo(e) {
-        if (e.detail.userInfo) {
-          this.checkSession(e)
-          app.globalData.userInfo = e.detail.userInfo
-          this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-          })
-        } else {
-          wx.showToast({
-            title: '获取个人信息失败',
-            icon: 'none',
-            duration: 1500,
-            mask: true
+    //授权登录
+    getUserInfo(e) {
+      if (e.detail.userInfo) {
+        this.checkSession(e)
+        app.globalData.userInfo = e.detail.userInfo
+      } else {
+        wx.showToast({
+          title: '获取个人信息失败',
+          icon: 'none',
+          duration: 1500,
+          mask: true
+        })
+      }
+    },
+    //先校验sessionkey有无过期
+    checkSession(e) {
+      wx.checkSession({
+        success: () => {
+          // console.log(e)
+          this.decodeUserInfo(e)
+        },
+        fail: () => {
+          wx.login({
+            success: res => {
+              this.getOpenId(res.code, e)
+            }
           })
         }
-      },
-      //先校验sessionkey有无过期
-      checkSession(e) {
-        wx.checkSession({
-          success: () => {
-            // console.log(e)
-            this.decodeUserInfo(e)
-          },
-          fail: () => {
-            wx.login({
-              success: res => {
-                this.getOpenId(res.code, e)
-              }
-            })
-          }
-        })
-      },
-      //重新获取sessionkey
-      getOpenId(code, e) {
-        indexModel.getOpenId(code).then(res => {
-          if (res.status) {
-            app.globalData.sessionKey = res.data.sessionKey
-            this.decodeUserInfo(e)
-          }
-        })
-      },
-      //验证绑定
-      decodeUserInfo(e) {
-        let obj = {
-          encryptedData: e.detail.encryptedData,
-          iv: e.detail.iv,
-          sessionKey: app.globalData.sessionKey,
-          openId: app.globalData.openId,
+      })
+    },
+    //重新获取sessionkey
+    getOpenId(code, e) {
+      indexModel.getOpenId(code).then(res => {
+        if (res.status) {
+          app.globalData.sessionKey = res.data.sessionKey
+          this.decodeUserInfo(e)
         }
-        indexModel.decodeUserInfo(obj).then(res => {
-          if(res.status) {
-            // this.triggerEvent('setPosterBtn', true);
-            // this.triggerEvent("setPosterStatus",true)
-            // this.triggerEvent('setViaImage', {user: res.data});
-          }
-        })
-      },
+      })
+    },
+    //验证绑定
+    decodeUserInfo(e) {
+      let obj = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        sessionKey: app.globalData.sessionKey,
+        openId: app.globalData.openId,
+      }
+      indexModel.decodeUserInfo(obj).then(res => {
+        if(res.status) {
+          this.triggerEvent('setPosterBtn', true);
+          this.triggerEvent("setPosterStatus",true)
+          this.triggerEvent('setViaImage', {user: res.data});
+        }
+      })
+    },
   }
 })

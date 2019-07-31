@@ -19,6 +19,7 @@ Component({
     canvasH: ""
   },
   ready() {
+    console.log('poster')
     this.openAndDraw()
     this.getSize()
   },
@@ -246,7 +247,9 @@ Component({
     savePoster() {
       const userId = app.globalData.userId
       indexModel.getPoster(userId).then(res => {
-        console.log(res)
+        if(res.status) {
+          this.triggerEvent('savePoster',true)
+        }
       })
     }
   }

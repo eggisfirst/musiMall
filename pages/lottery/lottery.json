@@ -4,6 +4,7 @@
     "lotteryBox": "/components/lotteryCmp/lotteryBox/cmp",
     "scoreBox": "/components/lotteryCmp/scoreBox/cmp",
     "awardList": "/components/lotteryCmp/awardList/cmp",
-    "activeRules": "/components/lotteryCmp/activeRules/cmp"
+    "activeRules": "/components/lotteryCmp/activeRules/cmp",
+    "posterCmp": "/components/homeCmp/posterCmp/cmp"
   }
 }

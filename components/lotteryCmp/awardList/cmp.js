@@ -6,7 +6,15 @@ const app = getApp()
 
 Component({
   properties: {
-
+    getList: {
+      type: Boolean,
+      observer() {
+        this.setData({
+          awardList: []
+        })
+        this.getPrizeWinningList(1)
+      }
+    }
   },
   data: {
     awardList: [],
@@ -14,7 +22,7 @@ Component({
     currentPage: 1
   },
   ready() {
-    this.getPrizeWinningList(1)
+    // this.getPrizeWinningList(1)
   },
   methods: {
     getPrizeWinningList(page) {
