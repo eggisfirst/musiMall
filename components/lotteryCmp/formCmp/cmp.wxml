@@ -5,7 +5,6 @@
           placeholder-class="placeholder"
           data-input="name"
           maxlength="10"
-          focus="{{error.name}}"
           bindinput="getVal"
           />
 <view class="error_text" wx:if="{{error.name}}">{{error.text}}</view>
@@ -14,13 +13,11 @@
           placeholder-class="placeholder"
           maxlength="13"
           data-input="phone"
-          focus="{{error.phone}}"
           bindinput="getVal"
           />
 <view class="error_text" wx:if="{{error.phone}}">{{error.text}}</view>
    <textarea  class="{{error.address? 'textAreaError' : 'textArea'}}"
               maxlength="50"
-              focus="{{error.address}}"
               placeholder-class="placeholder"
               data-input="address"
               bindinput="getVal"

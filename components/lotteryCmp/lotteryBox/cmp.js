@@ -181,6 +181,7 @@ Component({
           this._setAnimation(time)
 
           console.log(time)
+          const delay = time* 3.5 + 500
           var timer = setTimeout(() => {
             this._setAwardTipsType(res.data)
             this.setData({
@@ -188,7 +189,7 @@ Component({
             })
             this._handleTipsBox(this.data.awardType)
             clearTimeout(timer)
-          }, time*3.2);
+          }, delay);
         }else { //活动时间未开始/已结束
 
           const tipsData = this.data.tipsData
