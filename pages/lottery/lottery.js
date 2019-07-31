@@ -14,17 +14,22 @@ Page({
     posterStatus: false,
     posterBtn: true,
     hasSave: false,
-    getList: false
+    getList: false,
+    getScoreStatus: false
+
   },
   onLoad (options) {
-    this.getUserIntegral(app.globalData.userId)
-    this.hasGetInfo()
+    // this.getUserIntegral()
   },
   onShow() {
+    this.hasGetInfo()
     //每次请求中奖名单
+    this.getUserIntegral()
     const status = !this.data.getList
+    const scoreStatus = !this.data.getScoreStatus
     this.setData({
-      getList: status
+      getList: status,
+      getScoreStatus:scoreStatus
     })
   },
   //判断有没有授权个人信息

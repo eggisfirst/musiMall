@@ -18,6 +18,13 @@ Component({
           optionsList: list
         })
       }
+    },
+    //每次onshow就重新获取状态
+    getScoreStatus: {
+      type: Boolean,
+      observer() {
+        this.getOtherActivity()
+      }
     }
   },
   data: {
@@ -71,7 +78,7 @@ Component({
     
   },
   ready() {
-    this.getOtherActivity()
+    // this.getOtherActivity()
   },
   methods: {
     //获取状态

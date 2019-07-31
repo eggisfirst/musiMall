@@ -16,7 +16,8 @@
                 posterBtn="{{posterBtn}}"
                 catchsetPosterBtn="setPosterBtn"
                 catch:setViaImage="setViaImage"
-                catch:setPosterStatus="setPosterStatus"/>
+                catch:setPosterStatus="setPosterStatus"
+                getScoreStatus="{{getScoreStatus}}"/>
     </view>
     <view class="list">
       <awardList getList="{{getList}}"/>

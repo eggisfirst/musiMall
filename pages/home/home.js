@@ -74,10 +74,7 @@ Page({
   },
   //从抽奖跳转过来的时候已经手机授权
   onShow() {
-    console.log(123123,app.globalData.phone)
-
     if(app.globalData.phone) {
-      console.log(app.globalData.phone)
       this.handlePhoneStatus(app.globalData.phone)
     } 
   },
