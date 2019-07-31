@@ -43,7 +43,7 @@
                     class="btn" 
                     data-index="{{index}}"
                     open-type="getUserInfo"
-                    catch:getuserinfo="getuserinfo">{{item.right.text}}</button>
+                    catch:getuserinfo="getUserInfo">{{item.right.text}}</button>
         </view>
       </view>
     </view>

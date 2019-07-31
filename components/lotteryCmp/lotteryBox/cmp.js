@@ -184,7 +184,7 @@ Component({
 
             this._handleTipsBox(this.data.awardType)
             clearTimeout(timer)
-          }, time*3);
+          }, time*3.2);
         }else { //活动时间未开始/已结束
 
           const tipsData = this.data.tipsData

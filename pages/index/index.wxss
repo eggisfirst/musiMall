@@ -103,12 +103,15 @@ button::after {
 }
 
 .coupon {
-  padding-left: 32rpx;
+  margin-left: 32rpx;
   border-bottom: 1rpx solid #e1e1e1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   line-height: 87rpx;
+}
+.coupon:last-child {
+  border: none;
 }
 .c_img {
   width: 42rpx;

@@ -169,10 +169,9 @@ Component({
     },
     //打开海报
     handlePosterBtn() {
-      if (this.data.posterBtn) {
-        this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
-        this.triggerEvent("setPosterStatus",true)
-      }
+      console.log(12123)
+      this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
+      this.triggerEvent("setPosterStatus",true)
     },
     //点击打开中奖记录
     handleRecord() {
@@ -195,6 +194,10 @@ Component({
       if (e.detail.userInfo) {
         this.checkSession(e)
         app.globalData.userInfo = e.detail.userInfo
+        this.setData({
+          userInfo: e.detail.userInfo,
+          hasUserInfo: true
+        })
       } else {
         wx.showToast({
           title: '获取个人信息失败',
@@ -239,9 +242,9 @@ Component({
       }
       indexModel.decodeUserInfo(obj).then(res => {
         if(res.status) {
-          this.triggerEvent('setPosterBtn', true);
-          this.triggerEvent("setPosterStatus",true)
           this.triggerEvent('setViaImage', {user: res.data});
+          this.triggerEvent('setPosterBtn', true);
+          // this.triggerEvent("setPosterStatus",true)
         }
       })
     },

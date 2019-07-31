@@ -23,10 +23,18 @@
           </view>
           <view class="content">
             <view class="main_product" space="emsp">{{item.title}}</view>
-            <view class="detail" space="emsp">姓名：{{item.real_name}}</view>
-            <view class="detail" space="emsp">电话：{{item.phone}}</view>
-            <view class="detail" space="emsp">地址：{{item.address}}</view>
+            <block wx:if="{{item.real_name}}">
+              <view class="detail" space="emsp">姓名：{{item.real_name}}</view>
+              <view class="detail" space="emsp">电话：{{item.phone}}</view>
+              <view class="detail" space="emsp">地址：{{item.address}}</view>
+            </block>
+            <block wx:else>
+               <view class="detail" space="emsp">若需要补充收货信息，请及时联系客服（400-777-0077）</view>
+            </block>
+
           </view>
+
+
           <text class="time" space="emsp">{{item.create_time}}</text>
         </view>
 
