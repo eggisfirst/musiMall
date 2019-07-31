@@ -18,7 +18,7 @@
   </view>
 
   <view class='orderBanner'>
-    <orderTab catch:setLoginTips='setLoginTips'/>
+    <orderTab catch:setHasPhone='setHasPhone'/>
   </view>
 
   <view class="coupon_box">
@@ -40,8 +40,8 @@
   
   </view>
 
-  <view class='tips' hidden="{{showTips}}">
+  <!-- <view class='tips' hidden="{{showTips}}">
     <tipsBox class='tipsBox' catch:closeTips="closeTips" tipsText="{{tipsText}}"/>
-  </view>
+  </view> -->
   
 </view>

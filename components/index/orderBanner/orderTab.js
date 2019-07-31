@@ -1,3 +1,6 @@
+import { IndexModel } from '../../../request/index.js'
+const indexModel = new IndexModel()
+const app = getApp()
 Component({
   properties: {
     //从父组件接收
@@ -20,19 +23,93 @@ Component({
       name: '已核销',
       imgUrl: '/images/index/yihexiao.png',
       color: 'background:rgba(255,149,0,6);'
-    }]
+    }],
+    hasPhoneStatus: true
   },
   ready() {
+    // if (app.globalData.userId) {
+    //   wx.hideLoading()
+    // } else {
+    //   app.checkLoginReadyCallback = res => {
+    //     wx.hideLoading()
+    //     this.handleHasPhoneStatus(res.data.mobileNumber)
+    //   };
+    // }
+    this.handleHasPhoneStatus(app.globalData.hasPhone)
     // console.log(this.properties.current)
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
-    toDetails(e) {
-      let tips = getApp().globalData.login
-      this.triggerEvent('setLoginTips', { loginTips: tips });
-      if(!tips) {
-        return
+    //判断手机有没有授权
+    handleHasPhoneStatus(phone) {
+      if(!phone) {
+        this.setData({
+          hasPhoneStatus: false
+        })
       }
+    },
+    
+    //手机授权
+    getPhoneNumber(e) {
+      if (e.detail.encryptedData) {
+        this.checkSession(e)
+      }else {
+        wx.showToast({
+          title: '获取手机失败',
+          icon: "none",
+          duration: 1500
+        })
+      }
+    },
+    //先校验sessionkey有无过期
+    checkSession(e) {
+      wx.checkSession({
+        success: () => {
+          // console.log(e)
+          this.decodeUserInfo(e)
+        },
+        fail: () => {
+          wx.login({
+            success: res => {
+              this.getOpenId(res.code, e)
+            }
+          })
+        }
+      })
+    },
+    //重新获取sessionkey
+    getOpenId(code, e) {
+      indexModel.getOpenId(code).then(res => {
+        if (res.status) {
+          app.globalData.sessionKey = res.data.sessionKey
+          this.decodeUserInfo(e)
+        }
+      })
+    },
+    //验证绑定
+    decodeUserInfo(e) {
+      let shareUserId = "";
+      if (app.globalData.shareUserId) {
+        shareUserId = app.globalData.shareUserId
+      }
+      let obj = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+        sessionKey: app.globalData.sessionKey,
+        openId: app.globalData.openId,
+        shareUserId
+      }
+      indexModel.getPhoneNumber(obj).then(res => {
+        if(res.status) {
+          app.globalData.hasPhone = true
+          this.setData({
+            hasPhoneStatus: true
+          })
+        }
+      })
+    },
+
+    toDetails(e) {
       let index = e.currentTarget.dataset.index
       wx.navigateTo({
         url: '/pages/orderDetails/orderDetails?index=' + index

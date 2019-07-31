@@ -6,9 +6,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    showTips: true,
-    tipsText: '请先登录',
-    
   },
   onLoad: function () {
     this.init()
@@ -106,31 +103,4 @@ Page({
       console.log(res)
     })
   },
-  //打开登录提示
-  setLoginTips(e) {
-    this.setData({
-      showTips: e.detail.loginTips
-    })
-  },
-  //关闭提示
-  closeTips(e) {
-    if (e.detail.tips) {
-      this._setShowTips()
-      this._toLoginPage()
-    } else {
-      this._setShowTips()
-    }
-  },
-  //跳转登录页面
-  _toLoginPage() {
-    wx.redirectTo({
-      url: '../login/login?type=index'
-    })
-  },
-  //
-  _setShowTips() {
-    this.setData({
-      showTips: true
-    })
-  }
 })

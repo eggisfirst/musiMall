@@ -12,7 +12,7 @@ Component({
         this.setData({
           awardList: []
         })
-        this.getPrizeWinningList(1)
+        this.getAllPrizeWinningList()
       }
     }
   },
@@ -25,33 +25,45 @@ Component({
     // this.getPrizeWinningList(1)
   },
   methods: {
-    getPrizeWinningList(page) {
-      this._setLoadMoreStatus(false)
-      const userId = app.globalData.userId
-      indexModel.getPrizeWinningList(page).then(res => {
+    getAllPrizeWinningList() {
+      indexModel.getAllPrizeWinningList().then(res => {
         if(res.status) {
-          if(res.data.totalPage > res.data.currPage){
-            this._setLoadMoreStatus(true)
-          }
-          const list = [...this.data.awardList,...res.data.list]
           this.setData({
-            awardList: list,
-            currentPage: res.data.currPage
+            awardList: res.data.list,
           })
         }
       })
     },
-    //触底加载数据
-    bindscrolltolower() {
-      if(this.data.status) {
-        const page = this.data.currentPage + 1
-        this.getPrizeWinningList(page)
-      }
+    catchTouchMove() {
+      return false
     },
-    _setLoadMoreStatus(status) {
-      this.setData({
-        status: status
-      })
-    }
+    // getPrizeWinningList(page) {
+    //   this._setLoadMoreStatus(false)
+    //   const userId = app.globalData.userId
+    //   indexModel.getPrizeWinningList(page).then(res => {
+    //     if(res.status) {
+    //       if(res.data.totalPage > res.data.currPage){
+    //         this._setLoadMoreStatus(true)
+    //       }
+    //       const list = [...this.data.awardList,...res.data.list]
+    //       this.setData({
+    //         awardList: list,
+    //         currentPage: res.data.currPage
+    //       })
+    //     }
+    //   })
+    // },
+    // //触底加载数据
+    // bindscrolltolower() {
+    //   if(this.data.status) {
+    //     const page = this.data.currentPage + 1
+    //     this.getPrizeWinningList(page)
+    //   }
+    // },
+    // _setLoadMoreStatus(status) {
+    //   this.setData({
+    //     status: status
+    //   })
+    // }
   }
 })

@@ -2,10 +2,11 @@
   "pages": [
     "pages/home/home",
 
+    "pages/lottery/lottery",
+
     "pages/index/index",
 
 
-    "pages/lottery/lottery",
 
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",

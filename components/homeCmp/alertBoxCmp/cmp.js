@@ -20,12 +20,15 @@ Component({
     },
     //前往抽奖
     handlelottery() {
-      wx.showToast({
-        title: '活动尚未开始',
-        duration: 1000,
-        icon: 'none',
-        mask: true
+      wx.switchTab({
+        url: '/pages/lottery/lottery'
       })
+      // wx.showToast({
+      //   title: '活动尚未开始',
+      //   duration: 1000,
+      //   icon: 'none',
+      //   mask: true
+      // })
     },
     //生成海报
     handlePoster() {

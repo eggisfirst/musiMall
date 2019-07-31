@@ -215,10 +215,22 @@ getPrizeWinningList(page,userId) {
       userId,
       winning: 1,
       page: page,
-      limit: 10
+      limit: limit
     }
   })
 }
+//获取中奖记录
+getAllPrizeWinningList() {
+  return this.getSecretData({
+    url: "v1/api/prizewinning/getPrizeWinningList",
+    data: {
+      winning: 1,
+      page: 1,
+      limit: 100
+    }
+  })
+}
+
 
 //获取其他活动以及状态
 getOtherActivity(userId) {

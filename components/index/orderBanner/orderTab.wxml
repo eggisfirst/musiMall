@@ -6,15 +6,25 @@
   </view>
 
   <view class='tab-box'>
+    
     <view class='tab-li' 
           wx:for="{{tabList}}" 
           wx:key="{{name}}" 
-          catchtap='toDetails'
-          data-index="{{index}}">
-      <view class='tab-circle' style="{{item.color}}">
+          >
+      <view class='tab-circle' style="{{item.color}}" wx:if="{{hasPhoneStatus}}"  catchtap='toDetails' data-index="{{index}}">
         <image class='image-tab' src="{{item.imgUrl}}"/>
       </view>
+      
+       <button class='tab-circle' style="{{item.color}}" wx:else
+                open-type="getPhoneNumber"  
+                bindgetphonenumber="getPhoneNumber">
+        <image class='image-tab' src="{{item.imgUrl}}"/>
+      </button>
+
       <text class='tab-text'>{{item.name}}</text>
     </view>
+
+   
+
   </view>
 </view>
