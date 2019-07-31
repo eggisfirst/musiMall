@@ -1,15 +1,16 @@
 <block  wx:if="{{type == 'activity'}}">
   <!-- 活动首页 -->
-  <view wx:if="{{hasPhoneStatus}}"
-        class='activity'
+  <view class='activity'
         wx:for='{{contenList}}' 
         wx:for-item="el"
         wx:key="{{productName}}"
-        data-id="{{el.id}}"
-        catch:tap='toProductDetails'>
-        <view>
+       >
+        <view wx:if="{{hasPhoneStatus}}"  catch:tap='toProductDetails' data-id="{{el.id}}">
           <productLi productType="{{el}}" />
         </view>
+         <button class="my_button"  wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <productLi productType="{{el}}" />
+        </button>
   </view>
   
 

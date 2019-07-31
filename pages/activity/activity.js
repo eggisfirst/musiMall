@@ -22,12 +22,19 @@ Page({
     page: 1,
     status: 0,
     hasMoreData: false,
-    noData:false
+    noData:false,
+    myStatus: false
   },
   onLoad(options) {
     this.getAdvertisement()
     this.initData()
     // console.log('onload')
+  },
+  onShow() {
+    const myStatus = !this.data.myStatus
+    this.setData({
+      myStatus
+    })
   },
   //转发
   onShareAppMessage(res) {

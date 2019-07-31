@@ -9,7 +9,13 @@ Component({
     current: String,
     key: Boolean,
     hasMoreData: Boolean,
-    noData: Boolean
+    noData: Boolean,
+    myStatus: {
+      type: Boolean,
+      observer() {
+        this.handleHasPhoneStatus(app.globalData.hasPhone)
+      }
+    }
   },
   data: {
     orderHeight: '',
@@ -18,14 +24,7 @@ Component({
   }, 
   ready() {
     // console.log(111,this.properties.noData)
-    if (app.globalData.userId) {
-      wx.hideLoading()
-    } else {
-      app.checkLoginReadyCallback = res => {
-        wx.hideLoading()
-        this.handleHasPhoneStatus(res.data.mobileNumber)
-      };
-    }
+  
   },
   methods: {
      //判断手机有没有授权
@@ -96,9 +95,6 @@ Component({
         }
       })
     },
-
-
-
     //先判断有没有登陆再跳转
     toProductDetails(e) {
       // let tips = getApp().globalData.login

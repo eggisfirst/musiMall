@@ -6,12 +6,18 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    status: false
   },
   onLoad: function () {
     this.init()
     this.mapCtx = wx.createMapContext('myMap')
   },
-
+  onShow(){
+    const status = !this.data.status
+    this.setData({
+      status
+    })
+  },
   //验证客户有没有授权
   init() {
     //判断有没有授权。已授权则直接获取信息。

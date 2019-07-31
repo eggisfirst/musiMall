@@ -7,6 +7,20 @@
   overflow: scroll;
 }
 
+.my_button{ 
+  background: #efeff4;
+  /* background-color: #fff; */
+  border-radius:0;
+  width: 100%;
+  border-radius: 0rpx;
+  padding:0rpx;
+  margin:0rpx;
+  display: inline-block;
+  line-height: 1;
+}
+.my_button::after {
+  border: none;
+}
 .activity {
   /* min-height: 72vh; */
 }
