@@ -45,10 +45,12 @@
   height: 80rpx;
 }
 .box_text {
-  /* margin-top: 6rpx; */
+  margin: 0 auto;
+  width: 134rpx;
+  padding-left: 7rpx;
 }
 .thank {
-  width: 93rpx
+  width: 93rpx;
 }
 
 .startBtn {

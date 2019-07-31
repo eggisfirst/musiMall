@@ -199,7 +199,7 @@ getPrizeList(userId) {
 
 //抽奖
 luckDraw(userId) {
-  return this.getSecretData({
+  return this._getSecretData({
     url: "v1/api/prizewinning/luckDraw",
     data: {
       userId

@@ -71,11 +71,9 @@ Component({
               url: `../${url}/${url}`,
             })
           }
-          else if (url === 'lottery' || url === "check") {
-            wx.showToast({
-              title: '活动尚未开始',
-              icon: 'none',
-              duration: 1500
+          else if (url === 'lottery') {
+            wx.switchTab({
+              url: `../${url}/${url}`,
             })
           }
           else if (url === "basketSignUp"){
@@ -100,13 +98,10 @@ Component({
           url: `../${url}/${url}`,
         })
       }
-      else if (url === 'lottery' || url === "check") {
-        wx.showToast({
-          title: '活动尚未开始',
-          icon: 'none',
-          duration: 1500
+      else if (url === 'lottery') {
+        wx.switchTab({
+          url: `../${url}/${url}`,
         })
-
       }
       else if (url === "basketSignUp"){
         if (app.globalData.userId) {

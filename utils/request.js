@@ -84,6 +84,50 @@ class Request {
     })
   }
 
+   //有token
+   _getSecretData({ url, data = {}}) {
+    return new Promise((resolve, reject) => {
+      this._getToken().then(res => {
+        // console.log(2333,res)
+        if (res.access_token) {
+          wx.setStorage({
+            key: "token",
+            data: res.refresh_token
+          })
+          const sign = this._getSign(data)
+          wx.request({
+            url: this.baseUrl + url,
+            method: "post",
+            data: data,
+            header: {
+              'content-type': 'application/x-www-form-urlencoded',
+              "Authorization": `Bearer ${res.access_token}`,
+              'sign': sign
+            },
+            dataType: 'json',
+            responseType: 'text',
+            success: res => {
+              if (res.data) {
+                resolve(res.data)
+              }
+            },
+            fail: err => {
+              reject(err)
+              wx.hideLoading()
+              this._showError()
+            }
+          })
+        }else {
+          this._refreshToken().then(res => {
+            if (res.access_token) {
+              this.getSecretData()
+            }
+          })
+        }
+      })
+    })
+  }
+
 
 _getToken() {
   return new Promise((resolve, reject) => {
