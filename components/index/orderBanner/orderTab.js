@@ -4,7 +4,13 @@ const app = getApp()
 Component({
   properties: {
     //从父组件接收
-  
+    status: {
+      type: Boolean,
+      observer() {
+        console.log('=======status======')
+        this.handleHasPhoneStatus(app.globalData.hasPhone)
+      }
+    }
   },
   data: {
     tabList: [{
@@ -27,6 +33,7 @@ Component({
     hasPhoneStatus: true
   },
   ready() {
+<<<<<<< HEAD
     if (app.globalData.userId) {
       wx.hideLoading()
     } else {
@@ -36,6 +43,8 @@ Component({
       };
     }
     // this.handleHasPhoneStatus(app.globalData.hasPhone)
+=======
+>>>>>>> index
     // console.log(this.properties.current)
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
@@ -45,6 +54,10 @@ Component({
       if(!phone) {
         this.setData({
           hasPhoneStatus: false
+        })
+      }else {
+        this.setData({
+          hasPhoneStatus: true
         })
       }
     },
@@ -102,6 +115,7 @@ Component({
       indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
           app.globalData.hasPhone = true
+          app.globalData.phone = res.data.mobileNumber  
           this.setData({
             hasPhoneStatus: true
           })

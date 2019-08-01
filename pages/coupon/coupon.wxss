@@ -1,0 +1,21 @@
+/* pages/coupon/coupon.wxss */
+.orderDetails-container {
+  width: 750rpx;
+  min-height: 100vh;
+  background: #efeff4;
+  box-sizing: border-box;
+  overflow: scroll;
+  position: relative;
+  /* border: 1px solid red; */
+}
+.content {
+  margin-top:80rpx; 
+  box-sizing: border-box;
+}
+.tab {
+  width: 750rpx;
+  height: 80rpx;
+  position: fixed;
+  top: 0;
+  left: 0
+}

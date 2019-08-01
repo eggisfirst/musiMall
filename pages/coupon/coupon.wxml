@@ -1,0 +1,10 @@
+<view class='orderDetails-container'>
+  <compTab 
+          class='tab'
+          catch:getCurrentTab="getCurrentTab" 
+          current="{{current}}" 
+          list="{{list}}"/>
+  <couponCmp  class="content"
+              couponList="{{couponList}}"
+              status="{{status}}"/>
+</view>

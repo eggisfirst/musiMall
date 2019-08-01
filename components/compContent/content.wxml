@@ -1,14 +1,20 @@
 <block  wx:if="{{type == 'activity'}}">
   <!-- 活动首页 -->
-  <view 
-      class='activity'
-      wx:for='{{contenList}}' 
-      wx:for-item="el"
-      wx:key="{{productName}}"
-      data-id="{{el.id}}"
-      catch:tap='toProductDetails'>
-      <productLi productType="{{el}}" />
+  <view class='activity'
+        wx:for='{{contenList}}' 
+        wx:for-item="el"
+        wx:key="{{productName}}"
+       >
+        <view wx:if="{{hasPhoneStatus}}"  catch:tap='toProductDetails' data-id="{{el.id}}">
+          <productLi productType="{{el}}" />
+        </view>
+         <button class="my_button"  wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+          <productLi productType="{{el}}" />
+        </button>
   </view>
+  
+
+
   <loading hidden="{{!hasMoreData}}" class='loading'/>
   <view class='noMore' wx:if="{{noData}}">
     <text>没有更多了</text>

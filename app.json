@@ -2,10 +2,20 @@
   "pages": [
     "pages/home/home",
 
+<<<<<<< HEAD
     "pages/lottery/lottery",
 
     "pages/activity/activity",
     "pages/index/index",
+=======
+    "pages/index/index",
+
+    
+
+    "pages/coupon/coupon",
+    "pages/activity/activity",
+    "pages/lottery/lottery",
+>>>>>>> index
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",
     "pages/orderStatus/orderStatus",

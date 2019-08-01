@@ -76,6 +76,7 @@
   flex-direction: column;
   box-sizing: border-box;
   width: 500rpx;
+  text-align: left;
 }
 
 .product-content .product-name{

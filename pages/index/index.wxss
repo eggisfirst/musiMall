@@ -100,17 +100,18 @@ button::after {
   background: #fff;
   box-sizing: border-box;
   margin-top: 20rpx;
+  overflow: hidden;
 }
 
 .coupon {
   margin-left: 32rpx;
-  border-bottom: 1rpx solid #e1e1e1;
+  border-top: 1rpx solid #e1e1e1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   line-height: 87rpx;
 }
-.coupon:last-child {
+.coupon:first-child {
   border: none;
 }
 .c_img {
@@ -121,8 +122,9 @@ button::after {
   color: #1a1a1a;
   font-size: 32rpx;
   /* width: 400rpx; */
-  flex: 0.5
-
+  flex: 0.5;
+  line-height: 87rpx;
+  text-align: left;
 }
 
 .right {
@@ -140,3 +142,22 @@ button::after {
   color: #909090;
   font-size: 27rpx;
 }
+
+.button {
+  background-color: #fff;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 720rpx;
+  border-radius: 0;
+  margin-left: 32rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 87rpx;
+}
+
+button::after{
+  border:none;
+  }
