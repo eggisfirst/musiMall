@@ -138,3 +138,10 @@
   color: #999;
   font-size: 29rpx;
 }
+
+.noMore {
+  width: 100%;
+  text-align: center;
+  color: #ccc;
+  font-size: 24rpx;
+}

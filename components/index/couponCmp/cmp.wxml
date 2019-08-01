@@ -26,7 +26,9 @@
     <view class="rules_text" hidden="{{currentIndex !== index}}">
       前往慕思门店{{item.detail_remark}}
     </view>
+   
   </view>
+   <view class="noMore">没有更多了</view>
   </block>
   <view class="empty"  wx:else>
     <image class="nocoupon" src="/images/lottery/nocoupon.png" mode="widthFix"/>

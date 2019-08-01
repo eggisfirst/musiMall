@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/home/home",
-    
+
     "pages/index/index",
+
+    
 
     "pages/coupon/coupon",
     "pages/activity/activity",

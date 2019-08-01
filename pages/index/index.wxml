@@ -22,13 +22,27 @@
   </view>
 
   <view class="coupon_box">
-    <view class="coupon" catchtap="toCoupon">
+    <view class="coupon" catchtap="toCoupon" wx:if="{{hasPhoneStatus}}">
       <image class="c_img" src="/images/index/coupon.png" mode="widthFix" />
       <view class="title">优惠券</view>
       <view class="right">
         <image class="r_img" src="/images/index/right-icon.png"  mode="widthFix"/>
       </view>
     </view>
+
+    <button class="button"  wx:else
+            open-type="getPhoneNumber"  
+            bindgetphonenumber="getPhoneNumber">
+      <image class="c_img" src="/images/index/coupon.png" mode="widthFix" />
+      <view class="title">优惠券</view>
+      <view class="right">
+        <image class="r_img" src="/images/index/right-icon.png"  mode="widthFix"/>
+      </view>
+    </button>
+    
+
+
+
      <view class="coupon">
       <image class="c_img" src="/images/index/phone.png" mode="widthFix" />
       <view class="title">联系客服</view>

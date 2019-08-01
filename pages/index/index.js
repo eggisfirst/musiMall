@@ -6,7 +6,8 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    status: false
+    status: false,
+    hasPhoneStatus: true
   },
   onLoad: function () {
     this.init()
@@ -14,6 +15,7 @@ Page({
   },
   onShow(){
     const status = !this.data.status
+    this.handleHasPhoneStatus(app.globalData.hasPhone)
     this.setData({
       status
     })
@@ -107,6 +109,80 @@ Page({
     }
     indexModel.decodeUserInfo(obj).then(res => {
       console.log(res)
+    })
+  },
+
+  //判断手机授权
+  handleHasPhoneStatus(phone) {
+    if(!phone) {
+      this.setData({
+        hasPhoneStatus: false
+      })
+    }else {
+      this.setData({
+        hasPhoneStatus: true
+      })
+    }
+  },
+  
+  //手机授权
+  getPhoneNumber(e) {
+    if (e.detail.encryptedData) {
+      this.checkSession(e)
+    }else {
+      wx.showToast({
+        title: '获取手机失败',
+        icon: "none",
+        duration: 1500
+      })
+    }
+  },
+  //先校验sessionkey有无过期
+  checkSession(e) {
+    wx.checkSession({
+      success: () => {
+        // console.log(e)
+        this.decodeUserInfoNumber(e)
+      },
+      fail: () => {
+        wx.login({
+          success: res => {
+            this.getOpenId(res.code, e)
+          }
+        })
+      }
+    })
+  },
+  //重新获取sessionkey
+  getOpenId(code, e) {
+    indexModel.getOpenId(code).then(res => {
+      if (res.status) {
+        app.globalData.sessionKey = res.data.sessionKey
+        this.decodeUserInfo(e)
+      }
+    })
+  },
+  //验证绑定
+  decodeUserInfoNumber(e) {
+    let shareUserId = "";
+    if (app.globalData.shareUserId) {
+      shareUserId = app.globalData.shareUserId
+    }
+    let obj = {
+      encryptedData: e.detail.encryptedData,
+      iv: e.detail.iv,
+      sessionKey: app.globalData.sessionKey,
+      openId: app.globalData.openId,
+      shareUserId
+    }
+    indexModel.getPhoneNumber(obj).then(res => {
+      if(res.status) {
+        app.globalData.hasPhone = true
+        app.globalData.phone = res.data.mobileNumber  
+        this.setData({
+          hasPhoneStatus: true
+        })
+      }
     })
   },
   //跳转优惠券
