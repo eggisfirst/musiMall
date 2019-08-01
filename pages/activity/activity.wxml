@@ -16,9 +16,9 @@
               type="activity"
               current="{{current}}" 
               contenList="{{contenList}}"
-              catch:setLoginTips='setLoginTips'
+              
               myStatus="{{myStatus}}"/>
-   <view class='tips' hidden="{{showTips}}">
+   <!-- <view class='tips' hidden="{{showTips}}">
     <tipsBox class='tipsBox' catch:closeTips="closeTips" tipsText="{{tipsText}}"/>
-  </view>
+  </view> -->
 </view>

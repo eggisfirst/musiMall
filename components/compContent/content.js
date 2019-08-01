@@ -33,6 +33,10 @@ Component({
         this.setData({
           hasPhoneStatus: false
         })
+      }else {
+        this.setData({
+          hasPhoneStatus: true
+        })
       }
     },
     
@@ -89,6 +93,7 @@ Component({
       indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
           app.globalData.hasPhone = true
+          app.globalData.phone = res.data.mobileNumber
           this.setData({
             hasPhoneStatus: true
           })
@@ -97,16 +102,11 @@ Component({
     },
     //先判断有没有登陆再跳转
     toProductDetails(e) {
-      // let tips = getApp().globalData.login
-      // this.triggerEvent('setLoginTips', { loginTips: tips});
-
-      // if(tips) {
         let id = e.currentTarget.dataset.id
         let current = this.properties.current
         wx.navigateTo({
           url: `../../pages/activityDetails/activityDetails?id=${id}&current=${current}`
         })
-      // }
     },
     //跳转订单详情页面
     toOrderStatus(e) {

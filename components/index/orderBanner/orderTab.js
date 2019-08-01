@@ -7,6 +7,7 @@ Component({
     status: {
       type: Boolean,
       observer() {
+        console.log('=======status======')
         this.handleHasPhoneStatus(app.globalData.hasPhone)
       }
     }
@@ -41,6 +42,10 @@ Component({
       if(!phone) {
         this.setData({
           hasPhoneStatus: false
+        })
+      }else {
+        this.setData({
+          hasPhoneStatus: true
         })
       }
     },
@@ -98,7 +103,7 @@ Component({
       indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
           app.globalData.hasPhone = true
-          // app.globalData.phone = res.data.mobileNumber  
+          app.globalData.phone = res.data.mobileNumber  
           this.setData({
             hasPhoneStatus: true
           })
@@ -107,7 +112,6 @@ Component({
     },
 
     toDetails(e) {
-      console.log(e,e.currentTarget.dataset.index)
       let index = e.currentTarget.dataset.index
       wx.navigateTo({
         url: '/pages/orderDetails/orderDetails?index=' + index

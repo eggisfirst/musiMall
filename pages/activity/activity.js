@@ -16,7 +16,6 @@ Page({
     },
     list: [ '正在疯抢','即将开抢','抢购结束'],
     contenList: [],
-    showTips: true,
     tipsText: '请先登录',
     key: true,
     page: 1,
@@ -180,31 +179,5 @@ Page({
   _loaded() {
     wx.hideLoading()
   },
-  //打开登录提示
-  setLoginTips(e) {
-    this.setData({
-      showTips: e.detail.loginTips
-    })
-  },
-  //关闭提示
-  closeTips(e) {
-    if(e.detail.tips) {
-      this._setShowTips()
-      this._toLoginPage()
-    }else {
-      this._setShowTips()
-    }
-  },
-  //跳转登录页面
-  _toLoginPage() {
-    wx.redirectTo({
-      url: '../login/login?type=activity'
-    })
-  },
-  //
-  _setShowTips() {
-    this.setData({
-      showTips: true
-    })
-  }
+
 })
