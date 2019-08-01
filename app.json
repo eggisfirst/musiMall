@@ -1,13 +1,12 @@
 {
   "pages": [
-    "pages/activity/activity",
-
+    "pages/home/home",
+    
     "pages/index/index",
 
-    "pages/home/home",
-
+    "pages/coupon/coupon",
+    "pages/activity/activity",
     "pages/lottery/lottery",
-
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",
     "pages/orderStatus/orderStatus",

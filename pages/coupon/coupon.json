@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "优惠券",
+  "onReachBottomDistance": 50,
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "compTab": "/components/compTab/compTab",
+    "couponCmp": "/components/index/couponCmp/cmp"
+  }
+}

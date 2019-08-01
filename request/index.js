@@ -242,6 +242,13 @@ getOtherActivity(userId) {
   })
 }
 
+//获取优惠券
+getCoupon(obj) {
+  return this.getSecretData({
+    url: "v1/api/prizewinning/getPrizeWinningList",
+    data: obj
+  })
+}
 
 }
 

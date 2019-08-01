@@ -1,0 +1,48 @@
+<!--components/index/couponCmp/cmp.wxml-->
+<view class="container">
+  <block  wx:if="{{couponList.length}}">
+  <view wx:for="{{couponList}}" wx:key="item.id" class="wrapper">
+    <view class="coupon">
+      <view class="left">
+        <image class="left_img" src="{{item.detail_pictures}}" mode="widthFix"/>
+        <view class="text">{{item.primary_key}}</view>
+      </view>
+
+      <view class="center">
+        <view class="title">
+          <text class="status" wx:if="{{item.actual_status === 0}}">未核销</text>
+          <text class="statused" wx:else>{{item.actual_status === 3? '已核销' : '已过期'}}</text>
+          <text class="num">核销码 {{item.write_off_code}}</text>
+        </view>
+
+        <view class="time">有效期：{{filter(item.start_time)}}-{{filter(item.end_time)}}</view>
+        <view class="line">- - - - - - - - - - - - - - - - - - - - -</view>
+        <view class="rules" catchtap="handleShowRules" data-index='{{index}}'>
+          <text>使用规则</text>
+          <image class="{{currentIndex !== index? 'rule_img' : 'rule_img1'}}" src="/images/lottery/down.png"  mode="widthFix"/>
+        </view>
+      </view>
+    </view>
+    <view class="rules_text" hidden="{{currentIndex !== index}}">
+      前往慕思门店{{item.detail_remark}}
+    </view>
+  </view>
+  </block>
+  <view class="empty"  wx:else>
+    <image class="nocoupon" src="/images/lottery/nocoupon.png" mode="widthFix"/>
+    <view class="empty_text">暂无优惠券</view>
+  </view>
+</view>
+
+
+<wxs module="filter">
+  var filter = function(time) {
+    if(!time) {
+      return
+    }
+    var date = time.split(" ")[0].split('-');
+    return date.join("/");
+  }
+  module.exports = filter
+</wxs>
+

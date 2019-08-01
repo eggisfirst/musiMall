@@ -109,4 +109,10 @@ Page({
       console.log(res)
     })
   },
+  //跳转优惠券
+  toCoupon() {
+    wx.navigateTo({
+      url: "/pages/coupon/coupon"
+    })
+  }
 })

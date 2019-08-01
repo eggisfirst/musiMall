@@ -22,7 +22,7 @@
   </view>
 
   <view class="coupon_box">
-    <view class="coupon">
+    <view class="coupon" catchtap="toCoupon">
       <image class="c_img" src="/images/index/coupon.png" mode="widthFix" />
       <view class="title">优惠券</view>
       <view class="right">
