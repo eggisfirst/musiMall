@@ -33,18 +33,6 @@ Component({
     hasPhoneStatus: true
   },
   ready() {
-<<<<<<< HEAD
-    if (app.globalData.userId) {
-      wx.hideLoading()
-    } else {
-      app.checkLoginReadyCallback = res => {
-        wx.hideLoading()
-        this.handleHasPhoneStatus(res.data.mobileNumber)
-      };
-    }
-    // this.handleHasPhoneStatus(app.globalData.hasPhone)
-=======
->>>>>>> index
     // console.log(this.properties.current)
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名

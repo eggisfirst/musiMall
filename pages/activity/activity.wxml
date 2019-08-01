@@ -16,15 +16,9 @@
               type="activity"
               current="{{current}}" 
               contenList="{{contenList}}"
-<<<<<<< HEAD
-              catch:setLoginTips='setLoginTips'/>
-              
-   <view class='tips' hidden="{{showTips}}">
-=======
               
               myStatus="{{myStatus}}"/>
    <!-- <view class='tips' hidden="{{showTips}}">
->>>>>>> index
     <tipsBox class='tipsBox' catch:closeTips="closeTips" tipsText="{{tipsText}}"/>
   </view> -->
 </view>
