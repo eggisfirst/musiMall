@@ -25,7 +25,8 @@ Component({
     prizeList: [],
     awardType: "",
     phoneStatus: true,
-    productId: ""
+    productId: "",
+    stystem: ""
   },
   ready() {
     console.log(app.globalData)
@@ -107,9 +108,19 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
+          console.log(res)
           let rpx = 1 * (res.windowWidth * res.pixelRatio) / (750 * res.pixelRatio);
+          let stystem;
+          if(res.platform == "ios"){
+            stystem = 'ios'
+          }else if(res.platform == "android"){
+            stystem = 'android'
+          }else {
+            stystem = ''
+          }
           this.setData({
-            rpx: rpx//添加到小程序全局data里面
+            rpx: rpx,//添加到小程序全局data里面
+            stystem
           })
           this.setAnimationSize()
         }
@@ -180,14 +191,21 @@ Component({
           const time = this._setAnimationTime(res.data.id)
           this._setAnimation(time)
 
+          let delay;
           console.log(time)
-          const delay = time* 3.5 + 500
-          var timer = setTimeout(() => {
-            this._setAwardTipsType(res.data)
+          if(this.data.stystem === 'ios') {
+            delay = time* 3.2
+          }else{
+            delay = time* 3.5 + 500
+          }
+          this._setAwardTipsType(res.data)
             this.setData({
               productId: res.data.prize_winning_record_id
             })
+          var timer = setTimeout(() => {
+            
             this._handleTipsBox(this.data.awardType)
+
             clearTimeout(timer)
           }, delay);
         }else { //活动时间未开始/已结束
@@ -239,7 +257,7 @@ Component({
       if(data.title.indexOf('代金券') !== -1 ) {
         tipsData.title = data.title
         tipsData.imgUrl = data.detail_pictures
-        tipsData.remark = '请前往周边慕思门店使用'
+        tipsData.remark = '请前往“我的>优惠券”使用'
         tipsData.type = 1
         this.setData({
           awardType: "tipsStatus",

@@ -2,16 +2,10 @@
   "pages": [
     "pages/home/home",
 
-    "pages/activity/activity",
-
-    "pages/index/index",
-
-
     "pages/lottery/lottery",
 
-
-
-
+    "pages/activity/activity",
+    "pages/index/index",
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",
     "pages/orderStatus/orderStatus",

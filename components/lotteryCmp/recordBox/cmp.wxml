@@ -13,7 +13,7 @@
             <view class="main" space="emsp">兑换码 {{item.write_off_code}}</view>
             <view class="detail">{{item.title}}</view>
           </view>
-          <view class="right">{{item.status? '已核销' : '未核销'}}</view>
+          <!-- <view class="right">{{item.status? '已核销' : '未核销'}}</view> -->
           <text class="time" space="emsp">{{item.create_time}}</text>
         </view>
 
