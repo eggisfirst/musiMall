@@ -9,9 +9,6 @@ Component({
     getList: {
       type: Boolean,
       observer() {
-        this.setData({
-          awardList: []
-        })
         this.getAllPrizeWinningList()
       }
     }
