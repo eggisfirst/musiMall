@@ -186,28 +186,17 @@ Component({
       const userId = app.globalData.userId
       indexModel.luckDraw(userId).then(res => {
         if(res.status) {
-          this.triggerEvent("startLottery", true)
-         
           const time = this._setAnimationTime(res.data.id)
+
+          this.triggerEvent("startLottery", true)
           this._setAnimation(time)
 
-          let delay;
-          console.log(time)
-          if(this.data.stystem === 'ios') {
-            delay = time* 3.2
-          }else{
-            delay = time* 3.5 + 500
-          }
           this._setAwardTipsType(res.data)
-            this.setData({
-              productId: res.data.prize_winning_record_id
-            })
-          var timer = setTimeout(() => {
-            
-            this._handleTipsBox(this.data.awardType)
-
-            clearTimeout(timer)
-          }, delay);
+          this.setData({
+            productId: res.data.prize_winning_record_id
+          })
+          
+         
         }else { //活动时间未开始/已结束
 
           const tipsData = this.data.tipsData
@@ -248,7 +237,7 @@ Component({
     //设置动画时间
     _setAnimationTime(id) {
       const myId = this._changeId(id)
-      return 1600 + 40*myId
+      return  2400 + 60*myId
     },
     //设置中奖类型
     _setAwardTipsType(data) {
@@ -289,6 +278,8 @@ Component({
             key: false
           })
           this._luckDraw()
+        }else {
+          return
         }
       }else {
         if(this.data.key) {
@@ -312,41 +303,98 @@ Component({
         timingFunction: 'ease',
         delay: 0
       });
-      // var time = 1600 + 40*3 //奖品
+      // var time = this._setAnimationTime(res.data.id)
+      // var time = 2400 + 60*8 //奖品
+
+
       const ani = this.data.awardAnimation
-      for(let i = 0; i < ani.length + 1; i ++) {
-        time -= 40
-        if(time > 800) {
+      let i = 0
+      var t = 50
+
+      var set1 = setInterval(fn, t);
+      var that = this
+      function fn() {
+          i++;
           if(i >= ani.length) {
             i = 0
           }
-          animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 25})
-        }else if(time >200 && time <= 800) {
-          if(i >= ani.length) {
-            i = 0
+          if(time <= 0) {
+            console.log('-=-=-=-= timer',set1)
+            that._handleTipsBox(that.data.awardType)
+            clearInterval(set1)
+          }else {
+            if(time > 1000) {
+              animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 20})
+              time -= 60
+
+              clearInterval(set1);
+              set1 = setInterval(fn, 60);
+
+            }
+            else if(time >500 && time <= 1000) {
+              animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 100})
+              time -= 100
+              clearInterval(set1);
+              set1 = setInterval(fn, 100);
+            }
+            else if(time >200 && time <= 500) {
+              animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 250,delay:100})
+              time -= 350
+              clearInterval(set1);
+              set1 = setInterval(fn, 350);
+            }
+            else if(time >= 0 && time <= 200) {
+              animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 300,delay:200})
+              time -= 500
+              clearInterval(set1);
+              set1 = setInterval(fn, 500);
+            }
+            that.setData({
+              ani: animation.export()
+            })
           }
-          animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 50,delay:50})
+        
         }
-        else if(time >20 && time <= 200) {
-          if(i >= ani.length) {
-            i = 0
-          }
-          animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 250,delay:100})
-        }
-        else if(time >=0 && time <= 20) {
-          if(i >= ani.length) {
-            i = 0
-          }
-          animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 500,delay:500})
-        }
-        else {
-          console.log('time',i)
-          this.setData({
-            ani: animation.export()
-          })
-          return 
-        }
-      }
+        
+
+     
+       
+
+      // const ani = this.data.awardAnimation
+      // for(let i = 0; i < ani.length + 1; i ++) {
+      //   time -= 40
+      //   if(time > 800) {
+      //     if(i >= ani.length) {
+      //       i = 0
+      //     }
+      //     animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 25})
+      //   }else if(time >200 && time <= 800) {
+      //     if(i >= ani.length) {
+      //       i = 0
+      //     }
+      //     animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 50,delay:50})
+      //   }
+      //   else if(time >20 && time <= 200) {
+      //     if(i >= ani.length) {
+      //       i = 0
+      //     }
+      //     animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 250,delay:100})
+      //   }
+      //   else if(time >= 0 && time <= 20) {
+      //     if(i >= ani.length) {
+      //       i = 0
+      //     }
+      //     animation.translate(ani[i].animate.x,ani[i].animate.y).step({duration: 400,delay:200})
+      //   }
+      //   else {
+      //     console.log('time',i)
+         
+
+        
+          
+      //     return false
+      //   }
+      // }
     },
     //关闭提示
     closeTipsBox() {

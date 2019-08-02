@@ -6,7 +6,7 @@
       <scroll-view class="content" scroll-y="{{true}}">
         <view>（1）参与方式：活动期间内可参与抽奖，每次抽奖消耗50积分</view>
         <view>（2）积分奖励设置：</view>
-        <view><text space="emsp">  -每天首次登录奖励50积分；</text></view>
+        <view><text space="emsp">  -首次登录奖励50积分；</text></view>
         <view><text space="emsp">  -邀请好友参加活动（邀请好友登录小程序）奖励30积分/人；</text></view>
         <view><text space="emsp">  -生成助威海报奖励积分50（仅首次生成奖励积分）；</text></view>
         <view><text space="emsp">  -参与趣味篮球小游戏奖励50积分（仅首次游玩奖励积分）。

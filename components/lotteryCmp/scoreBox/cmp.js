@@ -31,8 +31,8 @@ Component({
     optionsList:[
       {
         imgUrl: "../../../images/lottery/wx.png",
-        title: "微信登陆",
-        content: "仅首次登陆奖励积分",
+        title: "微信登录",
+        content: "仅首次登录奖励积分",
         right: {
           status: 0,
           text: "领取",
@@ -44,7 +44,7 @@ Component({
       {
         imgUrl: "../../../images/lottery/friend.png",
         title: "邀请好友参加活动",
-        content: "邀请好友登陆小程序30积分/人",
+        content: "邀请好友登录小程序30积分/人",
         right: {
           status: 0,
           text: "分享",
