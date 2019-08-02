@@ -26,7 +26,7 @@ Component({
     awardType: "",
     phoneStatus: true,
     productId: "",
-    stystem: ""
+    stystem: "",
   },
   ready() {
     console.log(app.globalData)
@@ -275,7 +275,7 @@ Component({
       if(this.data.allScore >= 50) {
         if(this.data.key) {
           this.setData({
-            key: false
+            key: false,
           })
           this._luckDraw()
         }else {

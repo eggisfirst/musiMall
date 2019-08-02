@@ -87,6 +87,7 @@ Page({
   },
   //重新获取sessionkey
   getOpenId(code,e) {
+
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
         app.globalData.sessionKey = res.data.sessionKey
@@ -96,6 +97,7 @@ Page({
   },
   //验证绑定
   decodeUserInfo(e) {
+
     let shareUserId = "";
     if (app.globalData.shareUserId) {
       shareUserId = app.globalData.shareUserId
@@ -128,7 +130,7 @@ Page({
   //手机授权
   getPhoneNumber(e) {
     if (e.detail.encryptedData) {
-      this.checkSession(e)
+      this.checkSessionNumber(e)
     }else {
       wx.showToast({
         title: '获取手机失败',
@@ -138,7 +140,7 @@ Page({
     }
   },
   //先校验sessionkey有无过期
-  checkSession(e) {
+  checkSessionNumber(e) {
     wx.checkSession({
       success: () => {
         // console.log(e)
@@ -147,18 +149,18 @@ Page({
       fail: () => {
         wx.login({
           success: res => {
-            this.getOpenId(res.code, e)
+            this.getOpenIdNumber(res.code, e)
           }
         })
       }
     })
   },
   //重新获取sessionkey
-  getOpenId(code, e) {
+  getOpenIdNumber(code, e) {
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
         app.globalData.sessionKey = res.data.sessionKey
-        this.decodeUserInfo(e)
+        this.decodeUserInfoNumber(e)
       }
     })
   },

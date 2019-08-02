@@ -6,6 +6,7 @@
           data-input="name"
           maxlength="10"
           bindinput="getVal"
+          value="{{formData[0].value}}"
           />
 <view class="error_text" wx:if="{{error.name}}">{{error.text}}</view>
   <input  class="{{error.phone? 'error' : 'input'}}"
@@ -14,6 +15,7 @@
           maxlength="13"
           data-input="phone"
           bindinput="getVal"
+          value="{{formData[1].value}}"
           />
 <view class="error_text" wx:if="{{error.phone}}">{{error.text}}</view>
    <textarea  class="{{error.address? 'textAreaError' : 'textArea'}}"
@@ -21,6 +23,7 @@
               placeholder-class="placeholder"
               data-input="address"
               bindinput="getVal"
+              value="{{formData[2].value}}"
               placeholder="*请填写奖品收件地址 省份、市区、县、详细地址（如道路、门牌号、小区、楼栋号、单元室等）请务必仔细检查，确保收货信息填写完整。" />
 <view class="error_text"  wx:if="{{error.address}}">{{error.text}}</view>
 </view>

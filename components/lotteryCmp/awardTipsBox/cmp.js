@@ -2,7 +2,7 @@
 Component({
   properties: {
     awardData: Object,
-    productId: String
+    productId: String,
   },
   data: {
     formStatus:false

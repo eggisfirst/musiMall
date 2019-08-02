@@ -22,7 +22,22 @@ Component({
       text: ""
     }
   },
+  ready() {
+    this.getFormData()
+  },
   methods: {
+    //如果本地有缓存则去缓存的数据
+    getFormData() {
+      const formData = this.data.formData
+      if(wx.getStorageSync('realname')) {
+        formData[0].value = wx.getStorageSync('realname')
+        formData[1].value = wx.getStorageSync('phone')
+        formData[2].value = wx.getStorageSync('address')
+        this.setData({
+          formData
+        })
+      }
+    },
     //获取输入框的值
     getVal(e) {
       if(e.currentTarget.dataset.input === 'name') {
@@ -116,6 +131,9 @@ Component({
       }
       indexModel.signUp(obj).then(res => {
         if(res.status) {
+          wx.setStorageSync('realname', formData[0].value)
+          wx.setStorageSync('phone', formData[1].value)
+          wx.setStorageSync('address', formData[2].value)
           this.triggerEvent('handleComfrim', true)
         }
       })
