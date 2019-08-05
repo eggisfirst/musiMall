@@ -50,23 +50,25 @@ Page({
   },
    //打开海报
   setPosterStatus(e) {
-    console.log('posterStatus',true)
+    this.scroll(true,true)
     this.setData({
-      posterStatus: true
+      posterStatus: true,
     })
   },
   //保存海报
-  savePoster() {
-    this.setData({
-      hasSave: true
-    })
-  },
+  // savePoster() {
+  //   this.setData({
+  //     hasSave: true,
+  //   })
+  // },
    //关闭海报
-  closePoster() {
-    this.setData({
-      posterStatus: false
-    })
-  },
+  // closePoster() {
+  //   this.scroll(true,false)
+
+  //   this.setData({
+  //     posterStatus: false,
+  //   })
+  // },
   //授权登录后
   setPosterBtn() {
     this.setData({
@@ -124,6 +126,14 @@ Page({
   onPageScroll(e) { // 获取滚动条当前位置
     this.setData({
       scrollTop: e.scrollTop
+    })
+  },
+  //当前页面固定/滚动到原位置
+  scroll(type,status) {
+    const fixed = status? 'indexFixed' : ''
+    this.setPageScroll(type,status)
+    this.setData({
+      fixed
     })
   },
   //设置背景是否固定

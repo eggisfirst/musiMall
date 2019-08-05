@@ -169,9 +169,13 @@ Component({
     },
     //打开海报
     handlePosterBtn() {
-      console.log(12123)
-      this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
-      this.triggerEvent("setPosterStatus",true)
+      const user = JSON.stringify(app.globalData.userInfo);
+      //跳转到新页面
+      wx.redirectTo({
+        url: "/pages/poster/poster?user=" + user,
+      })
+      // this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
+      // this.triggerEvent("setPosterStatus",true)
     },
     //点击打开中奖记录
     handleRecord() {

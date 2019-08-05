@@ -74,7 +74,7 @@
 }
 .center {
   text-align: left;
-  /* width: 350rpx; */
+  width: 330rpx;
 }
 .sec_text1 {
   color: #FEF1CC;
@@ -88,7 +88,12 @@
 }
 
 .right {
-  flex: 0.56;
+  /* flex: 0.56; */
+  width: 150rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .sec_text3 {
   color: #A6AAE3;
@@ -111,4 +116,9 @@
   font-size: 26rpx;
   line-height: 60rpx;
   margin-top: 10rpx;
+  border: none;
+}
+.btn:after
+{ 
+  border: none; 
 }

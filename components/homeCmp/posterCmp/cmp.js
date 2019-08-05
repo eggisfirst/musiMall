@@ -28,8 +28,10 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
+          console.log(res)
           const w = 334/750 * res.windowWidth*2
           const h = 500/1334 * res.windowHeight*2
+          // const h = w*1.5
           this.setData({
             width: res.windowWidth,
             height: res.windowHeight,
@@ -43,7 +45,8 @@ Component({
     toPx(x,y) {
       return {
         x: x/750 * this.data.width*2,
-        y: y/1334 * this.data.height*2
+        y: y/1334 * this.data.height*2,
+        // y: x/750 * this.data.width*2*1.5
       }
     },
     openAndDraw() {

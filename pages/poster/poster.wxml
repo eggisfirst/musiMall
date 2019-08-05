@@ -1,0 +1,7 @@
+<!--pages/poster/poster.wxml-->
+<view class="wrapper">
+  <poster imgUrl="{{imgUrl}}"
+          catch:closePoster="closePoster"
+          name="{{name}}"
+          catch:savePoster='savePoster'/>
+</view>

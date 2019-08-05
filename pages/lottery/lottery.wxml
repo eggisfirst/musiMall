@@ -25,12 +25,12 @@
 
     <activeRules wx:if="{{showRules}}" catch:setShowRules="setShowRules"/>
 
-    <posterCmp  wx:if="{{posterStatus}}"
+    <!-- <posterCmp  wx:if="{{posterStatus}}"
                 imgUrl="{{imgUrl}}"
                 catch:closePoster="closePoster"
                 name="{{name}}"
                 catch:savePoster='savePoster'
-                />
+                /> -->
     
 
 

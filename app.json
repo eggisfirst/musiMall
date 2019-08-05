@@ -1,10 +1,12 @@
 {
   "pages": [
     "pages/home/home",
+
+
+    "pages/lottery/lottery",
     "pages/index/index",
     "pages/coupon/coupon",
     "pages/activity/activity",
-    "pages/lottery/lottery",
     "pages/basketSignUp/basketSignUp",
     "pages/basketRule/basketRule",
     "pages/orderStatus/orderStatus",
@@ -13,7 +15,8 @@
     "pages/order/order",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/game/game"
+    "pages/game/game",
+    "pages/poster/poster"
   ],
   "window": {
     "backgroundTextStyle": "dark",
