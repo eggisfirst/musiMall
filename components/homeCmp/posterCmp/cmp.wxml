@@ -8,7 +8,7 @@
     <image class='image' src='/images/poster.png' />
   </view> -->
 
-  <view class='bottom_btn'>
+  <view class='bottom_btn' style="bottom: {{btnHeight}}">
     <view class='share' catchtap='handleCancle'>取消</view>
     <view class='share' catchtap='handleSave'>保存海报</view>
   </view>

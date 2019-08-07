@@ -16,10 +16,10 @@ Component({
     width:'',
     height: "",
     canvasW: "",
-    canvasH: ""
+    canvasH: "",
+    btnHeight: ""
   },
   ready() {
-    console.log('poster')
     this.openAndDraw()
     this.getSize()
   },
@@ -28,15 +28,16 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
-          console.log(res)
           const w = 334/750 * res.windowWidth*2
-          const h = 500/1334 * res.windowHeight*2
-          // const h = w*1.5
+          // const h = 500/1334 * res.windowHeight*2
+          const h = w*1.52
+          const btnH = res.windowHeight - h - 78
           this.setData({
             width: res.windowWidth,
-            height: res.windowHeight,
+            // height: res.windowWidth*1.5,
             canvasH: h + 'px',
-            canvasW: w + 'px'
+            canvasW: w + 'px',
+            btnHeight: btnH + 'px'
           })
         }
       })
@@ -45,8 +46,8 @@ Component({
     toPx(x,y) {
       return {
         x: x/750 * this.data.width*2,
-        y: y/1334 * this.data.height*2,
-        // y: x/750 * this.data.width*2*1.5
+        // y: y/1334 * this.data.height*2,
+        y: x/750 * this.data.width*2*1.5
       }
     },
     openAndDraw() {
@@ -95,14 +96,15 @@ Component({
         src: HandleUrl,
         success: function (res) {
           var path = res.path;
-          const size = that.toPx(284,447)
-          const size2 = that.toPx(259,420)
+          const size = that.toPx(294,487)  //裁剪区域x坐标
+          const size2 = that.toPx(269,480)  //图片的x坐标
+          const size3 = that.toPx(276,0)    //图片的y坐标
           // context.drawImage(path, 280, 500, 50, 50);
           context.save();
           context.beginPath()//开始创建一个路径
-          context.arc(size.x, size.y,that.toPx(25,0).x, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
+          context.arc(size.x, size.y,25, 0, 2 * Math.PI, false)//画一个圆形裁剪区域
           context.clip()//裁剪
-          context.drawImage(path, size2.x, size2.y, that.toPx(54,0).x, that.toPx(54,0).x)//绘制图片
+          context.drawImage(path, size2.x, size3.y, 54, 54)//绘制图片
   
           context.restore();
           context.stroke();
@@ -162,7 +164,8 @@ Component({
       row.push(temp);
       for (var b = 0; b < row.length; b++) {
         // context.fillText(row[b], 110, 430 + b * 20, 135);
-        context.fillText(row[b], this.toPx(110,0).x, this.toPx(110,430).y + b * 20, this.toPx(135,0).x);
+        //文字x坐标/y坐标
+        context.fillText(row[b], this.toPx(110,0).x, this.toPx(430,0).x + b * 20, this.toPx(435,0).x);
       }
       context.restore();
       context.stroke();

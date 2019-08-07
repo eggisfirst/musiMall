@@ -18,7 +18,7 @@
   /* margin: 0 auto; */
   /* margin-top: 36rpx; */
   position: fixed;
-  bottom: 100rpx;
+  bottom: 50rpx;
   left: 75rpx;
   display: flex;
   justify-content: space-between;
