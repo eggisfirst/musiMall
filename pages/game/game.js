@@ -1,4 +1,5 @@
 // pages/game/geme.js
+const app = getApp()
 Page({
 
   /**
@@ -14,7 +15,23 @@ Page({
   onLoad: function (options) {
     console.log(options)
   },
-  
+   //分享
+  onShareAppMessage:(res) => {
+    const userId = app.globalData.userId 
+    return {
+      title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
+      path: '/pages/home/home?userId=' + userId,
+      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
+      success:() => {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
+
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
