@@ -198,7 +198,6 @@ Component({
           
          
         }else { //活动时间未开始/已结束
-
           const tipsData = this.data.tipsData
           const title = res.msg.split(',')[0];
           const remark = res.msg.split(',')[1]
@@ -210,6 +209,7 @@ Component({
             awardType: "tipsStatus",
             tipsData
           })
+          this.triggerEvent('sexFixStatus',{type:false,status:true}) 
         }
       })
     },
@@ -293,6 +293,7 @@ Component({
             awardType: "tipsStatus",
             tipsData
           })
+          this.triggerEvent('sexFixStatus',{type:false,status:true}) 
         }
       }
      
@@ -321,6 +322,7 @@ Component({
           if(time <= 0) {
             console.log('-=-=-=-= timer',set1)
             that._handleTipsBox(that.data.awardType)
+
             clearInterval(set1)
           }else {
             if(time > 1000) {

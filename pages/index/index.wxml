@@ -39,11 +39,8 @@
         <image class="r_img" src="/images/index/right-icon.png"  mode="widthFix"/>
       </view>
     </button>
-    
 
-
-
-     <view class="coupon">
+     <view class="coupon"  catchtap="handleCall">
       <image class="c_img" src="/images/index/phone.png" mode="widthFix" />
       <view class="title">联系客服</view>
       <view class="right">

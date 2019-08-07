@@ -192,5 +192,12 @@ Page({
     wx.navigateTo({
       url: "/pages/coupon/coupon"
     })
+  },
+  //拨打电话
+  handleCall() {
+    const phone = '400-777-0077'
+    wx.makePhoneCall({
+      phoneNumber: phone,
+    })
   }
 })

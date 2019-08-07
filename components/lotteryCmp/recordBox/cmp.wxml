@@ -10,7 +10,7 @@
             <image class="left_img" src="{{item.detail_pictures}}" mode="widthFix"  />
           </view>
           <view class="center">
-            <view class="main" space="emsp">兑换码 {{item.write_off_code}}</view>
+            <view class="main" space="emsp">核销码 {{item.write_off_code}}</view>
             <view class="detail">{{item.title}}</view>
           </view>
           <!-- <view class="right">{{item.status? '已核销' : '未核销'}}</view> -->

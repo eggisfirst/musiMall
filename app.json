@@ -2,9 +2,10 @@
   "pages": [
     "pages/home/home",
 
+    "pages/index/index",
+
 
     "pages/lottery/lottery",
-    "pages/index/index",
     "pages/coupon/coupon",
     "pages/activity/activity",
     "pages/basketSignUp/basketSignUp",

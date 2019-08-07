@@ -38,7 +38,8 @@ Page({
       winning: 1,
       page: 1,
       limit: 10000,
-      loadListType
+      loadListType,
+      code: "coupon"
     }
     indexModel.getCoupon(obj).then(res => {
       if(res.status) {
