@@ -2,7 +2,7 @@ import { IndexModel } from '../../request/index.js'
 const indexModel = new IndexModel()
 var WxParse = require('../../wxParse/wxParse.js');
 // var Html2wxml = require('../../html2wxml-template/html2wxml.js');
-import { base64_decode } from '../../utils/index.js'
+import { htmlDecode } from '../../utils/index.js'
 
 Page({
   data: {
@@ -67,7 +67,9 @@ Page({
         this.initPercent(res.data)
         let imgArr = this.changeImg(res.data.productImgs)
         if (res.data.productDetails) {
-          let html = base64_decode(res.data.productDetails)
+
+          let html = htmlDecode(res.data.productDetails)
+          // console.log('html',html)
           this.setData({
             productDetails: res.data,
             html: html,
