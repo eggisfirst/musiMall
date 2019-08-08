@@ -4,7 +4,7 @@
       <block wx:for="{{prizeList}}" wx:key="item.id">
         <view class="box" wx:if="{{index !== 4}}">
           <image  src="{{item.detail_pictures}}" class="optionBtn" 
-                  />
+                  mode="widthFix" />
           <view class="box_text">{{item.title}}</view>
         </view>
 

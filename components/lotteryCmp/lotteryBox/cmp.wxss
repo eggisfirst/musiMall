@@ -41,8 +41,8 @@
   position: relative;
 }
 .optionBtn {
-  width: 155rpx;
-  height: 80rpx;
+  width: 150rpx;
+  /* height: 80rpx; */
 }
 .box_text {
   margin: 0 auto;
