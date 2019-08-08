@@ -18,7 +18,7 @@
                 bindgetphonenumber="getPhoneNumber"
                 style="background:url({{activeData.activeImage}});background-size:100% 100%"
                 >
-          <view class='button'>{{activeData.active}}</view>
+          <view class='mybutton'>{{activeData.active}}</view>
         </button>
       </view>
     </block>

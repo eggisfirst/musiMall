@@ -73,17 +73,32 @@
 .button {
   position: absolute;
   bottom: 52rpx;
-  left:68rpx;
+  left:88rpx;
   z-index: 100;
   font-size: 24rpx;
   border-radius: 5rpx;
   background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/btnBg.png") no-repeat center;
   background-size: 100% 100%;
-  width: 161rpx;
-  height: 43rpx;
+  width: 200rpx;
+  height: 53rpx;
   color: #261f2a;
   text-align: center;
-  line-height: 43rpx;
+  line-height: 53rpx;
+}
+.mybutton {
+  position: absolute;
+  bottom: 42rpx;
+  left:48rpx;
+  z-index: 100;
+  font-size: 24rpx;
+  border-radius: 5rpx;
+  background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/btnBg.png") no-repeat center;
+  background-size: 100% 100%;
+  width: 200rpx;
+  height: 53rpx;
+  color: #261f2a;
+  text-align: center;
+  line-height: 53rpx;
 }
 
 .btnStyle {
@@ -96,4 +111,5 @@
   height: 369rpx;
   /* background: url("https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/basketball.png") no-repeat center; */
   background-size: 100% 100%;
+  position: relative;
 }
