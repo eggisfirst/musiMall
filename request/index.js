@@ -226,7 +226,8 @@ getAllPrizeWinningList() {
     data: {
       winning: 1,
       page: 1,
-      limit: 100
+      limit: 100,
+      code: 'commodity'
     }
   })
 }

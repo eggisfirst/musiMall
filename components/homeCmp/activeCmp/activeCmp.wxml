@@ -6,7 +6,7 @@
   <block wx:if="{{phoneStatus}}" >
     <view class='content' catchtap='navigateTo'>
       <image class='content-image' src="{{activeData.activeImage}}" mode="widthFix" lazy-load="{{true}}"/>
-        <view class='button'>{{activeData.active}}</view>
+        <view class='button' wx:if="{{activeData.id !==5}}">{{activeData.active}}</view>
     </view>
   
   </block>
@@ -18,7 +18,7 @@
                 bindgetphonenumber="getPhoneNumber"
                 style="background:url({{activeData.activeImage}});background-size:100% 100%"
                 >
-          <view class='mybutton'>{{activeData.active}}</view>
+          <view class='mybutton' wx:if="{{activeData.id !==5}}">{{activeData.active}}</view>
         </button>
       </view>
     </block>
