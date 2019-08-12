@@ -15,15 +15,30 @@ Component({
   data: {
     cutColor: 'background: #efeff4',
     addColor: 'background: #fff',
-    buyNum: 1
+    buyNum: 1,
   },
   ready() {
-    this.setData({
-      phone: app.globalData.phone
-    })
+    this.getPhoneNumber()
   },
   // 生命周期函数，可以为函数，或一个在methods段中定义的方法名
   methods: {
+    //获取用户手机号
+    getPhoneNumber() {
+      const id = app.globalData.openId
+      indexModel.getUserInfoByMap(id).then(res => {
+        if(res.status) {
+          this.setData({
+            phone: res.data.mobileNumber
+          })
+        }else {
+          wx.showToast({
+            title: res.msg,
+            icon: 'none',
+            duration:2000
+          })
+        }
+      })
+    },
     //初始化加号的颜色
     initNumColor(newVal) {
       // let details = this.properties.productDetails

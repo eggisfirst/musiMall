@@ -2,9 +2,9 @@ const util = require("./sha1.js")
 
 class Request {
   // baseUrl = 'http://10.11.8.228:8088/'
-  // baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
+  baseUrl = 'https://mobiletest.derucci.net/consumer-admin/'
   // baseUrl = 'https://op.derucci.com/'
-  baseUrl = 'https://qiang.derucci.com/'
+  // baseUrl = 'https://qiang.derucci.com/'
   // tokenUrl = "https://op.derucci.com/"
 
   refreshToken = ''
