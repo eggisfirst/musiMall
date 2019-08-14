@@ -1,0 +1,2 @@
+<!--pages/fullLottery/fullLottery.wxml-->
+<web-view src="https://mobiletest.derucci.net/web/2019818/#/draw"></web-view>

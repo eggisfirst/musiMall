@@ -16,6 +16,7 @@ Component({
     cutColor: 'background: #efeff4',
     addColor: 'background: #fff',
     buyNum: 1,
+    uId: ""
   },
   ready() {
     this.getPhoneNumber()
@@ -28,7 +29,8 @@ Component({
       indexModel.getUserInfoByMap(id).then(res => {
         if(res.status) {
           this.setData({
-            phone: res.data.mobileNumber
+            phone: res.data.mobileNumber,
+            uId: res.data.unionId
           })
         }else {
           wx.showToast({
@@ -53,10 +55,11 @@ Component({
       this.triggerEvent('closeSelectNum', { status: true });
       let id = this.properties.productDetails.id
       let num = this.data.buyNum
-      this.sendOrder(id,num)
+      const unionId = this.data.uId
+      this.sendOrder(id,num, unionId)
     },
-    sendOrder(id, num) {
-      indexModel.comfirmOrder(this.data.phone,id, num).then(res => {
+    sendOrder(id, num, unionId) {
+      indexModel.comfirmOrder(this.data.phone,id, num,unionId).then(res => {
         // console.log(res)
         if(res.status == 1) {
           wx.navigateTo({

@@ -49,14 +49,15 @@ class IndexModel extends Request {
     })
   }
   //订单列表
-  getOrderList(phone,status,page) {
+  getOrderList(phone,status,page,unionId) {
     return this.getData({
       url: 'smallprogram/getOrder',
       data: {
         userMobileNumber: phone,
         orderState: status,
         page: page,
-        limit: 10
+        limit: 10,
+        unionId
       }
     })
   }
@@ -90,13 +91,14 @@ class IndexModel extends Request {
     })
   }
   //提交订单
-  comfirmOrder(phone,id,num) {
+  comfirmOrder(phone,id,num,unionId) {
     return this.getData({
       url: 'smallprogram/saveOrderAndDetails',
       data: {
         userMobileNumber: phone,
         activityId: id,
-        quantity: num
+        quantity: num,
+        unionId
       }
     })
   }

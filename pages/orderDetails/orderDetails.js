@@ -9,7 +9,7 @@ Page({
     page: 1,
     key: true,
     hasMoreData: false,
-    noData: false
+    noData: false,
   },
   onLoad: function (options) {
     this.initQueryData(options.index)
@@ -46,7 +46,9 @@ Page({
   //获取订单列表
   getOrderList(status,page) {
     let index = status - 1
-    indexModel.getOrderList(this.data.phone,index,page).then(res => {
+    /**添加了unionid */
+    const id = app.globalData.unionId
+    indexModel.getOrderList(this.data.phone,index,page,id).then(res => {
       if(res.status == 1) {
         wx.hideNavigationBarLoading();//隐藏导航条加载动画。
         wx.stopPullDownRefresh();//停止当前页面下拉刷新。

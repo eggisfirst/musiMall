@@ -41,14 +41,14 @@ Page({
         bannerImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/icon/4.png",
         activeImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/game.png"
       },
-      // {
-      //   activeName: "慕思满额抽奖",
-      //   linkTo: "fullLottery",
-      //   // activeIconName: "查看中奖名单",
-      //   id:5,
-      //   bannerImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/5.png",
-      //   activeImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery5.png"
-      // }
+      {
+        activeName: "慕思满额抽奖",
+        linkTo: "fullLottery",
+        // activeIconName: "查看中奖名单",
+        id:5,
+        bannerImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/5.png",
+        activeImage: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/lottery5.png"
+      }
     ],
     phoneStatus: false,
     btnStatus: false

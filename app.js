@@ -76,6 +76,7 @@ App({
         }
         //
         this.globalData.openId = res.data.openId
+        this.globalData.unionId = res.data.unionId
         wx.setStorage({
           key: 'openId',
           data: res.data.openId,
@@ -106,6 +107,7 @@ App({
         }
         //
         this.globalData.openId = res.data.openId
+        this.globalData.unionId = res.data.unionId
         //判断有没有领取积分
         this.globalData.integralStatus = res.data.integralStatus
         this.globalData.sessionKey = res.data.sessionKey
@@ -146,6 +148,7 @@ App({
     key: true,
     phone: '',
     openId: '',
+    unionId: "",
     sessionKey: '',
     loading: false,
     isIphoneX: false,

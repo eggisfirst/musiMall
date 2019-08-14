@@ -86,9 +86,9 @@ Component({
         }
       })
     },
-    toGame() {
+    toGame(url) {
       wx.navigateTo({
-        url:"/pages/game/game"
+        url:`/pages/${url}/${url}`
       })
     },
     navigateTo(e) {
@@ -112,7 +112,10 @@ Component({
       }
       else if(url === 'game') {
         this.playGame()
-        this.toGame()
+        this.toGame(url)
+      }
+      else {
+        this.toGame(url)
       }
     },
     //跳转到报名
