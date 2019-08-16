@@ -20,8 +20,28 @@ Page({
   },
   onLoad (options) {
     // this.getUserIntegral()
+    app.checkLoginReadyCallback = res => {
+      // wx.hideLoading()
+      console.log('activeload')
+        if(res.data.mobileNumber) {
+          app.globalData.hasPhone = true
+          app.globalData.phone = res.data.mobileNumber
+          
+          this.hasGetInfo()
+          //每次请求中奖名单
+          this.getUserIntegral()
+          const status = !this.data.getList
+          const scoreStatus = !this.data.getScoreStatus
+          this.setData({
+            getList: status,
+            getScoreStatus:scoreStatus
+          })
+         
+        }
+    };
   },
   onShow() {
+
     this.hasGetInfo()
     //每次请求中奖名单
     this.getUserIntegral()
@@ -89,7 +109,7 @@ Page({
     return {
       title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
       path: '/pages/home/home?userId=' + userId,
-      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
+      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/kebi/poster.png",
       success:() => {
         wx.showToast({
           title: '成功',
@@ -102,7 +122,8 @@ Page({
   },
   //获取用户积分
   getUserIntegral() {
-    const userId = app.globalData.userId
+    const userId = wx.getStorageSync('userId')
+    // const userId = app.globalData.userId
     indexModel.getUserIntegral(userId).then(res => {
       if(res.status) {
         this.setData({

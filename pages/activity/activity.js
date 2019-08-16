@@ -22,12 +22,28 @@ Page({
     status: 0,
     hasMoreData: false,
     noData:false,
-    myStatus: false
+    myStatus: false,
+    judgeStatusKey: false
   },
   onLoad(options) {
     this.getAdvertisement()
     this.initData()
-    // console.log('onload')
+    //判断onLaunch是否执行完毕
+    app.checkLoginReadyCallback = res => {
+      // wx.hideLoading()
+      console.log('activeload')
+        if(res.data.mobileNumber) {
+          app.globalData.hasPhone = true
+          app.globalData.phone = res.data.mobileNumber
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
+          const myStatus = !this.data.myStatus
+          this.setData({
+            myStatus
+          })
+        }
+    };
   },
   onShow() {
     const myStatus = !this.data.myStatus

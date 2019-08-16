@@ -78,6 +78,10 @@ Component({
       indexModel.getPhoneNumber(obj).then(res => {
         if (res.status) {
           app.globalData.hasPhone = true
+          app.globalData.phone = res.data.mobileNumber
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
           this.triggerEvent("setPhoneStatus", true)
           this.authorizationGiveIntegral(res.data.id)
         }

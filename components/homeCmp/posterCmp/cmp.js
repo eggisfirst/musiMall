@@ -12,7 +12,7 @@ Component({
     tmpPath: '',
     saveStatus: false,
     via: "https://wx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTK9yeom1bMibtfgcTFV2AV2tickQgib6rwzxmibFibWpHYxPMBn1T6RfE5o7HenfuXEBb1w2ibDSFeCMibow/132",
-    cardCreateImgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
+    cardCreateImgUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/kebi/poster.png",
     width:'',
     height: "",
     canvasW: "",
@@ -28,9 +28,9 @@ Component({
     getSize() {
       wx.getSystemInfo({
         success: res => {
-          const w = 334/750 * res.windowWidth*2
+          const w = 334/750 * res.windowWidth*2 - 2
           // const h = 500/1334 * res.windowHeight*2
-          const h = w*1.52
+          const h = w*1.49
           const btnH = res.windowHeight - h - 78
           this.setData({
             width: res.windowWidth,

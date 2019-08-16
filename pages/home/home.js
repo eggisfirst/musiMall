@@ -75,6 +75,7 @@ Page({
   onShow() {
     if(app.globalData.phone) {
       this.handlePhoneStatus(app.globalData.phone)
+      this.scoreStatus(true)
     } 
   },
   //是否已经领取积分

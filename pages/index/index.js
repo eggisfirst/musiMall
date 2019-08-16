@@ -181,6 +181,9 @@ Page({
       if(res.status) {
         app.globalData.hasPhone = true
         app.globalData.phone = res.data.mobileNumber  
+        if(!wx.getStorageSync('phone')) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
+        }
         this.setData({
           hasPhoneStatus: true
         })

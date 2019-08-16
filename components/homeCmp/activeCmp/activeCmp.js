@@ -65,6 +65,9 @@ Component({
         if(res.status) {
           app.globalData.hasPhone = true
           const url = this.data.activeData.linkTo
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
           this.triggerEvent("setPhoneStatus",true)
           if (url === "activity") {
             wx.switchTab({

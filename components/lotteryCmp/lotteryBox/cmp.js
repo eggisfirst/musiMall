@@ -4,7 +4,12 @@ const indexModel = new IndexModel()
 const app = getApp()
 Component({
   properties: {
-    allScore: Number
+    allScore: {
+      type: Number,
+      observer() {
+        this.hasPhone()
+      }
+    }
   },
   data: {
     tipsData: {
@@ -29,15 +34,16 @@ Component({
     stystem: "",
   },
   ready() {
-    console.log(app.globalData)
-    this.hasPhone()
+    // console.log(app.globalData)
     this.getSize()
     this.getPrizeList()
   },
   methods: {
     //判断有没有授权手机
     hasPhone() {
-      if(!app.globalData.hasPhone) {
+      const phone = wx.getStorageSync('phone')
+      console.log(1231233,phone)
+      if(!phone) {
         this.setData({
           phoneStatus: false
         })
@@ -96,6 +102,9 @@ Component({
         if(res.status) {
           app.globalData.phone = res.data.mobileNumber
           app.globalData.hasPhone = true
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
           this.setData({
             phoneStatus: true
           })
@@ -168,7 +177,7 @@ Component({
     },
       //获取九宫格奖项
     getPrizeList() {
-      const userId = app.globalData.userId
+      const userId = wx.getStorageSync('userId')
       indexModel.getPrizeList(userId).then(res => {
         if(res.status) {
           let data = res.data
@@ -183,7 +192,7 @@ Component({
     },
     //抽奖
     _luckDraw() {
-      const userId = app.globalData.userId
+      const userId = wx.getStorageSync('userId')
       indexModel.luckDraw(userId).then(res => {
         if(res.status) {
           const time = this._setAnimationTime(res.data.id)

@@ -12,7 +12,8 @@ Component({
     noData: Boolean,
     myStatus: {
       type: Boolean,
-      observer() {
+      observer(val) {
+        console.log(11,val)
         this.handleHasPhoneStatus(app.globalData.hasPhone)
       }
     }
@@ -29,6 +30,7 @@ Component({
   methods: {
      //判断手机有没有授权
      handleHasPhoneStatus(phone) {
+       console.log('phone',phone)
       if(!phone) {
         this.setData({
           hasPhoneStatus: false
@@ -94,6 +96,9 @@ Component({
         if(res.status) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
           this.setData({
             hasPhoneStatus: true
           })

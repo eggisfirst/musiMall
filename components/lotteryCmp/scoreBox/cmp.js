@@ -24,6 +24,7 @@ Component({
       type: Boolean,
       observer() {
         this.getOtherActivity()
+        this.judgeHasPhone()
       }
     }
   },
@@ -74,16 +75,28 @@ Component({
     posterStatus: false,
     posterBtn:true,
     imgUrl: "",
-    name: ""
+    name: "",
+    hasPhone: false
     
   },
   ready() {
     // this.getOtherActivity()
   },
   methods: {
+    /**判断手机有没有授权 */
+    judgeHasPhone() {
+
+      const hasPhone = app.globalData.hasPhone
+      console.log('phone',hasPhone)
+      this.setData({
+        hasPhone
+      })
+    },
+
     //获取状态
     getOtherActivity(){
-      const userId = app.globalData.userId
+      const userId = wx.getStorageSync('userId')
+      // const userId = app.globalData.userId
       indexModel.getOtherActivity(userId).then(res => {
         if(res.status) {
           this.setOptionsList(res.data)
@@ -129,9 +142,80 @@ Component({
         this.handlePosterBtn()
       }
     },
+
+
+//手机授权
+  getPhoneNumber(e) {
+    if (e.detail.encryptedData) {
+      this.checkSessionNumber(e)
+    }else {
+      wx.showToast({
+        title: '获取手机失败',
+        icon: "none",
+        duration: 1500
+      })
+    }
+  },
+  //先校验sessionkey有无过期
+  checkSessionNumber(e) {
+    wx.checkSession({
+      success: () => {
+        // console.log(e)
+        this.decodeUserInfoNumber(e)
+      },
+      fail: () => {
+        wx.login({
+          success: res => {
+            this.getOpenIdNumber(res.code, e)
+          }
+        })
+      }
+    })
+  },
+  //重新获取sessionkey
+  getOpenIdNumber(code, e) {
+    indexModel.getOpenId(code).then(res => {
+      if (res.status) {
+        app.globalData.sessionKey = res.data.sessionKey
+        this.decodeUserInfoNumber(e)
+      }
+    })
+  },
+  //验证绑定
+  decodeUserInfoNumber(e) {
+    let shareUserId = "";
+    if (app.globalData.shareUserId) {
+      shareUserId = app.globalData.shareUserId
+    }
+    let obj = {
+      encryptedData: e.detail.encryptedData,
+      iv: e.detail.iv,
+      sessionKey: app.globalData.sessionKey,
+      openId: app.globalData.openId,
+      shareUserId
+    }
+    indexModel.getPhoneNumber(obj).then(res => {
+      if(res.status) {
+        app.globalData.hasPhone = true
+        app.globalData.phone = res.data.mobileNumber
+        
+        if(!wx.getStorageSync('phone')) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
+        }
+        this.setData({
+          hasPhone: true
+        })
+      }
+    })
+  },
+
+
+
+
     //领取积分
     getScore() {
-      const userId = app.globalData.userId
+      const userId = wx.getStorageSync('userId')
+      // const userId = app.globalData.userId
       const list = this.data.optionsList
       indexModel.authorizationGiveIntegral(userId).then(res => {
         if(res.status) {

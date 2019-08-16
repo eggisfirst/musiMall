@@ -14,21 +14,21 @@ Page({
     console.log(options)
   },
    //分享
-  // onShareAppMessage:(res) => {
-  //   return {
-  //     title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
-  //     path: '/pages/home/home',
-  //     imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/poster.png",
-  //     success:() => {
-  //       wx.showToast({
-  //         title: '成功',
-  //         icon: 'success',
-  //         duration: 2000
-  //       })
+  onShareAppMessage:(res) => {
+    return {
+      title: '一起为慕思篮球王全国挑战赛打Call！点击参与>>',
+      path: '/pages/home/home',
+      imageUrl: "https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/kebi/poster.png",
+      success:() => {
+        wx.showToast({
+          title: '成功',
+          icon: 'success',
+          duration: 2000
+        })
 
-  //     }
-  //   }
-  // },
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

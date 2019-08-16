@@ -8,7 +8,7 @@ Component({
       type: Boolean,
       observer() {
         console.log('=======status======')
-        this.handleHasPhoneStatus(app.globalData.hasPhone)
+        this.handleHasPhoneStatus(wx.getStorageSync('phone'))
       }
     }
   },
@@ -100,10 +100,13 @@ Component({
         openId: app.globalData.openId,
         shareUserId
       }
-      indexModel.getPhoneNumber(obj).then(res => {
+      (obj).then(res => {
         if(res.status) {
           app.globalData.hasPhone = true
-          app.globalData.phone = res.data.mobileNumber  
+          app.globalData.phone = res.data.mobileNumber 
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          } 
           this.setData({
             hasPhoneStatus: true
           })

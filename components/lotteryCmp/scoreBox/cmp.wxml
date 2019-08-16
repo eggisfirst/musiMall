@@ -27,10 +27,18 @@
             <image class="msg_image" src="/images/lottery/score.png" mode="widthFix"/>
             <text class="sec_text3">{{item.right.score}}</text>
           </view>
+          
+          <Block wx:if="{{index === 0 || index === 3}}">
+            <button wx:if="{{!hasPhone}}"
+                    class="btn" 
+                    data-index="{{index}}"
+                    open-type="getPhoneNumber"
+                    bindgetphonenumber="getPhoneNumber">{{item.right.text}}</button>
 
+             <view class="btn" wx:else="{{index === 0 || index === 3}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
 
-           <view class="btn" wx:if="{{index === 0 || index === 3}}" data-index="{{index}}" catchtap="handleActiveBtn">{{item.right.text}}</view>
-
+          </Block>
+          
            <button  wx:if="{{index === 1}}"
                     class="btn" 
                     data-index="{{index}}"

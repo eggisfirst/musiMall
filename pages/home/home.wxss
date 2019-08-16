@@ -26,7 +26,7 @@
 .banner {
   /* margin: 0 auto; */
   width: 100%;
-  margin-top: -150rpx;
+  margin-top: -80rpx;
 }
 .banner_text {
   color: #fff;

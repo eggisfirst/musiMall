@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class='home-container'>
-  <image class='bg' src='https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/bg.jpg'  mode="widthFix" ></image>
+  <image class='bg' src='https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/ruleBanner.png'  mode="widthFix" ></image>
     <image class="logo" src="/images/logo.png" />
     <view class='banner'>
       <image class='image'  mode="widthFix"  src="https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/newHome/title.png" />

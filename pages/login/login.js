@@ -71,6 +71,9 @@ Page({
     indexModel.getPhoneNumber(obj).then(res => {
       if(res.data) {
         app.globalData.phone = res.data.mobileNumber
+        if(!wx.getStorageSync('phone')) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
+        }
         app.globalData.login = true
         let type = this.data.type
         wx.switchTab({

@@ -1,7 +1,9 @@
 {
   "pages": [
+
     "pages/home/home",
     "pages/lottery/lottery",
+
     "pages/index/index",
     "pages/coupon/coupon",
     "pages/activity/activity",

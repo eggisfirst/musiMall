@@ -1,7 +1,7 @@
 <!--pages/basketSignUp/basketSignUp.wxml-->
 <view class='basketBall-container {{fixed}}'>
   <block wx:if="{{!hasSignUp}}">
-    <image class='bg' src='https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketBg.jpeg' mode="widthFix" />
+    <image class='bg' src='https://derucci-app.oss-cn-hangzhou.aliyuncs.com/musiMall/images/basketBg.png' mode="widthFix" />
     <view class="rule" catchtap="navigateToRule">活动规则</view>
     <view class='content' >
 
