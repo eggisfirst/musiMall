@@ -4,8 +4,16 @@ const indexModel = new IndexModel()
 const app = getApp()
 Component({
   properties: {
+    /**当前页面积分改变的时候检测 */
     allScore: {
       type: Number,
+      observer() {
+        this.hasPhone()
+      }
+    },
+    /**onshow的时候检测 */
+    getScoreStatus: {
+      type: Boolean,
       observer() {
         this.hasPhone()
       }
@@ -29,12 +37,13 @@ Component({
     key: true,
     prizeList: [],
     awardType: "",
-    phoneStatus: true,
+    phoneStatus: false,
     productId: "",
     stystem: "",
   },
   ready() {
     // console.log(app.globalData)
+    this.hasPhone()
     this.getSize()
     this.getPrizeList()
   },
@@ -42,10 +51,9 @@ Component({
     //判断有没有授权手机
     hasPhone() {
       const phone = wx.getStorageSync('phone')
-      console.log(1231233,phone)
-      if(!phone) {
+        if(phone) {
         this.setData({
-          phoneStatus: false
+          phoneStatus: true
         })
       }
     },

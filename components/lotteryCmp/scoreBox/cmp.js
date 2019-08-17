@@ -183,6 +183,8 @@ Component({
   },
   //验证绑定
   decodeUserInfoNumber(e) {
+    const index = e.currentTarget.dataset.index
+
     let shareUserId = "";
     if (app.globalData.shareUserId) {
       shareUserId = app.globalData.shareUserId
@@ -201,6 +203,12 @@ Component({
         
         if(!wx.getStorageSync('phone')) {
           wx.setStorageSync('phone',res.data.mobileNumber)
+        }
+        /**直接触发按钮 */
+        if(index === 0) {
+          this.getScore()
+        }else if(index === 3) {
+          this.playGame()
         }
         this.setData({
           hasPhone: true
@@ -332,6 +340,7 @@ Component({
         if(res.status) {
           this.triggerEvent('setViaImage', {user: res.data});
           this.triggerEvent('setPosterBtn', true);
+          this.handlePosterBtn()
           // this.triggerEvent("setPosterStatus",true)
         }
       })

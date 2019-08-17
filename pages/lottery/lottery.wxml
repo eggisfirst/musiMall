@@ -6,7 +6,8 @@
     <view class="lottery_box">
       <lotteryBox allScore="{{allScore}}" 
                   catch:sexFixStatus="sexFixStatus"
-                  catch:startLottery="startLottery"/>
+                  catch:startLottery="startLottery"
+                  getScoreStatus="{{getScoreStatus}}"/>
     </view>
     <view class="score_box">
       <scoreBox catch:sexFixStatus="sexFixStatus"

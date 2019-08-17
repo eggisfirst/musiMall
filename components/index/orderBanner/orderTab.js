@@ -100,7 +100,7 @@ Component({
         openId: app.globalData.openId,
         shareUserId
       }
-      (obj).then(res => {
+      indexModel.getPhoneNumber(obj).then(res => {
         if(res.status) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber 

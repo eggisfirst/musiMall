@@ -69,6 +69,7 @@ App({
     indexModel.getOpenId(code).then(res => {
       if (res.status) {
         wx.hideLoading()
+        wx.setStorageSync('userId',res.data.id)
         //回调，确定这个函数走完才走页面的onload
         this.globalData.userId = res.data.id;
         if (this.checkLoginReadyCallback) {
@@ -85,6 +86,7 @@ App({
         this.globalData.integralStatus = res.data.integralStatus
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
           this.globalData.hasPhone = true
           this.globalData.phone = res.data.mobileNumber
           this.globalData.login = true
@@ -112,6 +114,7 @@ App({
         this.globalData.integralStatus = res.data.integralStatus
         this.globalData.sessionKey = res.data.sessionKey
         if (res.data.mobileNumber) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
           this.globalData.hasPhone = true
           this.globalData.phone = res.data.mobileNumber
           this.globalData.login = true

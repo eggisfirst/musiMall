@@ -15,10 +15,11 @@ Page({
     posterBtn: true,
     hasSave: false,
     getList: false,
-    getScoreStatus: false
+    getScoreStatus: false,
 
   },
   onLoad (options) {
+    
     // this.getUserIntegral()
     app.checkLoginReadyCallback = res => {
       // wx.hideLoading()
@@ -26,7 +27,7 @@ Page({
         if(res.data.mobileNumber) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber
-          
+         
           this.hasGetInfo()
           //每次请求中奖名单
           this.getUserIntegral()
@@ -34,23 +35,24 @@ Page({
           const scoreStatus = !this.data.getScoreStatus
           this.setData({
             getList: status,
-            getScoreStatus:scoreStatus
+            getScoreStatus:scoreStatus,
+            key: true
           })
          
         }
     };
   },
   onShow() {
-
-    this.hasGetInfo()
-    //每次请求中奖名单
-    this.getUserIntegral()
-    const status = !this.data.getList
-    const scoreStatus = !this.data.getScoreStatus
-    this.setData({
-      getList: status,
-      getScoreStatus:scoreStatus
-    })
+      console.log('show')
+      this.hasGetInfo()
+      //每次请求中奖名单
+      this.getUserIntegral()
+      const status = !this.data.getList
+      const scoreStatus = !this.data.getScoreStatus
+      this.setData({
+        getList: status,
+        getScoreStatus:scoreStatus
+      })
   },
   //判断有没有授权个人信息
   hasGetInfo() {

@@ -96,7 +96,7 @@ Page({
       this.setData({
         current: index,
         // tabVal: index,
-        phone: app.globalData.phone
+        phone:  wx.getStorageSync('phone')
       })
     }
   },
