@@ -7,7 +7,8 @@
       <lotteryBox allScore="{{allScore}}" 
                   catch:sexFixStatus="sexFixStatus"
                   catch:startLottery="startLottery"
-                  getScoreStatus="{{getScoreStatus}}"/>
+                  getScoreStatus="{{getScoreStatus}}"
+                  catch:hasPhone="hasPhone"/>
     </view>
     <view class="score_box">
       <scoreBox catch:sexFixStatus="sexFixStatus"
@@ -18,7 +19,8 @@
                 catchsetPosterBtn="setPosterBtn"
                 catch:setViaImage="setViaImage"
                 catch:setPosterStatus="setPosterStatus"
-                getScoreStatus="{{getScoreStatus}}"/>
+                getScoreStatus="{{getScoreStatus}}"
+                hasPhoneStatus="{{hasPhoneStatus}}"/>
     </view>
     <view class="list">
       <awardList getList="{{getList}}"/>

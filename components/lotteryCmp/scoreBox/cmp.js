@@ -26,6 +26,12 @@ Component({
         this.getOtherActivity()
         this.judgeHasPhone()
       }
+    },
+    hasPhoneStatus: {
+      type: Boolean,
+      observer() {
+        this.judgeHasPhone()
+      }
     }
   },
   data: {

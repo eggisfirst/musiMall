@@ -110,9 +110,13 @@ Component({
         if(res.status) {
           app.globalData.phone = res.data.mobileNumber
           app.globalData.hasPhone = true
+          
           if(!wx.getStorageSync('phone')) {
             wx.setStorageSync('phone',res.data.mobileNumber)
           }
+          
+          this.triggerEvent("hasPhone", {phoneSatus:true})
+
           this.setData({
             phoneStatus: true
           })

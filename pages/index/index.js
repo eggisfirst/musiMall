@@ -50,6 +50,10 @@ Page({
       })
     }
   },
+  /**订单已经授权 */
+  setHasPhone() {
+    this.handleHasPhoneStatus(app.globalData.hasPhone)
+  },
   //获取个人信息的回调。
   getUserInfo(e) {
     console.log(e)
@@ -181,9 +185,13 @@ Page({
       if(res.status) {
         app.globalData.hasPhone = true
         app.globalData.phone = res.data.mobileNumber  
+
+
         if(!wx.getStorageSync('phone')) {
           wx.setStorageSync('phone',res.data.mobileNumber)
         }
+
+
         this.setData({
           hasPhoneStatus: true
         })

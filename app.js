@@ -10,7 +10,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 验证用户有没有授权
     wx.getSetting({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
@@ -18,6 +17,7 @@ App({
           wx.getUserInfo({
             success: res => {
               this.globalData.userInfo = res.userInfo
+              console.log(111,res.userInfo)
               // console.log('获取用户信息成功：', res)
               // 可以将 res 发送给后台解码出 unionId
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -59,6 +59,8 @@ App({
     }
     // 登录
     this.checkSession()
+     // 验证用户有没有授权
+    
   },
   //获取openid
   getOpenId(code) {
@@ -78,6 +80,7 @@ App({
         //
         this.globalData.openId = res.data.openId
         this.globalData.unionId = res.data.unionId
+        this.globalData.userInfo = res.data
         wx.setStorage({
           key: 'openId',
           data: res.data.openId,
@@ -110,6 +113,9 @@ App({
         //
         this.globalData.openId = res.data.openId
         this.globalData.unionId = res.data.unionId
+        this.globalData.userInfo = res.data
+
+        // this.globalData.userInfo = res.data
         //判断有没有领取积分
         this.globalData.integralStatus = res.data.integralStatus
         this.globalData.sessionKey = res.data.sessionKey

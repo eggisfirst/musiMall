@@ -66,6 +66,9 @@ Page({
     } else {
       app.checkLoginReadyCallback = res => {
         wx.hideLoading()
+        if(!wx.getStorageSync('phone')) {
+          wx.setStorageSync('phone',res.data.mobileNumber)
+        }
         this.handlePhoneStatus(res.data.mobileNumber)
         this.scoreStatus(res.data.integralStatus)
       };

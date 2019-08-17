@@ -10,6 +10,13 @@ Component({
         console.log('=======status======')
         this.handleHasPhoneStatus(wx.getStorageSync('phone'))
       }
+    },
+    /**优惠券已经授权 */
+    hasPhoneStatus: {
+      type: Boolean,
+      observer() {
+        this.handleHasPhoneStatus(wx.getStorageSync('phone'))
+      }
     }
   },
   data: {
@@ -104,6 +111,9 @@ Component({
         if(res.status) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber 
+
+          this.triggerEvent("setHasPhone",true)
+
           if(!wx.getStorageSync('phone')) {
             wx.setStorageSync('phone',res.data.mobileNumber)
           } 

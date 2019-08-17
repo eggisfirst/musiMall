@@ -18,7 +18,9 @@
   </view>
 
   <view class='orderBanner'>
-    <orderTab catch:setHasPhone='setHasPhone' status="{{status}}"/>
+    <orderTab catch:setHasPhone='setHasPhone' 
+              status="{{status}}" 
+              hasPhoneStatus="{{hasPhoneStatus}}"/>
   </view>
 
   <view class="coupon_box">

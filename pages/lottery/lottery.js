@@ -16,7 +16,7 @@ Page({
     hasSave: false,
     getList: false,
     getScoreStatus: false,
-
+    hasPhoneStatus: false
   },
   onLoad (options) {
     
@@ -27,7 +27,9 @@ Page({
         if(res.data.mobileNumber) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber
-         
+          if(!wx.getStorageSync('phone')) {
+            wx.setStorageSync('phone',res.data.mobileNumber)
+          }
           this.hasGetInfo()
           //每次请求中奖名单
           this.getUserIntegral()
@@ -53,6 +55,12 @@ Page({
         getList: status,
         getScoreStatus:scoreStatus
       })
+  },
+  /**抽奖的授权 */
+  hasPhone() {
+    this.setData({
+      hasPhoneStatus: true
+    })
   },
   //判断有没有授权个人信息
   hasGetInfo() {
