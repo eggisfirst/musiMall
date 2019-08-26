@@ -32,7 +32,9 @@ Page({
     app.checkLoginReadyCallback = res => {
       // wx.hideLoading()
       console.log('activeload')
-        if(res.data.mobileNumber) {
+
+        const reg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/
+        if(reg.test(res.data.mobileNumber)) {
           app.globalData.hasPhone = true
           app.globalData.phone = res.data.mobileNumber
           if(!wx.getStorageSync('phone')) {
