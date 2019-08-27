@@ -80,7 +80,9 @@ App({
         //
         this.globalData.openId = res.data.openId
         this.globalData.unionId = res.data.unionId
-        this.globalData.userInfo = res.data
+        if(res.data.nickName !== '') {
+          this.globalData.userInfo = res.data
+        }
         wx.setStorage({
           key: 'openId',
           data: res.data.openId,
@@ -113,8 +115,9 @@ App({
         //
         this.globalData.openId = res.data.openId
         this.globalData.unionId = res.data.unionId
-        this.globalData.userInfo = res.data
-
+        if(res.data.nickName !== '') {
+          this.globalData.userInfo = res.data
+        }
         // this.globalData.userInfo = res.data
         //判断有没有领取积分
         this.globalData.integralStatus = res.data.integralStatus

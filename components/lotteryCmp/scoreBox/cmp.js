@@ -79,7 +79,7 @@ Component({
     ],
     showRecord: false,
     posterStatus: false,
-    posterBtn:true,
+    // posterBtn:true,
     imgUrl: "",
     name: "",
     hasPhone: false
@@ -267,10 +267,12 @@ Component({
     },
     //打开海报
     handlePosterBtn() {
-      const user = JSON.stringify(app.globalData.userInfo);
+      // const user = JSON.stringify(app.globalData.userInfo);
+      const avatarUrl = app.globalData.userInfo.avatarUrl
+      const nickName = app.globalData.userInfo.nickName
       //跳转到新页面
       wx.redirectTo({
-        url: "/pages/poster/poster?user=" + user,
+        url: "/pages/poster/poster?avatarUrl=" + avatarUrl + '&nickName=' + nickName,
       })
       // this.triggerEvent('setViaImage', {user: app.globalData.userInfo});
       // this.triggerEvent("setPosterStatus",true)

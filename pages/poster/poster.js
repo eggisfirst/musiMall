@@ -17,10 +17,10 @@ Page({
     this.init(options)
   },
   init(options) {
-    const user = JSON.parse(options.user)
+    // const user = JSON.parse(options.user)
     this.setData({
-      imgUrl: user.avatarUrl,
-      name: user.nickName
+      imgUrl: options.avatarUrl,
+      name: options.nickName
     })
   },
   closePoster() {
